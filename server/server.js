@@ -10,20 +10,64 @@ const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const ROOT_DIR = path.join(__dirname, '..');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend from root directory
-app.use(express.static(path.join(__dirname, '..')));
+// Explicitly trace all static frontend files so Vercel's @vercel/nft bundler includes them
+const FRONTEND_FILES = {
+  index: path.join(__dirname, '../index.html'),
+  dashboard: path.join(__dirname, '../views/dashboard.html'),
+  admin: path.join(__dirname, '../views/admin.html'),
+  signup: path.join(__dirname, '../views/signup.html'),
+  styleCss: path.join(__dirname, '../css/style.css'),
+  dashboardCss: path.join(__dirname, '../css/dashboard.css'),
+  adminCss: path.join(__dirname, '../css/admin.css'),
+  appJs: path.join(__dirname, '../js/app.js'),
+  dashboardJs: path.join(__dirname, '../js/dashboard.js'),
+  adminJs: path.join(__dirname, '../js/admin.js'),
+  servicesDataJs: path.join(__dirname, '../js/services-data.js')
+};
+
+Object.values(FRONTEND_FILES).forEach(filePath => {
+  try {
+    fs.readFileSync(filePath);
+  } catch (e) {
+    console.warn('Static asset check:', filePath, e.message);
+  }
+});
+
+// Serve static frontend from root directory and subdirectories
+app.use(express.static(ROOT_DIR));
+app.use('/views', express.static(path.join(__dirname, '../views')));
+app.use('/pages', express.static(path.join(__dirname, '../views')));
+app.use('/css', express.static(path.join(__dirname, '../css')));
+app.use('/js', express.static(path.join(__dirname, '../js')));
+
+// Explicit HTML page routes
+app.get(['/', '/index.html'], (req, res) => {
+  res.sendFile(FRONTEND_FILES.index);
+});
+
+app.get(['/dashboard', '/dashboard.html', '/views/dashboard.html', '/pages/dashboard.html'], (req, res) => {
+  res.sendFile(FRONTEND_FILES.dashboard);
+});
+
+app.get(['/admin', '/admin.html', '/views/admin.html', '/pages/admin.html'], (req, res) => {
+  res.sendFile(FRONTEND_FILES.admin);
+});
+
+app.get(['/signup', '/signup.html', '/views/signup.html', '/pages/signup.html'], (req, res) => {
+  res.sendFile(FRONTEND_FILES.signup);
+});
 
 // Load services dynamically from services-data.js
 let ALL_SERVICES = [];
 try {
-  const srvPath = path.join(__dirname, '../js/services-data.js');
+  const srvPath = FRONTEND_FILES.servicesDataJs;
   const code = fs.readFileSync(srvPath, 'utf8');
-  // Evaluate services array in a sandbox or closure
   const fn = new Function(code + '; return { cats: MASTER_CATEGORIES, srvs: MASTER_SERVICES };');
   const res = fn();
   ALL_SERVICES = res.srvs.map(s => ({
@@ -53,6 +97,7 @@ const DB = {
     {
       key: "smm_live_sec_admin_778899aabbcc",
       username: "admin",
+      email: "saleembaloch1857@gmail.com",
       balance: 25000.00,
       currency: "PKR"
     }
@@ -69,27 +114,23 @@ const DB = {
  * Standard SMM Reseller API v2 Endpoint
  * Used by external panels, WordPress plugins, and automated clients
  */
-app.all('/api/v2', (req, res) => {
+app.all(['/api/v2', '/v2'], (req, res) => {
   const params = req.method === 'POST' ? req.body : req.query;
   const { key, action } = params;
 
-  // Validate API Key
   const user = DB.users.find(u => u.key === key);
   if (!user) {
     return res.status(401).json({ error: "Invalid API key" });
   }
 
-  // Action: Services
   if (action === 'services') {
     return res.json(DB.services.length > 0 ? DB.services : ALL_SERVICES);
   }
 
-  // Action: Balance
   if (action === 'balance') {
     return res.json({ balance: user.balance.toFixed(2), currency: user.currency });
   }
 
-  // Action: Status
   if (action === 'status') {
     const orderId = params.order;
     if (!orderId || !DB.orders[orderId]) {
@@ -98,7 +139,6 @@ app.all('/api/v2', (req, res) => {
     return res.json(DB.orders[orderId]);
   }
 
-  // Action: Add (Create Order)
   if (action === 'add') {
     const { service, link, quantity } = params;
     const qty = parseInt(quantity);
@@ -119,10 +159,8 @@ app.all('/api/v2', (req, res) => {
       return res.status(400).json({ error: "Not enough funds on balance" });
     }
 
-    // Deduct user balance
     user.balance -= cost;
 
-    // Generate Order ID
     const newOrderId = Math.floor(10000 + Math.random() * 90000);
     DB.orders[newOrderId] = {
       charge: cost.toFixed(2),
@@ -138,14 +176,18 @@ app.all('/api/v2', (req, res) => {
   return res.status(400).json({ error: "Invalid action parameter" });
 });
 
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(` SALEEM SMM PANEL — SERVER RUNNING`);
-  console.log(` Loaded:         ${ALL_SERVICES.length} Active Services (+30% Price, +20m Speed)`);
-  console.log(` Public Website: http://localhost:${PORT}`);
-  console.log(` Sign Up Page:   http://localhost:${PORT}/signup.html`);
-  console.log(` Dashboard:      http://localhost:${PORT}/dashboard.html`);
-  console.log(` Admin Center:   http://localhost:${PORT}/admin.html`);
-  console.log(` Reseller API:   http://localhost:${PORT}/api/v2`);
-  console.log(`====================================================`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(` SALEEM SMM PANEL — SERVER RUNNING`);
+    console.log(` Loaded:         ${ALL_SERVICES.length} Active Services (+30% Price, +20m Speed)`);
+    console.log(` Public Website: http://localhost:${PORT}`);
+    console.log(` Sign Up Page:   http://localhost:${PORT}/views/signup.html`);
+    console.log(` Dashboard:      http://localhost:${PORT}/views/dashboard.html`);
+    console.log(` Admin Center:   http://localhost:${PORT}/views/admin.html`);
+    console.log(` Reseller API:   http://localhost:${PORT}/api/v2`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
