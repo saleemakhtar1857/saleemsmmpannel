@@ -19,9 +19,12 @@
 </head>
 <body class="nightmode">
 
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="admin-sidebar-backdrop" onclick="closeAdminMobileSidebar()"></div>
+
   <div class="dashboard-layout">
     <!-- Sidebar -->
-    <aside class="dashboard-sidebar">
+    <aside class="dashboard-sidebar" id="admin-sidebar">
       <div class="sidebar-header">
         <a href="../index.html" class="brand-logo">
           <div class="logo-badge" style="background:#ff4757;"><i class="fa-solid fa-shield-halved"></i></div>
@@ -38,23 +41,27 @@
       </div>
 
       <nav class="sidebar-menu">
-        <a href="#section-analytics" class="sidebar-item active">
+        <a href="#section-analytics" class="sidebar-item active" onclick="closeAdminMobileSidebar()">
           <i class="fa-solid fa-chart-line"></i>
           <span>Overview Analytics</span>
         </a>
-        <a href="#section-deposits" class="sidebar-item">
+        <a href="#section-chats" class="sidebar-item" onclick="closeAdminMobileSidebar()">
+          <i class="fa-solid fa-comments"></i>
+          <span>Live User Chats</span>
+        </a>
+        <a href="#section-deposits" class="sidebar-item" onclick="closeAdminMobileSidebar()">
           <i class="fa-solid fa-money-check-dollar"></i>
           <span>Approve Deposits</span>
         </a>
-        <a href="#section-orders" class="sidebar-item">
+        <a href="#section-orders" class="sidebar-item" onclick="closeAdminMobileSidebar()">
           <i class="fa-solid fa-boxes-stacked"></i>
           <span>Manage Orders</span>
         </a>
-        <a href="#section-provider" class="sidebar-item">
+        <a href="#section-provider" class="sidebar-item" onclick="closeAdminMobileSidebar()">
           <i class="fa-solid fa-server"></i>
           <span>Provider API Sync</span>
         </a>
-        <a href="#section-services" class="sidebar-item">
+        <a href="#section-services" class="sidebar-item" onclick="closeAdminMobileSidebar()">
           <i class="fa-solid fa-tags"></i>
           <span>Pricing & Services</span>
         </a>
@@ -76,12 +83,14 @@
     <main class="dashboard-main">
       <header class="dashboard-topbar">
         <div class="topbar-left">
-          <button class="topbar-mobile-btn"><i class="fa-solid fa-bars"></i></button>
-          <h2 class="topbar-title">Saleem SMM Panel — Administrator Control Center</h2>
+          <button class="topbar-mobile-btn" onclick="toggleAdminMobileSidebar()" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h2 class="topbar-title">Saleem SMM — Admin Control Center</h2>
         </div>
 
         <div class="topbar-right">
-          <span class="admin-header-badge"><i class="fa-solid fa-bolt"></i> Live Wholesale Server</span>
+          <span class="admin-header-badge hide-sm"><i class="fa-solid fa-bolt"></i> Live Wholesale Server</span>
           <button class="theme-toggle-btn" onclick="AppState.toggleTheme()">
             <i class="theme-toggle-icon fa-solid fa-sun"></i>
           </button>
@@ -121,11 +130,53 @@
 
           <div class="dash-stat-card">
             <div class="stat-info">
-              <h5>Provider API Balance</h5>
-              <h3 style="color:#1e90ff;">$148.20</h3>
+              <h5>Active User Chats</h5>
+              <h3 id="admin-stat-chats" style="color:#1e90ff;">1</h3>
             </div>
             <div class="stat-icon-box" style="background:rgba(30, 144, 255, 0.1);color:#1e90ff;">
-              <i class="fa-solid fa-cloud"></i>
+              <i class="fa-solid fa-comments"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: IN-PANEL LIVE USER CHATS & ADMIN REPLY CONSOLE -->
+        <div class="table-panel" id="section-chats" style="margin-bottom:28px;">
+          <div class="table-toolbar" style="margin-bottom:14px;">
+            <div>
+              <h3 style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-comments" style="color:var(--primary);"></i>
+                In-Panel Live User Chats & Custom SMM Panel Inquiries
+              </h3>
+              <p style="font-size:13px;color:var(--text-muted);margin-top:2px;">
+                Select any user on the left to read their messages and send a direct reply inside their panel!
+              </p>
+            </div>
+          </div>
+
+          <div class="admin-chat-grid">
+            <!-- Left: User Conversations List -->
+            <div class="admin-chat-users" id="admin-chat-users-list"></div>
+
+            <!-- Right: Selected User Chat Thread & Reply Input -->
+            <div class="admin-chat-thread">
+              <div style="padding:12px 16px;background:var(--bg-surface-soft);border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                <div>
+                  <strong id="admin-active-chat-user" style="font-size:14.5px;">Select a user conversation</strong>
+                  <div id="admin-active-chat-meta" style="font-size:11.5px;color:var(--text-muted);"></div>
+                </div>
+                <a id="admin-active-chat-wa" href="https://wa.me/923173983906" target="_blank" class="chat-wa-mini-btn" style="display:none;">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp User
+                </a>
+              </div>
+
+              <div class="panel-chat-messages" id="admin-chat-messages-box"></div>
+
+              <form class="panel-chat-form" onsubmit="handleAdminChatReply(event)">
+                <input type="text" id="admin-chat-reply-input" class="form-input" placeholder="Type reply to send to user's panel..." autocomplete="off" required>
+                <button type="submit" class="btn-primary-grad" style="padding:0 22px;">
+                  <i class="fa-solid fa-reply"></i> Reply
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -189,11 +240,11 @@
           <div class="profit-margin-slider-box">
             <label>
               <span>Automated Profit Markup On Wholesale Rates</span>
-              <span id="profit-margin-label" style="color:var(--primary);">40% Markup</span>
+              <span id="profit-margin-label" style="color:var(--primary);">30% Markup</span>
             </label>
-            <input type="range" min="10" max="100" value="40" class="profit-slider" id="profit-margin-slider">
+            <input type="range" min="10" max="100" value="30" class="profit-slider" id="profit-margin-slider">
             <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">
-              Example: If wholesale cost is ₨ 50, your retail price will automatically be set to ₨ 70 (+40% profit).
+              Example: If wholesale cost is ₨ 100, your retail price is automatically set to ₨ 130 (+30% profit).
             </div>
           </div>
         </div>
@@ -247,6 +298,30 @@
       </div>
     </main>
   </div>
+
+  <!-- Mobile Bottom Navigation for Admin -->
+  <nav class="mobile-bottom-nav">
+    <a href="#section-analytics" class="mobile-nav-item active">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Stats</span>
+    </a>
+    <a href="#section-chats" class="mobile-nav-item">
+      <i class="fa-solid fa-comments"></i>
+      <span>Chats</span>
+    </a>
+    <a href="#section-deposits" class="mobile-nav-item">
+      <i class="fa-solid fa-money-check-dollar"></i>
+      <span>Deposits</span>
+    </a>
+    <a href="#section-orders" class="mobile-nav-item">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <span>Orders</span>
+    </a>
+    <a href="dashboard.html" class="mobile-nav-item">
+      <i class="fa-solid fa-user"></i>
+      <span>Client View</span>
+    </a>
+  </nav>
 
   <!-- Core Scripts -->
   <script src="../js/services-data.js"></script>

@@ -107,8 +107,110 @@ const DB = {
     50412: { charge: "145.60", start_count: "1420", status: "Completed", remains: "0", currency: "PKR" },
     50413: { charge: "32.50", start_count: "530", status: "In progress", remains: "6200", currency: "PKR" },
     50414: { charge: "1976.00", start_count: "320", status: "Processing", remains: "1850", currency: "PKR" }
-  }
+  },
+  chats: [
+    {
+      threadId: "chat_saleem_vip",
+      username: "saleem_vip",
+      name: "Saleem VIP Reseller",
+      email: "vip@saleemsmm.pk",
+      phone: "03173983906",
+      unreadAdmin: 1,
+      unreadUser: 0,
+      updatedAt: "Just now",
+      messages: [
+        {
+          id: 1,
+          sender: "admin",
+          senderName: "Saleem Admin",
+          text: "Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Chat 💬. Need help with an order, EasyPaisa/UPaisa deposit, or want to order your own Customize SMM Panel? Message here anytime!",
+          time: "10:00 AM"
+        },
+        {
+          id: 2,
+          sender: "user",
+          senderName: "Saleem VIP Reseller",
+          text: "Salam Admin! Mujhe apna Customize SMM Panel banwana hai, details bata dein.",
+          time: "10:05 AM"
+        }
+      ]
+    }
+  ]
 };
+
+/**
+ * In-Panel Live Chat API (User <-> Admin Real-Time Messaging)
+ */
+app.get('/api/chat', (req, res) => {
+  return res.json({ chats: DB.chats });
+});
+
+app.post('/api/chat', (req, res) => {
+  const { action, threadId, username, name, email, phone, text, time } = req.body || {};
+  if (!text || !String(text).trim()) {
+    return res.status(400).json({ error: "Message text is required" });
+  }
+
+  if (action === 'user_message') {
+    const tid = threadId || ('chat_' + (username || 'guest').toLowerCase());
+    let thread = DB.chats.find(c => c.threadId === tid);
+    if (!thread) {
+      thread = {
+        threadId: tid,
+        username: username || 'guest',
+        name: name || username || 'Visitor',
+        email: email || '',
+        phone: phone || '',
+        unreadAdmin: 0,
+        unreadUser: 0,
+        updatedAt: time || 'Just now',
+        messages: [
+          {
+            id: Date.now() - 100,
+            sender: 'admin',
+            senderName: 'Saleem Admin',
+            text: 'Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Support 💬. How can we help you today?',
+            time: time || 'Just now'
+          }
+        ]
+      };
+      DB.chats.unshift(thread);
+    }
+
+    thread.messages.push({
+      id: Date.now(),
+      sender: 'user',
+      senderName: name || username || 'User',
+      text: String(text).trim(),
+      time: time || 'Just now'
+    });
+    thread.unreadAdmin = (thread.unreadAdmin || 0) + 1;
+    thread.updatedAt = time || 'Just now';
+
+    return res.json({ success: true, thread, chats: DB.chats });
+  }
+
+  if (action === 'admin_reply') {
+    const thread = DB.chats.find(c => c.threadId === threadId);
+    if (!thread) {
+      return res.status(404).json({ error: "Chat thread not found" });
+    }
+    thread.messages.push({
+      id: Date.now(),
+      sender: 'admin',
+      senderName: 'Saleem Admin',
+      text: String(text).trim(),
+      time: time || 'Just now'
+    });
+    thread.unreadAdmin = 0;
+    thread.unreadUser = (thread.unreadUser || 0) + 1;
+    thread.updatedAt = time || 'Just now';
+
+    return res.json({ success: true, thread, chats: DB.chats });
+  }
+
+  return res.status(400).json({ error: "Invalid chat action" });
+});
 
 /**
  * Standard SMM Reseller API v2 Endpoint

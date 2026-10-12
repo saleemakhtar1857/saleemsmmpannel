@@ -18,11 +18,14 @@
 </head>
 <body class="nightmode">
 
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileSidebar()"></div>
+
   <div class="dashboard-layout">
     <!-- ==========================================================================
          SIDEBAR NAVIGATION
          ========================================================================== -->
-    <aside class="dashboard-sidebar">
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
       <div class="sidebar-header">
         <a href="../index.html" class="brand-logo">
           <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
@@ -57,6 +60,10 @@
           <i class="fa-solid fa-wallet"></i>
           <span>Add Funds / Deposit</span>
         </div>
+        <div class="sidebar-item" data-view="chat">
+          <i class="fa-solid fa-comments"></i>
+          <span>Live Chat (Admin)</span>
+        </div>
         <div class="sidebar-item" data-view="api">
           <i class="fa-solid fa-code"></i>
           <span>Reseller API</span>
@@ -68,6 +75,10 @@
       </nav>
 
       <div class="sidebar-footer">
+        <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="sidebar-item" style="color:#25d366;font-weight:700;">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp: 03173983906</span>
+        </a>
         <a href="admin.html" class="sidebar-item admin-only-link" style="color:#ff4757;display:none;">
           <i class="fa-solid fa-shield-halved"></i>
           <span>Admin Control Panel</span>
@@ -86,7 +97,7 @@
       <!-- Topbar -->
       <header class="dashboard-topbar">
         <div class="topbar-left">
-          <button class="topbar-mobile-btn">
+          <button class="topbar-mobile-btn" aria-label="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
           </button>
           <h2 class="topbar-title">Place New Order</h2>
@@ -96,7 +107,7 @@
           <!-- Balance Chip -->
           <div class="balance-chip" style="cursor:pointer;" onclick="document.querySelector('.sidebar-item[data-view=add-funds]').click()">
             <i class="fa-solid fa-wallet" style="color:var(--primary);"></i>
-            <span>Balance: <strong class="user-display-balance">₨ 5,200.00</strong></span>
+            <span><span class="hide-xs">Balance: </span><strong class="user-display-balance">₨ 5,200.00</strong></span>
           </div>
 
           <!-- Currency Toggle -->
@@ -148,6 +159,30 @@
             </div>
           </div>
 
+          <!-- CUSTOM SMM PANEL DEVELOPMENT BANNER -->
+          <div class="custom-panel-card" style="margin-bottom:24px;padding:22px 24px;">
+            <div class="custom-panel-info">
+              <div class="custom-panel-tag"><i class="fa-solid fa-crown"></i> Own SMM Business</div>
+              <h3 style="font-size:20px;">Apna Khud Ka Customize SMM Panel Banwayein!</h3>
+              <p style="margin-bottom:10px;">
+                Koi bhi user apna khud ka full-featured <strong>Customize SMM Panel</strong> (Complete Website + Admin Dashboard + 625+ Wholesale Services + EasyPaisa/UPaisa + Live Chat) banwa sakta hai! Order ke liye abhi Panel Chat mein message karein ya WhatsApp par rabta karein.
+              </p>
+              <div class="custom-panel-features">
+                <span><i class="fa-solid fa-circle-check"></i> Ready in 12–24 Hours</span>
+                <span><i class="fa-solid fa-circle-check"></i> Automated Profit Control</span>
+                <span><i class="fa-solid fa-circle-check"></i> Mobile-First Responsive</span>
+              </div>
+            </div>
+            <div class="custom-panel-actions">
+              <button type="button" class="btn-primary-grad" style="justify-content:center;padding:12px 18px;" onclick="openPanelChatForCustomOrder()">
+                <i class="fa-solid fa-comments"></i> Order in Panel Chat
+              </button>
+              <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20apna%20Customize%20SMM%20Panel%20banwana%20hai.%20Details%20bata%20dein." target="_blank" class="btn-wa-green">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
+              </a>
+            </div>
+          </div>
+
           <!-- Order Engine Grid -->
           <div class="order-engine-grid">
             <!-- Left Form Panel -->
@@ -165,12 +200,12 @@
                 </div>
 
                 <div class="form-group">
-                  <label><i class="fa-solid fa-link"></i> Target Link / URL</label>
-                  <input type="url" id="order-link-input" class="form-input" placeholder="https://instagram.com/p/xxx or channel link" required>
+                  <label><i class="fa-solid fa-link"></i> Target Link / URL (Or Your WhatsApp # for Custom Panel)</label>
+                  <input type="text" id="order-link-input" class="form-input" placeholder="https://instagram.com/p/xxx or your WhatsApp number" required>
                 </div>
 
                 <div class="form-group">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px;">
                     <label style="margin:0;"><i class="fa-solid fa-calculator"></i> Quantity</label>
                     <span id="service-min-max-badge" style="font-size:12px;color:var(--primary);font-weight:700;">Min: 50 | Max: 100,000</span>
                   </div>
@@ -255,7 +290,7 @@
         <div class="content-view" id="view-services">
           <div class="table-panel">
             <div class="table-toolbar">
-              <h3 style="font-size:18px;font-weight:800;">Wholesale SMM Services List</h3>
+              <h3 style="font-size:18px;font-weight:800;">Wholesale SMM Services List (625+ Active)</h3>
               <input type="text" id="catalog-search" class="table-search-input" placeholder="Search services..." oninput="filterCatalog(this.value)">
             </div>
             <div class="data-table-container">
@@ -278,21 +313,56 @@
         </div>
 
         <!-- ====================================================================
-             VIEW 4: ADD FUNDS / DEPOSIT
+             VIEW 4: ADD FUNDS / DEPOSIT (EASYPAISA & UPAISA ACTIVE, OTHERS COMING SOON)
              ==================================================================== -->
         <div class="content-view" id="view-add-funds">
-          <h3 style="font-size:20px;font-weight:800;margin-bottom:18px;">Select Deposit Method</h3>
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:6px;">Select Deposit Method</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:18px;">
+            Currently <strong>EasyPaisa (03173983906)</strong> and <strong>UPaisa (03163846672)</strong> are active for instant deposits. Other gateways are coming soon!
+          </p>
 
           <div class="deposit-methods-grid">
-            <div class="deposit-method-card selected" data-method="EasyPaisa">
+            <!-- Active Method 1: EasyPaisa -->
+            <div class="deposit-method-card selected" data-method="EasyPaisa" data-active="true">
               <div class="method-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
               <h4>EasyPaisa</h4>
-              <p style="font-size:12px;color:var(--text-muted);">03173983906</p>
+              <p style="font-size:12.5px;color:var(--text-secondary);font-weight:600;">03173983906</p>
+              <span class="pay-status-badge pay-status-active"><i class="fa-solid fa-circle-check"></i> Active</span>
             </div>
-            <div class="deposit-method-card" data-method="UPaisa">
+
+            <!-- Active Method 2: UPaisa -->
+            <div class="deposit-method-card" data-method="UPaisa" data-active="true">
               <div class="method-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
               <h4>UPaisa</h4>
-              <p style="font-size:12px;color:var(--text-muted);">03163846672</p>
+              <p style="font-size:12.5px;color:var(--text-secondary);font-weight:600;">03163846672</p>
+              <span class="pay-status-badge pay-status-active"><i class="fa-solid fa-circle-check"></i> Active</span>
+            </div>
+
+            <!-- Coming Soon 1: JazzCash -->
+            <div class="deposit-method-card coming-soon" data-method="JazzCash" data-active="false">
+              <div class="coming-soon-ribbon">Coming Soon</div>
+              <div class="method-icon"><i class="fa-solid fa-wallet"></i></div>
+              <h4>JazzCash</h4>
+              <p style="font-size:12px;color:var(--text-muted);">Auto Gateway</p>
+              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
+            </div>
+
+            <!-- Coming Soon 2: Bank Transfer -->
+            <div class="deposit-method-card coming-soon" data-method="Bank Transfer" data-active="false">
+              <div class="coming-soon-ribbon">Coming Soon</div>
+              <div class="method-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <h4>Bank Transfer</h4>
+              <p style="font-size:12px;color:var(--text-muted);">Meezan / HBL / Alfalah</p>
+              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
+            </div>
+
+            <!-- Coming Soon 3: Binance / Crypto -->
+            <div class="deposit-method-card coming-soon" data-method="Binance / USDT" data-active="false">
+              <div class="coming-soon-ribbon">Coming Soon</div>
+              <div class="method-icon"><i class="fa-brands fa-bitcoin"></i></div>
+              <h4>Binance / USDT</h4>
+              <p style="font-size:12px;color:var(--text-muted);">TRC20 Crypto</p>
+              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
             </div>
           </div>
 
@@ -310,7 +380,7 @@
 
             <!-- Submit TID Form -->
             <form id="deposit-submit-form" style="margin-top:20px;">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="form-two-col-grid">
                 <div class="form-group">
                   <label><i class="fa-solid fa-coins"></i> Amount Sent (₨ / $)</label>
                   <input type="number" id="deposit-amount-input" class="form-input" placeholder="e.g. 2000" min="100" required>
@@ -335,7 +405,56 @@
         </div>
 
         <!-- ====================================================================
-             VIEW 5: RESELLER API
+             VIEW 5: IN-PANEL LIVE CHAT WITH ADMIN
+             ==================================================================== -->
+        <div class="content-view" id="view-chat">
+          <div class="panel-chat-card">
+            <div class="panel-chat-top">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div class="saleem-chat-avatar" style="width:44px;height:44px;font-size:20px;">
+                  <i class="fa-solid fa-headset"></i>
+                  <span class="online-dot"></span>
+                </div>
+                <div>
+                  <h3 style="font-size:17px;font-weight:800;margin:0;color:#fff;">Live Chat With Admin (Saleem Akhtar)</h3>
+                  <p style="font-size:12px;margin:0;color:rgba(255,255,255,0.88);">
+                    Send messages directly inside the panel — Admin replies right here! Or chat on WhatsApp: <strong>03173983906</strong>
+                  </p>
+                </div>
+              </div>
+              <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
+                 target="_blank"
+                 class="btn-wa-green"
+                 style="padding:9px 16px;font-size:12.5px;">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
+              </a>
+            </div>
+
+            <div class="saleem-chat-quick-chips">
+              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mujhe apna Customize SMM Panel banwana hai, details aur price bata dein.')">
+                👑 Order Customize SMM Panel
+              </button>
+              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Maine EasyPaisa (03173983906) / UPaisa (03163846672) par payment bhej di hai, please verify kar dein.')">
+                💳 Verify Deposit TID
+              </button>
+              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mere order ki speed/refill check kar dein.')">
+                ⚡ Order Speed / Refill
+              </button>
+            </div>
+
+            <div class="panel-chat-messages" id="dashboard-chat-messages"></div>
+
+            <form class="panel-chat-form" onsubmit="handleDashboardChatSubmit(event)">
+              <input type="text" id="dashboard-chat-input" class="form-input" placeholder="Write your message to Admin here..." autocomplete="off" required>
+              <button type="submit" class="btn-primary-grad" style="padding:0 24px;">
+                <i class="fa-solid fa-paper-plane"></i> <span class="hide-xs">Send</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 6: RESELLER API
              ==================================================================== -->
         <div class="content-view" id="view-api">
           <div class="table-panel">
@@ -348,23 +467,23 @@
               <label style="font-size:13px;font-weight:700;">Your Secret API Key</label>
               <div class="account-detail-box" style="margin-top:8px;">
                 <span id="user-api-key-text">smm_live_sec_99a8b7c6d5e4f3a2</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('smm_live_sec_99a8b7c6d5e4f3a2'); AppState.showToast('API Key copied to clipboard!', 'success');">Copy</button>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('user-api-key-text').textContent); AppState.showToast('API Key copied to clipboard!', 'success');">Copy</button>
               </div>
             </div>
 
             <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Place Order</h4>
             <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);margin-bottom:20px;">
-curl -X POST https://api.saleemsmmpanel.pk/v2 \
+curl -X POST https://saleemsmmpannel.vercel.app/api/v2 \
   -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
   -d "action=add" \
-  -d "service=101" \
+  -d "service=15210" \
   -d "link=https://instagram.com/saleem_vip" \
   -d "quantity=1000"
             </pre>
 
             <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Check Order Status</h4>
             <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);">
-curl -X POST https://api.saleemsmmpanel.pk/v2 \
+curl -X POST https://saleemsmmpannel.vercel.app/api/v2 \
   -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
   -d "action=status" \
   -d "order=50412"
@@ -373,39 +492,45 @@ curl -X POST https://api.saleemsmmpanel.pk/v2 \
         </div>
 
         <!-- ====================================================================
-             VIEW 6: SUPPORT TICKETS
+             VIEW 7: SUPPORT TICKETS
              ==================================================================== -->
         <div class="content-view" id="view-tickets">
           <div class="table-panel">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
               <h3 style="font-size:18px;font-weight:800;">Support Tickets</h3>
-              <button onclick="AppState.showToast('Please submit ticket below or WhatsApp for instant chat.', 'info')" class="btn-primary-grad">
-                <i class="fa-solid fa-plus"></i> Open Ticket
-              </button>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" onclick="document.querySelector('.sidebar-item[data-view=chat]').click()" class="btn-primary-grad" style="padding:9px 16px;font-size:12.5px;">
+                  <i class="fa-solid fa-comments"></i> Live Chat Inside Panel
+                </button>
+                <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="btn-wa-green" style="padding:9px 16px;font-size:12.5px;">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
+                </a>
+              </div>
             </div>
 
             <form onsubmit="handleTicketSubmit(event)">
               <div class="form-group">
                 <label>Subject</label>
                 <select class="form-input">
+                  <option>👑 Customize SMM Panel Order / Inquiry</option>
                   <option>Order Issue (Speed / Refill)</option>
-                  <option>Payment / Deposit Verification</option>
+                  <option>EasyPaisa / UPaisa Deposit Verification</option>
                   <option>API Reseller Assistance</option>
                   <option>Other Inquiry</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label>Order ID (Optional)</label>
-                <input type="text" class="form-input" placeholder="e.g. #50412">
+                <label>Order ID / Transaction ID (Optional)</label>
+                <input type="text" class="form-input" placeholder="e.g. #50412 or TID">
               </div>
 
               <div class="form-group">
                 <label>Message / Description</label>
-                <textarea class="form-input" rows="4" placeholder="Explain your request or issue..." required></textarea>
+                <textarea id="ticket-msg-input" class="form-input" rows="4" placeholder="Explain your request or issue..." required></textarea>
               </div>
 
-              <button type="submit" class="btn-primary-grad">Submit Ticket</button>
+              <button type="submit" class="btn-primary-grad">Submit Ticket & Send to Admin Chat</button>
             </form>
           </div>
         </div>
@@ -413,17 +538,92 @@ curl -X POST https://api.saleemsmmpanel.pk/v2 \
     </main>
   </div>
 
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <button type="button" class="mobile-nav-item active" data-mobile-view="new-order" onclick="triggerDashboardView('new-order')">
+      <i class="fa-solid fa-cart-plus"></i>
+      <span>New Order</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-mobile-view="services" onclick="triggerDashboardView('services')">
+      <i class="fa-solid fa-list-check"></i>
+      <span>Services</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-mobile-view="add-funds" onclick="triggerDashboardView('add-funds')">
+      <i class="fa-solid fa-wallet"></i>
+      <span>Add Funds</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-mobile-view="chat" onclick="triggerDashboardView('chat')">
+      <i class="fa-solid fa-comments"></i>
+      <span>Live Chat</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-mobile-view="orders" onclick="triggerDashboardView('orders')">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      <span>Orders</span>
+    </button>
+  </nav>
+
   <!-- Core Scripts -->
   <script src="../js/services-data.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/dashboard.js"></script>
   <script>
+    function closeMobileSidebar() {
+      document.querySelector('.dashboard-sidebar')?.classList.remove('mobile-open');
+      document.getElementById('sidebar-backdrop')?.classList.remove('active');
+    }
+
+    function triggerDashboardView(viewName) {
+      const item = document.querySelector(`.sidebar-item[data-view="${viewName}"]`);
+      if (item) item.click();
+    }
+
+    function openPanelChatForCustomOrder() {
+      triggerDashboardView('chat');
+      const input = document.getElementById('dashboard-chat-input');
+      if (input) {
+        input.value = 'Assalam-o-Alaikum! Mujhe apna Customize SMM Panel banwana hai. Please details aur price bata dein.';
+        input.focus();
+      }
+    }
+
+    function renderDashboardChatMessages() {
+      const container = document.getElementById('dashboard-chat-messages');
+      if (!container) return;
+      const thread = AppState.getUserChatThread();
+      container.innerHTML = thread.messages.map(m => `
+        <div class="chat-bubble-row ${m.sender === 'user' ? 'chat-row-user' : 'chat-row-admin'}">
+          <div class="chat-bubble ${m.sender === 'user' ? 'bubble-user' : 'bubble-admin'}">
+            <div class="bubble-sender">${m.sender === 'user' ? 'You (' + AppState.escapeHtml(m.senderName) + ')' : 'Saleem Akhtar (Admin)'}</div>
+            <div class="bubble-text">${AppState.escapeHtml(m.text)}</div>
+            <div class="bubble-time">${m.time}</div>
+          </div>
+        </div>
+      `).join('');
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function handleDashboardChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('dashboard-chat-input');
+      if (!input || !input.value.trim()) return;
+      AppState.sendUserChatMessage(input.value.trim());
+      input.value = '';
+      renderDashboardChatMessages();
+      AppState.renderFloatingChatMessages();
+      AppState.showToast('Message sent to Admin!', 'success');
+    }
+
+    window.addEventListener('saleem_chats_updated', renderDashboardChatMessages);
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEYS.CHATS) renderDashboardChatMessages();
+    });
+
     function toggleCurrencyDashboard() {
       const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
       AppState.setCurrency(next);
       document.getElementById('dash-curr-label').textContent = next;
       updateUserUI();
-      onServiceSelected(currentSelectedService ? currentSelectedService.id : 101);
+      onServiceSelected(currentSelectedService ? currentSelectedService.id : 99901);
       renderOrdersTable();
       renderServicesCatalog();
     }
@@ -459,12 +659,17 @@ curl -X POST https://api.saleemsmmpanel.pk/v2 \
 
     function handleTicketSubmit(e) {
       e.preventDefault();
-      AppState.showToast('Support Ticket #TKT-884 submitted! Our agent will reply within 30 minutes.', 'success');
+      const msgEl = document.getElementById('ticket-msg-input');
+      if (msgEl && msgEl.value.trim()) {
+        AppState.sendUserChatMessage('[Support Ticket]: ' + msgEl.value.trim());
+      }
+      AppState.showToast('Support Ticket submitted & forwarded to Live Chat! Admin will reply shortly.', 'success');
       e.target.reset();
+      renderDashboardChatMessages();
     }
 
-    // Check URL parameters (e.g. ?view=services or ?service=301)
     window.addEventListener('DOMContentLoaded', () => {
+      renderDashboardChatMessages();
       const params = new URLSearchParams(window.location.search);
       const targetView = params.get('view');
       const targetService = params.get('service');

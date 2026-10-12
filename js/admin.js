@@ -1,6 +1,9 @@
 /* ==========================================================================
-   SALEEM SMM PANEL — ADMIN CONTROL CENTER LOGIC
+   SALEEM SMM PANEL — ADMIN CONTROL CENTER & LIVE CHAT CONSOLE LOGIC
+   Exclusive Admin: saleembaloch1857@gmail.com
    ========================================================================== */
+
+let activeAdminChatUserId = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   initAdminDashboard();
@@ -15,32 +18,153 @@ function initAdminDashboard() {
   }
 
   updateAdminStats();
+  renderAdminChatsConsole();
   renderPendingDeposits();
   renderAdminOrders();
   renderAdminServices();
   setupAdminListeners();
+
+  window.addEventListener('saleem_chats_updated', () => {
+    updateAdminStats();
+    renderAdminChatsConsole();
+  });
+  window.addEventListener('storage', (e) => {
+    if (e.key === STORAGE_KEYS.CHATS) {
+      updateAdminStats();
+      renderAdminChatsConsole();
+    }
+  });
 }
+
+window.toggleAdminMobileSidebar = function() {
+  const sb = document.getElementById('admin-sidebar');
+  const bd = document.getElementById('admin-sidebar-backdrop');
+  if (sb) {
+    sb.classList.toggle('mobile-open');
+    if (bd) bd.classList.toggle('active', sb.classList.contains('mobile-open'));
+  }
+};
+
+window.closeAdminMobileSidebar = function() {
+  document.getElementById('admin-sidebar')?.classList.remove('mobile-open');
+  document.getElementById('admin-sidebar-backdrop')?.classList.remove('active');
+};
 
 function updateAdminStats() {
   const orders = AppState.getOrders();
   const deposits = AppState.getDeposits();
+  const chats = AppState.getChats();
 
-  // Total Revenue Calculation
   const totalRevenuePkr = orders.reduce((sum, o) => sum + (o.charge_pkr || 0), 0);
   const totalRevEl = document.getElementById('admin-stat-revenue');
   if (totalRevEl) {
     totalRevEl.textContent = `₨ ${totalRevenuePkr.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
   }
 
-  // Total Orders
   const totalOrdersEl = document.getElementById('admin-stat-orders');
   if (totalOrdersEl) totalOrdersEl.textContent = orders.length;
 
-  // Pending Deposits
   const pendingDeps = deposits.filter(d => d.status === 'Pending');
   const pendingEl = document.getElementById('admin-stat-pending-deposits');
   if (pendingEl) pendingEl.textContent = pendingDeps.length;
+
+  const chatsStatEl = document.getElementById('admin-stat-chats');
+  if (chatsStatEl) chatsStatEl.textContent = chats.length;
 }
+
+/* ==========================================================================
+   ADMIN LIVE CHAT CONSOLE (READ & REPLY TO USERS INSIDE PANEL)
+   ========================================================================== */
+function renderAdminChatsConsole() {
+  const usersListEl = document.getElementById('admin-chat-users-list');
+  const messagesBoxEl = document.getElementById('admin-chat-messages-box');
+  if (!usersListEl || !messagesBoxEl) return;
+
+  const chats = AppState.getChats();
+  if (chats.length === 0) {
+    usersListEl.innerHTML = `<div style="padding:20px;color:var(--text-muted);text-align:center;font-size:13px;">No user messages yet.</div>`;
+    messagesBoxEl.innerHTML = `<div style="padding:24px;color:var(--text-muted);text-align:center;">Select a conversation to reply.</div>`;
+    return;
+  }
+
+  if (!activeAdminChatUserId || !chats.some(c => c.userId === activeAdminChatUserId)) {
+    activeAdminChatUserId = chats[0].userId;
+  }
+
+  usersListEl.innerHTML = chats.map(c => {
+    const lastMsg = c.messages && c.messages.length > 0 ? c.messages[c.messages.length - 1] : null;
+    const isSelected = c.userId === activeAdminChatUserId;
+    return `
+      <div class="admin-chat-user-item ${isSelected ? 'active' : ''}" onclick="selectAdminChatUser('${AppState.escapeHtml(c.userId)}')">
+        <div style="min-width:0;flex:1;">
+          <div style="font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-user-circle" style="color:var(--primary);"></i>
+            <span>${AppState.escapeHtml(c.username || c.userId)}</span>
+          </div>
+          <div style="font-size:11.5px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;">
+            ${lastMsg ? AppState.escapeHtml(lastMsg.text) : 'No messages'}
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          ${c.unreadByAdmin > 0 ? `<span class="saleem-chat-badge" style="background:var(--primary);color:#fff;">${c.unreadByAdmin}</span>` : `<span style="font-size:10.5px;color:var(--text-muted);">${lastMsg ? lastMsg.time : ''}</span>`}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const activeThread = chats.find(c => c.userId === activeAdminChatUserId);
+  if (!activeThread) return;
+
+  const headerName = document.getElementById('admin-active-chat-user');
+  const headerMeta = document.getElementById('admin-active-chat-meta');
+  const waBtn = document.getElementById('admin-active-chat-wa');
+
+  if (headerName) headerName.textContent = `${activeThread.name || activeThread.username} (@${activeThread.username})`;
+  if (headerMeta) headerMeta.textContent = `${activeThread.email || 'Client'}${activeThread.phone ? ' • Phone: ' + activeThread.phone : ''}`;
+  if (waBtn) {
+    if (activeThread.phone) {
+      const cleanPhone = activeThread.phone.replace(/[^0-9]/g, '').replace(/^0/, '92');
+      waBtn.href = `https://wa.me/${cleanPhone}`;
+      waBtn.style.display = 'inline-flex';
+    } else {
+      waBtn.style.display = 'none';
+    }
+  }
+
+  messagesBoxEl.innerHTML = (activeThread.messages || []).map(m => `
+    <div class="chat-bubble-row ${m.sender === 'admin' ? 'chat-row-user' : 'chat-row-admin'}">
+      <div class="chat-bubble ${m.sender === 'admin' ? 'bubble-user' : 'bubble-admin'}">
+        <div class="bubble-sender">${m.sender === 'admin' ? 'You (Saleem Admin)' : AppState.escapeHtml(m.senderName || activeThread.username)}</div>
+        <div class="bubble-text">${AppState.escapeHtml(m.text)}</div>
+        <div class="bubble-time">${m.time}</div>
+      </div>
+    </div>
+  `).join('');
+
+  messagesBoxEl.scrollTop = messagesBoxEl.scrollHeight;
+}
+
+window.selectAdminChatUser = function(userId) {
+  activeAdminChatUserId = userId;
+  const chats = AppState.getChats();
+  const idx = chats.findIndex(c => c.userId === userId);
+  if (idx !== -1 && chats[idx].unreadByAdmin > 0) {
+    chats[idx].unreadByAdmin = 0;
+    AppState.saveChats(chats);
+  }
+  renderAdminChatsConsole();
+};
+
+window.handleAdminChatReply = function(e) {
+  e.preventDefault();
+  const input = document.getElementById('admin-chat-reply-input');
+  if (!input || !input.value.trim() || !activeAdminChatUserId) return;
+
+  AppState.sendAdminChatReply(activeAdminChatUserId, input.value.trim());
+  input.value = '';
+  renderAdminChatsConsole();
+  AppState.showToast(`Reply sent to @${activeAdminChatUserId} inside panel!`, 'success');
+};
 
 // Render Pending Deposits for 1-Click Approval
 function renderPendingDeposits() {
@@ -89,7 +213,6 @@ window.approveDeposit = function(depositId) {
   dep.status = 'Approved';
   AppState.saveDeposits(deposits);
 
-  // Credit User Wallet
   const user = AppState.currentUser;
   user.balance_pkr += dep.amount_pkr;
   user.balance_usd += (dep.amount_usd || dep.amount_pkr / 280);
@@ -97,7 +220,7 @@ window.approveDeposit = function(depositId) {
 
   updateAdminStats();
   renderPendingDeposits();
-  AppState.showToast(`Deposit #${depositId} Approved! ₨ ${dep.amount_pkr} has been credited to ${user.username}'s wallet.`, 'success');
+  AppState.showToast(`Deposit #${depositId} Approved! ₨ ${dep.amount_pkr} has been credited to wallet.`, 'success');
 };
 
 window.rejectDeposit = function(depositId) {
@@ -147,7 +270,6 @@ window.changeOrderStatus = function(orderId, newStatus) {
   const oldStatus = order.status;
   order.status = newStatus;
 
-  // If Canceled, Refund User Balance
   if (newStatus === 'Canceled' && oldStatus !== 'Canceled') {
     const user = AppState.currentUser;
     user.balance_pkr += order.charge_pkr;
@@ -180,7 +302,6 @@ function renderAdminServices() {
 }
 
 function setupAdminListeners() {
-  // Provider API Test Connection
   const testApiBtn = document.getElementById('btn-test-provider-api');
   if (testApiBtn) {
     testApiBtn.addEventListener('click', () => {
@@ -191,7 +312,6 @@ function setupAdminListeners() {
     });
   }
 
-  // Profit Margin Slider
   const marginSlider = document.getElementById('profit-margin-slider');
   const marginLabel = document.getElementById('profit-margin-label');
   if (marginSlider && marginLabel) {

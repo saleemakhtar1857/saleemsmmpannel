@@ -422,7 +422,7 @@
 /* Add Funds Method Cards */
 .deposit-methods-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -431,21 +431,34 @@
   background: var(--bg-surface);
   border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 20px 16px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
-.deposit-method-card.selected, .deposit-method-card:hover {
+.deposit-method-card.selected, .deposit-method-card:not(.coming-soon):hover {
   border-color: var(--primary);
-  background: rgba(243, 47, 47, 0.04);
+  background: rgba(243, 47, 47, 0.05);
+  box-shadow: 0 8px 20px rgba(243, 47, 47, 0.12);
+}
+
+.deposit-method-card.coming-soon {
+  opacity: 0.72;
+  border-style: dashed;
+  cursor: not-allowed;
 }
 
 .deposit-method-card .method-icon {
   font-size: 32px;
   margin-bottom: 10px;
   color: var(--primary);
+}
+
+.deposit-method-card.coming-soon .method-icon {
+  color: var(--text-muted);
 }
 
 .deposit-method-card h4 {
@@ -473,13 +486,16 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  padding: 16px;
+  padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 12px;
   font-family: monospace;
-  font-size: 15px;
+  font-size: 14.5px;
+  word-break: break-all;
 }
 
 .copy-btn {
@@ -491,6 +507,156 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.form-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   IN-PANEL CHAT VIEW (CLIENT & ADMIN)
+   ========================================================================== */
+.panel-chat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 580px;
+  max-height: 75vh;
+}
+
+.panel-chat-top {
+  background: linear-gradient(135deg, #f32f2f, #b71c1c);
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.panel-chat-messages {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-main);
+}
+
+.panel-chat-form {
+  display: flex;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+}
+
+.panel-chat-form input {
+  flex: 1;
+}
+
+/* Admin Chat Split Console */
+.admin-chat-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-surface);
+  min-height: 480px;
+}
+
+.admin-chat-users {
+  border-right: 1px solid var(--border-color);
+  background: var(--bg-surface-soft);
+  overflow-y: auto;
+  max-height: 520px;
+}
+
+.admin-chat-user-item {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.admin-chat-user-item:hover,
+.admin-chat-user-item.active {
+  background: rgba(243, 47, 47, 0.1);
+  border-left: 3px solid var(--primary);
+}
+
+.admin-chat-thread {
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+}
+
+/* Mobile Sidebar Backdrop & Bottom Nav */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 95;
+}
+
+.sidebar-backdrop.active {
+  display: block;
+}
+
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  z-index: 90;
+  padding: 6px 8px;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.mobile-nav-item i {
+  font-size: 16px;
+}
+
+.mobile-nav-item.active {
+  color: var(--primary);
+  background: rgba(243, 47, 47, 0.08);
 }
 
 /* Modals */
@@ -538,15 +704,25 @@
 @media (max-width: 992px) {
   .dashboard-sidebar {
     transform: translateX(-100%);
+    z-index: 100;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
   }
   .dashboard-sidebar.mobile-open {
     transform: translateX(0);
   }
   .dashboard-main {
     margin-left: 0;
+    padding-bottom: 75px;
   }
   .topbar-mobile-btn {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--bg-surface-soft);
+    border: 1px solid var(--border-color);
   }
   .order-engine-grid {
     grid-template-columns: 1fr;
@@ -557,9 +733,75 @@
   .deposit-methods-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .admin-chat-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-chat-users {
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  .saleem-floating-bar {
+    bottom: 76px;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .dashboard-topbar {
+    padding: 0 14px;
+    height: 64px;
+  }
+  .topbar-title {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+  .balance-chip span {
+    font-size: 12px;
+  }
+  .dashboard-content {
+    padding: 16px 12px;
+  }
+  .dash-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .dash-stat-card {
+    padding: 14px;
+  }
+  .stat-info h3 {
+    font-size: 17px;
+  }
+  .stat-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+  .order-form-panel, .order-details-panel, .table-panel, .deposit-instructions-panel {
+    padding: 16px 14px;
+  }
+  .deposit-methods-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .form-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .table-search-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
   .dash-stats-grid {
     grid-template-columns: 1fr;
   }

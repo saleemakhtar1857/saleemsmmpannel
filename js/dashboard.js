@@ -289,6 +289,7 @@ function setupSidebarNavigation() {
 
       // Close mobile sidebar if open
       document.querySelector('.dashboard-sidebar')?.classList.remove('mobile-open');
+      document.getElementById('sidebar-backdrop')?.classList.remove('active');
     });
   });
 
@@ -296,7 +297,12 @@ function setupSidebarNavigation() {
   const mobBtn = document.querySelector('.topbar-mobile-btn');
   if (mobBtn) {
     mobBtn.addEventListener('click', () => {
-      document.querySelector('.dashboard-sidebar')?.classList.toggle('mobile-open');
+      const sb = document.querySelector('.dashboard-sidebar');
+      const bd = document.getElementById('sidebar-backdrop');
+      if (sb) {
+        sb.classList.toggle('mobile-open');
+        if (bd) bd.classList.toggle('active', sb.classList.contains('mobile-open'));
+      }
     });
   }
 
@@ -328,6 +334,20 @@ function switchView(viewId) {
   const activeView = document.getElementById(`view-${viewId}`);
   if (activeView) activeView.classList.add('active');
 
+  // Sync sidebar active item
+  document.querySelectorAll('.sidebar-item[data-view]').forEach(item => {
+    item.classList.toggle('active', item.getAttribute('data-view') === viewId);
+  });
+
+  // Sync mobile bottom nav active item
+  document.querySelectorAll('.mobile-nav-item[data-mobile-view]').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-mobile-view') === viewId);
+  });
+
+  if (viewId === 'chat' && typeof renderDashboardChatMessages === 'function') {
+    renderDashboardChatMessages();
+  }
+
   const titleEl = document.querySelector('.topbar-title');
   if (titleEl) {
     const titles = {
@@ -335,6 +355,7 @@ function switchView(viewId) {
       'orders': 'Orders History & Tracking',
       'services': 'Master Services & Pricing',
       'add-funds': 'Deposit Funds & Wallet',
+      'chat': 'Live Chat With Admin',
       'api': 'Reseller API Documentation',
       'tickets': 'Customer Support Tickets'
     };
@@ -347,10 +368,14 @@ function setupDepositListeners() {
   const methodCards = document.querySelectorAll('.deposit-method-card');
   methodCards.forEach(card => {
     card.addEventListener('click', () => {
+      const method = card.getAttribute('data-method');
+      if (card.classList.contains('coming-soon') || card.getAttribute('data-active') === 'false') {
+        AppState.showToast(`${method} Coming Soon! Abhi sirf EasyPaisa (03173983906) ya UPaisa (03163846672) select karein.`, 'info');
+        return;
+      }
+
       methodCards.forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
-
-      const method = card.getAttribute('data-method');
       updateDepositInstructions(method);
     });
   });

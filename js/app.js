@@ -1,6 +1,6 @@
-﻿/* ==========================================================================
-   SALEEM SMM PANEL â€” GLOBAL APP & STATE CONTROLLER
-   With Complete Multi-User Registration & Authentication System
+/* ==========================================================================
+   SALEEM SMM PANEL — GLOBAL APP, AUTH & LIVE CHAT CONTROLLER
+   Exclusive Admin: saleembaloch1857@gmail.com | WhatsApp/EasyPaisa: 03173983906 | UPaisa: 03163846672
    ========================================================================== */
 
 const STORAGE_KEYS = {
@@ -10,10 +10,15 @@ const STORAGE_KEYS = {
   USERS_LIST: 'saleem_users_database',
   ORDERS: 'saleem_orders_db',
   DEPOSITS: 'saleem_deposits_db',
-  TICKETS: 'saleem_tickets_db'
+  TICKETS: 'saleem_tickets_db',
+  CHATS: 'saleem_live_chats_db'
 };
 
 const ADMIN_EMAIL = 'saleembaloch1857@gmail.com';
+const OFFICIAL_WHATSAPP = '03173983906';
+const OFFICIAL_WHATSAPP_INTL = '923173983906';
+const OFFICIAL_EASYPAISA = '03173983906';
+const OFFICIAL_UPAISA = '03163846672';
 
 // Default Pre-seeded Accounts
 const DEFAULT_ACCOUNTS = [
@@ -61,6 +66,9 @@ const AppState = {
     this.initDefaultData();
     this.setupGlobalListeners();
     this.updateNavAuthUI();
+    this.initFloatingSupportWidgets();
+    this.syncChatsFromServer();
+    setInterval(() => this.syncChatsFromServer(), 3500);
   },
 
   isAdmin() {
@@ -83,7 +91,7 @@ const AppState = {
 
     const themeIcons = document.querySelectorAll('.theme-toggle-icon');
     themeIcons.forEach(icon => {
-      icon.className = theme === 'nightmode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      icon.className = theme === 'nightmode' ? 'theme-toggle-icon fa-solid fa-sun' : 'theme-toggle-icon fa-solid fa-moon';
     });
   },
 
@@ -97,7 +105,7 @@ const AppState = {
     this.currency = curr;
     localStorage.setItem(STORAGE_KEYS.CURRENCY, curr);
     document.querySelectorAll('.curr-symbol').forEach(el => {
-      el.textContent = curr === 'PKR' ? 'â‚¨' : '$';
+      el.textContent = curr === 'PKR' ? '₨' : '$';
     });
     document.querySelectorAll('.curr-code').forEach(el => {
       el.textContent = curr;
@@ -110,7 +118,7 @@ const AppState = {
   formatMoney(amountUsd, amountPkr) {
     if (this.currency === 'PKR') {
       const val = amountPkr !== undefined ? amountPkr : (amountUsd * 280);
-      return `â‚¨ ${Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      return `₨ ${Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     } else {
       const val = amountUsd !== undefined ? amountUsd : (amountPkr / 280);
       return `$ ${Number(val).toFixed(2)}`;
@@ -138,7 +146,6 @@ const AppState = {
         hasAdmin = true;
         return { ...u, role: 'admin' };
       }
-      // Remove old generic admin@saleemsmm.pk account if present
       return { ...u, role: 'client' };
     }).filter(u => u.email !== 'admin@saleemsmm.pk');
 
@@ -166,7 +173,6 @@ const AppState = {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        // Ensure role strictly matches ADMIN_EMAIL policy
         parsed.role = (parsed.email && parsed.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
         this.currentUser = parsed;
       } catch (e) {
@@ -182,7 +188,6 @@ const AppState = {
     if (this.currentUser) {
       this.currentUser.role = (this.currentUser.email && this.currentUser.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
       localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(this.currentUser));
-      // Sync back to users list
       const users = this.getUsers();
       const idx = users.findIndex(u => u.email.toLowerCase() === this.currentUser.email.toLowerCase());
       if (idx !== -1) {
@@ -202,7 +207,6 @@ const AppState = {
       return { success: false, message: "Password must be at least 6 characters long." };
     }
 
-    // Special handling if Admin registers/sets password with saleembaloch1857@gmail.com
     if (cleanEmail === ADMIN_EMAIL) {
       const existingAdminIdx = users.findIndex(u => u.email.toLowerCase().trim() === ADMIN_EMAIL);
       const adminUser = {
@@ -210,7 +214,7 @@ const AppState = {
         name: name.trim() || "Saleem Akhtar (Admin)",
         username: cleanUsername || "saleem_admin",
         email: ADMIN_EMAIL,
-        phone: phone ? phone.trim() : "03173983906",
+        phone: phone ? phone.trim() : OFFICIAL_WHATSAPP,
         password: password,
         role: "admin",
         balance_pkr: existingAdminIdx !== -1 ? users[existingAdminIdx].balance_pkr : 25000.00,
@@ -231,12 +235,10 @@ const AppState = {
       return { success: true, user: adminUser };
     }
 
-    // Check unique username
     if (users.some(u => u.username.toLowerCase() === cleanUsername)) {
       return { success: false, message: "Username already taken! Please choose another." };
     }
 
-    // Check unique email
     if (users.some(u => u.email.toLowerCase() === cleanEmail)) {
       return { success: false, message: "Email is already registered! Please login." };
     }
@@ -249,7 +251,7 @@ const AppState = {
       phone: phone ? phone.trim() : "",
       password: password,
       role: "client",
-      balance_pkr: 100.00, // â‚¨ 100 Signup Gift Bonus
+      balance_pkr: 100.00,
       balance_usd: 0.36,
       spent_pkr: 0.00,
       spent_usd: 0.00,
@@ -260,7 +262,6 @@ const AppState = {
     users.push(newUser);
     this.saveUsers(users);
 
-    // Auto login as new user
     this.currentUser = newUser;
     this.saveUser();
     return { success: true, user: newUser };
@@ -290,7 +291,7 @@ const AppState = {
   logout() {
     this.currentUser = null;
     localStorage.removeItem(STORAGE_KEYS.USER);
-    if (window.location.pathname.includes('/views/')) {
+    if (window.location.pathname.includes('/views/') || window.location.pathname.includes('/pages/')) {
       window.location.href = '../index.html';
     } else {
       window.location.href = 'index.html';
@@ -298,13 +299,13 @@ const AppState = {
   },
 
   updateNavAuthUI() {
-    const inPages = window.location.pathname.includes('/views/');
-    const dashLink = inPages ? 'dashboard.html' : 'views/dashboard.html';
-    const adminLink = inPages ? 'admin.html' : 'views/admin.html';
-    const loginLink = inPages ? '../index.html#auth' : 'index.html#auth';
-    const signupLink = inPages ? 'signup.html' : 'views/signup.html';
+    const inSubfolder = window.location.pathname.includes('/views/') || window.location.pathname.includes('/pages/');
+    const dashLink = inSubfolder ? 'dashboard.html' : 'views/dashboard.html';
+    const adminLink = inSubfolder ? 'admin.html' : 'views/admin.html';
+    const loginLink = inSubfolder ? '../index.html#auth' : 'index.html#auth';
+    const signupLink = inSubfolder ? 'signup.html' : 'views/signup.html';
 
-    // Show/hide admin links across the UI strictly for saleembaloch1857@gmail.com
+    // Show/hide admin links strictly for saleembaloch1857@gmail.com
     const isAdminUser = this.isAdmin();
     document.querySelectorAll('.admin-only-link').forEach(el => {
       el.style.display = isAdminUser ? '' : 'none';
@@ -316,23 +317,23 @@ const AppState = {
     if (this.currentUser) {
       authBox.innerHTML = `
         ${isAdminUser ? `
-          <a href="${adminLink}" class="btn-outline" style="padding:8px 14px;font-size:13px;border-color:var(--primary);color:var(--primary);">
-            <i class="fa-solid fa-shield-halved"></i> Admin
+          <a href="${adminLink}" class="btn-outline nav-btn-compact" style="padding:7px 12px;font-size:12.5px;border-color:var(--primary);color:var(--primary);">
+            <i class="fa-solid fa-shield-halved"></i> <span class="hide-xs">Admin</span>
           </a>
         ` : ''}
-        <a href="${dashLink}" class="btn-primary-grad" style="padding:8px 18px;font-size:13px;">
-          <i class="fa-solid fa-user"></i> ${this.currentUser.username} (${this.formatMoney(this.currentUser.balance_usd, this.currentUser.balance_pkr)})
+        <a href="${dashLink}" class="btn-primary-grad nav-btn-compact" style="padding:7px 14px;font-size:12.5px;">
+          <i class="fa-solid fa-user"></i> <span>${this.currentUser.username}</span> <span class="hide-sm">(${this.formatMoney(this.currentUser.balance_usd, this.currentUser.balance_pkr)})</span>
         </a>
-        <button onclick="AppState.logout()" class="btn-outline" style="padding:8px 14px;font-size:13px;" title="Logout">
+        <button onclick="AppState.logout()" class="btn-outline nav-btn-compact" style="padding:7px 11px;font-size:12.5px;" title="Logout">
           <i class="fa-solid fa-power-off"></i>
         </button>
       `;
     } else {
       authBox.innerHTML = `
-        <a href="${loginLink}" class="btn-outline" style="padding:8px 16px;font-size:13px;">
+        <a href="${loginLink}" class="btn-outline nav-btn-compact" style="padding:7px 13px;font-size:12.5px;">
           <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
         </a>
-        <a href="${signupLink}" class="btn-primary-grad" style="padding:8px 16px;font-size:13px;">
+        <a href="${signupLink}" class="btn-primary-grad nav-btn-compact" style="padding:7px 13px;font-size:12.5px;">
           <i class="fa-solid fa-user-plus"></i> Sign Up
         </a>
       `;
@@ -411,6 +412,38 @@ const AppState = {
       ];
       localStorage.setItem(STORAGE_KEYS.DEPOSITS, JSON.stringify(defaultDeposits));
     }
+
+    if (!localStorage.getItem(STORAGE_KEYS.CHATS)) {
+      const defaultChats = [
+        {
+          userId: "saleem_vip",
+          username: "saleem_vip",
+          name: "Saleem VIP Client",
+          email: "client@saleemsmm.pk",
+          phone: "03173983906",
+          unreadByAdmin: 1,
+          unreadByUser: 0,
+          updatedAt: "2026-10-13 03:50",
+          messages: [
+            {
+              id: "MSG-101",
+              sender: "admin",
+              senderName: "Saleem Akhtar (Admin)",
+              text: "Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Support. Aap yahan panel ke andar direct Admin se baat kar sakte hain ya apna Customize SMM Panel banwane ke liye order de sakte hain. WhatsApp: 03173983906",
+              time: "03:45 AM"
+            },
+            {
+              id: "MSG-102",
+              sender: "user",
+              senderName: "saleem_vip",
+              text: "Assalam-o-Alaikum bhai, mujhe apna customize SMM panel banwana hai aur deposit verify karwana hai.",
+              time: "03:50 AM"
+            }
+          ]
+        }
+      ];
+      localStorage.setItem(STORAGE_KEYS.CHATS, JSON.stringify(defaultChats));
+    }
   },
 
   getOrders() {
@@ -429,6 +462,327 @@ const AppState = {
     localStorage.setItem(STORAGE_KEYS.DEPOSITS, JSON.stringify(deps));
   },
 
+  /* ------------------- In-Panel Live Chat System ------------------- */
+  getChats() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.CHATS) || '[]');
+    } catch (e) {
+      return [];
+    }
+  },
+
+  saveChats(chats) {
+    localStorage.setItem(STORAGE_KEYS.CHATS, JSON.stringify(chats));
+    window.dispatchEvent(new CustomEvent('saleem_chats_updated'));
+  },
+
+  getCurrentChatIdentity() {
+    if (this.currentUser) {
+      return {
+        userId: this.currentUser.username || this.currentUser.email,
+        username: this.currentUser.username,
+        name: this.currentUser.name || this.currentUser.username,
+        email: this.currentUser.email || '',
+        phone: this.currentUser.phone || ''
+      };
+    }
+    let guestId = localStorage.getItem('saleem_guest_chat_id');
+    if (!guestId) {
+      guestId = 'guest_' + Math.floor(1000 + Math.random() * 9000);
+      localStorage.setItem('saleem_guest_chat_id', guestId);
+    }
+    return {
+      userId: guestId,
+      username: guestId,
+      name: 'Visitor (' + guestId + ')',
+      email: 'visitor@saleemsmm.pk',
+      phone: ''
+    };
+  },
+
+  getUserChatThread(targetUserId) {
+    const chats = this.getChats();
+    const identity = this.getCurrentChatIdentity();
+    const uid = targetUserId || identity.userId;
+    let thread = chats.find(c => c.userId === uid);
+
+    if (!thread) {
+      thread = {
+        userId: uid,
+        username: identity.username,
+        name: identity.name,
+        email: identity.email,
+        phone: identity.phone,
+        unreadByAdmin: 0,
+        unreadByUser: 0,
+        updatedAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+        messages: [
+          {
+            id: 'MSG-' + Date.now(),
+            sender: 'admin',
+            senderName: 'Saleem Akhtar (Admin)',
+            text: 'Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Chat. Kisi bhi order, EasyPaisa/UPaisa deposit, ya apna Customize SMM Panel banwane ke liye yahan message likhein. Admin aapko isi panel mein reply karega!',
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ]
+      };
+      chats.unshift(thread);
+      this.saveChats(chats);
+    }
+    return thread;
+  },
+
+  sendUserChatMessage(text) {
+    const clean = (text || '').trim();
+    if (!clean) return null;
+
+    const chats = this.getChats();
+    const identity = this.getCurrentChatIdentity();
+    let idx = chats.findIndex(c => c.userId === identity.userId);
+
+    if (idx === -1) {
+      this.getUserChatThread(identity.userId);
+      return this.sendUserChatMessage(clean);
+    }
+
+    const msg = {
+      id: 'MSG-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+      sender: 'user',
+      senderName: identity.username,
+      text: clean,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    chats[idx].messages.push(msg);
+    chats[idx].unreadByAdmin = (chats[idx].unreadByAdmin || 0) + 1;
+    chats[idx].unreadByUser = 0;
+    chats[idx].updatedAt = new Date().toISOString().replace('T', ' ').substring(0, 16);
+
+    const updatedThread = chats.splice(idx, 1)[0];
+    chats.unshift(updatedThread);
+    this.saveChats(chats);
+
+    // Sync to backend server
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'user_message',
+        userId: identity.userId,
+        username: identity.username,
+        name: identity.name,
+        email: identity.email,
+        phone: identity.phone,
+        message: msg
+      })
+    }).catch(() => {});
+
+    return msg;
+  },
+
+  sendAdminChatReply(targetUserId, text) {
+    const clean = (text || '').trim();
+    if (!clean || !targetUserId) return null;
+
+    const chats = this.getChats();
+    let idx = chats.findIndex(c => c.userId === targetUserId);
+    if (idx === -1) return null;
+
+    const msg = {
+      id: 'MSG-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+      sender: 'admin',
+      senderName: 'Saleem Akhtar (Admin)',
+      text: clean,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    chats[idx].messages.push(msg);
+    chats[idx].unreadByAdmin = 0;
+    chats[idx].unreadByUser = (chats[idx].unreadByUser || 0) + 1;
+    chats[idx].updatedAt = new Date().toISOString().replace('T', ' ').substring(0, 16);
+
+    const updatedThread = chats.splice(idx, 1)[0];
+    chats.unshift(updatedThread);
+    this.saveChats(chats);
+
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'admin_reply',
+        userId: targetUserId,
+        message: msg
+      })
+    }).catch(() => {});
+
+    return msg;
+  },
+
+  async syncChatsFromServer() {
+    try {
+      const res = await fetch('/api/chat');
+      if (!res.ok) return;
+      const serverChats = await res.json();
+      if (!Array.isArray(serverChats) || serverChats.length === 0) return;
+
+      const localChats = this.getChats();
+      let changed = false;
+
+      serverChats.forEach(sThread => {
+        const lIdx = localChats.findIndex(c => c.userId === sThread.userId);
+        if (lIdx === -1) {
+          localChats.push(sThread);
+          changed = true;
+        } else {
+          const localIds = new Set(localChats[lIdx].messages.map(m => m.id));
+          (sThread.messages || []).forEach(m => {
+            if (!localIds.has(m.id)) {
+              localChats[lIdx].messages.push(m);
+              if (m.sender === 'admin') {
+                localChats[lIdx].unreadByUser = (localChats[lIdx].unreadByUser || 0) + 1;
+              } else {
+                localChats[lIdx].unreadByAdmin = (localChats[lIdx].unreadByAdmin || 0) + 1;
+              }
+              localChats[lIdx].updatedAt = sThread.updatedAt || localChats[lIdx].updatedAt;
+              changed = true;
+            }
+          });
+        }
+      });
+
+      if (changed) {
+        this.saveChats(localChats);
+      }
+    } catch (e) {
+      // Offline or local file mode fallback
+    }
+  },
+
+  /* ------------------- Floating Live Chat + WhatsApp Widget ------------------- */
+  initFloatingSupportWidgets() {
+    // Do not mount client floating widget on admin page
+    if (window.location.pathname.includes('admin.html')) return;
+
+    // Remove old static floating whatsapp button if present so we render unified floating bar
+    document.querySelectorAll('.floating-whatsapp').forEach(el => el.remove());
+
+    if (document.getElementById('saleem-floating-support-root')) return;
+
+    const root = document.createElement('div');
+    root.id = 'saleem-floating-support-root';
+    root.innerHTML = `
+      <!-- Floating Action Buttons (Bottom Right) -->
+      <div class="saleem-floating-bar">
+        <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
+           target="_blank"
+           class="saleem-float-btn saleem-float-wa"
+           title="Chat on WhatsApp (${OFFICIAL_WHATSAPP})">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span class="float-btn-label">WhatsApp</span>
+        </a>
+
+        <button type="button"
+                class="saleem-float-btn saleem-float-chat"
+                onclick="window.toggleSaleemLiveChat()"
+                title="Live Chat Inside Panel">
+          <i class="fa-solid fa-comments"></i>
+          <span class="float-btn-label">Live Chat</span>
+          <span class="saleem-chat-badge" id="floating-chat-badge">1</span>
+        </button>
+      </div>
+
+      <!-- In-Panel Live Chat Popup Window -->
+      <div class="saleem-chat-popup" id="saleem-chat-popup">
+        <div class="saleem-chat-header">
+          <div class="saleem-chat-header-info">
+            <div class="saleem-chat-avatar">
+              <i class="fa-solid fa-headset"></i>
+              <span class="online-dot"></span>
+            </div>
+            <div>
+              <h4>Saleem SMM Live Chat</h4>
+              <p>Admin Online • Replies Inside Panel</p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20Customize%20SMM%20Panel%20ya%20Order%20ke%20bare%20mein%20baat%20karni%20hai."
+               target="_blank"
+               class="chat-wa-mini-btn"
+               title="Open WhatsApp ${OFFICIAL_WHATSAPP}">
+              <i class="fa-brands fa-whatsapp"></i> ${OFFICIAL_WHATSAPP}
+            </a>
+            <button type="button" class="saleem-chat-close" onclick="window.toggleSaleemLiveChat()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="saleem-chat-quick-chips">
+          <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mujhe apna Customize SMM Panel banwana hai, details aur price bata dein.')">
+            👑 Customize SMM Panel
+          </button>
+          <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Maine EasyPaisa / UPaisa par payment bhej di hai, mera deposit approve kar dein.')">
+            💳 Deposit Verify
+          </button>
+          <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mere order ki speed/status check kar dein.')">
+            ⚡ Order Help
+          </button>
+        </div>
+
+        <div class="saleem-chat-messages" id="floating-chat-messages"></div>
+
+        <form class="saleem-chat-input-bar" onsubmit="window.handleFloatingChatSubmit(event)">
+          <input type="text"
+                 id="floating-chat-input"
+                 placeholder="Type message for Admin..."
+                 autocomplete="off"
+                 required>
+          <button type="submit" title="Send Message">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    `;
+
+    document.body.appendChild(root);
+    this.renderFloatingChatMessages();
+
+    window.addEventListener('saleem_chats_updated', () => {
+      this.renderFloatingChatMessages();
+    });
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEYS.CHATS) {
+        this.renderFloatingChatMessages();
+      }
+    });
+  },
+
+  renderFloatingChatMessages() {
+    const container = document.getElementById('floating-chat-messages');
+    if (!container) return;
+
+    const thread = this.getUserChatThread();
+    container.innerHTML = thread.messages.map(m => `
+      <div class="chat-bubble-row ${m.sender === 'user' ? 'chat-row-user' : 'chat-row-admin'}">
+        <div class="chat-bubble ${m.sender === 'user' ? 'bubble-user' : 'bubble-admin'}">
+          <div class="bubble-sender">${m.sender === 'user' ? 'You' : 'Saleem Admin'}</div>
+          <div class="bubble-text">${this.escapeHtml(m.text)}</div>
+          <div class="bubble-time">${m.time}</div>
+        </div>
+      </div>
+    `).join('');
+
+    container.scrollTop = container.scrollHeight;
+  },
+
+  escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  },
+
   showToast(message, type = 'success') {
     const existing = document.querySelector('.saleem-toast');
     if (existing) existing.remove();
@@ -444,20 +798,21 @@ const AppState = {
 
     Object.assign(toast.style, {
       position: 'fixed',
-      bottom: '24px',
+      bottom: '90px',
       left: '50%',
       transform: 'translateX(-50%) translateY(20px)',
       background: type === 'success' ? '#2ed573' : type === 'error' ? '#eb4d4b' : '#1e90ff',
       color: '#fff',
-      padding: '12px 24px',
+      padding: '12px 22px',
       borderRadius: '50px',
-      boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
+      boxShadow: '0 10px 25px rgba(0,0,0,0.35)',
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
-      fontSize: '14px',
+      fontSize: '13.5px',
       fontWeight: '600',
-      zIndex: '10000',
+      zIndex: '10005',
+      maxWidth: '92vw',
       opacity: '0',
       transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
     });
@@ -471,7 +826,7 @@ const AppState = {
       toast.style.opacity = '0';
       toast.style.transform = 'translateX(-50%) translateY(20px)';
       setTimeout(() => toast.remove(), 350);
-    }, 3200);
+    }, 3400);
   },
 
   setupGlobalListeners() {
@@ -484,7 +839,58 @@ const AppState = {
   }
 };
 
+window.toggleSaleemLiveChat = function(forceOpen) {
+  const popup = document.getElementById('saleem-chat-popup');
+  if (!popup) return;
+  if (forceOpen === true) {
+    popup.classList.add('open');
+  } else if (forceOpen === false) {
+    popup.classList.remove('open');
+  } else {
+    popup.classList.toggle('open');
+  }
+  if (popup.classList.contains('open')) {
+    AppState.renderFloatingChatMessages();
+    const input = document.getElementById('floating-chat-input');
+    if (input) setTimeout(() => input.focus(), 100);
+  }
+};
+
+window.openSaleemLiveChat = function(prefillText) {
+  // If user is on dashboard and has the full chat view, we can also open the popup or switch to chat view
+  const popup = document.getElementById('saleem-chat-popup');
+  if (popup) {
+    popup.classList.add('open');
+    AppState.renderFloatingChatMessages();
+    const input = document.getElementById('floating-chat-input');
+    if (input) {
+      if (prefillText) input.value = prefillText;
+      setTimeout(() => input.focus(), 100);
+    }
+  }
+};
+
+window.sendQuickChatPreset = function(text) {
+  AppState.sendUserChatMessage(text);
+  AppState.renderFloatingChatMessages();
+  if (typeof renderDashboardChatMessages === 'function') {
+    renderDashboardChatMessages();
+  }
+  AppState.showToast('Message sent to Admin! Admin will reply here shortly.', 'success');
+};
+
+window.handleFloatingChatSubmit = function(e) {
+  e.preventDefault();
+  const input = document.getElementById('floating-chat-input');
+  if (!input || !input.value.trim()) return;
+  AppState.sendUserChatMessage(input.value.trim());
+  input.value = '';
+  AppState.renderFloatingChatMessages();
+  if (typeof renderDashboardChatMessages === 'function') {
+    renderDashboardChatMessages();
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   AppState.init();
 });
-
