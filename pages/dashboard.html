@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard — Saleem SMM Panel</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="nightmode">
+
+  <div class="dashboard-layout">
+    <!-- ==========================================================================
+         SIDEBAR NAVIGATION
+         ========================================================================== -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="brand-logo">
+          <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+          <div class="logo-text">Saleem<span>SMM</span></div>
+        </a>
+      </div>
+
+      <!-- User Quick Profile -->
+      <div class="user-quick-profile">
+        <div class="user-quick-avatar">S</div>
+        <div class="user-quick-info">
+          <h4 class="user-display-name">saleem_vip</h4>
+          <div class="user-quick-balance user-display-balance">₨ 5,200.00</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-menu">
+        <div class="sidebar-item active" data-view="new-order">
+          <i class="fa-solid fa-cart-plus"></i>
+          <span>New Order</span>
+        </div>
+        <div class="sidebar-item" data-view="orders">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Orders History</span>
+        </div>
+        <div class="sidebar-item" data-view="services">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Services & Rates</span>
+        </div>
+        <div class="sidebar-item" data-view="add-funds">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Add Funds / Deposit</span>
+        </div>
+        <div class="sidebar-item" data-view="api">
+          <i class="fa-solid fa-code"></i>
+          <span>Reseller API</span>
+        </div>
+        <div class="sidebar-item" data-view="tickets">
+          <i class="fa-solid fa-headset"></i>
+          <span>Support Tickets</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="admin.html" class="sidebar-item admin-only-link" style="color:#ff4757;display:none;">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Admin Control Panel</span>
+        </a>
+        <a href="javascript:void(0)" onclick="AppState.logout()" class="sidebar-item" style="color:var(--text-muted);">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CONTENT AREA
+         ========================================================================== -->
+    <main class="dashboard-main">
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="topbar-mobile-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h2 class="topbar-title">Place New Order</h2>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Balance Chip -->
+          <div class="balance-chip" style="cursor:pointer;" onclick="document.querySelector('.sidebar-item[data-view=add-funds]').click()">
+            <i class="fa-solid fa-wallet" style="color:var(--primary);"></i>
+            <span>Balance: <strong class="user-display-balance">₨ 5,200.00</strong></span>
+          </div>
+
+          <!-- Currency Toggle -->
+          <button class="currency-select-btn" onclick="toggleCurrencyDashboard()" title="Toggle Currency">
+            <i class="fa-solid fa-coins"></i> <span id="dash-curr-label">PKR</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="theme-toggle-btn" onclick="AppState.toggleTheme()" title="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-sun"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <!-- ====================================================================
+             VIEW 1: NEW ORDER ENGINE
+             ==================================================================== -->
+        <div class="content-view active" id="view-new-order">
+          <!-- Quick Stats Cards Bar -->
+          <div class="dash-stats-grid">
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Current Balance</h5>
+                <h3 class="user-display-balance">₨ 5,200.00</h3>
+              </div>
+              <div class="stat-icon-box"><i class="fa-solid fa-wallet"></i></div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Total Spent</h5>
+                <h3 class="user-display-spent">₨ 14,500.00</h3>
+              </div>
+              <div class="stat-icon-box"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Total Orders</h5>
+                <h3 id="stat-total-orders">3</h3>
+              </div>
+              <div class="stat-icon-box"><i class="fa-solid fa-box-open"></i></div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Active Orders</h5>
+                <h3 id="stat-active-orders">2</h3>
+              </div>
+              <div class="stat-icon-box"><i class="fa-solid fa-bolt"></i></div>
+            </div>
+          </div>
+
+          <!-- Order Engine Grid -->
+          <div class="order-engine-grid">
+            <!-- Left Form Panel -->
+            <div class="order-form-panel">
+              <h3><i class="fa-solid fa-cart-shopping" style="color:var(--primary);"></i> Configure Your Order</h3>
+              <form id="new-order-form">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-folder-open"></i> Category</label>
+                  <select id="order-category-select" class="form-input"></select>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-layer-group"></i> Service</label>
+                  <select id="order-service-select" class="form-input"></select>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-link"></i> Target Link / URL</label>
+                  <input type="url" id="order-link-input" class="form-input" placeholder="https://instagram.com/p/xxx or channel link" required>
+                </div>
+
+                <div class="form-group">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                    <label style="margin:0;"><i class="fa-solid fa-calculator"></i> Quantity</label>
+                    <span id="service-min-max-badge" style="font-size:12px;color:var(--primary);font-weight:700;">Min: 50 | Max: 100,000</span>
+                  </div>
+                  <input type="number" id="order-quantity-input" class="form-input" placeholder="e.g. 1000" min="1" required>
+                </div>
+
+                <button type="submit" class="btn-primary-grad btn-block" style="margin-top:14px;">
+                  <i class="fa-solid fa-bolt"></i> Place Order Now
+                </button>
+              </form>
+            </div>
+
+            <!-- Right Service Details & Live Price Preview -->
+            <div class="order-details-panel">
+              <h3><i class="fa-solid fa-circle-info"></i> Service Specifications</h3>
+              <div class="service-description-box" id="service-description-text">
+                Select a service to view speed, drop rates, and refill rules.
+              </div>
+
+              <div class="price-summary-box">
+                <div class="price-summary-row">
+                  <span>Rate per 1,000:</span>
+                  <strong id="summary-rate-per-1k">₨ 80.00</strong>
+                </div>
+                <div class="price-summary-row">
+                  <span>Delivery Speed:</span>
+                  <strong id="summary-delivery-speed" style="color:var(--success);">Instant</strong>
+                </div>
+                <div class="price-summary-row">
+                  <span>Refill Guarantee:</span>
+                  <strong>30 Days Auto-Refill</strong>
+                </div>
+                <div class="price-summary-total">
+                  <span>Total Charge:</span>
+                  <span id="summary-total-charge">₨ 0.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 2: ORDERS HISTORY
+             ==================================================================== -->
+        <div class="content-view" id="view-orders">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div class="table-tabs">
+                <button class="table-tab-btn active" data-status="all">All</button>
+                <button class="table-tab-btn" data-status="Pending">Pending</button>
+                <button class="table-tab-btn" data-status="In progress">In Progress</button>
+                <button class="table-tab-btn" data-status="Completed">Completed</button>
+                <button class="table-tab-btn" data-status="Processing">Processing</button>
+                <button class="table-tab-btn" data-status="Canceled">Canceled</button>
+              </div>
+              <input type="text" id="orders-search-input" class="table-search-input" placeholder="Search by Order ID or link...">
+            </div>
+
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Service Name</th>
+                    <th>Link</th>
+                    <th>Quantity</th>
+                    <th>Charge</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 3: SERVICES CATALOG
+             ==================================================================== -->
+        <div class="content-view" id="view-services">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <h3 style="font-size:18px;font-weight:800;">Wholesale SMM Services List</h3>
+              <input type="text" id="catalog-search" class="table-search-input" placeholder="Search services..." oninput="filterCatalog(this.value)">
+            </div>
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Rate / 1K</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Avg Speed</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="catalog-services-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 4: ADD FUNDS / DEPOSIT
+             ==================================================================== -->
+        <div class="content-view" id="view-add-funds">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:18px;">Select Deposit Method</h3>
+
+          <div class="deposit-methods-grid">
+            <div class="deposit-method-card selected" data-method="EasyPaisa">
+              <div class="method-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <h4>EasyPaisa</h4>
+              <p style="font-size:12px;color:var(--text-muted);">03173983906</p>
+            </div>
+            <div class="deposit-method-card" data-method="UPaisa">
+              <div class="method-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+              <h4>UPaisa</h4>
+              <p style="font-size:12px;color:var(--text-muted);">03163846672</p>
+            </div>
+          </div>
+
+          <!-- Deposit Instructions -->
+          <div class="deposit-instructions-panel">
+            <h4 id="deposit-method-title">EasyPaisa Payment Details</h4>
+            <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:14px;">
+              Send your deposit amount to the official account below. After completing the payment, enter the amount and the <strong>Transaction ID (TID)</strong> received in the SMS.
+            </p>
+
+            <div class="account-detail-box">
+              <span id="deposit-account-number">03173983906 (EasyPaisa)</span>
+              <button class="copy-btn" onclick="copyDepositAccount()"><i class="fa-regular fa-copy"></i> Copy</button>
+            </div>
+
+            <!-- Submit TID Form -->
+            <form id="deposit-submit-form" style="margin-top:20px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-coins"></i> Amount Sent (₨ / $)</label>
+                  <input type="number" id="deposit-amount-input" class="form-input" placeholder="e.g. 2000" min="100" required>
+                </div>
+                <div class="form-group">
+                  <label><i class="fa-solid fa-receipt"></i> Transaction ID (TID / Ref #)</label>
+                  <input type="text" id="deposit-tid-input" class="form-input" placeholder="e.g. 19283746501" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary-grad" style="padding:12px 28px;font-size:14px;">
+                <i class="fa-solid fa-paper-plane"></i> Submit Deposit Request
+              </button>
+            </form>
+          </div>
+
+          <!-- Deposit History -->
+          <div class="table-panel">
+            <h4 style="font-size:16px;font-weight:700;margin-bottom:14px;">Recent Deposits History</h4>
+            <div id="deposits-history-list"></div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 5: RESELLER API
+             ==================================================================== -->
+        <div class="content-view" id="view-api">
+          <div class="table-panel">
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:12px;">SMM Reseller REST API (v2)</h3>
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px;">
+              Connect your own panel, website, or mobile app directly to Saleem SMM Panel wholesale automation server using our standard v2 API.
+            </p>
+
+            <div style="background:var(--bg-surface-soft);padding:18px;border-radius:var(--radius-md);margin-bottom:24px;">
+              <label style="font-size:13px;font-weight:700;">Your Secret API Key</label>
+              <div class="account-detail-box" style="margin-top:8px;">
+                <span id="user-api-key-text">smm_live_sec_99a8b7c6d5e4f3a2</span>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('smm_live_sec_99a8b7c6d5e4f3a2'); AppState.showToast('API Key copied to clipboard!', 'success');">Copy</button>
+              </div>
+            </div>
+
+            <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Place Order</h4>
+            <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);margin-bottom:20px;">
+curl -X POST https://api.saleemsmmpanel.pk/v2 \
+  -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
+  -d "action=add" \
+  -d "service=101" \
+  -d "link=https://instagram.com/saleem_vip" \
+  -d "quantity=1000"
+            </pre>
+
+            <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Check Order Status</h4>
+            <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);">
+curl -X POST https://api.saleemsmmpanel.pk/v2 \
+  -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
+  -d "action=status" \
+  -d "order=50412"
+            </pre>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             VIEW 6: SUPPORT TICKETS
+             ==================================================================== -->
+        <div class="content-view" id="view-tickets">
+          <div class="table-panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+              <h3 style="font-size:18px;font-weight:800;">Support Tickets</h3>
+              <button onclick="AppState.showToast('Please submit ticket below or WhatsApp for instant chat.', 'info')" class="btn-primary-grad">
+                <i class="fa-solid fa-plus"></i> Open Ticket
+              </button>
+            </div>
+
+            <form onsubmit="handleTicketSubmit(event)">
+              <div class="form-group">
+                <label>Subject</label>
+                <select class="form-input">
+                  <option>Order Issue (Speed / Refill)</option>
+                  <option>Payment / Deposit Verification</option>
+                  <option>API Reseller Assistance</option>
+                  <option>Other Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Order ID (Optional)</label>
+                <input type="text" class="form-input" placeholder="e.g. #50412">
+              </div>
+
+              <div class="form-group">
+                <label>Message / Description</label>
+                <textarea class="form-input" rows="4" placeholder="Explain your request or issue..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary-grad">Submit Ticket</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="../js/services-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script>
+    function toggleCurrencyDashboard() {
+      const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
+      AppState.setCurrency(next);
+      document.getElementById('dash-curr-label').textContent = next;
+      updateUserUI();
+      onServiceSelected(currentSelectedService ? currentSelectedService.id : 101);
+      renderOrdersTable();
+      renderServicesCatalog();
+    }
+
+    function copyDepositAccount() {
+      const text = document.getElementById('deposit-account-number').textContent;
+      navigator.clipboard.writeText(text);
+      AppState.showToast('Account details copied!', 'success');
+    }
+
+    function filterCatalog(query) {
+      const q = query.toLowerCase();
+      const filtered = MASTER_SERVICES.filter(s => s.name.toLowerCase().includes(q) || s.id.toString().includes(q));
+      const tbody = document.getElementById('catalog-services-body');
+      if (tbody) {
+        tbody.innerHTML = filtered.map(s => `
+          <tr>
+            <td><strong>${s.id}</strong></td>
+            <td><strong>${s.name}</strong></td>
+            <td>${AppState.formatMoney(s.rate_usd, s.rate_pkr)}</td>
+            <td>${s.min.toLocaleString()}</td>
+            <td>${s.max.toLocaleString()}</td>
+            <td><span style="color:var(--success);font-weight:600;"><i class="fa-solid fa-bolt"></i> ${s.avg_time}</span></td>
+            <td>
+              <button onclick="orderThisService(${s.id})" class="btn-primary-grad" style="padding:4px 10px;font-size:11px;">
+                Order
+              </button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    function handleTicketSubmit(e) {
+      e.preventDefault();
+      AppState.showToast('Support Ticket #TKT-884 submitted! Our agent will reply within 30 minutes.', 'success');
+      e.target.reset();
+    }
+
+    // Check URL parameters (e.g. ?view=services or ?service=301)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const targetView = params.get('view');
+      const targetService = params.get('service');
+
+      if (targetView) {
+        const item = document.querySelector(`.sidebar-item[data-view="${targetView}"]`);
+        if (item) item.click();
+      }
+
+      if (targetService) {
+        orderThisService(targetService);
+      }
+    });
+  </script>
+</body>
+</html>

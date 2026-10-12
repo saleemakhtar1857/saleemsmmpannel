@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saleem SMM Panel — Pakistan's Best & Cheapest SMM Provider</title>
+  <meta name="description" content="Saleem SMM Panel is Pakistan's trusted wholesale SMM panel with 625+ services for Instagram, TikTok, YouTube, and Facebook. Fast delivery & local EasyPaisa/JazzCash payments.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="nightmode">
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+        <div class="logo-text">Saleem<span>SMM</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="pages/dashboard.html?view=services" class="nav-link"><i class="fa-solid fa-layer-group"></i> 625+ Services</a></li>
+        <li><a href="pages/dashboard.html?view=api" class="nav-link"><i class="fa-solid fa-code"></i> API Docs</a></li>
+        <li><a href="#reviews" class="nav-link"><i class="fa-solid fa-star"></i> Reviews</a></li>
+        <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+        <li class="admin-only-link" style="display:none;"><a href="pages/admin.html" class="nav-link" style="color:var(--primary);font-weight:700;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Currency Switcher -->
+        <button class="currency-select-btn" onclick="toggleCurrency()" title="Switch Currency">
+          <i class="fa-solid fa-coins"></i> <span id="nav-curr-label">PKR (₨)</span>
+        </button>
+
+        <!-- Day / Night Mode Toggle -->
+        <button class="theme-toggle-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode">
+          <i class="theme-toggle-icon fa-solid fa-sun"></i>
+        </button>
+
+        <!-- User Authentication Actions in Navbar -->
+        <div id="nav-auth-container" style="display:flex;align-items:center;gap:10px;">
+          <a href="#auth" class="btn-outline" style="padding:8px 16px;font-size:13px;">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+          </a>
+          <a href="pages/signup.html" class="btn-primary-grad" style="padding:8px 16px;font-size:13px;">
+            <i class="fa-solid fa-user-plus"></i> Sign Up
+          </a>
+        </div>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <header class="hero-section">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="hero-container">
+      <div class="hero-header">
+        <div class="hero-badge">
+          <i class="fa-solid fa-award"></i> #1 Wholesale SMM Panel in Pakistan & Worldwide
+        </div>
+        <h1 class="hero-title">
+          Grow Fast With <span class="gradient-word-1">Saleem SMM Panel</span>, The
+          <span class="gradient-word-2">Cheapest Provider</span> In
+          <span class="gradient-word-3">Pakistan</span>
+        </h1>
+        <p class="hero-subtitle">
+          Pakistan’s premier wholesale SMM panel with <strong>625+ live active services</strong> for creators, resellers, freelancers, and digital agencies. Buy Instagram followers, TikTok views, YouTube watch time (4000h), Facebook engagement, and AI tools with automated speed and easy <strong>EasyPaisa, JazzCash & Crypto</strong> payments.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="pages/signup.html" class="btn-primary-grad" style="padding: 14px 34px; font-size: 16px;">
+            <i class="fa-solid fa-rocket"></i> CREATE ACCOUNT (₨ 100 BONUS)
+          </a>
+          
+          <div class="social-proof-pill">
+            <div class="social-avatars">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Client 1">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Client 2">
+              <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop&crop=faces" alt="Client 3">
+            </div>
+            <div class="proof-label">
+              Trusted by<br><strong>85,000+ Pakistani Creators</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Split: Interactive Login / Signup Card on Left & Policy Notice on Right -->
+      <div class="hero-split-grid" id="auth">
+        <!-- Auth Card with Tabs -->
+        <div class="hero-card">
+          <!-- Auth Tabs -->
+          <div style="display:flex;gap:10px;margin-bottom:20px;border-bottom:1px solid var(--border-color);padding-bottom:12px;">
+            <button id="tab-btn-login" onclick="switchAuthTab('login')" class="btn-primary-grad" style="padding:8px 18px;font-size:13.5px;">
+              <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            </button>
+            <button id="tab-btn-signup" onclick="switchAuthTab('signup')" class="btn-outline" style="padding:8px 18px;font-size:13.5px;">
+              <i class="fa-solid fa-user-plus"></i> Sign Up
+            </button>
+          </div>
+
+          <!-- TAB 1: LOGIN FORM -->
+          <div id="auth-panel-login">
+            <div class="login-card-head">
+              <h2>Welcome Back</h2>
+              <p>Log in with your username or registered email.</p>
+            </div>
+
+            <form id="hero-login-form" onsubmit="handleHeroLogin(event)">
+              <div class="form-group">
+                <label><i class="fa-regular fa-user"></i> Username or Email</label>
+                <input type="text" id="login-username" class="form-input" placeholder="Enter username or email" required>
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-key"></i> Password</label>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter password" required>
+              </div>
+
+              <div class="form-row-check">
+                <label>
+                  <input type="checkbox" checked> Remember me
+                </label>
+                <a href="javascript:void(0)" onclick="AppState.showToast('Password reset link sent to email', 'info')" class="forgot-link">Forgot Password?</a>
+              </div>
+
+              <button type="submit" class="btn-primary-grad btn-block">
+                <i class="fa-solid fa-right-to-bracket"></i> Log In to Dashboard
+              </button>
+            </form>
+          </div>
+
+          <!-- TAB 2: SIGNUP FORM -->
+          <div id="auth-panel-signup" style="display:none;">
+            <div class="login-card-head">
+              <h2>Create Account</h2>
+              <p>Sign up now & claim your <strong>₨ 100 Welcome Gift</strong>!</p>
+            </div>
+
+            <form id="hero-signup-form" onsubmit="handleHeroSignup(event)">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="form-group">
+                  <label><i class="fa-regular fa-id-badge"></i> Name</label>
+                  <input type="text" id="hero-reg-name" class="form-input" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                  <label><i class="fa-regular fa-user"></i> Username</label>
+                  <input type="text" id="hero-reg-username" class="form-input" placeholder="e.g. user_pk" required>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="form-group">
+                  <label><i class="fa-regular fa-envelope"></i> Email</label>
+                  <input type="email" id="hero-reg-email" class="form-input" placeholder="you@domain.com" required>
+                </div>
+                <div class="form-group">
+                  <label><i class="fa-brands fa-whatsapp"></i> WhatsApp</label>
+                  <input type="tel" id="hero-reg-phone" class="form-input" placeholder="0300xxxxxxx" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label><i class="fa-solid fa-lock"></i> Password (Min 6 chars)</label>
+                <input type="password" id="hero-reg-password" class="form-input" placeholder="Enter password" required>
+              </div>
+
+              <button type="submit" class="btn-primary-grad btn-block">
+                <i class="fa-solid fa-rocket"></i> Register & Claim ₨ 100
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- National Security & Platform Integrity Notice Card -->
+        <div class="hero-card security-card">
+          <div class="security-badge"><i class="fa-solid fa-shield-halved"></i> Strict Platform Policy</div>
+          <h3>Zero-Tolerance For Anti-State & Harmful Content</h3>
+          <p>
+            Saleem SMM Panel strictly enforces cybersecurity standards and platform rules. Our wholesale services must <strong>never</strong> be used to promote propaganda, political slander, or content harmful to national institutions.
+          </p>
+          <ul class="security-list">
+            <li><i class="fa-solid fa-ban"></i> Violating orders are terminated immediately with zero notice.</li>
+            <li><i class="fa-solid fa-wallet"></i> Offending accounts have their remaining wallet balance forfeited.</li>
+            <li><i class="fa-solid fa-flag"></i> Fraudulent target pages are reported directly to platform providers.</li>
+            <li><i class="fa-solid fa-check-double"></i> 100% Non-Drop & safe marketing for genuine business growth.</li>
+          </ul>
+          <a href="pages/dashboard.html?view=services" style="color:var(--primary);font-weight:700;font-size:13.5px;">
+            Browse All 625+ Wholesale Services <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       METRICS & TRUST BANNER
+       ========================================================================== -->
+  <section class="metrics-section">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon"><i class="fa-solid fa-check-circle"></i></div>
+        <div class="metric-number">4,489,000+</div>
+        <div class="metric-label">Completed Orders</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="metric-number">84,690+</div>
+        <div class="metric-label">Registered Clients</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="metric-number">100%</div>
+        <div class="metric-label">Non-Drop Guarantee</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="metric-number">625+ Active</div>
+        <div class="metric-label">Live Wholesale Services</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STARTING PRICES & PLATFORM CARDS
+       ========================================================================== -->
+  <section class="platforms-section" id="services">
+    <div class="section-head">
+      <div class="section-tag"><i class="fa-solid fa-tags"></i> Wholesale Rates</div>
+      <h2 class="section-title">Cheapest SMM Services For Every Social Platform</h2>
+      <p class="section-desc">Over 625 direct wholesale provider services starting from just ₨ 0.26 / 1K. Place single orders or resell via API with high profit margins.</p>
+    </div>
+
+    <div class="platform-cards-grid">
+      <!-- Instagram -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-instagram"><i class="fa-brands fa-instagram"></i></div>
+        <h3 class="platform-title">Instagram Services</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 72.8</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Non-Drop Lifetime Followers</li>
+          <li><i class="fa-solid fa-circle-check"></i> 1M+ Reels Views / Day</li>
+          <li><i class="fa-solid fa-circle-check"></i> Real Likes & Comments</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15210" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- TikTok -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-tiktok"><i class="fa-brands fa-tiktok"></i></div>
+        <h3 class="platform-title">TikTok Services</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 1.3</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Super Instant Video Views</li>
+          <li><i class="fa-solid fa-circle-check"></i> 1,000 Live Unlock Followers</li>
+          <li><i class="fa-solid fa-circle-check"></i> Viral Algorithm Push</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15038" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- YouTube -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-youtube"><i class="fa-brands fa-youtube"></i></div>
+        <h3 class="platform-title">YouTube Panel</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 157.3</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> 4000h Watch Time Package</li>
+          <li><i class="fa-solid fa-circle-check"></i> Real Non-Drop Subscribers</li>
+          <li><i class="fa-solid fa-circle-check"></i> High Retention Native Views</li>
+        </ul>
+        <a href="pages/dashboard.html?service=14721" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-facebook"><i class="fa-brands fa-facebook"></i></div>
+        <h3 class="platform-title">Facebook Panel</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 59.8</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Monetization Page Followers</li>
+          <li><i class="fa-solid fa-circle-check"></i> Post Reactions & Likes</li>
+          <li><i class="fa-solid fa-circle-check"></i> Reel & Video Views</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15103" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- Telegram -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-telegram"><i class="fa-brands fa-telegram"></i></div>
+        <h3 class="platform-title">Telegram Members</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 5.2</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Channel & Group Members</li>
+          <li><i class="fa-solid fa-circle-check"></i> 0% Drop Lifetime Speed</li>
+          <li><i class="fa-solid fa-circle-check"></i> Post Views Booster</li>
+        </ul>
+        <a href="pages/dashboard.html?service=14873" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- Twitter / X -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-twitter"><i class="fa-brands fa-x-twitter"></i></div>
+        <h3 class="platform-title">X (Twitter) Growth</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 0.39</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Real Account Followers</li>
+          <li><i class="fa-solid fa-circle-check"></i> Retweets & Impressions</li>
+          <li><i class="fa-solid fa-circle-check"></i> Likes & Comments</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15354" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3 class="platform-title">WhatsApp Channels</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 9.1</span>
+          <span class="platform-unit">/ 1,000</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Channel Real Followers</li>
+          <li><i class="fa-solid fa-circle-check"></i> Emoji Reactions & Polls</li>
+          <li><i class="fa-solid fa-circle-check"></i> High Trust Authority</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15516" class="btn-card-order">Order Now</a>
+      </div>
+
+      <!-- AI Tools & Accounts -->
+      <div class="platform-card">
+        <div class="platform-icon-wrap ic-more"><i class="fa-solid fa-robot"></i></div>
+        <h3 class="platform-title">AI & Premium Accounts</h3>
+        <div class="platform-price-row">
+          <span class="platform-price">₨ 650</span>
+          <span class="platform-unit">/ Account</span>
+        </div>
+        <ul class="platform-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Muse AI 1B Tokens Video Generator</li>
+          <li><i class="fa-solid fa-circle-check"></i> Google AI Gemini Pro 18 Months</li>
+          <li><i class="fa-solid fa-circle-check"></i> CapCut Pro 30 Days Guarantee</li>
+        </ul>
+        <a href="pages/dashboard.html?service=15545" class="btn-card-order">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAKISTAN & GLOBAL PAYMENT SUPPORT
+       ========================================================================== -->
+  <section class="payments-section">
+    <div class="section-head">
+      <div class="section-tag"><i class="fa-solid fa-wallet"></i> Instant Top-Up</div>
+      <h2 class="section-title">Multiple Convenient Payment Options</h2>
+      <p class="section-desc">Fund your Saleem SMM Panel wallet easily in Pakistan using your mobile phone or international crypto gateways.</p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card">
+        <div class="pay-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <h4>EasyPaisa</h4>
+        <p>03173983906 (Instant Transfer)</p>
+      </div>
+      <div class="payment-card">
+        <div class="pay-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <h4>UPaisa</h4>
+        <p>03163846672 (Direct Wallet)</p>
+      </div>
+      <div class="payment-card">
+        <div class="pay-icon"><i class="fa-solid fa-building-columns"></i></div>
+        <h4>Bank Transfer</h4>
+        <p>Meezan, Alfalah, HBL, UBL</p>
+      </div>
+      <div class="payment-card">
+        <div class="pay-icon"><i class="fa-brands fa-bitcoin"></i></div>
+        <h4>Binance / USDT</h4>
+        <p>Crypto TRC20 auto-approval</p>
+      </div>
+      <div class="payment-card">
+        <div class="pay-icon"><i class="fa-regular fa-credit-card"></i></div>
+        <h4>Debit / Credit Card</h4>
+        <p>Visa & Mastercard supported</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CUSTOMER REVIEWS
+       ========================================================================== -->
+  <section class="reviews-section" id="reviews">
+    <div class="review-summary-box">
+      <div class="review-score-row">
+        <div>
+          <div class="big-rating">4.9</div>
+          <div class="stars-badge">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div style="font-size:13.5px;color:var(--text-muted);margin-top:6px;">2,580+ Verified Reviews</div>
+        </div>
+
+        <div class="rating-bars">
+          <div class="bar-row"><span>5 Star</span><div class="bar-track"><div class="bar-fill" style="width:84%;"></div></div><span>84%</span></div>
+          <div class="bar-row"><span>4 Star</span><div class="bar-track"><div class="bar-fill" style="width:12%;"></div></div><span>12%</span></div>
+          <div class="bar-row"><span>3 Star</span><div class="bar-track"><div class="bar-fill" style="width:3%;"></div></div><span>3%</span></div>
+          <div class="bar-row"><span>2 Star</span><div class="bar-track"><div class="bar-fill" style="width:1%;"></div></div><span>1%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-cards-grid">
+      <div class="user-review-card">
+        <div class="rev-header">
+          <div class="rev-avatar">A</div>
+          <div>
+            <div class="rev-name">Ali Raza</div>
+            <div class="rev-loc">Lahore, Pakistan</div>
+          </div>
+        </div>
+        <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="rev-text">"Saleem SMM Panel is genuinely the cheapest panel in Pakistan. TikTok views start within 30 seconds and the EasyPaisa deposit was approved in 5 minutes. 10/10!"</p>
+      </div>
+
+      <div class="user-review-card">
+        <div class="rev-header" style="background:linear-gradient(135deg, #7c3aed, #a855f7);">
+          <div class="rev-avatar" style="background:#7c3aed;">U</div>
+          <div>
+            <div class="rev-name">Usman Tariq</div>
+            <div class="rev-loc">Karachi, Pakistan</div>
+          </div>
+        </div>
+        <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="rev-text">"I ordered 4,000 hours YouTube watch time for my client's channel. It was delivered steadily without any drops, and the monetization was successfully approved!"</p>
+      </div>
+
+      <div class="user-review-card">
+        <div class="rev-header">
+          <div class="rev-avatar" style="background:linear-gradient(135deg, #0369a1, #38bdf8);">F</div>
+          <div>
+            <div class="rev-name">Fatima Noor</div>
+            <div class="rev-loc">Islamabad, Pakistan</div>
+          </div>
+        </div>
+        <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="rev-text">"Great panel for social media resellers. The customer support on WhatsApp is very responsive whenever I need help with custom orders."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQ)
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="section-head">
+      <div class="section-tag"><i class="fa-solid fa-circle-question"></i> Help Center</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item active">
+        <button class="faq-question">
+          <span>What is Saleem SMM Panel?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Saleem SMM Panel is a leading wholesale social media marketing service provider based in Pakistan. It allows creators, brands, and resellers to purchase high-retention followers, views, likes, and watch time at direct wholesale prices.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How can I add funds using EasyPaisa or JazzCash?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Simply log in to your dashboard, click on <strong>Add Funds</strong>, select EasyPaisa or JazzCash, send the amount to our displayed account number, and submit your Transaction ID (TID). Your wallet balance will be credited promptly.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Are the followers and views non-drop?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Yes! We offer non-drop services with a 30 to 60 days auto-refill guarantee. If any drop occurs within the refill guarantee period, simply click the Refill button in your dashboard for a free top-up.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I connect my own website using your Reseller API?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Absolutely. Saleem SMM Panel provides a standard REST API (v2) compatible with all major SMM scripts (SmartPanel, RentalPanel, WordPress SMM plugins). You can integrate and resell directly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP BUTTON
+       ========================================================================== -->
+  <a href="https://wa.me/923001234567?text=Hi%20Saleem%20SMM%20Panel%20Support" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="badge">1</span>
+  </a>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom:16px;">
+          <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+          <div class="logo-text" style="color:#fff;">Saleem<span>SMM</span></div>
+        </div>
+        <p>Saleem SMM Panel is Pakistan's premier wholesale platform providing automated growth services for creators, influencers, and digital marketing resellers globally.</p>
+        <div style="font-size:12.5px;color:rgba(255,255,255,0.6);">
+          <i class="fa-solid fa-shield-halved" style="color:var(--primary);"></i> 100% Secure & Compliant
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="pages/dashboard.html">Client Dashboard</a></li>
+          <li><a href="pages/dashboard.html?view=services">Services & Pricing</a></li>
+          <li><a href="pages/dashboard.html?view=add-funds">Add Funds</a></li>
+          <li><a href="pages/dashboard.html?view=api">Reseller API Docs</a></li>
+          <li class="admin-only-link" style="display:none;"><a href="pages/admin.html">Admin Control Center</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>SMM Services</h4>
+        <ul class="footer-links">
+          <li><a href="pages/dashboard.html?service=15210">Instagram Followers</a></li>
+          <li><a href="pages/dashboard.html?service=15038">TikTok Views Viral</a></li>
+          <li><a href="pages/dashboard.html?service=14721">YouTube Views Non-Drop</a></li>
+          <li><a href="pages/dashboard.html?service=15103">Facebook Page Followers</a></li>
+          <li><a href="pages/dashboard.html?service=14873">Telegram Members</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Support & Payments</h4>
+        <ul>
+          <li><i class="fa-solid fa-mobile-screen-button"></i> <span><strong>EasyPaisa:</strong> 03173983906</span></li>
+          <li><i class="fa-solid fa-wallet"></i> <span><strong>UPaisa:</strong> 03163846672</span></li>
+          <li><i class="fa-regular fa-envelope"></i> <span><strong>Email:</strong> saleembaloch1857@gmail.com</span></li>
+          <li><i class="fa-regular fa-clock"></i> <span><strong>Support Hours:</strong> 24/7 Active Live Support</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Saleem SMM Panel. All Rights Reserved.</div>
+      <div>Designed with High-Speed Cloud Automation & Pakistani Local Gateways.</div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/services-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function toggleCurrency() {
+      const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
+      AppState.setCurrency(next);
+      document.getElementById('nav-curr-label').textContent = next === 'PKR' ? 'PKR (₨)' : 'USD ($)';
+    }
+
+    function toggleMobileNav() {
+      const links = document.querySelector('.nav-links');
+      if (links) {
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      }
+    }
+
+    function switchAuthTab(tab) {
+      const loginPanel = document.getElementById('auth-panel-login');
+      const signupPanel = document.getElementById('auth-panel-signup');
+      const tabLogin = document.getElementById('tab-btn-login');
+      const tabSignup = document.getElementById('tab-btn-signup');
+
+      if (tab === 'login') {
+        loginPanel.style.display = 'block';
+        signupPanel.style.display = 'none';
+        tabLogin.className = 'btn-primary-grad';
+        tabSignup.className = 'btn-outline';
+      } else {
+        loginPanel.style.display = 'none';
+        signupPanel.style.display = 'block';
+        tabLogin.className = 'btn-outline';
+        tabSignup.className = 'btn-primary-grad';
+      }
+    }
+
+    function handleHeroLogin(e) {
+      e.preventDefault();
+      const loginInput = document.getElementById('login-username').value;
+      const pass = document.getElementById('login-password').value;
+
+      const res = AppState.loginUser(loginInput, pass);
+      if (res.success) {
+        AppState.showToast(`Login successful! Welcome back, ${res.user.username}.`, 'success');
+        setTimeout(() => {
+          if (AppState.isAdmin()) {
+            window.location.href = 'pages/admin.html';
+          } else {
+            window.location.href = 'pages/dashboard.html';
+          }
+        }, 700);
+      } else {
+        AppState.showToast(res.message, 'error');
+      }
+    }
+
+    function handleHeroSignup(e) {
+      e.preventDefault();
+      const name = document.getElementById('hero-reg-name').value;
+      const username = document.getElementById('hero-reg-username').value;
+      const email = document.getElementById('hero-reg-email').value;
+      const phone = document.getElementById('hero-reg-phone').value;
+      const pass = document.getElementById('hero-reg-password').value;
+
+      const res = AppState.registerUser(name, username, email, phone, pass);
+      if (res.success) {
+        AppState.showToast('Account created! Welcome bonus ₨ 100 added to your wallet.', 'success');
+        setTimeout(() => {
+          if (AppState.isAdmin()) {
+            window.location.href = 'pages/admin.html';
+          } else {
+            window.location.href = 'pages/dashboard.html';
+          }
+        }, 800);
+      } else {
+        AppState.showToast(res.message, 'error');
+      }
+    }
+  </script>
+</body>
+</html>

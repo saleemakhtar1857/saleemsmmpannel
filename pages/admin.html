@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center — Saleem SMM Panel</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="nightmode">
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="brand-logo">
+          <div class="logo-badge" style="background:#ff4757;"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="logo-text">Admin<span>Panel</span></div>
+        </a>
+      </div>
+
+      <div class="user-quick-profile" style="background:rgba(255, 71, 87, 0.1);border:1px solid rgba(255, 71, 87, 0.3);">
+        <div class="user-quick-avatar" style="background:#ff4757;">S</div>
+        <div class="user-quick-info">
+          <h4>Saleem Akhtar</h4>
+          <span style="font-size:11px;color:#ff4757;font-weight:700;word-break:break-all;">saleembaloch1857@gmail.com</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#section-analytics" class="sidebar-item active">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Overview Analytics</span>
+        </a>
+        <a href="#section-deposits" class="sidebar-item">
+          <i class="fa-solid fa-money-check-dollar"></i>
+          <span>Approve Deposits</span>
+        </a>
+        <a href="#section-orders" class="sidebar-item">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>Manage Orders</span>
+        </a>
+        <a href="#section-provider" class="sidebar-item">
+          <i class="fa-solid fa-server"></i>
+          <span>Provider API Sync</span>
+        </a>
+        <a href="#section-services" class="sidebar-item">
+          <i class="fa-solid fa-tags"></i>
+          <span>Pricing & Services</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="dashboard.html" class="sidebar-item" style="color:var(--primary);">
+          <i class="fa-solid fa-user"></i>
+          <span>Switch to Client Portal</span>
+        </a>
+        <a href="../index.html" class="sidebar-item" style="color:var(--text-muted);">
+          <i class="fa-solid fa-house"></i>
+          <span>Public Website</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="topbar-mobile-btn"><i class="fa-solid fa-bars"></i></button>
+          <h2 class="topbar-title">Saleem SMM Panel — Administrator Control Center</h2>
+        </div>
+
+        <div class="topbar-right">
+          <span class="admin-header-badge"><i class="fa-solid fa-bolt"></i> Live Wholesale Server</span>
+          <button class="theme-toggle-btn" onclick="AppState.toggleTheme()">
+            <i class="theme-toggle-icon fa-solid fa-sun"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <!-- Analytics Stat Bar -->
+        <div class="dash-stats-grid" id="section-analytics">
+          <div class="dash-stat-card">
+            <div class="stat-info">
+              <h5>Total Gross Revenue</h5>
+              <h3 id="admin-stat-revenue" style="color:#2ed573;">₨ 0.00</h3>
+            </div>
+            <div class="stat-icon-box" style="background:rgba(46, 213, 115, 0.1);color:#2ed573;">
+              <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-info">
+              <h5>Total Platform Orders</h5>
+              <h3 id="admin-stat-orders">0</h3>
+            </div>
+            <div class="stat-icon-box"><i class="fa-solid fa-cart-shopping"></i></div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-info">
+              <h5>Pending Payment Slips</h5>
+              <h3 id="admin-stat-pending-deposits" style="color:#ffa502;">1</h3>
+            </div>
+            <div class="stat-icon-box" style="background:rgba(255, 165, 2, 0.1);color:#ffa502;">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-info">
+              <h5>Provider API Balance</h5>
+              <h3 style="color:#1e90ff;">$148.20</h3>
+            </div>
+            <div class="stat-icon-box" style="background:rgba(30, 144, 255, 0.1);color:#1e90ff;">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: APPROVE PENDING DEPOSITS -->
+        <div class="table-panel" id="section-deposits" style="margin-bottom:28px;">
+          <div class="table-toolbar">
+            <div>
+              <h3 style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-money-check-dollar" style="color:var(--primary);"></i>
+                Pending EasyPaisa (03173983906) & UPaisa (03163846672) Deposits
+              </h3>
+              <p style="font-size:13px;color:var(--text-muted);margin-top:2px;">
+                Verify the Transaction ID (TID) against your mobile SMS and click "Approve" to instantly credit the user's wallet.
+              </p>
+            </div>
+          </div>
+
+          <div class="data-table-container">
+            <table class="custom-data-table">
+              <thead>
+                <tr>
+                  <th>Deposit ID</th>
+                  <th>Method</th>
+                  <th>Transaction ID (TID)</th>
+                  <th>Amount (₨)</th>
+                  <th>Date & Time</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-deposits-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: WHOLESALE SMM PROVIDER CONFIG -->
+        <div class="table-panel" id="section-provider" style="margin-bottom:28px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+            <i class="fa-solid fa-server" style="color:var(--primary);"></i>
+            Connected Wholesale SMM Provider Gateway
+          </h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:18px;">
+            Orders placed on Saleem SMM Panel are automatically routed to your wholesale provider via standard SMM REST API (v2).
+          </p>
+
+          <div class="provider-card">
+            <div class="provider-info">
+              <h4>Primary Provider: Peakerr SMM Global Wholesale</h4>
+              <p style="font-size:13px;color:var(--text-muted);">API Endpoint: <code>https://api.peakerr.com/v2</code></p>
+              <div class="provider-status-badge">API Connected & Active (200 OK)</div>
+            </div>
+            <div>
+              <button id="btn-test-provider-api" class="admin-action-btn">
+                <i class="fa-solid fa-plug"></i> Test Connection
+              </button>
+            </div>
+          </div>
+
+          <!-- Profit Margin Multiplier -->
+          <div class="profit-margin-slider-box">
+            <label>
+              <span>Automated Profit Markup On Wholesale Rates</span>
+              <span id="profit-margin-label" style="color:var(--primary);">40% Markup</span>
+            </label>
+            <input type="range" min="10" max="100" value="40" class="profit-slider" id="profit-margin-slider">
+            <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">
+              Example: If wholesale cost is ₨ 50, your retail price will automatically be set to ₨ 70 (+40% profit).
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: ORDERS MANAGEMENT -->
+        <div class="table-panel" id="section-orders" style="margin-bottom:28px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+            <i class="fa-solid fa-boxes-stacked" style="color:var(--primary);"></i>
+            Live Order Dispatcher & Status Override
+          </h3>
+          <div class="data-table-container">
+            <table class="custom-data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Service</th>
+                  <th>Target Link</th>
+                  <th>Quantity</th>
+                  <th>Charge</th>
+                  <th>Update Status</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION: SERVICES OVERVIEW -->
+        <div class="table-panel" id="section-services">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+            <i class="fa-solid fa-tags" style="color:var(--primary);"></i>
+            Active Catalog Services
+          </h3>
+          <div class="data-table-container">
+            <table class="custom-data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Service Name</th>
+                  <th>Rate (₨)</th>
+                  <th>Rate ($)</th>
+                  <th>Min / Max</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="admin-services-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="../js/services-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

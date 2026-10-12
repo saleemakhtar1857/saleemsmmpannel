@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/dashboard", "destination": "/pages/dashboard.html" },
+    { "source": "/dashboard.html", "destination": "/pages/dashboard.html" },
+    { "source": "/admin", "destination": "/pages/admin.html" },
+    { "source": "/admin.html", "destination": "/pages/admin.html" },
+    { "source": "/signup", "destination": "/pages/signup.html" },
+    { "source": "/signup.html", "destination": "/pages/signup.html" }
+  ]
+}
