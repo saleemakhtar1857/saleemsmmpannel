@@ -1,5 +1,5 @@
-/* ==========================================================================
-   SALEEM SMM PANEL — GLOBAL APP & STATE CONTROLLER
+﻿/* ==========================================================================
+   SALEEM SMM PANEL â€” GLOBAL APP & STATE CONTROLLER
    With Complete Multi-User Registration & Authentication System
    ========================================================================== */
 
@@ -97,7 +97,7 @@ const AppState = {
     this.currency = curr;
     localStorage.setItem(STORAGE_KEYS.CURRENCY, curr);
     document.querySelectorAll('.curr-symbol').forEach(el => {
-      el.textContent = curr === 'PKR' ? '₨' : '$';
+      el.textContent = curr === 'PKR' ? 'â‚¨' : '$';
     });
     document.querySelectorAll('.curr-code').forEach(el => {
       el.textContent = curr;
@@ -110,7 +110,7 @@ const AppState = {
   formatMoney(amountUsd, amountPkr) {
     if (this.currency === 'PKR') {
       const val = amountPkr !== undefined ? amountPkr : (amountUsd * 280);
-      return `₨ ${Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      return `â‚¨ ${Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     } else {
       const val = amountUsd !== undefined ? amountUsd : (amountPkr / 280);
       return `$ ${Number(val).toFixed(2)}`;
@@ -249,7 +249,7 @@ const AppState = {
       phone: phone ? phone.trim() : "",
       password: password,
       role: "client",
-      balance_pkr: 100.00, // ₨ 100 Signup Gift Bonus
+      balance_pkr: 100.00, // â‚¨ 100 Signup Gift Bonus
       balance_usd: 0.36,
       spent_pkr: 0.00,
       spent_usd: 0.00,
@@ -290,7 +290,7 @@ const AppState = {
   logout() {
     this.currentUser = null;
     localStorage.removeItem(STORAGE_KEYS.USER);
-    if (window.location.pathname.includes('/pages/')) {
+    if (window.location.pathname.includes('/views/')) {
       window.location.href = '../index.html';
     } else {
       window.location.href = 'index.html';
@@ -298,11 +298,11 @@ const AppState = {
   },
 
   updateNavAuthUI() {
-    const inPages = window.location.pathname.includes('/pages/');
-    const dashLink = inPages ? 'dashboard.html' : 'pages/dashboard.html';
-    const adminLink = inPages ? 'admin.html' : 'pages/admin.html';
+    const inPages = window.location.pathname.includes('/views/');
+    const dashLink = inPages ? 'dashboard.html' : 'views/dashboard.html';
+    const adminLink = inPages ? 'admin.html' : 'views/admin.html';
     const loginLink = inPages ? '../index.html#auth' : 'index.html#auth';
-    const signupLink = inPages ? 'signup.html' : 'pages/signup.html';
+    const signupLink = inPages ? 'signup.html' : 'views/signup.html';
 
     // Show/hide admin links across the UI strictly for saleembaloch1857@gmail.com
     const isAdminUser = this.isAdmin();
@@ -487,3 +487,4 @@ const AppState = {
 document.addEventListener('DOMContentLoaded', () => {
   AppState.init();
 });
+
