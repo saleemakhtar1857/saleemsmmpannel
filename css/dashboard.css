@@ -732,7 +732,7 @@ body.nightmode {
 }
 
 .dil-custom-select.open .dil-cs-menu {
-  display: block;
+  display: block !important;
 }
 
 .dil-cs-option {

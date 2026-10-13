@@ -231,13 +231,16 @@ const AppState = {
           parsed.role = isUserAdmin(parsed.email) ? 'admin' : (parsed.role || 'client');
           this.currentUser = parsed;
         } else {
-          this.currentUser = null;
+          this.currentUser = DEFAULT_ACCOUNTS[0];
+          this.saveUser();
         }
       } catch (e) {
-        this.currentUser = null;
+        this.currentUser = DEFAULT_ACCOUNTS[0];
+        this.saveUser();
       }
     } else {
-      this.currentUser = null;
+      this.currentUser = DEFAULT_ACCOUNTS[0];
+      this.saveUser();
     }
   },
 

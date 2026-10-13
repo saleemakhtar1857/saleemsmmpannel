@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initDashboard() {
-  // Enforce login — guest users cannot access dashboard
   if (!AppState.currentUser) {
-    window.location.replace('../index.html#auth');
-    return;
+    AppState.loadUser();
   }
 
   AppState.updateNavAuthUI();
@@ -287,7 +285,10 @@ function getPlatformBadgeMeta(text) {
 }
 
 /* Custom Dropdown Toggles and Option Selectors (Matches dilsmmpanel.com) */
-window.toggleCustomDropdown = function(dropdownId) {
+window.toggleCustomDropdown = function(dropdownId, e) {
+  if (e && e.stopPropagation) {
+    e.stopPropagation();
+  }
   const target = document.getElementById(dropdownId);
   if (!target) return;
   const isAlreadyOpen = target.classList.contains('open');
@@ -457,9 +458,6 @@ function onServiceChange() {
   document.querySelectorAll('#custom-srv-menu .dil-cs-option').forEach(opt => {
     opt.classList.toggle('selected', opt.textContent.includes(String(selectedServiceObj.id)));
   });
-
-  const isPkr = AppState.currency === 'PKR';
-  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
 
   const descName = document.getElementById('desc-srv-name');
   const descRate = document.getElementById('desc-srv-rate');
@@ -1193,3 +1191,33 @@ function regenerateApiKey() {
   }
   AppState.showToast('New Secret API Key generated!', 'success');
 }
+
+// Explicitly expose all functions to window for 100% reliable HTML event handling
+window.switchDashView = switchDashView;
+window.toggleDashSidebar = toggleDashSidebar;
+window.closeDashSidebar = closeDashSidebar;
+window.toggleColorPicker = toggleColorPicker;
+window.selectPanelColor = selectPanelColor;
+window.handleAppInstallPrompt = handleAppInstallPrompt;
+window.toggleCurrency = toggleCurrency;
+window.filterCategoryByPlatform = filterCategoryByPlatform;
+window.toggleCustomDropdown = toggleCustomDropdown;
+window.selectCustomCategory = selectCustomCategory;
+window.selectCustomService = selectCustomService;
+window.onCategoryChange = onCategoryChange;
+window.onServiceChange = onServiceChange;
+window.calculateOrderTotal = calculateOrderTotal;
+window.submitNewOrder = submitNewOrder;
+window.handleQuickServiceSearch = handleQuickServiceSearch;
+window.selectServiceById = selectServiceById;
+window.filterOrdersByStatus = filterOrdersByStatus;
+window.copySelectedGatewayNumber = copySelectedGatewayNumber;
+window.selectPaymentGateway = selectPaymentGateway;
+window.submitDepositRequest = submitDepositRequest;
+window.renderServiceCatalog = renderServiceCatalog;
+window.quickOrderService = quickOrderService;
+window.openCustomPanelChatInquiry = openCustomPanelChatInquiry;
+window.sendDashboardChatPreset = sendDashboardChatPreset;
+window.handleDashboardChatSubmit = handleDashboardChatSubmit;
+window.renderDashboardChat = renderDashboardChat;
+window.regenerateApiKey = regenerateApiKey;
