@@ -10,11 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initAdminDashboard() {
-  // Strict Access Control: Only saleembaloch1857@gmail.com can access Admin Dashboard
+  // Strict Access Control: Only authorized administrators can access Admin Dashboard
   if (!AppState.isAdmin()) {
-    alert('Access Denied! Only the authorized administrator (saleembaloch1857@gmail.com) can access the Admin Dashboard.');
+    alert('Access Denied! Only authorized administrators (saleembaloch1857@gmail.com / yasinofficial03098158572@gmail.com) can access the Admin Dashboard.');
     window.location.href = '../index.html#auth';
     return;
+  }
+
+  // Dynamically update active admin profile banner
+  const curUser = AppState.currentUser;
+  if (curUser) {
+    const nameEl = document.getElementById('admin-sidebar-name');
+    const emailEl = document.getElementById('admin-sidebar-email');
+    const avatarEl = document.getElementById('admin-sidebar-avatar');
+    if (nameEl) nameEl.textContent = curUser.name || (curUser.email.includes('yasin') ? 'Yasin Official' : 'Saleem Akhtar');
+    if (emailEl) emailEl.textContent = curUser.email;
+    if (avatarEl) avatarEl.textContent = (curUser.name || curUser.username || 'A')[0].toUpperCase();
   }
 
   updateAdminStats();

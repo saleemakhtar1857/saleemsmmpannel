@@ -96,8 +96,15 @@ const DB = {
     },
     {
       key: "smm_live_sec_admin_778899aabbcc",
-      username: "admin",
+      username: "saleem_admin",
       email: "saleembaloch1857@gmail.com",
+      balance: 25000.00,
+      currency: "PKR"
+    },
+    {
+      key: "smm_live_sec_admin_yasin998877",
+      username: "yasin_admin",
+      email: "yasinofficial03098158572@gmail.com",
       balance: 25000.00,
       currency: "PKR"
     }

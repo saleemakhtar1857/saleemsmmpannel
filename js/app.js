@@ -14,7 +14,18 @@ const STORAGE_KEYS = {
   CHATS: 'saleem_live_chats_db'
 };
 
-const ADMIN_EMAIL = 'saleembaloch1857@gmail.com';
+const ADMIN_EMAILS = [
+  'saleembaloch1857@gmail.com',
+  'yasinofficial03098158572@gmail.com'
+];
+const ADMIN_EMAIL = ADMIN_EMAILS[0];
+
+function isUserAdmin(email) {
+  if (!email) return false;
+  const clean = email.toLowerCase().trim();
+  return ADMIN_EMAILS.some(ae => ae.toLowerCase().trim() === clean);
+}
+
 const OFFICIAL_WHATSAPP = '03163846672';
 const OFFICIAL_WHATSAPP_INTL = '923163846672';
 const OFFICIAL_EASYPAISA = '03173983906';
@@ -27,7 +38,7 @@ const DEFAULT_ACCOUNTS = [
     name: "Saleem VIP Client",
     username: "saleem_vip",
     email: "client@saleemsmm.pk",
-    phone: "03173983906",
+    phone: "03163846672",
     password: "saleem123",
     role: "client",
     balance_pkr: 5200.00,
@@ -41,8 +52,8 @@ const DEFAULT_ACCOUNTS = [
     id: "USR-002",
     name: "Saleem Akhtar (Admin)",
     username: "saleem_admin",
-    email: ADMIN_EMAIL,
-    phone: "03173983906",
+    email: "saleembaloch1857@gmail.com",
+    phone: "03163846672",
     password: "admin123",
     role: "admin",
     balance_pkr: 25000.00,
@@ -50,6 +61,21 @@ const DEFAULT_ACCOUNTS = [
     spent_pkr: 0.00,
     spent_usd: 0.00,
     apiKey: "smm_live_sec_admin_778899aabbcc",
+    joined_at: "2026-08-01"
+  },
+  {
+    id: "USR-003",
+    name: "Yasin Official (Admin)",
+    username: "yasin_admin",
+    email: "yasinofficial03098158572@gmail.com",
+    phone: "03163846672",
+    password: "admin123",
+    role: "admin",
+    balance_pkr: 25000.00,
+    balance_usd: 89.28,
+    spent_pkr: 0.00,
+    spent_usd: 0.00,
+    apiKey: "smm_live_sec_admin_yasin998877",
     joined_at: "2026-08-01"
   }
 ];
@@ -73,12 +99,12 @@ const AppState = {
     setInterval(() => this.syncChatsFromServer(), 3500);
   },
 
-  isAdmin() {
-    return Boolean(
-      this.currentUser &&
-      this.currentUser.email &&
-      this.currentUser.email.toLowerCase().trim() === ADMIN_EMAIL
-    );
+  isAdmin(user) {
+    const u = user || this.currentUser;
+    if (!u) return false;
+    if (u.role === 'admin') return true;
+    if (u.email && isUserAdmin(u.email)) return true;
+    return false;
   },
 
   /* ------------------- Theme & Color Management ------------------- */
@@ -166,19 +192,20 @@ const AppState = {
       }
     }
 
-    // Enforce that ONLY saleembaloch1857@gmail.com has admin role
-    let hasAdmin = false;
+    // Enforce that both authorized admin accounts have admin role
     users = users.map(u => {
-      if (u.email && u.email.toLowerCase().trim() === ADMIN_EMAIL) {
-        hasAdmin = true;
+      if (u.email && isUserAdmin(u.email)) {
         return { ...u, role: 'admin' };
       }
-      return { ...u, role: 'client' };
+      return { ...u, role: u.role === 'admin' && !isUserAdmin(u.email) ? 'client' : (u.role || 'client') };
     }).filter(u => u.email !== 'admin@saleemsmm.pk');
 
-    if (!hasAdmin) {
-      users.push(DEFAULT_ACCOUNTS[1]);
-    }
+    // Ensure default admin accounts are seeded
+    ADMIN_EMAILS.forEach((admEmail, idx) => {
+      if (!users.some(u => u.email && u.email.toLowerCase().trim() === admEmail.toLowerCase().trim())) {
+        users.push(DEFAULT_ACCOUNTS[idx + 1]);
+      }
+    });
 
     localStorage.setItem(STORAGE_KEYS.USERS_LIST, JSON.stringify(users));
   },
@@ -200,9 +227,8 @@ const AppState = {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        // Verify user still exists in database
         if (parsed && parsed.email) {
-          parsed.role = (parsed.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
+          parsed.role = isUserAdmin(parsed.email) ? 'admin' : (parsed.role || 'client');
           this.currentUser = parsed;
         } else {
           this.currentUser = null;
@@ -211,14 +237,13 @@ const AppState = {
         this.currentUser = null;
       }
     } else {
-      // No session — require login
       this.currentUser = null;
     }
   },
 
   saveUser() {
     if (this.currentUser) {
-      this.currentUser.role = (this.currentUser.email && this.currentUser.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
+      this.currentUser.role = (this.currentUser.email && isUserAdmin(this.currentUser.email)) ? 'admin' : (this.currentUser.role || 'client');
       localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(this.currentUser));
       const users = this.getUsers();
       const idx = users.findIndex(u => u.email.toLowerCase() === this.currentUser.email.toLowerCase());
@@ -239,13 +264,18 @@ const AppState = {
       return { success: false, message: "Password must be at least 6 characters long." };
     }
 
-    if (cleanEmail === ADMIN_EMAIL) {
-      const existingAdminIdx = users.findIndex(u => u.email.toLowerCase().trim() === ADMIN_EMAIL);
+    if (isUserAdmin(cleanEmail)) {
+      const existingAdminIdx = users.findIndex(u => u.email.toLowerCase().trim() === cleanEmail);
+      const isYasin = cleanEmail === 'yasinofficial03098158572@gmail.com';
+      const defaultName = isYasin ? "Yasin Official (Admin)" : "Saleem Akhtar (Admin)";
+      const defaultUsername = isYasin ? "yasin_admin" : "saleem_admin";
+      const defaultId = isYasin ? "USR-003" : "USR-002";
+
       const adminUser = {
-        id: "USR-002",
-        name: name.trim() || "Saleem Akhtar (Admin)",
-        username: cleanUsername || "saleem_admin",
-        email: ADMIN_EMAIL,
+        id: defaultId,
+        name: name.trim() || defaultName,
+        username: cleanUsername || defaultUsername,
+        email: cleanEmail,
         phone: phone ? phone.trim() : OFFICIAL_WHATSAPP,
         password: password,
         role: "admin",
@@ -253,7 +283,7 @@ const AppState = {
         balance_usd: existingAdminIdx !== -1 ? users[existingAdminIdx].balance_usd : 89.28,
         spent_pkr: existingAdminIdx !== -1 ? users[existingAdminIdx].spent_pkr : 0.00,
         spent_usd: existingAdminIdx !== -1 ? users[existingAdminIdx].spent_usd : 0.00,
-        apiKey: "smm_live_sec_admin_778899aabbcc",
+        apiKey: "smm_live_sec_admin_" + Math.random().toString(36).substring(2, 12),
         joined_at: new Date().toISOString().substring(0, 10)
       };
       if (existingAdminIdx !== -1) {
@@ -310,7 +340,7 @@ const AppState = {
     );
 
     if (user) {
-      user.role = (user.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
+      user.role = isUserAdmin(user.email) ? 'admin' : (user.role || 'client');
       this.currentUser = user;
       this.saveUser();
       return { success: true, user: user };
@@ -711,6 +741,9 @@ const AppState = {
     root.innerHTML = `
       <!-- Premium Dark Floating Chat Card (Matches Screenshots) -->
       <div class="saleem-dark-chat-card" id="saleem-dark-chat-card">
+        <button type="button" class="dark-chat-close-x" onclick="document.getElementById('saleem-dark-chat-card').classList.add('minimized')" title="Minimize / Dismiss">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
         <div class="dark-chat-top">
           <div>
             <div class="dark-chat-title">Questions? Chat with us.</div>
@@ -737,6 +770,12 @@ const AppState = {
           </a>
         </div>
       </div>
+
+      <!-- Minimized Floating Trigger Button -->
+      <button type="button" class="saleem-mini-chat-trigger" id="saleem-mini-chat-trigger" onclick="document.getElementById('saleem-dark-chat-card').classList.remove('minimized')" title="Open Support Chat">
+        <i class="fa-solid fa-headset"></i>
+        <span class="online-pulse-dot" style="position:absolute;top:4px;right:4px;"></span>
+      </button>
 
       <!-- In-Panel Live Chat Popup Window -->
       <div class="saleem-chat-popup" id="saleem-chat-popup">

@@ -617,6 +617,156 @@ body.nightmode {
   border-color: var(--primary);
 }
 
+/* Custom Dropdown with Official Platform Brand Icons (Matches dilsmmpanel.com) */
+.dil-custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.dil-cs-trigger {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 14px;
+  border-radius: 11px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.dil-cs-trigger:hover,
+.dil-custom-select.open .dil-cs-trigger {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.dil-cs-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dil-cs-label {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dil-cs-caret {
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: transform 0.25s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.dil-custom-select.open .dil-cs-caret {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.dil-cs-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 999;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  display: none;
+  padding: 6px;
+}
+
+.dil-custom-select.open .dil-cs-menu {
+  display: block;
+}
+
+.dil-cs-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dil-cs-option:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--primary);
+}
+
+.dil-cs-option.selected {
+  background: rgba(239, 68, 68, 0.14);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.dil-opt-brand-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.18);
+}
+
+.dil-opt-srv-id {
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.dil-opt-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dil-hidden-select {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* Service Description Card */
 .dil-desc-card {
   border: 1px solid var(--border-color);
@@ -1972,4 +2122,113 @@ body.nightmode {
     min-width: 0 !important;
     width: 100% !important;
   }
+}
+
+/* ==========================================================================
+   IN-PANEL LIVE CHAT VIEW STYLES
+   ========================================================================== */
+.panel-chat-messages {
+  height: 380px;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--bg-surface-soft, rgba(0, 0, 0, 0.15));
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 14px;
+  scroll-behavior: smooth;
+}
+
+.chat-bubble-row {
+  display: flex;
+  width: 100%;
+}
+
+.chat-row-user {
+  justify-content: flex-end;
+}
+
+.chat-row-admin {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  word-break: break-word;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.bubble-user {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  border-bottom-right-radius: 3px;
+}
+
+.bubble-admin {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(239, 68, 68, 0.35);
+  border-bottom-left-radius: 3px;
+}
+
+.bubble-sender {
+  font-size: 10.5px;
+  font-weight: 700;
+  opacity: 0.85;
+  margin-bottom: 3px;
+}
+
+.bubble-text {
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.bubble-time {
+  font-size: 10px;
+  opacity: 0.7;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.panel-chat-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.saleem-chat-quick-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 0;
+  margin-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.saleem-chat-quick-chips button {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.saleem-chat-quick-chips button:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
 }

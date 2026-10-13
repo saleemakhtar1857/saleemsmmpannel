@@ -24,7 +24,8 @@
         if (raw && !window.location.hash.includes('logout') && !window.location.search.includes('stay=true')) {
           var u = JSON.parse(raw);
           if (u && u.email) {
-            if (u.email.toLowerCase().trim() === 'saleembaloch1857@gmail.com') {
+            var em = u.email.toLowerCase().trim();
+            if (em === 'saleembaloch1857@gmail.com' || em === 'yasinofficial03098158572@gmail.com' || u.role === 'admin') {
               window.location.replace('views/admin.html');
             } else {
               window.location.replace('views/dashboard.html');
@@ -55,6 +56,9 @@
         <li><a href="#reviews" class="nav-link"><i class="fa-solid fa-star"></i> Reviews</a></li>
         <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
         <li class="admin-only-link" style="display:none;"><a href="views/admin.html" class="nav-link" style="color:var(--primary);font-weight:700;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</a></li>
+        <li style="border-top:1px solid var(--border-color);padding-top:6px;margin-top:4px;">
+          <a href="views/signup.html" class="nav-link" style="color:var(--primary);font-weight:700;"><i class="fa-solid fa-user-plus"></i> Sign Up (₨ 100 Bonus)</a>
+        </li>
       </ul>
 
       <div class="nav-actions">

@@ -21,6 +21,7 @@ function initDashboard() {
     return;
   }
 
+  AppState.updateNavAuthUI();
   populateCategoriesSelect();
   populateCatalogFilter();
   renderUserOrders();
@@ -29,6 +30,11 @@ function initDashboard() {
   renderServiceCatalog();
   renderDashboardChat();
   renderAllPrices();
+
+  // Auto polling for live chat updates
+  setInterval(() => {
+    renderDashboardChat();
+  }, 3000);
 
   window.addEventListener('saleem_chats_updated', () => {
     renderDashboardChat();
@@ -263,6 +269,42 @@ function getPlatformBadgeMeta(text) {
   return { icon: 'fa-solid fa-layer-group', bg: '#2563eb' };
 }
 
+/* Custom Dropdown Toggles and Option Selectors (Matches dilsmmpanel.com) */
+window.toggleCustomDropdown = function(dropdownId) {
+  const target = document.getElementById(dropdownId);
+  if (!target) return;
+  const isAlreadyOpen = target.classList.contains('open');
+  document.querySelectorAll('.dil-custom-select').forEach(el => el.classList.remove('open'));
+  if (!isAlreadyOpen) {
+    target.classList.add('open');
+  }
+};
+
+window.selectCustomCategory = function(catId) {
+  const catSelect = document.getElementById('order-category');
+  if (catSelect) {
+    catSelect.value = catId;
+    onCategoryChange();
+  }
+  document.getElementById('custom-cat-dropdown')?.classList.remove('open');
+};
+
+window.selectCustomService = function(srvId) {
+  const srvSelect = document.getElementById('order-service');
+  if (srvSelect) {
+    srvSelect.value = srvId;
+    onServiceChange();
+  }
+  document.getElementById('custom-srv-dropdown')?.classList.remove('open');
+};
+
+// Auto close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dil-custom-select')) {
+    document.querySelectorAll('.dil-custom-select').forEach(el => el.classList.remove('open'));
+  }
+});
+
 function filterCategoryByPlatform(platformKey, btnEl) {
   currentCategoryFilter = platformKey;
   document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => b.classList.remove('active'));
@@ -272,6 +314,7 @@ function filterCategoryByPlatform(platformKey, btnEl) {
 
 function populateCategoriesSelect() {
   const catSelect = document.getElementById('order-category');
+  const catMenu = document.getElementById('custom-cat-menu');
   if (!catSelect) return;
 
   const filteredCats = MASTER_CATEGORIES.filter(cat => {
@@ -285,11 +328,27 @@ function populateCategoriesSelect() {
 
   const listToUse = filteredCats.length > 0 ? filteredCats : MASTER_CATEGORIES;
 
-  // Add Social Media Platform Icons to each Category option (matching dilsmmpanel screenshots)
+  // 1. Populate native select
   catSelect.innerHTML = listToUse.map(c => {
     const iconEmoji = getPlatformIconEmoji(c.name);
     return `<option value="${c.id}">${iconEmoji} ${c.name}</option>`;
   }).join('');
+
+  // 2. Populate custom dropdown menu with official brand icon badges
+  if (catMenu) {
+    catMenu.innerHTML = listToUse.map(c => {
+      const meta = getPlatformBadgeMeta(c.name);
+      const isSel = c.id === catSelect.value;
+      return `
+        <div class="dil-cs-option ${isSel ? 'selected' : ''}" onclick="selectCustomCategory('${c.id}')">
+          <span class="dil-opt-brand-icon" style="background:${meta.bg};">
+            <i class="${meta.icon}"></i>
+          </span>
+          <span class="dil-opt-text">${c.name}</span>
+        </div>
+      `;
+    }).join('');
+  }
 
   onCategoryChange();
 }
@@ -297,26 +356,56 @@ function populateCategoriesSelect() {
 function onCategoryChange() {
   const catSelect = document.getElementById('order-category');
   const srvSelect = document.getElementById('order-service');
+  const srvMenu = document.getElementById('custom-srv-menu');
   if (!catSelect || !srvSelect) return;
 
   const selectedCatId = catSelect.value;
   currentServiceList = MASTER_SERVICES.filter(s => s.category_id === selectedCatId);
 
-  // Update Category Badge Icon & Color to match selected platform (Screenshot 4)
+  // Update Category Badge Icon & Label on custom trigger (Matches Screenshot 1 & 4)
   const selectedCat = MASTER_CATEGORIES.find(c => c.id === selectedCatId);
   const catBadge = document.getElementById('category-badge-icon');
-  if (catBadge && selectedCat) {
+  const catLabel = document.getElementById('custom-cat-label');
+  if (selectedCat) {
     const meta = getPlatformBadgeMeta(selectedCat.name);
-    catBadge.style.background = meta.bg;
-    catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
+    if (catBadge) {
+      catBadge.style.background = meta.bg;
+      catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
+    }
+    if (catLabel) {
+      catLabel.textContent = selectedCat.name;
+    }
   }
 
-  // Add Platform Icon to each Service option (matching dilsmmpanel screenshots)
+  // Highlight selected option in custom category menu
+  document.querySelectorAll('#custom-cat-menu .dil-cs-option').forEach(opt => {
+    opt.classList.toggle('selected', opt.textContent.includes(selectedCat ? selectedCat.name : ''));
+  });
+
+  // 1. Populate native services select
   srvSelect.innerHTML = currentServiceList.map(s => {
     const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
     const iconEmoji = getPlatformIconEmoji(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
     return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
   }).join('');
+
+  // 2. Populate custom services dropdown menu with official brand badges & ID pills
+  if (srvMenu) {
+    srvMenu.innerHTML = currentServiceList.map(s => {
+      const meta = getPlatformBadgeMeta(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
+      const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      const isSel = s.id === parseInt(srvSelect.value);
+      return `
+        <div class="dil-cs-option ${isSel ? 'selected' : ''}" onclick="selectCustomService(${s.id})">
+          <span class="dil-opt-brand-icon" style="background:${meta.bg};">
+            <i class="${meta.icon}"></i>
+          </span>
+          <span class="dil-opt-srv-id">${s.id}</span>
+          <span class="dil-opt-text">${s.name} — ${priceStr}</span>
+        </div>
+      `;
+    }).join('');
+  }
 
   onServiceChange();
 }
@@ -329,13 +418,25 @@ function onServiceChange() {
   selectedServiceObj = MASTER_SERVICES.find(s => s.id === srvId) || currentServiceList[0];
   if (!selectedServiceObj) return;
 
-  // Update Service ID Pill with platform color
+  // Update Service ID Pill & Label on custom trigger (Matches Screenshot 1)
   const idPill = document.getElementById('selected-srv-id-pill');
+  const srvLabel = document.getElementById('custom-srv-label');
+  const isPkr = AppState.currency === 'PKR';
+  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
+
   if (idPill) {
     const srvMeta = getPlatformBadgeMeta(selectedServiceObj.name || selectedServiceObj.category_name);
     idPill.style.background = srvMeta.bg;
     idPill.textContent = selectedServiceObj.id;
   }
+  if (srvLabel) {
+    srvLabel.textContent = `${selectedServiceObj.id} - ${selectedServiceObj.name} — ${rateText}`;
+  }
+
+  // Highlight selected option in custom service menu
+  document.querySelectorAll('#custom-srv-menu .dil-cs-option').forEach(opt => {
+    opt.classList.toggle('selected', opt.textContent.includes(String(selectedServiceObj.id)));
+  });
 
   const isPkr = AppState.currency === 'PKR';
   const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
@@ -1055,6 +1156,10 @@ function sendDashboardChatPreset(presetText) {
   renderDashboardChat();
   AppState.showToast('Inquiry sent to Admin in Live Chat!', 'success');
 }
+
+window.sendDashboardChatPreset = sendDashboardChatPreset;
+window.handleDashboardChatSubmit = handleDashboardChatSubmit;
+window.renderDashboardChat = renderDashboardChat;
 
 function regenerateApiKey() {
   const newKey = 'smm_live_sec_' + Math.random().toString(36).substring(2, 15);
