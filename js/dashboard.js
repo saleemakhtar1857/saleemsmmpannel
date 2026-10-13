@@ -214,6 +214,55 @@ function renderAllPrices() {
 /* ==========================================================================
    NEW ORDER FORM & 14 PLATFORM ICON FILTERS (SCREENSHOT 1)
    ========================================================================== */
+/* Helper: Get Unicode Social Platform Icon/Emoji */
+function getPlatformIconEmoji(text) {
+  const t = (text || '').toLowerCase();
+  if (t.includes('instagram') || t.includes('insta')) return '📸';
+  if (t.includes('tiktok') || t.includes('tik tok')) return '🎵';
+  if (t.includes('youtube') || t.includes('yt ') || t.includes('watchtime') || t.includes('subscriber')) return '🔴';
+  if (t.includes('facebook') || t.includes('fb ') || t.includes('fb page')) return '🔵';
+  if (t.includes('telegram') || t.includes('tg ')) return '✈️';
+  if (t.includes('twitter') || t.includes(' x ') || t.startsWith('x »') || t.includes('x »') || t.includes('x -') || t.includes('tweets')) return '❌';
+  if (t.includes('spotify')) return '🟢';
+  if (t.includes('linkedin')) return '💼';
+  if (t.includes('whatsapp') || t.includes('wa ')) return '💬';
+  if (t.includes('capcut')) return '🎬';
+  if (t.includes('gemini') || t.includes('google ai') || t.includes('sparkle')) return '✨';
+  if (t.includes('muse ai') || t.includes('ai tool') || t.includes('chatgpt') || t.includes('openai') || t.includes('midjourney')) return '🤖';
+  if (t.includes('custom') || t.includes('panel') || t.includes('banwayein')) return '👑';
+  if (t.includes('traffic') || t.includes('website') || t.includes('seo') || t.includes('google')) return '🌐';
+  if (t.includes('snapchat')) return '👻';
+  if (t.includes('discord')) return '🎮';
+  if (t.includes('threads')) return '🧵';
+  if (t.includes('twitch')) return '🟣';
+  if (t.includes('soundcloud')) return '🟠';
+  if (t.includes('pinterest')) return '📌';
+  return '⚡';
+}
+
+/* Helper: Get Platform Visual Badge Icon & Background */
+function getPlatformBadgeMeta(text) {
+  const t = (text || '').toLowerCase();
+  if (t.includes('instagram') || t.includes('insta')) return { icon: 'fa-brands fa-instagram', bg: 'linear-gradient(45deg, #f09433, #dc2743, #bc1888)' };
+  if (t.includes('tiktok') || t.includes('tik tok')) return { icon: 'fa-brands fa-tiktok', bg: '#000000' };
+  if (t.includes('youtube') || t.includes('yt ')) return { icon: 'fa-brands fa-youtube', bg: '#ff0000' };
+  if (t.includes('facebook') || t.includes('fb ')) return { icon: 'fa-brands fa-facebook-f', bg: '#1877f2' };
+  if (t.includes('telegram') || t.includes('tg ')) return { icon: 'fa-brands fa-telegram', bg: '#0088cc' };
+  if (t.includes('twitter') || t.includes(' x ') || t.startsWith('x »') || t.includes('x »') || t.includes('tweets')) return { icon: 'fa-brands fa-x-twitter', bg: '#000000' };
+  if (t.includes('spotify')) return { icon: 'fa-brands fa-spotify', bg: '#1db954' };
+  if (t.includes('linkedin')) return { icon: 'fa-brands fa-linkedin-in', bg: '#0a66c2' };
+  if (t.includes('whatsapp') || t.includes('wa ')) return { icon: 'fa-brands fa-whatsapp', bg: '#25d366' };
+  if (t.includes('capcut')) return { icon: 'fa-solid fa-scissors', bg: '#111827' };
+  if (t.includes('gemini') || t.includes('google ai')) return { icon: 'fa-solid fa-wand-magic-sparkles', bg: 'linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853)' };
+  if (t.includes('muse ai') || t.includes('ai') || t.includes('chatgpt')) return { icon: 'fa-solid fa-robot', bg: '#2563eb' };
+  if (t.includes('custom') || t.includes('panel')) return { icon: 'fa-solid fa-crown', bg: 'linear-gradient(135deg, #f59e0b, #d97706)' };
+  if (t.includes('traffic') || t.includes('website')) return { icon: 'fa-solid fa-globe', bg: '#0284c7' };
+  if (t.includes('snapchat')) return { icon: 'fa-brands fa-snapchat', bg: '#fffc00' };
+  if (t.includes('discord')) return { icon: 'fa-brands fa-discord', bg: '#5865f2' };
+  if (t.includes('threads')) return { icon: 'fa-brands fa-threads', bg: '#000000' };
+  return { icon: 'fa-solid fa-layer-group', bg: '#2563eb' };
+}
+
 function filterCategoryByPlatform(platformKey, btnEl) {
   currentCategoryFilter = platformKey;
   document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => b.classList.remove('active'));
@@ -229,16 +278,18 @@ function populateCategoriesSelect() {
     if (currentCategoryFilter === 'all') return true;
     const nameLower = cat.name.toLowerCase();
     if (currentCategoryFilter === 'custom') return nameLower.includes('custom') || nameLower.includes('panel');
-    if (currentCategoryFilter === 'ai') return nameLower.includes('ai') || nameLower.includes('chatgpt') || nameLower.includes('canva') || nameLower.includes('tool');
+    if (currentCategoryFilter === 'ai') return nameLower.includes('ai') || nameLower.includes('chatgpt') || nameLower.includes('canva') || nameLower.includes('tool') || nameLower.includes('gemini');
     if (currentCategoryFilter === 'traffic') return nameLower.includes('traffic') || nameLower.includes('website') || nameLower.includes('seo');
     return cat.platform === currentCategoryFilter || nameLower.includes(currentCategoryFilter);
   });
 
   const listToUse = filteredCats.length > 0 ? filteredCats : MASTER_CATEGORIES;
 
-  catSelect.innerHTML = listToUse.map(c =>
-    `<option value="${c.id}">${c.name}</option>`
-  ).join('');
+  // Add Social Media Platform Icons to each Category option (matching dilsmmpanel screenshots)
+  catSelect.innerHTML = listToUse.map(c => {
+    const iconEmoji = getPlatformIconEmoji(c.name);
+    return `<option value="${c.id}">${iconEmoji} ${c.name}</option>`;
+  }).join('');
 
   onCategoryChange();
 }
@@ -251,9 +302,20 @@ function onCategoryChange() {
   const selectedCatId = catSelect.value;
   currentServiceList = MASTER_SERVICES.filter(s => s.category_id === selectedCatId);
 
+  // Update Category Badge Icon & Color to match selected platform (Screenshot 4)
+  const selectedCat = MASTER_CATEGORIES.find(c => c.id === selectedCatId);
+  const catBadge = document.getElementById('category-badge-icon');
+  if (catBadge && selectedCat) {
+    const meta = getPlatformBadgeMeta(selectedCat.name);
+    catBadge.style.background = meta.bg;
+    catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
+  }
+
+  // Add Platform Icon to each Service option (matching dilsmmpanel screenshots)
   srvSelect.innerHTML = currentServiceList.map(s => {
     const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
-    return `<option value="${s.id}">${s.name} — ${priceStr}</option>`;
+    const iconEmoji = getPlatformIconEmoji(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
+    return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
   }).join('');
 
   onServiceChange();
@@ -267,10 +329,17 @@ function onServiceChange() {
   selectedServiceObj = MASTER_SERVICES.find(s => s.id === srvId) || currentServiceList[0];
   if (!selectedServiceObj) return;
 
+  // Update Service ID Pill with platform color
+  const idPill = document.getElementById('selected-srv-id-pill');
+  if (idPill) {
+    const srvMeta = getPlatformBadgeMeta(selectedServiceObj.name || selectedServiceObj.category_name);
+    idPill.style.background = srvMeta.bg;
+    idPill.textContent = selectedServiceObj.id;
+  }
+
   const isPkr = AppState.currency === 'PKR';
   const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
 
-  const idPill = document.getElementById('selected-srv-id-pill');
   const descName = document.getElementById('desc-srv-name');
   const descRate = document.getElementById('desc-srv-rate');
   const descTime = document.getElementById('desc-srv-time');
@@ -331,7 +400,8 @@ function handleQuickServiceSearch(query) {
     currentServiceList = matched;
     srvSelect.innerHTML = matched.map(s => {
       const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
-      return `<option value="${s.id}">${s.name} — ${priceStr}</option>`;
+      const iconEmoji = getPlatformIconEmoji(s.name || s.category_name);
+      return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
     }).join('');
     onServiceChange();
   }

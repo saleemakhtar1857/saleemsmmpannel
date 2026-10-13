@@ -15,6 +15,25 @@
   
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Auto-Redirect logged-in users directly to Dashboard -->
+  <script>
+    (function() {
+      try {
+        var raw = localStorage.getItem('saleem_current_user');
+        if (raw && !window.location.hash.includes('logout') && !window.location.search.includes('stay=true')) {
+          var u = JSON.parse(raw);
+          if (u && u.email) {
+            if (u.email.toLowerCase().trim() === 'saleembaloch1857@gmail.com') {
+              window.location.replace('views/admin.html');
+            } else {
+              window.location.replace('views/dashboard.html');
+            }
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body class="nightmode">
 
