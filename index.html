@@ -89,6 +89,55 @@
     </div>
   </nav>
 
+  <!-- Mobile Navigation Backdrop & Slide-out Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" onclick="closeMobileNav()">
+        <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+        <div class="logo-text">Saleem<span>SMM</span></div>
+      </a>
+      <button type="button" class="mobile-drawer-close" onclick="closeMobileNav()" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick User / Guest Box inside Drawer -->
+    <div class="mobile-drawer-user-box" id="mob-drawer-auth-box">
+      <div style="font-size:12.5px;color:var(--text-secondary);margin-bottom:8px;">Welcome to Saleem SMM Panel</div>
+      <div style="display:flex;gap:8px;">
+        <a href="#auth" class="btn-outline" style="flex:1;text-align:center;padding:9px;font-size:13px;justify-content:center;" onclick="closeMobileNav()">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+        </a>
+        <a href="views/signup.html" class="btn-primary-grad" style="flex:1;text-align:center;padding:9px;font-size:13px;justify-content:center;" onclick="closeMobileNav()">
+          <i class="fa-solid fa-user-plus"></i> Sign Up
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Links -->
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html" class="mobile-drawer-link active" onclick="closeMobileNav()"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="views/dashboard.html?view=services" class="mobile-drawer-link" onclick="closeMobileNav()"><i class="fa-solid fa-layer-group"></i> 627+ Wholesale Services</a></li>
+      <li><a href="#custom-panel" class="mobile-drawer-link" style="color:var(--primary);font-weight:700;" onclick="closeMobileNav()"><i class="fa-solid fa-crown"></i> Custom SMM Panel Business</a></li>
+      <li><a href="views/dashboard.html?view=api" class="mobile-drawer-link" onclick="closeMobileNav()"><i class="fa-solid fa-code"></i> API v2 Docs</a></li>
+      <li><a href="#reviews" class="mobile-drawer-link" onclick="closeMobileNav()"><i class="fa-solid fa-star"></i> Client Reviews</a></li>
+      <li><a href="#faq" class="mobile-drawer-link" onclick="closeMobileNav()"><i class="fa-solid fa-circle-question"></i> FAQ & Help</a></li>
+      <li class="admin-only-link" style="display:none;"><a href="views/admin.html" class="mobile-drawer-link" style="color:#ff4757;font-weight:700;" onclick="closeMobileNav()"><i class="fa-solid fa-shield-halved"></i> Admin Control Panel</a></li>
+    </ul>
+
+    <!-- Bottom Actions inside Drawer -->
+    <div class="mobile-drawer-footer">
+      <button type="button" class="mobile-drawer-curr-btn" onclick="toggleCurrency()">
+        <i class="fa-solid fa-coins"></i> Currency: <strong id="mob-drawer-curr-label">PKR (₨)</strong>
+      </button>
+
+      <a href="https://wa.me/923163846672?text=hi%20sir!%20I%20have%20placed%20the%20order" target="_blank" class="mobile-drawer-wa-btn">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Help: 03163846672
+      </a>
+    </div>
+  </aside>
+
   <!-- ==========================================================================
        HERO SECTION
        ========================================================================== -->
@@ -180,7 +229,7 @@
             </div>
 
             <form id="hero-signup-form" onsubmit="handleHeroSignup(event)">
-              <div class="form-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-grid-2">
                 <div class="form-group">
                   <label><i class="fa-regular fa-id-badge"></i> Name</label>
                   <input type="text" id="hero-reg-name" class="form-input" placeholder="Your Full Name" required>
@@ -191,7 +240,7 @@
                 </div>
               </div>
 
-              <div class="form-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-grid-2">
                 <div class="form-group">
                   <label><i class="fa-regular fa-envelope"></i> Email</label>
                   <input type="email" id="hero-reg-email" class="form-input" placeholder="you@domain.com" required>
@@ -685,13 +734,30 @@
     function toggleCurrency() {
       const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
       AppState.setCurrency(next);
-      document.getElementById('nav-curr-label').textContent = next === 'PKR' ? 'PKR (₨)' : 'USD ($)';
+      const topLabel = document.getElementById('nav-curr-label');
+      if (topLabel) topLabel.textContent = next === 'PKR' ? 'PKR (₨)' : 'USD ($)';
+      const mobLabel = document.getElementById('mob-drawer-curr-label');
+      if (mobLabel) mobLabel.textContent = next === 'PKR' ? 'PKR (₨)' : 'USD ($)';
+    }
+
+    function openMobileNav() {
+      document.getElementById('mobile-nav-drawer')?.classList.add('open');
+      document.getElementById('mobile-nav-backdrop')?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      document.getElementById('mobile-nav-drawer')?.classList.remove('open');
+      document.getElementById('mobile-nav-backdrop')?.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
     function toggleMobileNav() {
-      const links = document.querySelector('.nav-links');
-      if (links) {
-        links.classList.toggle('mobile-open');
+      const drawer = document.getElementById('mobile-nav-drawer');
+      if (drawer && drawer.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
       }
     }
 

@@ -58,7 +58,7 @@ body.nightmode {
    1. MAIN LAYOUT & FLOATING SIDEBAR
    ========================================================================== */
 .dil-layout {
-  display: flex;
+  display: block;
   min-height: 100vh;
   width: 100%;
   max-width: 100vw;
@@ -68,7 +68,8 @@ body.nightmode {
 }
 
 .dil-sidebar {
-  width: 260px;
+  width: 280px;
+  max-width: 82vw;
   padding: 14px 12px;
   display: flex;
   flex-direction: column;
@@ -77,10 +78,17 @@ body.nightmode {
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 200;
-  background: var(--bg-main);
+  z-index: 9999;
+  background: var(--bg-surface);
+  transform: translateX(-110%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
+  box-shadow: none;
+}
+
+.dil-sidebar.open {
+  transform: translateX(0) !important;
+  box-shadow: 10px 0 35px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Card 1: Top Crimson Profile Box */
@@ -352,21 +360,22 @@ body.nightmode {
    ========================================================================== */
 .dil-main {
   flex: 1;
-  margin-left: 260px;
-  width: calc(100% - 260px);
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
-  padding: 0 16px 40px 16px;
+  padding: 0 10px 84px 10px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .dil-topbar {
-  height: 60px;
+  min-height: 54px;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);
-  border-radius: 0 0 14px 14px;
-  padding: 0 16px;
-  margin-bottom: 16px;
+  padding: 0 10px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -374,6 +383,7 @@ body.nightmode {
   top: 0;
   z-index: 100;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .dil-brand-logo {
@@ -454,25 +464,17 @@ body.nightmode {
    ========================================================================== */
 .dil-top-panel-info-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
   width: 100%;
   align-items: stretch;
 }
 
-@media (max-width: 900px) {
-  .dil-top-panel-info-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    margin-bottom: 12px !important;
-  }
-}
-
 .dil-neworder-grid {
   display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 14px;
   align-items: start;
   width: 100%;
 }
@@ -1244,8 +1246,8 @@ body.nightmode {
 
 .dil-orders-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 14px;
   width: 100%;
 }
 
@@ -1472,9 +1474,9 @@ body.nightmode {
 
 .dil-pay-tiles-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 22px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -1676,8 +1678,8 @@ body.nightmode {
 
 .dil-deposit-form-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 14px;
   width: 100%;
 }
 
@@ -1842,8 +1844,8 @@ body.nightmode {
 
 .dil-ov-stats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 12px;
   width: 100%;
 }
 
@@ -2012,9 +2014,9 @@ body.nightmode {
   display: block;
 }
 
-/* Mobile Bottom Navigation Bar (App Style) */
+/* Mobile Bottom Navigation Bar (App Style - Default Mobile) */
 .mobile-bottom-nav {
-  display: none;
+  display: flex;
   position: fixed;
   left: 0;
   right: 0;
@@ -2044,6 +2046,7 @@ body.nightmode {
   cursor: pointer;
   padding: 6px 0;
   text-decoration: none;
+  transition: color 0.15s;
 }
 
 .mob-nav-item i {
@@ -2054,15 +2057,19 @@ body.nightmode {
   color: var(--primary);
 }
 
-/* Admin Dashboard Specific Classes */
+/* Admin Dashboard Specific Classes - Mobile-First Baseline */
 .dashboard-layout {
-  display: flex;
+  display: block;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .dashboard-sidebar {
-  width: 265px;
+  width: 280px;
+  max-width: 82vw;
   background: var(--bg-surface);
   border-right: 1px solid var(--border-color);
   display: flex;
@@ -2071,15 +2078,29 @@ body.nightmode {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 200;
-  transition: transform 0.3s ease;
+  z-index: 9999;
+  transform: translateX(-110%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+  overflow-y: auto;
+}
+
+.dashboard-sidebar.open,
+.dashboard-sidebar.mobile-open {
+  transform: translateX(0) !important;
+  box-shadow: 10px 0 35px rgba(0, 0, 0, 0.6) !important;
 }
 
 .dashboard-main {
   flex: 1;
-  margin-left: 265px;
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
-  padding: 20px;
+  padding: 0 10px 84px 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .btn-approve {
@@ -2102,6 +2123,148 @@ body.nightmode {
   font-size: 11.5px;
   font-weight: 700;
   cursor: pointer;
+}
+
+/* Shared Responsive Form Grids (Mobile-First Baseline) */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.catalog-filters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   8.5. DESKTOP VIEWPORT RULES (MIN-WIDTH: 993px)
+   Enables 260px fixed sidebar and multi-column grids ONLY on desktop screens
+   ========================================================================== */
+@media (min-width: 993px) {
+  .dil-layout,
+  .dashboard-layout {
+    display: flex !important;
+  }
+
+  .dil-sidebar {
+    position: fixed !important;
+    width: 260px !important;
+    max-width: 260px !important;
+    transform: translateX(0) !important;
+    z-index: 200 !important;
+    background: var(--bg-main) !important;
+    box-shadow: none !important;
+  }
+
+  .dashboard-sidebar {
+    position: fixed !important;
+    width: 265px !important;
+    max-width: 265px !important;
+    transform: translateX(0) !important;
+    z-index: 200 !important;
+    background: var(--bg-surface) !important;
+    box-shadow: none !important;
+  }
+
+  .dil-main {
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+    max-width: calc(100% - 260px) !important;
+    padding: 0 16px 40px 16px !important;
+  }
+
+  .dashboard-main {
+    margin-left: 265px !important;
+    width: calc(100% - 265px) !important;
+    max-width: calc(100% - 265px) !important;
+    padding: 20px !important;
+  }
+
+  .dil-topbar {
+    height: 60px !important;
+    border-radius: 0 0 14px 14px !important;
+    padding: 0 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .dil-top-panel-info-grid {
+    grid-template-columns: 1.6fr 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .dil-neworder-grid {
+    grid-template-columns: 1.55fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .dil-orders-cards-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .dil-deposit-form-grid {
+    grid-template-columns: 1.2fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .dil-pay-tiles-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .dil-ov-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .catalog-filters-grid {
+    grid-template-columns: 2fr 1fr !important;
+    gap: 14px !important;
+  }
+
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  .dil-hamburger-btn[onclick*="toggleDashSidebar"] {
+    display: none !important;
+  }
+
+  .topbar-mobile-btn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 992px) {
+  .dil-pay-tiles-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .dil-ov-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .dil-orders-cards-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .catalog-filters-grid {
+    grid-template-columns: 2fr 1fr !important;
+  }
 }
 
 /* ==========================================================================
@@ -2131,7 +2294,8 @@ body.nightmode {
   }
 
   .dil-sidebar.open,
-  .dashboard-sidebar.open {
+  .dashboard-sidebar.open,
+  .dashboard-sidebar.mobile-open {
     transform: translateX(0) !important;
     box-shadow: 10px 0 35px rgba(0, 0, 0, 0.6) !important;
   }

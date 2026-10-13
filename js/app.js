@@ -389,7 +389,7 @@ const AppState = {
         <a href="${dashLink}" class="btn-primary-grad nav-btn-compact" style="padding:7px 14px;font-size:12.5px;">
           <i class="fa-solid fa-user"></i> <span>${this.currentUser.username}</span> <span class="hide-sm">(${this.formatMoney(this.currentUser.balance_usd, this.currentUser.balance_pkr)})</span>
         </a>
-        <button onclick="AppState.logout()" class="btn-outline nav-btn-compact" style="padding:7px 11px;font-size:12.5px;" title="Logout">
+        <button onclick="AppState.logout()" class="btn-outline nav-btn-compact hide-xs" style="padding:7px 11px;font-size:12.5px;" title="Logout">
           <i class="fa-solid fa-power-off"></i>
         </button>
       `;
@@ -398,10 +398,47 @@ const AppState = {
         <a href="${loginLink}" class="btn-outline nav-btn-compact" style="padding:7px 13px;font-size:12.5px;">
           <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
         </a>
-        <a href="${signupLink}" class="btn-primary-grad nav-btn-compact" style="padding:7px 13px;font-size:12.5px;">
+        <a href="${signupLink}" class="btn-primary-grad nav-btn-compact hide-sm" style="padding:7px 13px;font-size:12.5px;">
           <i class="fa-solid fa-user-plus"></i> Sign Up
         </a>
       `;
+    }
+
+    const mobDrawerAuth = document.getElementById('mob-drawer-auth-box');
+    if (mobDrawerAuth) {
+      if (this.currentUser) {
+        mobDrawerAuth.innerHTML = `
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;">
+              ${(this.currentUser.username || 'U')[0].toUpperCase()}
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:14px;color:var(--text-primary);">${this.currentUser.username}</div>
+              <div style="font-size:12px;color:var(--primary);font-weight:700;">Balance: ${this.formatMoney(this.currentUser.balance_usd, this.currentUser.balance_pkr)}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <a href="${dashLink}" class="btn-primary-grad" style="flex:1;text-align:center;padding:9px;font-size:13px;justify-content:center;">
+              <i class="fa-solid fa-gauge-high"></i> Dashboard
+            </a>
+            <button onclick="AppState.logout()" class="btn-outline" style="padding:9px 12px;font-size:13px;" title="Logout">
+              <i class="fa-solid fa-power-off"></i> Logout
+            </button>
+          </div>
+        `;
+      } else {
+        mobDrawerAuth.innerHTML = `
+          <div style="font-size:12.5px;color:var(--text-secondary);margin-bottom:8px;">Welcome to Saleem SMM Panel</div>
+          <div style="display:flex;gap:8px;">
+            <a href="${loginLink}" class="btn-outline" style="flex:1;text-align:center;padding:9px;font-size:13px;justify-content:center;" onclick="if(typeof closeMobileNav==='function')closeMobileNav()">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="${signupLink}" class="btn-primary-grad" style="flex:1;text-align:center;padding:9px;font-size:13px;justify-content:center;" onclick="if(typeof closeMobileNav==='function')closeMobileNav()">
+              <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+          </div>
+        `;
+      }
     }
   },
 
