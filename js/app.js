@@ -41,10 +41,10 @@ const DEFAULT_ACCOUNTS = [
     phone: "03163846672",
     password: "saleem123",
     role: "client",
-    balance_pkr: 5200.00,
-    balance_usd: 18.57,
-    spent_pkr: 14500.00,
-    spent_usd: 51.78,
+    balance_pkr: 0.00,
+    balance_usd: 0.00,
+    spent_pkr: 0.00,
+    spent_usd: 0.00,
     apiKey: "smm_live_sec_99a8b7c6d5e4f3a2",
     joined_at: "2026-09-15"
   },
@@ -404,49 +404,12 @@ const AppState = {
 
   /* ------------------- Initial Seed Data ------------------- */
   initDefaultData() {
-    if (!localStorage.getItem(STORAGE_KEYS.ORDERS)) {
-      const defaultOrders = [
-        {
-          id: 50412,
-          service_id: 15210,
-          service_name: "Instagram Followers | Speed 10K+ / DAY",
-          link: "https://instagram.com/saleem_fashion_pk",
-          quantity: 2000,
-          charge_pkr: 145.60,
-          charge_usd: 0.52,
-          status: "Completed",
-          start_count: 1420,
-          remains: 0,
-          created_at: "2026-10-11 14:22"
-        },
-        {
-          id: 50413,
-          service_id: 15038,
-          service_name: "TikTok Video Views | Speed 1M+ / DAY",
-          link: "https://tiktok.com/@saleem_official/video/7311",
-          quantity: 25000,
-          charge_pkr: 32.50,
-          charge_usd: 0.12,
-          status: "In progress",
-          start_count: 530,
-          remains: 6200,
-          created_at: "2026-10-12 18:05"
-        },
-        {
-          id: 50414,
-          service_id: 14721,
-          service_name: "YouTube Views [Non-Drop] | Min 5K",
-          link: "https://youtube.com/watch?v=dQw4w9WgXcQ",
-          quantity: 5000,
-          charge_pkr: 1976.00,
-          charge_usd: 7.05,
-          status: "Processing",
-          start_count: 320,
-          remains: 1850,
-          created_at: "2026-10-12 20:15"
-        }
-      ];
-      localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(defaultOrders));
+    // Reset orders so mock data is 0 and users start with a clean slate
+    const existingOrders = this.getOrders();
+    const hasOldMocks = existingOrders.some(o => o.id === 50412 || o.id === 50413 || o.id === 50414);
+    if (hasOldMocks || !localStorage.getItem(STORAGE_KEYS.ORDERS)) {
+      const cleanOrders = existingOrders.filter(o => o.id !== 50412 && o.id !== 50413 && o.id !== 50414);
+      localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(cleanOrders));
     }
 
     if (!localStorage.getItem(STORAGE_KEYS.DEPOSITS)) {
@@ -762,7 +725,7 @@ const AppState = {
             <i class="fa-solid fa-message"></i> Chat with SaleemSMMPanel
             <span class="saleem-chat-badge" id="floating-chat-badge" style="display:none;">1</span>
           </button>
-          <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
+          <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=assalamualaikum%20sir%20I%20have%20placed%20the%20order"
              target="_blank"
              class="dark-chat-wa-circle"
              title="WhatsApp Support (${OFFICIAL_WHATSAPP})">
@@ -791,7 +754,7 @@ const AppState = {
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20Customize%20SMM%20Panel%20ya%20Order%20ke%20bare%20mein%20baat%20karni%20hai."
+            <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=assalamualaikum%20sir%20I%20have%20placed%20the%20order"
                target="_blank"
                class="chat-wa-mini-btn"
                title="Open WhatsApp ${OFFICIAL_WHATSAPP}">

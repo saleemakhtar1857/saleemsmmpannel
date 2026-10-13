@@ -452,6 +452,23 @@ body.nightmode {
 /* ==========================================================================
    3. VIEW 1: NEW ORDER (SCREENSHOT 1)
    ========================================================================== */
+.dil-top-panel-info-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .dil-top-panel-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
 .dil-neworder-grid {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
@@ -688,14 +705,30 @@ body.nightmode {
   left: 0;
   right: 0;
   z-index: 999;
-  max-height: 320px;
+  max-height: 220px;
   overflow-y: auto;
   background: var(--bg-surface);
   border: 1.5px solid var(--border-color);
   border-radius: 12px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
   display: none;
-  padding: 6px;
+  padding: 4px;
+}
+
+/* Custom Scrollbar for compact half-list dropdown */
+.dil-cs-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.dil-cs-menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+.dil-cs-menu::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dil-cs-menu::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 .dil-custom-select.open .dil-cs-menu {
@@ -706,13 +739,18 @@ body.nightmode {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 12px;
+  padding: 8.5px 12px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
   color: var(--text-primary);
   cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dil-cs-option:last-child {
+  border-bottom: none;
 }
 
 .dil-cs-option:hover {

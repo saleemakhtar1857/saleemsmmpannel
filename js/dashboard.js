@@ -178,18 +178,22 @@ function renderAllPrices() {
     if (uNameEl) uNameEl.textContent = user.username;
     if (uEmailEl) uEmailEl.textContent = '@' + (user.email || 'client@saleemsmm.pk');
 
-    // Right Column Welcome Card (Screenshot 1)
+    // Top Panel Welcome Card & Stats
     const rightName = document.getElementById('right-username');
     const stOrders = document.getElementById('stat-total-orders');
     const stBal = document.getElementById('stat-balance');
     const stSpent = document.getElementById('stat-spent');
     const stToday = document.getElementById('stat-today-spent');
+    const panelUsersEl = document.getElementById('stat-panel-users');
+    const panelOrdersEl = document.getElementById('stat-panel-orders');
 
     if (rightName) rightName.textContent = user.username;
     if (stOrders) stOrders.textContent = orders.length;
     if (stBal) stBal.textContent = balFormatted;
     if (stSpent) stSpent.textContent = spentFormatted;
     if (stToday) stToday.textContent = todayFormatted;
+    if (panelUsersEl) panelUsersEl.textContent = '0';
+    if (panelOrdersEl) panelOrdersEl.textContent = '0';
 
     // Crimson Overview Panel (Screenshot 5)
     const setEl = (id, val) => {
@@ -205,9 +209,22 @@ function renderAllPrices() {
     setEl('ov-fullname', user.name || user.username);
     setEl('ov-uname', user.username);
     setEl('ov-uemail', user.email || 'client@saleemsmm.pk');
-    setEl('ov-uphone', user.phone || '03173983906');
+    setEl('ov-uphone', user.phone || '03163846672');
     setEl('user-api-key', user.apiKey || 'smm_live_sec_99a8b7c6d5e4f3a2');
     setEl('user-ref-link', `https://saleemsmmpannel.vercel.app/?ref=${encodeURIComponent(user.username)}`);
+  } else {
+    const stOrders = document.getElementById('stat-total-orders');
+    const stBal = document.getElementById('stat-balance');
+    const stSpent = document.getElementById('stat-spent');
+    const stToday = document.getElementById('stat-today-spent');
+    const panelUsersEl = document.getElementById('stat-panel-users');
+    const panelOrdersEl = document.getElementById('stat-panel-orders');
+    if (stOrders) stOrders.textContent = '0';
+    if (stBal) stBal.textContent = isPkr ? 'Rs 0.00' : '$ 0.00';
+    if (stSpent) stSpent.textContent = isPkr ? 'Rs 0.00' : '$ 0.00';
+    if (stToday) stToday.textContent = isPkr ? 'Rs 0.0' : '$ 0.0';
+    if (panelUsersEl) panelUsersEl.textContent = '0';
+    if (panelOrdersEl) panelOrdersEl.textContent = '0';
   }
 
   onServiceChange();
@@ -360,7 +377,10 @@ function onCategoryChange() {
   if (!catSelect || !srvSelect) return;
 
   const selectedCatId = catSelect.value;
-  currentServiceList = MASTER_SERVICES.filter(s => s.category_id === selectedCatId);
+  currentServiceList = MASTER_SERVICES.filter(s => (s.category === selectedCatId || s.category_id === selectedCatId || selectedCatId === 'all'));
+  if (!currentServiceList || currentServiceList.length === 0) {
+    currentServiceList = MASTER_SERVICES.slice(0, 50);
+  }
 
   // Update Category Badge Icon & Label on custom trigger (Matches Screenshot 1 & 4)
   const selectedCat = MASTER_CATEGORIES.find(c => c.id === selectedCatId);
@@ -518,7 +538,7 @@ function selectServiceById(serviceId) {
 
   const catSelect = document.getElementById('order-category');
   if (catSelect) {
-    catSelect.value = srv.category_id;
+    catSelect.value = srv.category || srv.category_id || 'cat_5';
     onCategoryChange();
   }
 
@@ -595,10 +615,11 @@ function submitNewOrder(e) {
   renderAllPrices();
   document.getElementById('order-link').value = '';
 
-  // WhatsApp Instant Message Text: "I have placed the order"
+  // WhatsApp Instant Message Text: "hi sir! I have placed the order" with Service ID (Matches Dil Panel)
   const waMsgText = encodeURIComponent(
-    `I have placed the order\n\n` +
+    `hi sir! I have placed the order\n\n` +
     `📦 Order ID: #${newOrder.id}\n` +
+    `🔢 Service ID: ${selectedServiceObj.id}\n` +
     `⚡ Service: ${selectedServiceObj.name}\n` +
     `🔢 Quantity: ${qty}\n` +
     `🔗 Link: ${link}\n` +
@@ -632,7 +653,8 @@ function showOrderSuccessPopup(order, waUrl) {
         Order <strong>#${order.id}</strong> has been submitted to automated queue.
       </p>
 
-      <div style="background:var(--bg-surface-2);border-radius:12px;padding:12px;text-align:left;font-size:12.5px;margin-bottom:18px;line-height:1.6;">
+      <div style="background:var(--bg-surface-2);border-radius:12px;padding:12px;text-align:left;font-size:12.5px;margin-bottom:18px;line-height:1.7;">
+        <div><strong>Service ID:</strong> <span style="background:var(--primary);color:#fff;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;">${order.service_id}</span></div>
         <div><strong>Service:</strong> ${AppState.escapeHtml(order.service_name)}</div>
         <div><strong>Quantity:</strong> ${order.quantity.toLocaleString()}</div>
         <div><strong>Charged:</strong> Rs ${order.charge_pkr}</div>

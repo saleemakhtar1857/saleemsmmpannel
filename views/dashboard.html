@@ -30,8 +30,8 @@
       <!-- 1. Top Crimson Red Profile Card -->
       <div class="dil-profile-card">
         <div class="dil-prof-top">
-          <div class="dil-prof-avatar">
-            <i class="fa-solid fa-user"></i>
+          <div class="dil-prof-avatar" style="overflow:hidden;border-radius:50%;background:#fee2e2;">
+            <img src="../images/avatar-male.svg" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver&skinColor=f2c19e&hair=short16&hairColor=1a1a1a&clothing=hoodie&clothingColor=dc2626'" alt="Avatar" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="dil-prof-meta">
             <div class="dil-prof-name" id="dash-username">saleem_vip</div>
@@ -179,6 +179,80 @@
            VIEW 1: NEW ORDER (MATCHES SCREENSHOT 1)
            ====================================================================== -->
       <div id="view-new-order" class="dash-view">
+        <!-- TOP: Panel Info Section (User Welcome & Stats - Matches Dil SMM Panel Top) -->
+        <div class="dil-top-panel-info-grid">
+          <!-- Card 1: User Welcome & 4 Stat Boxes -->
+          <div class="dil-red-card">
+            <div class="dil-user-welcome">
+              <div class="dil-3d-avatar">
+                <img src="../images/avatar-male.svg" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver&skinColor=f2c19e&hair=short16&hairColor=1a1a1a&clothing=hoodie&clothingColor=dc2626'" alt="Avatar">
+              </div>
+              <div>
+                <div class="dil-welcome-name">
+                  <span id="right-username">saleem_vip</span>
+                  <i class="fa-solid fa-certificate" style="color:#10b981;font-size:15px;" title="Verified Account"></i>
+                </div>
+                <div class="dil-welcome-sub">welcome to saleemsmmpannel</div>
+              </div>
+            </div>
+
+            <div class="dil-mini-stats-grid">
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-list-check"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">My Orders</div>
+                  <div class="dil-stat-val" id="stat-total-orders">0</div>
+                </div>
+              </div>
+
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">My Balance</div>
+                  <div class="dil-stat-val" id="stat-balance">Rs 0.00</div>
+                </div>
+              </div>
+
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-coins"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">Amount Spent</div>
+                  <div class="dil-stat-val" id="stat-spent">Rs 0.00</div>
+                </div>
+              </div>
+
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-calendar-day"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">Today's Spend</div>
+                  <div class="dil-stat-val" id="stat-today-spent">Rs 0.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Panel Global Users & Orders -->
+          <div class="dil-red-card">
+            <div class="dil-mini-stats-grid">
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-users"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">Panel Users</div>
+                  <div class="dil-stat-val" id="stat-panel-users">0</div>
+                </div>
+              </div>
+
+              <div class="dil-mini-stat">
+                <div class="dil-stat-red-ic"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div>
+                  <div class="dil-stat-lbl">Panel Orders</div>
+                  <div class="dil-stat-val" id="stat-panel-orders">0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="dil-neworder-grid">
           
           <!-- LEFT COLUMN: Red-Bordered Order Form Card -->
@@ -314,81 +388,9 @@
             </form>
           </div>
 
-          <!-- RIGHT COLUMN: 3 Stacked Red-Bordered Cards (MATCHES SCREENSHOT 1) -->
+          <!-- RIGHT COLUMN: WhatsApp Support & Customize SMM Panel (MATCHES SCREENSHOT 1) -->
           <div class="dil-right-stack">
-            
-            <!-- Right Card 1: User Welcome & 4 Stat Boxes -->
-            <div class="dil-red-card">
-              <div class="dil-user-welcome">
-                <div class="dil-3d-avatar">
-                  <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=SaleemVIP&backgroundColor=b6e3f4,c0aede,d1d4f9" alt="Avatar">
-                </div>
-                <div>
-                  <div class="dil-welcome-name">
-                    <span id="right-username">saleem_vip</span>
-                    <i class="fa-solid fa-certificate" style="color:#10b981;font-size:15px;" title="Verified Account"></i>
-                  </div>
-                  <div class="dil-welcome-sub">welcome to saleemsmmpanel</div>
-                </div>
-              </div>
-
-              <div class="dil-mini-stats-grid">
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-list-check"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">My Orders</div>
-                    <div class="dil-stat-val" id="stat-total-orders">3</div>
-                  </div>
-                </div>
-
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-wallet"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">My Balance</div>
-                    <div class="dil-stat-val" id="stat-balance">Rs 5,200</div>
-                  </div>
-                </div>
-
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-coins"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">Amount Spent</div>
-                    <div class="dil-stat-val" id="stat-spent">Rs 14,500</div>
-                  </div>
-                </div>
-
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-calendar-day"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">Today's Spend</div>
-                    <div class="dil-stat-val" id="stat-today-spent">Rs 0.0</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Card 2: Panel Global Users & Orders -->
-            <div class="dil-red-card">
-              <div class="dil-mini-stats-grid">
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-users"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">Panel Users</div>
-                    <div class="dil-stat-val">84701</div>
-                  </div>
-                </div>
-
-                <div class="dil-mini-stat">
-                  <div class="dil-stat-red-ic"><i class="fa-solid fa-cart-shopping"></i></div>
-                  <div>
-                    <div class="dil-stat-lbl">Panel Orders</div>
-                    <div class="dil-stat-val">4490091</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Card 3: Join Our WhatsApp & Customize SMM Panel -->
+            <!-- Right Card: Join Our WhatsApp & Customize SMM Panel -->
             <div class="dil-red-card">
               <div class="dil-wa-head">
                 <div class="dil-wa-circle"><i class="fa-brands fa-whatsapp"></i></div>
@@ -399,7 +401,7 @@
               </div>
 
               <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">
-                <a href="https://wa.me/923163846672?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="dil-wa-btn">
+                <a href="https://wa.me/923163846672?text=assalamualaikum%20sir%20I%20have%20placed%20the%20order" target="_blank" class="dil-wa-btn">
                   <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (03163846672)
                 </a>
                 <button type="button" class="dil-chat-btn-outline" onclick="switchDashView('chat')">
@@ -416,13 +418,23 @@
                   <button type="button" class="dil-cp-btn-red" onclick="switchDashView('custom-panel')">
                     <i class="fa-solid fa-rocket"></i> View Packages
                   </button>
-                  <a href="https://wa.me/923163846672?text=Assalam-o-Alaikum!%20Mujhe%20apna%20Customize%20SMM%20Panel%20banwana%20hai." target="_blank" class="dil-cp-btn-wa">
+                  <a href="https://wa.me/923163846672?text=assalamualaikum%20sir%20I%20have%20placed%20the%20order" target="_blank" class="dil-cp-btn-wa">
                     <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
                   </a>
                 </div>
               </div>
             </div>
 
+            <!-- Quick Service Guarantee Card -->
+            <div class="dil-red-card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--text-primary);">
+                <i class="fa-solid fa-shield-halved" style="color:#10b981;font-size:18px;"></i>
+                <div>
+                  <div>Instant Automated Orders</div>
+                  <div style="font-size:11.5px;color:var(--text-muted);font-weight:500;">Services are linked via wholesale API</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -651,8 +663,8 @@
           
           <!-- Top User Banner Inside Crimson Panel -->
           <div class="dil-ov-user-banner">
-            <div class="dil-ov-avatar">
-              <i class="fa-solid fa-user"></i>
+            <div class="dil-ov-avatar" style="overflow:hidden;border-radius:50%;background:#fee2e2;">
+              <img src="../images/avatar-male.svg" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver&skinColor=f2c19e&hair=short16&hairColor=1a1a1a&clothing=hoodie&clothingColor=dc2626'" alt="Avatar" style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div>
               <div class="dil-ov-name" id="ov-username">saleem_vip</div>
@@ -669,7 +681,7 @@
               <div class="dil-ov-red-icon"><i class="fa-solid fa-wallet"></i></div>
               <div>
                 <div class="dil-ov-card-lbl">BALANCE</div>
-                <div class="dil-ov-card-val" id="ov-balance">Rs 5,200.00</div>
+                <div class="dil-ov-card-val" id="ov-balance">Rs 0.00</div>
               </div>
             </div>
 
@@ -677,7 +689,7 @@
               <div class="dil-ov-red-icon"><i class="fa-solid fa-cart-shopping"></i></div>
               <div>
                 <div class="dil-ov-card-lbl">ORDERS</div>
-                <div class="dil-ov-card-val" id="ov-orders">3</div>
+                <div class="dil-ov-card-val" id="ov-orders">0</div>
               </div>
             </div>
 
@@ -685,7 +697,7 @@
               <div class="dil-ov-red-icon"><i class="fa-solid fa-coins"></i></div>
               <div>
                 <div class="dil-ov-card-lbl">TOTAL SPENT</div>
-                <div class="dil-ov-card-val" id="ov-spent">Rs 14,500.00</div>
+                <div class="dil-ov-card-val" id="ov-spent">Rs 0.00</div>
               </div>
             </div>
 
@@ -730,7 +742,7 @@
               <div class="dil-ov-red-icon"><i class="fa-brands fa-whatsapp"></i></div>
               <div>
                 <div class="dil-ov-card-lbl">WHATSAPP NUMBER</div>
-                <div class="dil-ov-info-val" id="ov-uphone">03173983906</div>
+                <div class="dil-ov-info-val" id="ov-uphone">03163846672</div>
               </div>
             </div>
 
@@ -864,7 +876,7 @@
                 </p>
               </div>
             </div>
-            <a href="https://wa.me/923163846672?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="dil-wa-btn" style="padding:9px 14px;font-size:12.5px;">
+            <a href="https://wa.me/923163846672?text=assalamualaikum%20sir%20I%20have%20placed%20the%20order" target="_blank" class="dil-wa-btn" style="padding:9px 14px;font-size:12.5px;">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03163846672
             </a>
           </div>
