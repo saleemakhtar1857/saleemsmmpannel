@@ -7,682 +7,931 @@
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts: Poppins &Righteous -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-<body class="nightmode">
+<body class="daymode">
 
   <!-- Mobile Sidebar Backdrop -->
-  <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileSidebar()"></div>
+  <div class="sidebar-backdrop" id="dash-sidebar-backdrop" onclick="closeDashSidebar()"></div>
 
-  <div class="dashboard-layout">
-    <!-- ==========================================================================
-         SIDEBAR NAVIGATION
-         ========================================================================== -->
-    <aside class="dashboard-sidebar" id="dashboard-sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="brand-logo">
-          <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
-          <div class="logo-text">Saleem<span>SMM</span></div>
-        </a>
+  <div class="dil-layout">
+    <!-- ========================================================================
+         LEFT FLOATING SIDEBAR (MATCHES SCREENSHOTS)
+         ======================================================================== -->
+    <aside class="dil-sidebar" id="dash-sidebar">
+      
+      <!-- 1. Top Crimson Red Profile Card -->
+      <div class="dil-profile-card">
+        <div class="dil-prof-top">
+          <div class="dil-prof-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="dil-prof-meta">
+            <div class="dil-prof-name" id="dash-username">saleem_vip</div>
+            <div class="dil-prof-email" id="dash-email">@client@saleemsmm.pk</div>
+          </div>
+        </div>
+
+        <div class="dil-prof-actions">
+          <button type="button" class="dil-prof-btn" id="btn-overview-tab" onclick="switchDashView('overview')">
+            <i class="fa-solid fa-user"></i> Dashboard
+          </button>
+          <button type="button" class="dil-prof-btn" onclick="AppState.toggleTheme()">
+            <i class="theme-toggle-icon fa-solid fa-sun"></i> <span class="theme-toggle-label">Night</span>
+          </button>
+        </div>
+
+        <button type="button" class="dil-curr-dropdown" onclick="toggleCurrency()" title="Switch Currency (PKR / USD)">
+          <span id="sidebar-curr-label">Rs PKR</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
       </div>
 
-      <!-- User Quick Profile -->
-      <div class="user-quick-profile">
-        <div class="user-quick-avatar">S</div>
-        <div class="user-quick-info">
-          <h4 class="user-display-name">saleem_vip</h4>
-          <div class="user-quick-balance user-display-balance">₨ 5,200.00</div>
+      <!-- 2. Change Color Button & Dropdown -->
+      <div class="dil-color-wrap">
+        <button type="button" class="dil-color-btn" onclick="toggleColorPicker()">
+          <i class="fa-solid fa-palette"></i> Change Color <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
+        </button>
+        <div class="dil-color-menu" id="dil-color-menu" style="display:none;">
+          <button type="button" onclick="selectPanelColor('red')"><span class="c-dot" style="background:#dc2626;"></span> Crimson Red</button>
+          <button type="button" onclick="selectPanelColor('blue')"><span class="c-dot" style="background:#2563eb;"></span> Royal Blue</button>
+          <button type="button" onclick="selectPanelColor('green')"><span class="c-dot" style="background:#059669;"></span> Emerald Green</button>
+          <button type="button" onclick="selectPanelColor('purple')"><span class="c-dot" style="background:#7c3aed;"></span> Royal Purple</button>
+          <button type="button" onclick="selectPanelColor('orange')"><span class="c-dot" style="background:#ea580c;"></span> Sunset Orange</button>
         </div>
       </div>
 
-      <!-- Navigation Links -->
-      <nav class="sidebar-menu">
-        <div class="sidebar-item active" data-view="new-order">
-          <i class="fa-solid fa-cart-plus"></i>
-          <span>New Order</span>
-        </div>
-        <div class="sidebar-item" data-view="orders">
-          <i class="fa-solid fa-clock-rotate-left"></i>
-          <span>Orders History</span>
-        </div>
-        <div class="sidebar-item" data-view="services">
-          <i class="fa-solid fa-list-check"></i>
-          <span>Services & Rates</span>
-        </div>
-        <div class="sidebar-item" data-view="add-funds">
-          <i class="fa-solid fa-wallet"></i>
-          <span>Add Funds / Deposit</span>
-        </div>
-        <div class="sidebar-item" data-view="chat">
-          <i class="fa-solid fa-comments"></i>
-          <span>Live Chat (Admin)</span>
-        </div>
-        <div class="sidebar-item" data-view="api">
-          <i class="fa-solid fa-code"></i>
-          <span>Reseller API</span>
-        </div>
-        <div class="sidebar-item" data-view="tickets">
-          <i class="fa-solid fa-headset"></i>
-          <span>Support Tickets</span>
-        </div>
-      </nav>
-
-      <div class="sidebar-footer">
-        <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="sidebar-item" style="color:#25d366;font-weight:700;">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp: 03173983906</span>
-        </a>
-        <a href="admin.html" class="sidebar-item admin-only-link" style="color:#ff4757;display:none;">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>Admin Control Panel</span>
-        </a>
-        <a href="javascript:void(0)" onclick="AppState.logout()" class="sidebar-item" style="color:var(--text-muted);">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <span>Sign Out</span>
-        </a>
+      <!-- 3. Scrollable White Menu Card with Red Icon Squares -->
+      <div class="dil-menu-box">
+        <ul class="dil-menu-list">
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" onclick="handleAppInstallPrompt()">
+              <span class="dil-menu-icon"><i class="fa-solid fa-download"></i></span>
+              <span>App Install</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="invite" onclick="switchDashView('invite')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-dollar-sign"></i></span>
+              <span>Invite & Earn</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link active" data-view="new-order" onclick="switchDashView('new-order')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-plus"></i></span>
+              <span>New Order</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="orders" onclick="switchDashView('orders')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+              <span>My Orders</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="add-funds" onclick="switchDashView('add-funds')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-wallet"></i></span>
+              <span>Add Funds</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="transactions" onclick="switchDashView('transactions')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-rotate"></i></span>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="services" onclick="switchDashView('services')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-list-ul"></i></span>
+              <span>627+ Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="custom-panel" onclick="switchDashView('custom-panel')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-crown"></i></span>
+              <span>Custom SMM Panel</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="chat" onclick="switchDashView('chat')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-comments"></i></span>
+              <span>Live Chat (Admin)</span>
+              <span class="dil-unread-pill" id="dash-chat-unread-badge" style="display:none;">1</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="dil-menu-link" data-view="api" onclick="switchDashView('api')">
+              <span class="dil-menu-icon"><i class="fa-solid fa-code"></i></span>
+              <span>API v2 Docs</span>
+            </a>
+          </li>
+          <li class="admin-only-link" style="display:none;">
+            <a href="admin.html" class="dil-menu-link">
+              <span class="dil-menu-icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <span>Admin Dashboard</span>
+            </a>
+          </li>
+        </ul>
       </div>
+
+      <!-- 4. Sticky Bottom Logout Button -->
+      <button type="button" class="dil-logout-btn" onclick="AppState.logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
     </aside>
 
-    <!-- ==========================================================================
-         MAIN CONTENT AREA
-         ========================================================================== -->
-    <main class="dashboard-main">
-      <!-- Topbar -->
-      <header class="dashboard-topbar">
-        <div class="topbar-left">
-          <button class="topbar-mobile-btn" aria-label="Toggle Menu">
+    <!-- ========================================================================
+         RIGHT MAIN WORKSPACE
+         ======================================================================== -->
+    <div class="dil-main">
+      
+      <!-- Top Header Bar -->
+      <header class="dil-topbar">
+        <a href="../index.html" class="dil-brand-logo">
+          <span class="dil-logo-circle">saleem</span>
+          <span class="dil-logo-wordmark">SMM PANEL</span>
+        </a>
+
+        <div class="dil-topbar-right">
+          <button type="button" class="dil-curr-pill" onclick="toggleCurrency()" title="Switch Currency">
+            <span class="curr-pill-left" id="top-curr-sym">Rs</span>
+            <span class="curr-pill-right" id="top-curr-code">PKR</span>
+          </button>
+
+          <button type="button" class="dil-hamburger-btn" onclick="toggleDashSidebar()" title="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
-          </button>
-          <h2 class="topbar-title">Place New Order</h2>
-        </div>
-
-        <div class="topbar-right">
-          <!-- Balance Chip -->
-          <div class="balance-chip" style="cursor:pointer;" onclick="document.querySelector('.sidebar-item[data-view=add-funds]').click()">
-            <i class="fa-solid fa-wallet" style="color:var(--primary);"></i>
-            <span><span class="hide-xs">Balance: </span><strong class="user-display-balance">₨ 5,200.00</strong></span>
-          </div>
-
-          <!-- Currency Toggle -->
-          <button class="currency-select-btn" onclick="toggleCurrencyDashboard()" title="Toggle Currency">
-            <i class="fa-solid fa-coins"></i> <span id="dash-curr-label">PKR</span>
-          </button>
-
-          <!-- Theme Toggle -->
-          <button class="theme-toggle-btn" onclick="AppState.toggleTheme()" title="Toggle Theme">
-            <i class="theme-toggle-icon fa-solid fa-sun"></i>
           </button>
         </div>
       </header>
 
-      <div class="dashboard-content">
-        <!-- ====================================================================
-             VIEW 1: NEW ORDER ENGINE
-             ==================================================================== -->
-        <div class="content-view active" id="view-new-order">
-          <!-- Quick Stats Cards Bar -->
-          <div class="dash-stats-grid">
-            <div class="dash-stat-card">
-              <div class="stat-info">
-                <h5>Current Balance</h5>
-                <h3 class="user-display-balance">₨ 5,200.00</h3>
-              </div>
-              <div class="stat-icon-box"><i class="fa-solid fa-wallet"></i></div>
-            </div>
-            <div class="dash-stat-card">
-              <div class="stat-info">
-                <h5>Total Spent</h5>
-                <h3 class="user-display-spent">₨ 14,500.00</h3>
-              </div>
-              <div class="stat-icon-box"><i class="fa-solid fa-money-bill-trend-up"></i></div>
-            </div>
-            <div class="dash-stat-card">
-              <div class="stat-info">
-                <h5>Total Orders</h5>
-                <h3 id="stat-total-orders">3</h3>
-              </div>
-              <div class="stat-icon-box"><i class="fa-solid fa-box-open"></i></div>
-            </div>
-            <div class="dash-stat-card">
-              <div class="stat-info">
-                <h5>Active Orders</h5>
-                <h3 id="stat-active-orders">2</h3>
-              </div>
-              <div class="stat-icon-box"><i class="fa-solid fa-bolt"></i></div>
-            </div>
-          </div>
-
-          <!-- CUSTOM SMM PANEL DEVELOPMENT BANNER -->
-          <div class="custom-panel-card" style="margin-bottom:24px;padding:22px 24px;">
-            <div class="custom-panel-info">
-              <div class="custom-panel-tag"><i class="fa-solid fa-crown"></i> Own SMM Business</div>
-              <h3 style="font-size:20px;">Apna Khud Ka Customize SMM Panel Banwayein!</h3>
-              <p style="margin-bottom:10px;">
-                Koi bhi user apna khud ka full-featured <strong>Customize SMM Panel</strong> (Complete Website + Admin Dashboard + 625+ Wholesale Services + EasyPaisa/UPaisa + Live Chat) banwa sakta hai! Order ke liye abhi Panel Chat mein message karein ya WhatsApp par rabta karein.
-              </p>
-              <div class="custom-panel-features">
-                <span><i class="fa-solid fa-circle-check"></i> Ready in 12–24 Hours</span>
-                <span><i class="fa-solid fa-circle-check"></i> Automated Profit Control</span>
-                <span><i class="fa-solid fa-circle-check"></i> Mobile-First Responsive</span>
-              </div>
-            </div>
-            <div class="custom-panel-actions">
-              <button type="button" class="btn-primary-grad" style="justify-content:center;padding:12px 18px;" onclick="openPanelChatForCustomOrder()">
-                <i class="fa-solid fa-comments"></i> Order in Panel Chat
+      <!-- ======================================================================
+           VIEW 1: NEW ORDER (MATCHES SCREENSHOT 1)
+           ====================================================================== -->
+      <div id="view-new-order" class="dash-view">
+        <div class="dil-neworder-grid">
+          
+          <!-- LEFT COLUMN: Red-Bordered Order Form Card -->
+          <div class="dil-red-card">
+            
+            <!-- 14 Social Platform Filter Icons -->
+            <div class="dil-platform-icons-row" id="platform-filter-bar">
+              <button type="button" class="dil-plat-icon active" data-plat="all" style="background:#ef4444;" onclick="filterCategoryByPlatform('all', this)" title="All Services">
+                <i class="fa-solid fa-house"></i>
               </button>
-              <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20apna%20Customize%20SMM%20Panel%20banwana%20hai.%20Details%20bata%20dein." target="_blank" class="btn-wa-green">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
-              </a>
+              <button type="button" class="dil-plat-icon" data-plat="ai" style="background:#38bdf8;" onclick="filterCategoryByPlatform('ai', this)" title="AI Tools">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="capcut" style="background:#111827;" onclick="filterCategoryByPlatform('tiktok', this)" title="Video Editing & Viral">
+                <i class="fa-solid fa-scissors"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="instagram" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);" onclick="filterCategoryByPlatform('instagram', this)" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="tiktok" style="background:#000000;" onclick="filterCategoryByPlatform('tiktok', this)" title="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="youtube" style="background:#ff0000;" onclick="filterCategoryByPlatform('youtube', this)" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="facebook" style="background:#1877f2;" onclick="filterCategoryByPlatform('facebook', this)" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="twitter" style="background:#0f1419;" onclick="filterCategoryByPlatform('twitter', this)" title="X / Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="spotify" style="background:#1db954;" onclick="filterCategoryByPlatform('spotify', this)" title="Spotify">
+                <i class="fa-brands fa-spotify"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="telegram" style="background:#0088cc;" onclick="filterCategoryByPlatform('telegram', this)" title="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="whatsapp" style="background:#25d366;" onclick="filterCategoryByPlatform('whatsapp', this)" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="website" style="background:#dc2626;" onclick="filterCategoryByPlatform('traffic', this)" title="Website Traffic">
+                <i class="fa-solid fa-globe"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="linkedin" style="background:#0a66c2;" onclick="filterCategoryByPlatform('linkedin', this)" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </button>
+              <button type="button" class="dil-plat-icon" data-plat="custom" style="background:#6366f1;" onclick="filterCategoryByPlatform('custom', this)" title="Custom SMM Panel">
+                <i class="fa-solid fa-crown"></i>
+              </button>
             </div>
+
+            <!-- Search Bar with Red Square Search Button -->
+            <div class="dil-search-bar-row">
+              <input type="text" id="service-quick-search" class="dil-search-input" placeholder="Search for a service..." oninput="handleQuickServiceSearch(this.value)">
+              <button type="button" class="dil-search-red-btn" onclick="document.getElementById('service-quick-search').focus()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+
+            <!-- New Order Form -->
+            <form id="new-order-form" onsubmit="submitNewOrder(event)">
+              <div class="dil-field-group">
+                <label class="dil-field-label">Categories</label>
+                <div class="dil-select-wrap">
+                  <span class="dil-cat-badge"><i class="fa-solid fa-layer-group"></i></span>
+                  <select id="order-category" class="dil-select with-left-badge" onchange="onCategoryChange()"></select>
+                </div>
+              </div>
+
+              <div class="dil-field-group">
+                <label class="dil-field-label">Services</label>
+                <div class="dil-select-wrap">
+                  <span class="dil-srv-id-pill" id="selected-srv-id-pill">15210</span>
+                  <select id="order-service" class="dil-select with-id-pill" onchange="onServiceChange()"></select>
+                </div>
+              </div>
+
+              <!-- Service Description Box (Matches Screenshot 1) -->
+              <div class="dil-field-group">
+                <label class="dil-field-label">Description</label>
+                <div class="dil-desc-card">
+                  <div class="dil-desc-headline" id="desc-srv-name">Select a service to view specifications 🔥</div>
+                  <ul class="dil-desc-checklist">
+                    <li><span class="check-box">✅</span> <strong>Rate per 1,000:</strong> <span id="desc-srv-rate" style="color:var(--primary);font-weight:800;">Rs 0.00</span></li>
+                    <li><span class="check-box">✅</span> <strong>Average Completion Time:</strong> <span id="desc-srv-time">--</span></li>
+                    <li><span class="check-box">✅</span> <strong>Min / Max Order:</strong> <span id="desc-srv-minmax">--</span></li>
+                    <li><span class="check-box">✅</span> 100% Real Quality & Non-Drop Guarantee</li>
+                    <li><span class="check-box">✅</span> Instant Automated System Activation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dil-field-group">
+                <label class="dil-field-label">Link</label>
+                <input type="text" id="order-link" class="dil-input" placeholder="https://..." required>
+              </div>
+
+              <div class="dil-field-group">
+                <label class="dil-field-label">Quantity</label>
+                <input type="number" id="order-quantity" class="dil-input" placeholder="Enter quantity (e.g. 1000)" min="1" oninput="calculateOrderTotal()" required>
+                <div class="dil-minmax-hint" id="quantity-hint">Min: 10 — Max: 1,000,000</div>
+              </div>
+
+              <div class="dil-field-group">
+                <label class="dil-field-label">Average Time <i class="fa-solid fa-circle-Exclamation" style="color:var(--text-muted);font-size:12px;"></i></label>
+                <input type="text" id="order-avg-time-box" class="dil-input" readonly value="35 minutes">
+              </div>
+
+              <div class="dil-field-group">
+                <label class="dil-field-label">Charge</label>
+                <input type="text" id="order-total-charge" class="dil-input dil-charge-input" readonly value="Rs 0.00">
+              </div>
+
+              <button type="submit" class="dil-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Submit New Order
+              </button>
+            </form>
           </div>
 
-          <!-- Order Engine Grid -->
-          <div class="order-engine-grid">
-            <!-- Left Form Panel -->
-            <div class="order-form-panel">
-              <h3><i class="fa-solid fa-cart-shopping" style="color:var(--primary);"></i> Configure Your Order</h3>
-              <form id="new-order-form">
-                <div class="form-group">
-                  <label><i class="fa-solid fa-folder-open"></i> Category</label>
-                  <select id="order-category-select" class="form-input"></select>
+          <!-- RIGHT COLUMN: 3 Stacked Red-Bordered Cards (MATCHES SCREENSHOT 1) -->
+          <div class="dil-right-stack">
+            
+            <!-- Right Card 1: User Welcome & 4 Stat Boxes -->
+            <div class="dil-red-card">
+              <div class="dil-user-welcome">
+                <div class="dil-3d-avatar">
+                  <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=SaleemVIP&backgroundColor=b6e3f4,c0aede,d1d4f9" alt="Avatar">
                 </div>
-
-                <div class="form-group">
-                  <label><i class="fa-solid fa-layer-group"></i> Service</label>
-                  <select id="order-service-select" class="form-input"></select>
-                </div>
-
-                <div class="form-group">
-                  <label><i class="fa-solid fa-link"></i> Target Link / URL (Or Your WhatsApp # for Custom Panel)</label>
-                  <input type="text" id="order-link-input" class="form-input" placeholder="https://instagram.com/p/xxx or your WhatsApp number" required>
-                </div>
-
-                <div class="form-group">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px;">
-                    <label style="margin:0;"><i class="fa-solid fa-calculator"></i> Quantity</label>
-                    <span id="service-min-max-badge" style="font-size:12px;color:var(--primary);font-weight:700;">Min: 50 | Max: 100,000</span>
+                <div>
+                  <div class="dil-welcome-name">
+                    <span id="right-username">saleem_vip</span>
+                    <i class="fa-solid fa-certificate" style="color:#10b981;font-size:15px;" title="Verified Account"></i>
                   </div>
-                  <input type="number" id="order-quantity-input" class="form-input" placeholder="e.g. 1000" min="1" required>
+                  <div class="dil-welcome-sub">welcome to saleemsmmpanel</div>
+                </div>
+              </div>
+
+              <div class="dil-mini-stats-grid">
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-list-check"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">My Orders</div>
+                    <div class="dil-stat-val" id="stat-total-orders">3</div>
+                  </div>
                 </div>
 
-                <button type="submit" class="btn-primary-grad btn-block" style="margin-top:14px;">
-                  <i class="fa-solid fa-bolt"></i> Place Order Now
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-wallet"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">My Balance</div>
+                    <div class="dil-stat-val" id="stat-balance">Rs 5,200</div>
+                  </div>
+                </div>
+
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-coins"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">Amount Spent</div>
+                    <div class="dil-stat-val" id="stat-spent">Rs 14,500</div>
+                  </div>
+                </div>
+
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-calendar-day"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">Today's Spend</div>
+                    <div class="dil-stat-val" id="stat-today-spent">Rs 0.0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card 2: Panel Global Users & Orders -->
+            <div class="dil-red-card">
+              <div class="dil-mini-stats-grid">
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-users"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">Panel Users</div>
+                    <div class="dil-stat-val">84701</div>
+                  </div>
+                </div>
+
+                <div class="dil-mini-stat">
+                  <div class="dil-stat-red-ic"><i class="fa-solid fa-cart-shopping"></i></div>
+                  <div>
+                    <div class="dil-stat-lbl">Panel Orders</div>
+                    <div class="dil-stat-val">4490091</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card 3: Join Our WhatsApp & Customize SMM Panel -->
+            <div class="dil-red-card">
+              <div class="dil-wa-head">
+                <div class="dil-wa-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <div class="dil-wa-title">Join Our WhatsApp Support</div>
+                  <div class="dil-wa-sub">Updates, offers & 24/7 direct chat</div>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">
+                <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="dil-wa-btn">
+                  <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (03173983906)
+                </a>
+                <button type="button" class="dil-chat-btn-outline" onclick="switchDashView('chat')">
+                  <i class="fa-solid fa-comments"></i> Open In-Panel Live Chat (Admin)
+                </button>
+              </div>
+
+              <!-- Customize SMM Panel Promo Box Inside Right Column -->
+              <div class="dil-custom-panel-mini">
+                <div class="cp-mini-badge"><i class="fa-solid fa-crown"></i> OWN SMM PANEL BUSINESS</div>
+                <h4>Apna Customize SMM Panel Banwayein!</h4>
+                <p>Get your own branded SMM Panel website connected with 625+ automated services & EasyPaisa/UPaisa.</p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+                  <button type="button" class="dil-cp-btn-red" onclick="switchDashView('custom-panel')">
+                    <i class="fa-solid fa-rocket"></i> View Packages
+                  </button>
+                  <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum!%20Mujhe%20apna%20Customize%20SMM%20Panel%20banwana%20hai." target="_blank" class="dil-cp-btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 2: MY ORDERS (RICH 2-COLUMN RED CARDS — MATCHES SCREENSHOT 2)
+           ====================================================================== -->
+      <div id="view-orders" class="dash-view" style="display:none;">
+        <!-- Orders Filter Pills & Search Toolbar -->
+        <div class="dil-orders-toolbar">
+          <div class="dil-order-pills" id="order-status-pills">
+            <button type="button" class="dil-order-pill active" onclick="filterOrdersByStatus('all', this)">
+              <i class="fa-solid fa-list-ul"></i> All Orders
+            </button>
+            <button type="button" class="dil-order-pill" onclick="filterOrdersByStatus('Pending', this)">
+              <i class="fa-solid fa-clock"></i> Pending
+            </button>
+            <button type="button" class="dil-order-pill" onclick="filterOrdersByStatus('In progress', this)">
+              <i class="fa-solid fa-arrows-rotate"></i> In Progress
+            </button>
+            <button type="button" class="dil-order-pill" onclick="filterOrdersByStatus('Completed', this)">
+              <i class="fa-solid fa-check"></i> Completed
+            </button>
+            <button type="button" class="dil-order-pill" onclick="filterOrdersByStatus('Partial', this)">
+              <i class="fa-solid fa-chart-pie"></i> Partial
+            </button>
+            <button type="button" class="dil-order-pill" onclick="filterOrdersByStatus('Canceled', this)">
+              <i class="fa-solid fa-xmark"></i> Canceled
+            </button>
+          </div>
+
+          <div class="dil-order-search-box">
+            <input type="text" id="order-search-input" placeholder="Search orders..." oninput="renderUserOrders()">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </div>
+
+        <!-- 2-Column Rich Order Cards Grid -->
+        <div class="dil-orders-cards-grid" id="user-orders-cards-grid"></div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 3: ADD FUNDS (LARGE BRAND TILES — MATCHES SCREENSHOT 3)
+           ====================================================================== -->
+      <div id="view-add-funds" class="dash-view" style="display:none;">
+        <div class="dil-funds-container">
+          <h3 class="dil-funds-heading">Payment Methods</h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:20px;">
+            Only <strong>EasyPaisa (03173983906)</strong> and <strong>UPaisa (03163846672)</strong> are currently active for instant deposit. Other gateways are Coming Soon.
+          </p>
+
+          <!-- 3-Column Brand Payment Tiles Grid (Matches Screenshot 3) -->
+          <div class="dil-pay-tiles-grid">
+            
+            <!-- 1. EasyPaisa (ACTIVE) -->
+            <div class="dil-pay-tile active" id="tile-easypaisa" onclick="selectPaymentGateway('easypaisa')">
+              <span class="dil-tile-check"><i class="fa-solid fa-check"></i></span>
+              <span class="dil-tile-status-active">Active Now</span>
+              <div class="dil-brand-art">
+                <div class="ep-logo-circle">
+                  <span class="ep-e">e</span>
+                  <span class="ep-smile"></span>
+                </div>
+                <div class="ep-wordmark"><span>easy</span>paisa</div>
+                <div class="tile-acc-num">03173983906</div>
+              </div>
+            </div>
+
+            <!-- 2. UPaisa (ACTIVE) -->
+            <div class="dil-pay-tile" id="tile-upaisa" onclick="selectPaymentGateway('upaisa')">
+              <span class="dil-tile-check"><i class="fa-solid fa-check"></i></span>
+              <span class="dil-tile-status-active">Active Now</span>
+              <div class="dil-brand-art">
+                <div class="up-logo-circle">U</div>
+                <div class="up-wordmark"><span>U</span>Paisa</div>
+                <div class="tile-acc-num">03163846672</div>
+              </div>
+            </div>
+
+            <!-- 3. JazzCash (COMING SOON) -->
+            <div class="dil-pay-tile tile-coming-soon" onclick="showComingSoonPayment('JazzCash')">
+              <div class="coming-soon-ribbon">COMING SOON</div>
+              <div class="dil-brand-art">
+                <div class="jc-logo-shapes">
+                  <span class="jc-yellow"></span>
+                  <span class="jc-red"></span>
+                </div>
+                <div class="jc-wordmark">JazzCash</div>
+                <div class="tile-acc-soon">Coming Soon</div>
+              </div>
+            </div>
+
+            <!-- 4. Raast (COMING SOON) -->
+            <div class="dil-pay-tile tile-coming-soon" onclick="showComingSoonPayment('Raast / Bank Transfer')">
+              <div class="coming-soon-ribbon">COMING SOON</div>
+              <div class="dil-brand-art">
+                <div class="raast-arch"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="raast-wordmark">Raast</div>
+                <div class="tile-acc-soon">Coming Soon</div>
+              </div>
+            </div>
+
+            <!-- 5. Payoneer / SadaPay (COMING SOON) -->
+            <div class="dil-pay-tile tile-coming-soon" onclick="showComingSoonPayment('Payoneer / Cards')">
+              <div class="coming-soon-ribbon">COMING SOON</div>
+              <div class="dil-brand-art">
+                <div class="payo-logo">P</div>
+                <div class="jc-wordmark" style="font-size:22px;">Payoneer</div>
+                <div class="tile-acc-soon">Coming Soon</div>
+              </div>
+            </div>
+
+            <!-- 6. Binance / Crypto (COMING SOON) -->
+            <div class="dil-pay-tile tile-coming-soon" onclick="showComingSoonPayment('Binance / USDT')">
+              <div class="coming-soon-ribbon">COMING SOON</div>
+              <div class="dil-brand-art">
+                <div class="bnb-logo"><i class="fa-solid fa-coins"></i></div>
+                <div class="jc-wordmark" style="font-size:22px;color:#d97706;">Binance Pay</div>
+                <div class="tile-acc-soon">Coming Soon</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Selected Active Gateway Deposit Form & Instructions -->
+          <div class="dil-deposit-form-grid" id="deposit-form-section">
+            <div class="dil-red-card">
+              <h4 style="font-size:17px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-building-columns" style="color:var(--primary);"></i>
+                <span id="selected-gateway-title">Send Payment via EasyPaisa (Active)</span>
+              </h4>
+
+              <div class="dil-account-copy-box">
+                <div>
+                  <div style="font-size:11.5px;text-transform:uppercase;font-weight:700;color:var(--text-muted);" id="selected-gateway-label">OFFICIAL EASYPAISA ACCOUNT NUMBER</div>
+                  <div style="font-size:24px;font-weight:900;color:var(--primary);letter-spacing:1px;margin:4px 0;" id="selected-gateway-number">03173983906</div>
+                  <div style="font-size:12.5px;color:var(--text-secondary);">Account Title: <strong>Saleem Akhtar</strong></div>
+                </div>
+                <button type="button" class="dil-copy-num-btn" onclick="copySelectedGatewayNumber()">
+                  <i class="fa-regular fa-copy"></i> Copy Number
+                </button>
+              </div>
+
+              <form id="add-funds-form" onsubmit="submitDepositRequest(event)" style="margin-top:16px;">
+                <input type="hidden" id="deposit-method" value="EasyPaisa (03173983906)">
+                
+                <div class="dil-field-group">
+                  <label class="dil-field-label">Selected Active Method</label>
+                  <select id="deposit-method-select" class="dil-select" onchange="selectPaymentGateway(this.value)">
+                    <option value="easypaisa">EasyPaisa — 03173983906 (Active)</option>
+                    <option value="upaisa">UPaisa — 03163846672 (Active)</option>
+                  </select>
+                </div>
+
+                <div class="form-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                  <div class="dil-field-group">
+                    <label class="dil-field-label">Amount Sent (PKR ₨)</label>
+                    <input type="number" id="deposit-amount" class="dil-input" placeholder="Min ₨ 100" min="100" required>
+                  </div>
+                  <div class="dil-field-group">
+                    <label class="dil-field-label">Transaction ID (TID / Ref #)</label>
+                    <input type="text" id="deposit-tid" class="dil-input" placeholder="e.g. 84920194821" required>
+                  </div>
+                </div>
+
+                <button type="submit" class="dil-submit-btn">
+                  <i class="fa-solid fa-circle-check"></i> Submit Deposit Verification
                 </button>
               </form>
             </div>
 
-            <!-- Right Service Details & Live Price Preview -->
-            <div class="order-details-panel">
-              <h3><i class="fa-solid fa-circle-info"></i> Service Specifications</h3>
-              <div class="service-description-box" id="service-description-text">
-                Select a service to view speed, drop rates, and refill rules.
+            <!-- Recent Deposits Card -->
+            <div class="dil-red-card">
+              <h4 style="font-size:17px;font-weight:800;margin-bottom:14px;">
+                <i class="fa-solid fa-clock-rotate-left" style="color:var(--primary);"></i> Recent Deposit Requests
+              </h4>
+              <div class="table-responsive">
+                <table class="dil-clean-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Method</th>
+                      <th>TID</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="user-deposits-tbody"></tbody>
+                </table>
               </div>
-
-              <div class="price-summary-box">
-                <div class="price-summary-row">
-                  <span>Rate per 1,000:</span>
-                  <strong id="summary-rate-per-1k">₨ 80.00</strong>
-                </div>
-                <div class="price-summary-row">
-                  <span>Delivery Speed:</span>
-                  <strong id="summary-delivery-speed" style="color:var(--success);">Instant</strong>
-                </div>
-                <div class="price-summary-row">
-                  <span>Refill Guarantee:</span>
-                  <strong>30 Days Auto-Refill</strong>
-                </div>
-                <div class="price-summary-total">
-                  <span>Total Charge:</span>
-                  <span id="summary-total-charge">₨ 0.00</span>
-                </div>
+              <div style="margin-top:16px;padding:12px;border-radius:10px;background:var(--bg-surface-soft);font-size:12.5px;color:var(--text-secondary);">
+                Need faster verification? Send your screenshot in <a href="javascript:void(0)" onclick="switchDashView('chat')" style="color:var(--primary);font-weight:700;">In-Panel Live Chat</a> or <a href="https://wa.me/923173983906" target="_blank" style="color:#16a34a;font-weight:700;">WhatsApp (03173983906)</a>.
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 2: ORDERS HISTORY
-             ==================================================================== -->
-        <div class="content-view" id="view-orders">
-          <div class="table-panel">
-            <div class="table-toolbar">
-              <div class="table-tabs">
-                <button class="table-tab-btn active" data-status="all">All</button>
-                <button class="table-tab-btn" data-status="Pending">Pending</button>
-                <button class="table-tab-btn" data-status="In progress">In Progress</button>
-                <button class="table-tab-btn" data-status="Completed">Completed</button>
-                <button class="table-tab-btn" data-status="Processing">Processing</button>
-                <button class="table-tab-btn" data-status="Canceled">Canceled</button>
-              </div>
-              <input type="text" id="orders-search-input" class="table-search-input" placeholder="Search by Order ID or link...">
-            </div>
-
-            <div class="data-table-container">
-              <table class="custom-data-table">
-                <thead>
-                  <tr>
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>Service Name</th>
-                    <th>Link</th>
-                    <th>Quantity</th>
-                    <th>Charge</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="orders-table-body"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 3: SERVICES CATALOG
-             ==================================================================== -->
-        <div class="content-view" id="view-services">
-          <div class="table-panel">
-            <div class="table-toolbar">
-              <h3 style="font-size:18px;font-weight:800;">Wholesale SMM Services List (625+ Active)</h3>
-              <input type="text" id="catalog-search" class="table-search-input" placeholder="Search services..." oninput="filterCatalog(this.value)">
-            </div>
-            <div class="data-table-container">
-              <table class="custom-data-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Service Name</th>
-                    <th>Rate / 1K</th>
-                    <th>Min</th>
-                    <th>Max</th>
-                    <th>Avg Speed</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="catalog-services-body"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 4: ADD FUNDS / DEPOSIT (EASYPAISA & UPAISA ACTIVE, OTHERS COMING SOON)
-             ==================================================================== -->
-        <div class="content-view" id="view-add-funds">
-          <h3 style="font-size:20px;font-weight:800;margin-bottom:6px;">Select Deposit Method</h3>
-          <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:18px;">
-            Currently <strong>EasyPaisa (03173983906)</strong> and <strong>UPaisa (03163846672)</strong> are active for instant deposits. Other gateways are coming soon!
-          </p>
-
-          <div class="deposit-methods-grid">
-            <!-- Active Method 1: EasyPaisa -->
-            <div class="deposit-method-card selected" data-method="EasyPaisa" data-active="true">
-              <div class="method-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-              <h4>EasyPaisa</h4>
-              <p style="font-size:12.5px;color:var(--text-secondary);font-weight:600;">03173983906</p>
-              <span class="pay-status-badge pay-status-active"><i class="fa-solid fa-circle-check"></i> Active</span>
-            </div>
-
-            <!-- Active Method 2: UPaisa -->
-            <div class="deposit-method-card" data-method="UPaisa" data-active="true">
-              <div class="method-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
-              <h4>UPaisa</h4>
-              <p style="font-size:12.5px;color:var(--text-secondary);font-weight:600;">03163846672</p>
-              <span class="pay-status-badge pay-status-active"><i class="fa-solid fa-circle-check"></i> Active</span>
-            </div>
-
-            <!-- Coming Soon 1: JazzCash -->
-            <div class="deposit-method-card coming-soon" data-method="JazzCash" data-active="false">
-              <div class="coming-soon-ribbon">Coming Soon</div>
-              <div class="method-icon"><i class="fa-solid fa-wallet"></i></div>
-              <h4>JazzCash</h4>
-              <p style="font-size:12px;color:var(--text-muted);">Auto Gateway</p>
-              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
-            </div>
-
-            <!-- Coming Soon 2: Bank Transfer -->
-            <div class="deposit-method-card coming-soon" data-method="Bank Transfer" data-active="false">
-              <div class="coming-soon-ribbon">Coming Soon</div>
-              <div class="method-icon"><i class="fa-solid fa-building-columns"></i></div>
-              <h4>Bank Transfer</h4>
-              <p style="font-size:12px;color:var(--text-muted);">Meezan / HBL / Alfalah</p>
-              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
-            </div>
-
-            <!-- Coming Soon 3: Binance / Crypto -->
-            <div class="deposit-method-card coming-soon" data-method="Binance / USDT" data-active="false">
-              <div class="coming-soon-ribbon">Coming Soon</div>
-              <div class="method-icon"><i class="fa-brands fa-bitcoin"></i></div>
-              <h4>Binance / USDT</h4>
-              <p style="font-size:12px;color:var(--text-muted);">TRC20 Crypto</p>
-              <span class="pay-status-badge pay-status-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
-            </div>
-          </div>
-
-          <!-- Deposit Instructions -->
-          <div class="deposit-instructions-panel">
-            <h4 id="deposit-method-title">EasyPaisa Payment Details</h4>
-            <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:14px;">
-              Send your deposit amount to the official account below. After completing the payment, enter the amount and the <strong>Transaction ID (TID)</strong> received in the SMS.
-            </p>
-
-            <div class="account-detail-box">
-              <span id="deposit-account-number">03173983906 (EasyPaisa)</span>
-              <button class="copy-btn" onclick="copyDepositAccount()"><i class="fa-regular fa-copy"></i> Copy</button>
-            </div>
-
-            <!-- Submit TID Form -->
-            <form id="deposit-submit-form" style="margin-top:20px;">
-              <div class="form-two-col-grid">
-                <div class="form-group">
-                  <label><i class="fa-solid fa-coins"></i> Amount Sent (₨ / $)</label>
-                  <input type="number" id="deposit-amount-input" class="form-input" placeholder="e.g. 2000" min="100" required>
-                </div>
-                <div class="form-group">
-                  <label><i class="fa-solid fa-receipt"></i> Transaction ID (TID / Ref #)</label>
-                  <input type="text" id="deposit-tid-input" class="form-input" placeholder="e.g. 19283746501" required>
-                </div>
-              </div>
-
-              <button type="submit" class="btn-primary-grad" style="padding:12px 28px;font-size:14px;">
-                <i class="fa-solid fa-paper-plane"></i> Submit Deposit Request
-              </button>
-            </form>
-          </div>
-
-          <!-- Deposit History -->
-          <div class="table-panel">
-            <h4 style="font-size:16px;font-weight:700;margin-bottom:14px;">Recent Deposits History</h4>
-            <div id="deposits-history-list"></div>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 5: IN-PANEL LIVE CHAT WITH ADMIN
-             ==================================================================== -->
-        <div class="content-view" id="view-chat">
-          <div class="panel-chat-card">
-            <div class="panel-chat-top">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <div class="saleem-chat-avatar" style="width:44px;height:44px;font-size:20px;">
-                  <i class="fa-solid fa-headset"></i>
-                  <span class="online-dot"></span>
-                </div>
-                <div>
-                  <h3 style="font-size:17px;font-weight:800;margin:0;color:#fff;">Live Chat With Admin (Saleem Akhtar)</h3>
-                  <p style="font-size:12px;margin:0;color:rgba(255,255,255,0.88);">
-                    Send messages directly inside the panel — Admin replies right here! Or chat on WhatsApp: <strong>03173983906</strong>
-                  </p>
-                </div>
-              </div>
-              <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
-                 target="_blank"
-                 class="btn-wa-green"
-                 style="padding:9px 16px;font-size:12.5px;">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
-              </a>
-            </div>
-
-            <div class="saleem-chat-quick-chips">
-              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mujhe apna Customize SMM Panel banwana hai, details aur price bata dein.')">
-                👑 Order Customize SMM Panel
-              </button>
-              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Maine EasyPaisa (03173983906) / UPaisa (03163846672) par payment bhej di hai, please verify kar dein.')">
-                💳 Verify Deposit TID
-              </button>
-              <button type="button" onclick="window.sendQuickChatPreset('Assalam-o-Alaikum! Mere order ki speed/refill check kar dein.')">
-                ⚡ Order Speed / Refill
-              </button>
-            </div>
-
-            <div class="panel-chat-messages" id="dashboard-chat-messages"></div>
-
-            <form class="panel-chat-form" onsubmit="handleDashboardChatSubmit(event)">
-              <input type="text" id="dashboard-chat-input" class="form-input" placeholder="Write your message to Admin here..." autocomplete="off" required>
-              <button type="submit" class="btn-primary-grad" style="padding:0 24px;">
-                <i class="fa-solid fa-paper-plane"></i> <span class="hide-xs">Send</span>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 6: RESELLER API
-             ==================================================================== -->
-        <div class="content-view" id="view-api">
-          <div class="table-panel">
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:12px;">SMM Reseller REST API (v2)</h3>
-            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px;">
-              Connect your own panel, website, or mobile app directly to Saleem SMM Panel wholesale automation server using our standard v2 API.
-            </p>
-
-            <div style="background:var(--bg-surface-soft);padding:18px;border-radius:var(--radius-md);margin-bottom:24px;">
-              <label style="font-size:13px;font-weight:700;">Your Secret API Key</label>
-              <div class="account-detail-box" style="margin-top:8px;">
-                <span id="user-api-key-text">smm_live_sec_99a8b7c6d5e4f3a2</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('user-api-key-text').textContent); AppState.showToast('API Key copied to clipboard!', 'success');">Copy</button>
-              </div>
-            </div>
-
-            <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Place Order</h4>
-            <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);margin-bottom:20px;">
-curl -X POST https://saleemsmmpannel.vercel.app/api/v2 \
-  -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
-  -d "action=add" \
-  -d "service=15210" \
-  -d "link=https://instagram.com/saleem_vip" \
-  -d "quantity=1000"
-            </pre>
-
-            <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;">cURL Example: Check Order Status</h4>
-            <pre style="background:var(--bg-surface-soft);padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13px;color:var(--text-primary);">
-curl -X POST https://saleemsmmpannel.vercel.app/api/v2 \
-  -d "key=smm_live_sec_99a8b7c6d5e4f3a2" \
-  -d "action=status" \
-  -d "order=50412"
-            </pre>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             VIEW 7: SUPPORT TICKETS
-             ==================================================================== -->
-        <div class="content-view" id="view-tickets">
-          <div class="table-panel">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
-              <h3 style="font-size:18px;font-weight:800;">Support Tickets</h3>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" onclick="document.querySelector('.sidebar-item[data-view=chat]').click()" class="btn-primary-grad" style="padding:9px 16px;font-size:12.5px;">
-                  <i class="fa-solid fa-comments"></i> Live Chat Inside Panel
-                </button>
-                <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="btn-wa-green" style="padding:9px 16px;font-size:12.5px;">
-                  <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
-                </a>
-              </div>
-            </div>
-
-            <form onsubmit="handleTicketSubmit(event)">
-              <div class="form-group">
-                <label>Subject</label>
-                <select class="form-input">
-                  <option>👑 Customize SMM Panel Order / Inquiry</option>
-                  <option>Order Issue (Speed / Refill)</option>
-                  <option>EasyPaisa / UPaisa Deposit Verification</option>
-                  <option>API Reseller Assistance</option>
-                  <option>Other Inquiry</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label>Order ID / Transaction ID (Optional)</label>
-                <input type="text" class="form-input" placeholder="e.g. #50412 or TID">
-              </div>
-
-              <div class="form-group">
-                <label>Message / Description</label>
-                <textarea id="ticket-msg-input" class="form-input" rows="4" placeholder="Explain your request or issue..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary-grad">Submit Ticket & Send to Admin Chat</button>
-            </form>
           </div>
         </div>
       </div>
-    </main>
+
+      <!-- ======================================================================
+           VIEW 4: TRANSACTIONS (RED HEADER TABLE — MATCHES SCREENSHOT 4)
+           ====================================================================== -->
+      <div id="view-transactions" class="dash-view" style="display:none;">
+        <div class="dil-transactions-card">
+          <div class="table-responsive">
+            <table class="dil-tx-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Type</th>
+                  <th>Rs Amount</th>
+                  <th>Date</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="user-transactions-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 5: DASHBOARD OVERVIEW & PERSONAL INFO (CRIMSON PANEL — SCREENSHOT 5)
+           ====================================================================== -->
+      <div id="view-overview" class="dash-view" style="display:none;">
+        <div class="dil-overview-crimson-panel">
+          
+          <!-- Top User Banner Inside Crimson Panel -->
+          <div class="dil-ov-user-banner">
+            <div class="dil-ov-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div>
+              <div class="dil-ov-name" id="ov-username">saleem_vip</div>
+              <div class="dil-ov-email" id="ov-email">client@saleemsmm.pk</div>
+              <span class="dil-ov-active-pill"><i class="fa-solid fa-circle-check"></i> Active</span>
+            </div>
+          </div>
+
+          <div class="dil-ov-section-title">OVERVIEW</div>
+
+          <!-- 2x2 White Stat Cards Inside Crimson Panel -->
+          <div class="dil-ov-stats-grid">
+            <div class="dil-ov-white-card">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-wallet"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">BALANCE</div>
+                <div class="dil-ov-card-val" id="ov-balance">Rs 5,200.00</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-white-card">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">ORDERS</div>
+                <div class="dil-ov-card-val" id="ov-orders">3</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-white-card">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-coins"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">TOTAL SPENT</div>
+                <div class="dil-ov-card-val" id="ov-spent">Rs 14,500.00</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-white-card">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-calendar-day"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">TODAY SPENT</div>
+                <div class="dil-ov-card-val" id="ov-today">Rs 0.0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dil-ov-section-title" style="margin-top:26px;">PERSONAL INFO</div>
+
+          <!-- Personal Info White Stacked Card -->
+          <div class="dil-ov-info-list">
+            <div class="dil-ov-info-row">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">FULL NAME</div>
+                <div class="dil-ov-info-val" id="ov-fullname">Saleem VIP Client</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-info-row">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-at"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">USERNAME</div>
+                <div class="dil-ov-info-val" id="ov-uname">saleem_vip</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-info-row">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">EMAIL</div>
+                <div class="dil-ov-info-val" id="ov-uemail">client@saleemsmm.pk</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-info-row">
+              <div class="dil-ov-red-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">WHATSAPP NUMBER</div>
+                <div class="dil-ov-info-val" id="ov-uphone">03173983906</div>
+              </div>
+            </div>
+
+            <div class="dil-ov-info-row">
+              <div class="dil-ov-red-icon"><i class="fa-solid fa-percent"></i></div>
+              <div>
+                <div class="dil-ov-card-lbl">DISCOUNT / TIER</div>
+                <div class="dil-ov-info-val">VIP Wholesale Rates Active</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 6: 627+ SERVICES CATALOG
+           ====================================================================== -->
+      <div id="view-services" class="dash-view" style="display:none;">
+        <div class="dil-red-card">
+          <div class="form-grid-2" style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:20px;">
+            <div class="dil-search-bar-row" style="margin-bottom:0;">
+              <input type="text" id="catalog-search" class="dil-search-input" placeholder="Search 627+ services by ID or keyword..." oninput="renderServiceCatalog()">
+              <button type="button" class="dil-search-red-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <select id="catalog-cat-filter" class="dil-select" onchange="renderServiceCatalog()">
+              <option value="all">All Categories (627+ Services)</option>
+            </select>
+          </div>
+          <div id="services-catalog-container"></div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 7: CUSTOMIZE SMM PANEL SERVICE
+           ====================================================================== -->
+      <div id="view-custom-panel" class="dash-view" style="display:none;">
+        <div class="dil-red-card">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:14px;">
+            <i class="fa-solid fa-crown"></i> BUILD YOUR OWN SMM PANEL
+          </div>
+          <h2 style="font-size:24px;font-weight:800;margin-bottom:8px;">Apna Khud Ka Customize SMM Panel Banwayein!</h2>
+          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:22px;">
+            Start your own profitable SMM Panel business today. We build your complete website with your own brand logo, custom domain, Admin Command Center, EasyPaisa/UPaisa payment gateway integration, and 625+ automated services connected via API.
+          </p>
+
+          <div class="form-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;">
+            <div class="dil-red-card" style="background:var(--bg-surface-soft);">
+              <div style="font-size:12px;font-weight:800;color:var(--primary);">PACKAGE #1 (ID: 99901)</div>
+              <h3 style="font-size:18px;font-weight:800;margin:6px 0;">👑 Full Custom SMM Panel Website</h3>
+              <div style="font-size:26px;font-weight:900;color:var(--primary);margin-bottom:12px;">₨ 15,000 <span style="font-size:12px;color:var(--text-muted);font-weight:500;">/ Complete Setup</span></div>
+              <ul class="dil-desc-checklist" style="margin-bottom:16px;">
+                <li>✅ Custom Domain (.com / .pk) & Free SSL</li>
+                <li>✅ Full Admin Dashboard + User Management</li>
+                <li>✅ EasyPaisa & UPaisa Payment Integration</li>
+                <li>✅ 625+ Automated Wholesale Services Connected</li>
+                <li>✅ In-Panel Live Chat + WhatsApp Integration</li>
+              </ul>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="dil-submit-btn" style="flex:1;" onclick="quickOrderService(99901)">
+                  <i class="fa-solid fa-bolt"></i> Order in Panel
+                </button>
+                <button type="button" class="dil-chat-btn-outline" onclick="openCustomPanelChatInquiry()">
+                  <i class="fa-solid fa-comments"></i> Chat with Admin
+                </button>
+              </div>
+            </div>
+
+            <div class="dil-red-card" style="background:var(--bg-surface-soft);">
+              <div style="font-size:12px;font-weight:800;color:var(--primary);">PACKAGE #2 (ID: 99902)</div>
+              <h3 style="font-size:18px;font-weight:800;margin:6px 0;">🚀 Reseller Child SMM Panel</h3>
+              <div style="font-size:26px;font-weight:900;color:var(--primary);margin-bottom:12px;">₨ 8,500 <span style="font-size:12px;color:var(--text-muted);font-weight:500;">/ Ready Setup</span></div>
+              <ul class="dil-desc-checklist" style="margin-bottom:16px;">
+                <li>✅ Ready-Made Child Panel Connected to Saleem API</li>
+                <li>✅ Set Your Own Profit Margin (+30% to +100%)</li>
+                <li>✅ Unlimited Client Orders & Auto Refill</li>
+                <li>✅ Mobile-First Responsive Dashboard</li>
+                <li>✅ 24/7 Priority Technical Support</li>
+              </ul>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="dil-submit-btn" style="flex:1;" onclick="quickOrderService(99902)">
+                  <i class="fa-solid fa-bolt"></i> Order in Panel
+                </button>
+                <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum!%20Mujhe%20apna%20Customize%20SMM%20Panel%20banwana%20hai." target="_blank" class="dil-wa-btn" style="padding:11px 16px;">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp (03173983906)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 8: INVITE & EARN (AFFILIATE)
+           ====================================================================== -->
+      <div id="view-invite" class="dash-view" style="display:none;">
+        <div class="dil-red-card">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:8px;">
+            <i class="fa-solid fa-hand-holding-dollar" style="color:var(--primary);"></i> Invite Friends & Earn 10% Commission
+          </h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:18px;">
+            Share your personal Saleem SMM Panel referral link with friends, YouTubers, and TikTokers. You earn <strong>10% instant wallet bonus</strong> on every deposit they make!
+          </p>
+          <div class="dil-account-copy-box">
+            <div style="overflow:hidden;">
+              <div style="font-size:11.5px;font-weight:700;color:var(--text-muted);">YOUR REFERRAL INVITE LINK</div>
+              <div style="font-size:15px;font-weight:800;color:var(--primary);word-break:break-all;margin-top:4px;" id="user-ref-link">https://saleemsmmpannel.vercel.app/?ref=saleem_vip</div>
+            </div>
+            <button type="button" class="dil-copy-num-btn" onclick="AppState.copyText(document.getElementById('user-ref-link').textContent)">
+              <i class="fa-regular fa-copy"></i> Copy Link
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 9: IN-PANEL LIVE CHAT WITH ADMIN
+           ====================================================================== -->
+      <div id="view-chat" class="dash-view" style="display:none;">
+        <div class="dil-red-card panel-chat-card">
+          <div class="panel-chat-top">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="saleem-chat-avatar" style="width:46px;height:46px;font-size:20px;">
+                <i class="fa-solid fa-headset"></i>
+                <span class="online-dot"></span>
+              </div>
+              <div>
+                <h3 style="font-size:17px;font-weight:800;margin:0;">Live Chat With Admin (Saleem Akhtar)</h3>
+                <p style="font-size:12.5px;color:var(--text-secondary);margin:2px 0 0;">
+                  Direct In-Panel Messaging • Admin replies appear right here in real time
+                </p>
+              </div>
+            </div>
+            <a href="https://wa.me/923173983906?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye." target="_blank" class="dil-wa-btn" style="padding:9px 14px;font-size:12.5px;">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp: 03173983906
+            </a>
+          </div>
+
+          <div class="saleem-chat-quick-chips" style="padding:10px 16px;">
+            <button type="button" onclick="sendDashboardChatPreset('Assalam-o-Alaikum Admin! Mujhe apna Customize SMM Panel banwana hai, details bata dein.')">
+              👑 Order Customize SMM Panel
+            </button>
+            <button type="button" onclick="sendDashboardChatPreset('Assalam-o-Alaikum Admin! Maine EasyPaisa / UPaisa par payment bhej di hai, mera deposit approve kar dein.')">
+              💳 Verify EasyPaisa / UPaisa Deposit
+            </button>
+            <button type="button" onclick="sendDashboardChatPreset('Assalam-o-Alaikum Admin! Mere order ki speed aur status check kar dein.')">
+              ⚡ Order Status / Speed Help
+            </button>
+          </div>
+
+          <div class="panel-chat-messages" id="dash-chat-messages"></div>
+
+          <form class="panel-chat-form" onsubmit="handleDashboardChatSubmit(event)">
+            <input type="text" id="dash-chat-input" class="dil-input" placeholder="Write your message to Admin here..." autocomplete="off" required>
+            <button type="submit" class="dil-submit-btn" style="width:auto;padding:12px 24px;">
+              <i class="fa-solid fa-paper-plane"></i> Send
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 10: API v2 DOCUMENTATION
+           ====================================================================== -->
+      <div id="view-api" class="dash-view" style="display:none;">
+        <div class="dil-red-card">
+          <h3 style="font-size:19px;font-weight:800;margin-bottom:14px;">
+            <i class="fa-solid fa-code" style="color:var(--primary);"></i> Developer & Reseller SMM API v2
+          </h3>
+          <div class="dil-account-copy-box" style="margin-bottom:18px;">
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:var(--text-muted);">YOUR SECRET API KEY</div>
+              <div style="font-size:16px;font-weight:800;color:var(--primary);font-family:monospace;margin-top:4px;" id="user-api-key">smm_live_sec_99a8b7c6d5e4f3a2</div>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <button type="button" class="dil-copy-num-btn" onclick="AppState.copyText(document.getElementById('user-api-key').textContent)">
+                <i class="fa-regular fa-copy"></i> Copy Key
+              </button>
+              <button type="button" class="dil-chat-btn-outline" onclick="regenerateApiKey()">
+                <i class="fa-solid fa-rotate"></i> New Key
+              </button>
+            </div>
+          </div>
+          <div style="font-size:13.5px;color:var(--text-secondary);line-height:1.8;">
+            <div><strong>HTTP Method:</strong> <code>POST</code> or <code>GET</code></div>
+            <div><strong>API URL:</strong> <code>https://saleemsmmpannel.vercel.app/api/v2</code></div>
+            <div><strong>Response Format:</strong> <code>JSON</code></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Mobile Bottom Navigation Bar -->
   <nav class="mobile-bottom-nav">
-    <button type="button" class="mobile-nav-item active" data-mobile-view="new-order" onclick="triggerDashboardView('new-order')">
-      <i class="fa-solid fa-cart-plus"></i>
+    <button type="button" class="mob-nav-item active" data-mob-view="new-order" onclick="switchDashView('new-order')">
+      <i class="fa-solid fa-plus-circle"></i>
       <span>New Order</span>
     </button>
-    <button type="button" class="mobile-nav-item" data-mobile-view="services" onclick="triggerDashboardView('services')">
-      <i class="fa-solid fa-list-check"></i>
-      <span>Services</span>
+    <button type="button" class="mob-nav-item" data-mob-view="orders" onclick="switchDashView('orders')">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      <span>My Orders</span>
     </button>
-    <button type="button" class="mobile-nav-item" data-mobile-view="add-funds" onclick="triggerDashboardView('add-funds')">
+    <button type="button" class="mob-nav-item" data-mob-view="add-funds" onclick="switchDashView('add-funds')">
       <i class="fa-solid fa-wallet"></i>
       <span>Add Funds</span>
     </button>
-    <button type="button" class="mobile-nav-item" data-mobile-view="chat" onclick="triggerDashboardView('chat')">
+    <button type="button" class="mob-nav-item" data-mob-view="chat" onclick="switchDashView('chat')">
       <i class="fa-solid fa-comments"></i>
       <span>Live Chat</span>
     </button>
-    <button type="button" class="mobile-nav-item" data-mobile-view="orders" onclick="triggerDashboardView('orders')">
-      <i class="fa-solid fa-clock-rotate-left"></i>
-      <span>Orders</span>
+    <button type="button" class="mob-nav-item" data-mob-view="overview" onclick="switchDashView('overview')">
+      <i class="fa-solid fa-user"></i>
+      <span>Dashboard</span>
     </button>
   </nav>
 
-  <!-- Core Scripts -->
+  <!-- Scripts -->
   <script src="../js/services-data.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/dashboard.js"></script>
-  <script>
-    function closeMobileSidebar() {
-      document.querySelector('.dashboard-sidebar')?.classList.remove('mobile-open');
-      document.getElementById('sidebar-backdrop')?.classList.remove('active');
-    }
-
-    function triggerDashboardView(viewName) {
-      const item = document.querySelector(`.sidebar-item[data-view="${viewName}"]`);
-      if (item) item.click();
-    }
-
-    function openPanelChatForCustomOrder() {
-      triggerDashboardView('chat');
-      const input = document.getElementById('dashboard-chat-input');
-      if (input) {
-        input.value = 'Assalam-o-Alaikum! Mujhe apna Customize SMM Panel banwana hai. Please details aur price bata dein.';
-        input.focus();
-      }
-    }
-
-    function renderDashboardChatMessages() {
-      const container = document.getElementById('dashboard-chat-messages');
-      if (!container) return;
-      const thread = AppState.getUserChatThread();
-      container.innerHTML = thread.messages.map(m => `
-        <div class="chat-bubble-row ${m.sender === 'user' ? 'chat-row-user' : 'chat-row-admin'}">
-          <div class="chat-bubble ${m.sender === 'user' ? 'bubble-user' : 'bubble-admin'}">
-            <div class="bubble-sender">${m.sender === 'user' ? 'You (' + AppState.escapeHtml(m.senderName) + ')' : 'Saleem Akhtar (Admin)'}</div>
-            <div class="bubble-text">${AppState.escapeHtml(m.text)}</div>
-            <div class="bubble-time">${m.time}</div>
-          </div>
-        </div>
-      `).join('');
-      container.scrollTop = container.scrollHeight;
-    }
-
-    function handleDashboardChatSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById('dashboard-chat-input');
-      if (!input || !input.value.trim()) return;
-      AppState.sendUserChatMessage(input.value.trim());
-      input.value = '';
-      renderDashboardChatMessages();
-      AppState.renderFloatingChatMessages();
-      AppState.showToast('Message sent to Admin!', 'success');
-    }
-
-    window.addEventListener('saleem_chats_updated', renderDashboardChatMessages);
-    window.addEventListener('storage', (e) => {
-      if (e.key === STORAGE_KEYS.CHATS) renderDashboardChatMessages();
-    });
-
-    function toggleCurrencyDashboard() {
-      const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
-      AppState.setCurrency(next);
-      document.getElementById('dash-curr-label').textContent = next;
-      updateUserUI();
-      onServiceSelected(currentSelectedService ? currentSelectedService.id : 99901);
-      renderOrdersTable();
-      renderServicesCatalog();
-    }
-
-    function copyDepositAccount() {
-      const text = document.getElementById('deposit-account-number').textContent;
-      navigator.clipboard.writeText(text);
-      AppState.showToast('Account details copied!', 'success');
-    }
-
-    function filterCatalog(query) {
-      const q = query.toLowerCase();
-      const filtered = MASTER_SERVICES.filter(s => s.name.toLowerCase().includes(q) || s.id.toString().includes(q));
-      const tbody = document.getElementById('catalog-services-body');
-      if (tbody) {
-        tbody.innerHTML = filtered.map(s => `
-          <tr>
-            <td><strong>${s.id}</strong></td>
-            <td><strong>${s.name}</strong></td>
-            <td>${AppState.formatMoney(s.rate_usd, s.rate_pkr)}</td>
-            <td>${s.min.toLocaleString()}</td>
-            <td>${s.max.toLocaleString()}</td>
-            <td><span style="color:var(--success);font-weight:600;"><i class="fa-solid fa-bolt"></i> ${s.avg_time}</span></td>
-            <td>
-              <button onclick="orderThisService(${s.id})" class="btn-primary-grad" style="padding:4px 10px;font-size:11px;">
-                Order
-              </button>
-            </td>
-          </tr>
-        `).join('');
-      }
-    }
-
-    function handleTicketSubmit(e) {
-      e.preventDefault();
-      const msgEl = document.getElementById('ticket-msg-input');
-      if (msgEl && msgEl.value.trim()) {
-        AppState.sendUserChatMessage('[Support Ticket]: ' + msgEl.value.trim());
-      }
-      AppState.showToast('Support Ticket submitted & forwarded to Live Chat! Admin will reply shortly.', 'success');
-      e.target.reset();
-      renderDashboardChatMessages();
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      renderDashboardChatMessages();
-      const params = new URLSearchParams(window.location.search);
-      const targetView = params.get('view');
-      const targetService = params.get('service');
-
-      if (targetView) {
-        const item = document.querySelector(`.sidebar-item[data-view="${targetView}"]`);
-        if (item) item.click();
-      }
-
-      if (targetService) {
-        orderThisService(targetService);
-      }
-    });
-  </script>
 </body>
 </html>

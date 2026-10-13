@@ -55,12 +55,14 @@ const DEFAULT_ACCOUNTS = [
 ];
 
 const AppState = {
-  theme: localStorage.getItem(STORAGE_KEYS.THEME) || 'nightmode',
+  theme: localStorage.getItem(STORAGE_KEYS.THEME) || 'daymode',
+  accentColor: localStorage.getItem('saleem_accent_color') || 'red',
   currency: localStorage.getItem(STORAGE_KEYS.CURRENCY) || 'PKR',
   currentUser: null,
 
   init() {
     this.applyTheme(this.theme);
+    this.applyAccentColor(this.accentColor);
     this.initUsersDatabase();
     this.loadUser();
     this.initDefaultData();
@@ -79,25 +81,50 @@ const AppState = {
     );
   },
 
-  /* ------------------- Theme Management ------------------- */
+  /* ------------------- Theme & Color Management ------------------- */
   applyTheme(theme) {
     this.theme = theme;
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
     if (theme === 'nightmode') {
       document.body.classList.add('nightmode');
+      document.body.classList.remove('daymode');
     } else {
       document.body.classList.remove('nightmode');
+      document.body.classList.add('daymode');
     }
 
     const themeIcons = document.querySelectorAll('.theme-toggle-icon');
     themeIcons.forEach(icon => {
-      icon.className = theme === 'nightmode' ? 'theme-toggle-icon fa-solid fa-sun' : 'theme-toggle-icon fa-solid fa-moon';
+      icon.className = theme === 'nightmode' ? 'theme-toggle-icon fa-solid fa-sun' : 'theme-toggle-icon fa-solid fa-sun';
+    });
+
+    const themeLabels = document.querySelectorAll('.theme-toggle-label');
+    themeLabels.forEach(lbl => {
+      lbl.textContent = theme === 'nightmode' ? 'Day' : 'Night';
     });
   },
 
   toggleTheme() {
     const nextTheme = this.theme === 'nightmode' ? 'daymode' : 'nightmode';
     this.applyTheme(nextTheme);
+  },
+
+  applyAccentColor(colorKey) {
+    const palettes = {
+      red:    { primary: '#dc2626', hover: '#b91c1c', glow: 'rgba(220, 38, 38, 0.25)', soft: '#fff1f2', border: '#fca5a5' },
+      blue:   { primary: '#2563eb', hover: '#1d4ed8', glow: 'rgba(37, 99, 235, 0.25)', soft: '#eff6ff', border: '#93c5fd' },
+      green:  { primary: '#059669', hover: '#047857', glow: 'rgba(5, 150, 105, 0.25)', soft: '#ecfdf5', border: '#6ee7b7' },
+      purple: { primary: '#7c3aed', hover: '#6d28d9', glow: 'rgba(124, 58, 237, 0.25)', soft: '#f5f3ff', border: '#c4b5fd' },
+      orange: { primary: '#ea580c', hover: '#c2410c', glow: 'rgba(234, 88, 12, 0.25)', soft: '#fff7ed', border: '#fdba74' }
+    };
+    const chosen = palettes[colorKey] || palettes.red;
+    this.accentColor = colorKey in palettes ? colorKey : 'red';
+    localStorage.setItem('saleem_accent_color', this.accentColor);
+    document.documentElement.style.setProperty('--primary', chosen.primary);
+    document.documentElement.style.setProperty('--primary-hover', chosen.hover);
+    document.documentElement.style.setProperty('--primary-glow', chosen.glow);
+    document.documentElement.style.setProperty('--primary-soft-bg', chosen.soft);
+    document.documentElement.style.setProperty('--primary-soft-border', chosen.border);
   },
 
   /* ------------------- Currency Management ------------------- */
@@ -622,16 +649,22 @@ const AppState = {
     try {
       const res = await fetch('/api/chat');
       if (!res.ok) return;
-      const serverChats = await res.json();
-      if (!Array.isArray(serverChats) || serverChats.length === 0) return;
+      const payload = await res.json();
+      const serverChats = Array.isArray(payload) ? payload : (payload && Array.isArray(payload.chats) ? payload.chats : []);
+      if (serverChats.length === 0) return;
 
       const localChats = this.getChats();
       let changed = false;
 
       serverChats.forEach(sThread => {
-        const lIdx = localChats.findIndex(c => c.userId === sThread.userId);
+        const sid = sThread.userId || sThread.username || sThread.threadId;
+        if (!sid) return;
+        const lIdx = localChats.findIndex(c => (c.userId || c.username || c.threadId) === sid);
         if (lIdx === -1) {
-          localChats.push(sThread);
+          localChats.push({
+            ...sThread,
+            userId: sThread.userId || sThread.username || sid
+          });
           changed = true;
         } else {
           const localIds = new Set(localChats[lIdx].messages.map(m => m.id));
@@ -671,24 +704,33 @@ const AppState = {
     const root = document.createElement('div');
     root.id = 'saleem-floating-support-root';
     root.innerHTML = `
-      <!-- Floating Action Buttons (Bottom Right) -->
-      <div class="saleem-floating-bar">
-        <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
-           target="_blank"
-           class="saleem-float-btn saleem-float-wa"
-           title="Chat on WhatsApp (${OFFICIAL_WHATSAPP})">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span class="float-btn-label">WhatsApp</span>
-        </a>
-
-        <button type="button"
-                class="saleem-float-btn saleem-float-chat"
-                onclick="window.toggleSaleemLiveChat()"
-                title="Live Chat Inside Panel">
-          <i class="fa-solid fa-comments"></i>
-          <span class="float-btn-label">Live Chat</span>
-          <span class="saleem-chat-badge" id="floating-chat-badge">1</span>
-        </button>
+      <!-- Premium Dark Floating Chat Card (Matches Screenshots) -->
+      <div class="saleem-dark-chat-card" id="saleem-dark-chat-card">
+        <div class="dark-chat-top">
+          <div>
+            <div class="dark-chat-title">Questions? Chat with us.</div>
+            <div class="dark-chat-online">
+              <span class="online-pulse-dot"></span> We are online
+            </div>
+          </div>
+          <div class="dark-chat-avatars">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=faces" alt="Support">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=faces" alt="Admin">
+            <span class="dark-chat-blue-icon"><i class="fa-solid fa-comment-dots"></i></span>
+          </div>
+        </div>
+        <div class="dark-chat-bottom">
+          <button type="button" class="dark-chat-red-cta" onclick="window.toggleSaleemLiveChat()">
+            <i class="fa-solid fa-message"></i> Chat with SaleemSMMPanel
+            <span class="saleem-chat-badge" id="floating-chat-badge" style="display:none;">1</span>
+          </button>
+          <a href="https://wa.me/${OFFICIAL_WHATSAPP_INTL}?text=Assalam-o-Alaikum%20Saleem%20SMM%20Panel!%20Mujhe%20madad%20chahiye."
+             target="_blank"
+             class="dark-chat-wa-circle"
+             title="WhatsApp Support (${OFFICIAL_WHATSAPP})">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
 
       <!-- In-Panel Live Chat Popup Window -->

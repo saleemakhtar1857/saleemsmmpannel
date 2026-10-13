@@ -1452,6 +1452,139 @@ body.nightmode .site-nav {
   justify-content: center;
 }
 
+/* Premium Dark Floating Chat Card (Matches Screenshots) */
+.saleem-dark-chat-card {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  background: #0f141c;
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  width: 280px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-chat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.dark-chat-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.dark-chat-online {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #cbd5e1;
+  margin-top: 3px;
+}
+
+.online-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+.dark-chat-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.dark-chat-avatars img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0f141c;
+  margin-left: -7px;
+}
+
+.dark-chat-blue-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  margin-left: -6px;
+  border: 2px solid #0f141c;
+}
+
+.dark-chat-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dark-chat-red-cta {
+  flex: 1;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.2s, filter 0.2s;
+  white-space: nowrap;
+}
+
+.dark-chat-red-cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.dark-chat-wa-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s;
+}
+
+.dark-chat-wa-circle:hover {
+  transform: scale(1.07);
+}
+
+@media (max-width: 640px) {
+  .saleem-dark-chat-card {
+    right: 12px;
+    bottom: 72px;
+    width: 245px;
+    padding: 11px 13px;
+  }
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */

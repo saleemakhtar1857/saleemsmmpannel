@@ -1,505 +1,866 @@
 /* ==========================================================================
-   SALEEM SMM PANEL — CLIENT DASHBOARD LOGIC
+   SALEEM SMM PANEL — PREMIUM CLIENT DASHBOARD CONTROLLER
+   Powers 5-Screen Dil/Premium UI, 627+ Services, Order Cards, Payment Tiles,
+   Transactions Table, Crimson Overview Panel & In-Panel Live Chat
    ========================================================================== */
+
+let currentCategoryFilter = 'all';
+let currentServiceList = [];
+let selectedServiceObj = null;
+let currentOrderStatusFilter = 'all';
+let selectedActiveGatewayNumber = '03173983906';
 
 document.addEventListener('DOMContentLoaded', () => {
   initDashboard();
 });
 
-let currentSelectedService = null;
-
 function initDashboard() {
-  updateUserUI();
-  populateCategories();
-  setupOrderListeners();
-  renderOrdersTable();
-  setupSidebarNavigation();
-  setupDepositListeners();
-  renderServicesCatalog();
+  populateCategoriesSelect();
+  populateCatalogFilter();
+  renderUserOrders();
+  renderUserDeposits();
+  renderUserTransactions();
+  renderServiceCatalog();
+  renderDashboardChat();
+  renderAllPrices();
+
+  window.addEventListener('saleem_chats_updated', () => {
+    renderDashboardChat();
+  });
+  window.addEventListener('storage', (e) => {
+    if (e.key === STORAGE_KEYS.CHATS) {
+      renderDashboardChat();
+    }
+  });
+
+  // Check URL params for deep links (?view=... or ?service=...)
+  const params = new URLSearchParams(window.location.search);
+  const viewParam = params.get('view');
+  const serviceParam = params.get('service');
+
+  if (viewParam) {
+    switchDashView(viewParam);
+  }
+  if (serviceParam) {
+    selectServiceById(parseInt(serviceParam));
+  }
 }
 
-function updateUserUI() {
+/* ==========================================================================
+   SIDEBAR, MOBILE DRAWER & COLOR PICKER
+   ========================================================================== */
+function toggleDashSidebar() {
+  const sb = document.getElementById('dash-sidebar');
+  const bd = document.getElementById('dash-sidebar-backdrop');
+  if (!sb) return;
+  const isOpen = sb.classList.toggle('open');
+  if (bd) bd.classList.toggle('active', isOpen);
+}
+
+function closeDashSidebar() {
+  const sb = document.getElementById('dash-sidebar');
+  const bd = document.getElementById('dash-sidebar-backdrop');
+  if (sb) sb.classList.remove('open');
+  if (bd) bd.classList.remove('active');
+}
+
+function toggleColorPicker() {
+  const menu = document.getElementById('dil-color-menu');
+  if (!menu) return;
+  menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+}
+
+function selectPanelColor(colorKey) {
+  AppState.applyAccentColor(colorKey);
+  const menu = document.getElementById('dil-color-menu');
+  if (menu) menu.style.display = 'none';
+  AppState.showToast(`Theme accent color updated to ${colorKey.toUpperCase()}!`, 'success');
+}
+
+function handleAppInstallPrompt() {
+  AppState.showToast('Saleem SMM Panel Web App: Tap "Add to Home Screen" in your browser menu for 1-click app access!', 'info');
+}
+
+/* ==========================================================================
+   VIEW NAVIGATION SWITCHER
+   ========================================================================== */
+function switchDashView(viewName) {
+  document.querySelectorAll('.dash-view').forEach(v => {
+    v.style.display = 'none';
+  });
+
+  document.querySelectorAll('.dil-menu-link').forEach(m => {
+    m.classList.remove('active');
+    if (m.getAttribute('data-view') === viewName) {
+      m.classList.add('active');
+    }
+  });
+
+  const ovBtn = document.getElementById('btn-overview-tab');
+  if (ovBtn) {
+    ovBtn.classList.toggle('active', viewName === 'overview');
+  }
+
+  document.querySelectorAll('.mob-nav-item').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-mob-view') === viewName);
+  });
+
+  const target = document.getElementById(`view-${viewName}`);
+  if (target) {
+    target.style.display = 'block';
+  }
+
+  if (viewName === 'chat') {
+    markUserChatRead();
+    renderDashboardChat();
+  } else if (viewName === 'orders') {
+    renderUserOrders();
+  } else if (viewName === 'transactions') {
+    renderUserTransactions();
+  } else if (viewName === 'overview') {
+    renderAllPrices();
+  }
+
+  closeDashSidebar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ==========================================================================
+   CURRENCY & USER STATS UPDATER
+   ========================================================================== */
+function toggleCurrency() {
+  const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
+  AppState.setCurrency(next);
+}
+
+function renderAllPrices() {
   const user = AppState.currentUser;
-  if (!user) return;
+  const isPkr = AppState.currency === 'PKR';
 
-  const nameEls = document.querySelectorAll('.user-display-name');
-  nameEls.forEach(el => el.textContent = user.username);
+  // Topbar & Sidebar Currency Labels
+  const topSym = document.getElementById('top-curr-sym');
+  const topCode = document.getElementById('top-curr-code');
+  const sideCurr = document.getElementById('sidebar-curr-label');
+  if (topSym) topSym.textContent = isPkr ? 'Rs' : '$';
+  if (topCode) topCode.textContent = isPkr ? 'PKR' : 'USD';
+  if (sideCurr) sideCurr.textContent = isPkr ? 'Rs PKR' : '$ USD';
 
-  const avatarEl = document.querySelector('.user-quick-avatar');
-  if (avatarEl && user.username) {
-    avatarEl.textContent = user.username.charAt(0).toUpperCase();
+  if (user) {
+    const orders = AppState.getOrders();
+    const balFormatted = isPkr
+      ? `Rs ${Number(user.balance_pkr || 0).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}`
+      : `$ ${Number(user.balance_usd || 0).toFixed(2)}`;
+    const spentFormatted = isPkr
+      ? `Rs ${Number(user.spent_pkr || 0).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`
+      : `$ ${Number(user.spent_usd || 0).toFixed(2)}`;
+
+    // Calculate Today's spend
+    const todayPrefix = new Date().toISOString().substring(0, 10);
+    const todayOrders = orders.filter(o => String(o.created_at || '').startsWith(todayPrefix));
+    const todayPkr = todayOrders.reduce((acc, o) => acc + Number(o.charge_pkr || 0), 0);
+    const todayFormatted = isPkr ? `Rs ${todayPkr.toFixed(1)}` : `$ ${(todayPkr / 280).toFixed(2)}`;
+
+    // Sidebar Profile Card
+    const uNameEl = document.getElementById('dash-username');
+    const uEmailEl = document.getElementById('dash-email');
+    if (uNameEl) uNameEl.textContent = user.username;
+    if (uEmailEl) uEmailEl.textContent = '@' + (user.email || 'client@saleemsmm.pk');
+
+    // Right Column Welcome Card (Screenshot 1)
+    const rightName = document.getElementById('right-username');
+    const stOrders = document.getElementById('stat-total-orders');
+    const stBal = document.getElementById('stat-balance');
+    const stSpent = document.getElementById('stat-spent');
+    const stToday = document.getElementById('stat-today-spent');
+
+    if (rightName) rightName.textContent = user.username;
+    if (stOrders) stOrders.textContent = orders.length;
+    if (stBal) stBal.textContent = balFormatted;
+    if (stSpent) stSpent.textContent = spentFormatted;
+    if (stToday) stToday.textContent = todayFormatted;
+
+    // Crimson Overview Panel (Screenshot 5)
+    const setEl = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+    setEl('ov-username', user.username);
+    setEl('ov-email', user.email || 'client@saleemsmm.pk');
+    setEl('ov-balance', balFormatted);
+    setEl('ov-orders', orders.length);
+    setEl('ov-spent', spentFormatted);
+    setEl('ov-today', todayFormatted);
+    setEl('ov-fullname', user.name || user.username);
+    setEl('ov-uname', user.username);
+    setEl('ov-uemail', user.email || 'client@saleemsmm.pk');
+    setEl('ov-uphone', user.phone || '03173983906');
+    setEl('user-api-key', user.apiKey || 'smm_live_sec_99a8b7c6d5e4f3a2');
+    setEl('user-ref-link', `https://saleemsmmpannel.vercel.app/?ref=${encodeURIComponent(user.username)}`);
   }
 
-  const balEls = document.querySelectorAll('.user-display-balance');
-  balEls.forEach(el => {
-    el.textContent = AppState.formatMoney(user.balance_usd, user.balance_pkr);
-  });
-
-  const spentEls = document.querySelectorAll('.user-display-spent');
-  spentEls.forEach(el => {
-    el.textContent = AppState.formatMoney(user.spent_usd, user.spent_pkr);
-  });
-
-  const orders = AppState.getOrders();
-  const totalOrdersEl = document.getElementById('stat-total-orders');
-  if (totalOrdersEl) totalOrdersEl.textContent = orders.length;
-
-  const activeOrdersEl = document.getElementById('stat-active-orders');
-  if (activeOrdersEl) {
-    const active = orders.filter(o => ['Pending', 'Processing', 'In progress'].includes(o.status)).length;
-    activeOrdersEl.textContent = active;
-  }
+  onServiceChange();
+  renderUserOrders();
+  renderUserDeposits();
+  renderUserTransactions();
+  renderServiceCatalog();
 }
 
-// Populate Category & Service Selects
-function populateCategories() {
-  const catSelect = document.getElementById('order-category-select');
+/* ==========================================================================
+   NEW ORDER FORM & 14 PLATFORM ICON FILTERS (SCREENSHOT 1)
+   ========================================================================== */
+function filterCategoryByPlatform(platformKey, btnEl) {
+  currentCategoryFilter = platformKey;
+  document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  populateCategoriesSelect();
+}
+
+function populateCategoriesSelect() {
+  const catSelect = document.getElementById('order-category');
   if (!catSelect) return;
 
-  catSelect.innerHTML = MASTER_CATEGORIES.map(cat => `
-    <option value="${cat.id}">${cat.name}</option>
-  `).join('');
-
-  catSelect.addEventListener('change', () => {
-    populateServices(catSelect.value);
+  const filteredCats = MASTER_CATEGORIES.filter(cat => {
+    if (currentCategoryFilter === 'all') return true;
+    const nameLower = cat.name.toLowerCase();
+    if (currentCategoryFilter === 'custom') return nameLower.includes('custom') || nameLower.includes('panel');
+    if (currentCategoryFilter === 'ai') return nameLower.includes('ai') || nameLower.includes('chatgpt') || nameLower.includes('canva') || nameLower.includes('tool');
+    if (currentCategoryFilter === 'traffic') return nameLower.includes('traffic') || nameLower.includes('website') || nameLower.includes('seo');
+    return cat.platform === currentCategoryFilter || nameLower.includes(currentCategoryFilter);
   });
 
-  // Populate first category by default
-  populateServices(MASTER_CATEGORIES[0].id);
+  const listToUse = filteredCats.length > 0 ? filteredCats : MASTER_CATEGORIES;
+
+  catSelect.innerHTML = listToUse.map(c =>
+    `<option value="${c.id}">${c.name}</option>`
+  ).join('');
+
+  onCategoryChange();
 }
 
-function populateServices(catId) {
-  const srvSelect = document.getElementById('order-service-select');
-  if (!srvSelect) return;
+function onCategoryChange() {
+  const catSelect = document.getElementById('order-category');
+  const srvSelect = document.getElementById('order-service');
+  if (!catSelect || !srvSelect) return;
 
-  const services = getServicesByCategory(catId);
-  srvSelect.innerHTML = services.map(srv => {
-    const priceStr = AppState.currency === 'PKR' ? `₨ ${srv.rate_pkr}` : `$ ${srv.rate_usd}`;
-    return `<option value="${srv.id}">[ID: ${srv.id}] ${srv.name} — ${priceStr}/1K</option>`;
+  const selectedCatId = catSelect.value;
+  currentServiceList = MASTER_SERVICES.filter(s => s.category_id === selectedCatId);
+
+  srvSelect.innerHTML = currentServiceList.map(s => {
+    const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+    return `<option value="${s.id}">${s.name} — ${priceStr}</option>`;
   }).join('');
 
-  srvSelect.addEventListener('change', () => {
-    onServiceSelected(srvSelect.value);
-  });
-
-  if (services.length > 0) {
-    onServiceSelected(services[0].id);
-  }
+  onServiceChange();
 }
 
-function onServiceSelected(serviceId) {
-  currentSelectedService = getServiceById(serviceId);
-  if (!currentSelectedService) return;
+function onServiceChange() {
+  const srvSelect = document.getElementById('order-service');
+  if (!srvSelect) return;
 
-  const descBox = document.getElementById('service-description-text');
-  if (descBox) descBox.textContent = currentSelectedService.description;
+  const srvId = parseInt(srvSelect.value);
+  selectedServiceObj = MASTER_SERVICES.find(s => s.id === srvId) || currentServiceList[0];
+  if (!selectedServiceObj) return;
 
-  const minMaxLabel = document.getElementById('service-min-max-badge');
-  if (minMaxLabel) {
-    minMaxLabel.textContent = `Min: ${currentSelectedService.min.toLocaleString()} | Max: ${currentSelectedService.max.toLocaleString()}`;
-  }
+  const isPkr = AppState.currency === 'PKR';
+  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
 
-  const ratePer1kEl = document.getElementById('summary-rate-per-1k');
-  if (ratePer1kEl) {
-    ratePer1kEl.textContent = AppState.formatMoney(currentSelectedService.rate_usd, currentSelectedService.rate_pkr);
-  }
+  const idPill = document.getElementById('selected-srv-id-pill');
+  const descName = document.getElementById('desc-srv-name');
+  const descRate = document.getElementById('desc-srv-rate');
+  const descTime = document.getElementById('desc-srv-time');
+  const descMinMax = document.getElementById('desc-srv-minmax');
+  const avgBox = document.getElementById('order-avg-time-box');
+  const qtyHint = document.getElementById('quantity-hint');
+  const qtyInput = document.getElementById('order-quantity');
 
-  const speedEl = document.getElementById('summary-delivery-speed');
-  if (speedEl) {
-    speedEl.textContent = currentSelectedService.avg_time || '35 minutes';
-  }
+  if (idPill) idPill.textContent = selectedServiceObj.id;
+  if (descName) descName.textContent = `${selectedServiceObj.name} 🔥`;
+  if (descRate) descRate.textContent = rateText;
+  if (descTime) descTime.textContent = selectedServiceObj.avg_time;
+  if (descMinMax) descMinMax.textContent = `${selectedServiceObj.min.toLocaleString()} / ${selectedServiceObj.max.toLocaleString()}`;
+  if (avgBox) avgBox.value = selectedServiceObj.avg_time;
+  if (qtyHint) qtyHint.textContent = `Min: ${selectedServiceObj.min.toLocaleString()} — Max: ${selectedServiceObj.max.toLocaleString()}`;
 
-  calculateOrderPrice();
-}
-
-function setupOrderListeners() {
-  const qtyInput = document.getElementById('order-quantity-input');
   if (qtyInput) {
-    qtyInput.addEventListener('input', calculateOrderPrice);
+    qtyInput.min = selectedServiceObj.min;
+    qtyInput.max = selectedServiceObj.max;
+    if (!qtyInput.value) {
+      qtyInput.value = selectedServiceObj.min;
+    }
   }
 
-  const orderForm = document.getElementById('new-order-form');
-  if (orderForm) {
-    orderForm.addEventListener('submit', handleOrderSubmit);
+  calculateOrderTotal();
+}
+
+function calculateOrderTotal() {
+  if (!selectedServiceObj) return;
+  const qtyInput = document.getElementById('order-quantity');
+  const chargeBox = document.getElementById('order-total-charge');
+  if (!qtyInput || !chargeBox) return;
+
+  const qty = parseFloat(qtyInput.value) || 0;
+  const totalUsd = (qty / 1000) * selectedServiceObj.rate_usd;
+  const totalPkr = (qty / 1000) * selectedServiceObj.rate_pkr;
+
+  chargeBox.value = AppState.currency === 'PKR'
+    ? `Rs ${totalPkr.toFixed(2)}`
+    : `$ ${totalUsd.toFixed(3)}`;
+}
+
+function handleQuickServiceSearch(query) {
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    populateCategoriesSelect();
+    return;
+  }
+
+  const matched = MASTER_SERVICES.filter(s =>
+    s.name.toLowerCase().includes(q) ||
+    s.id.toString().includes(q) ||
+    s.category_name.toLowerCase().includes(q)
+  ).slice(0, 60);
+
+  const srvSelect = document.getElementById('order-service');
+  if (matched.length > 0 && srvSelect) {
+    currentServiceList = matched;
+    srvSelect.innerHTML = matched.map(s => {
+      const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      return `<option value="${s.id}">${s.name} — ${priceStr}</option>`;
+    }).join('');
+    onServiceChange();
   }
 }
 
-function calculateOrderPrice() {
-  if (!currentSelectedService) return;
+function selectServiceById(serviceId) {
+  const srv = MASTER_SERVICES.find(s => s.id === serviceId);
+  if (!srv) return;
 
-  const qtyInput = document.getElementById('order-quantity-input');
-  const qty = parseInt(qtyInput ? qtyInput.value : 0) || 0;
+  switchDashView('new-order');
+  currentCategoryFilter = 'all';
+  populateCategoriesSelect();
 
-  const ratePkrPerUnit = currentSelectedService.rate_pkr / 1000;
-  const rateUsdPerUnit = currentSelectedService.rate_usd / 1000;
+  const catSelect = document.getElementById('order-category');
+  if (catSelect) {
+    catSelect.value = srv.category_id;
+    onCategoryChange();
+  }
 
-  const totalPkr = qty * ratePkrPerUnit;
-  const totalUsd = qty * rateUsdPerUnit;
-
-  const totalChargeEl = document.getElementById('summary-total-charge');
-  if (totalChargeEl) {
-    totalChargeEl.textContent = AppState.formatMoney(totalUsd, totalPkr);
+  const srvSelect = document.getElementById('order-service');
+  if (srvSelect) {
+    srvSelect.value = srv.id;
+    onServiceChange();
   }
 }
 
-function handleOrderSubmit(e) {
+function submitNewOrder(e) {
   e.preventDefault();
-  if (!currentSelectedService) return;
+  if (!selectedServiceObj) return;
 
-  const linkInput = document.getElementById('order-link-input');
-  const qtyInput = document.getElementById('order-quantity-input');
+  const link = document.getElementById('order-link').value.trim();
+  const qty = parseInt(document.getElementById('order-quantity').value);
 
-  const link = linkInput.value.trim();
-  const qty = parseInt(qtyInput.value) || 0;
-
-  if (!link) {
-    AppState.showToast('Please enter a valid link/URL for this service', 'error');
+  if (qty < selectedServiceObj.min || qty > selectedServiceObj.max) {
+    AppState.showToast(`Quantity must be between ${selectedServiceObj.min} and ${selectedServiceObj.max}`, 'error');
     return;
   }
 
-  if (qty < currentSelectedService.min) {
-    AppState.showToast(`Minimum quantity for this service is ${currentSelectedService.min}`, 'error');
+  const chargePkr = Number(((qty / 1000) * selectedServiceObj.rate_pkr).toFixed(2));
+  const chargeUsd = Number(((qty / 1000) * selectedServiceObj.rate_usd).toFixed(4));
+
+  if (AppState.currentUser.balance_pkr < chargePkr) {
+    AppState.showToast('Insufficient wallet balance! Please Add Funds via EasyPaisa or UPaisa.', 'error');
+    switchDashView('add-funds');
     return;
   }
 
-  if (qty > currentSelectedService.max) {
-    AppState.showToast(`Maximum quantity for this service is ${currentSelectedService.max}`, 'error');
-    return;
-  }
-
-  const chargePkr = (qty * currentSelectedService.rate_pkr) / 1000;
-  const chargeUsd = (qty * currentSelectedService.rate_usd) / 1000;
-
-  // Balance Check
-  const user = AppState.currentUser;
-  if (user.balance_pkr < chargePkr) {
-    AppState.showToast(`Insufficient balance! Please Add Funds to place this order. Required: ${AppState.formatMoney(chargeUsd, chargePkr)}`, 'error');
-    return;
-  }
-
-  // Deduct Balance
-  user.balance_pkr -= chargePkr;
-  user.balance_usd -= chargeUsd;
-  user.spent_pkr += chargePkr;
-  user.spent_usd += chargeUsd;
+  // Deduct balance
+  AppState.currentUser.balance_pkr = Number((AppState.currentUser.balance_pkr - chargePkr).toFixed(2));
+  AppState.currentUser.balance_usd = Number((AppState.currentUser.balance_usd - chargeUsd).toFixed(4));
+  AppState.currentUser.spent_pkr = Number((AppState.currentUser.spent_pkr + chargePkr).toFixed(2));
+  AppState.currentUser.spent_usd = Number((AppState.currentUser.spent_usd + chargeUsd).toFixed(4));
   AppState.saveUser();
 
-  // Create Order Record
   const newOrder = {
-    id: Math.floor(10000 + Math.random() * 90000),
-    service_id: currentSelectedService.id,
-    service_name: currentSelectedService.name,
+    id: Math.floor(3900000 + Math.random() * 99999),
+    service_id: selectedServiceObj.id,
+    service_name: selectedServiceObj.name,
     link: link,
     quantity: qty,
     charge_pkr: chargePkr,
     charge_usd: chargeUsd,
-    status: "Pending",
-    start_count: Math.floor(100 + Math.random() * 500),
+    start_count: Math.floor(10 + Math.random() * 400),
     remains: qty,
-    created_at: new Date().toISOString().replace('T', ' ').substring(0, 16)
+    status: 'In progress',
+    created_at: new Date().toISOString().replace('T', ' ').substring(0, 19)
   };
 
   const orders = AppState.getOrders();
   orders.unshift(newOrder);
   AppState.saveOrders(orders);
 
-  // Reset form
-  linkInput.value = '';
-  qtyInput.value = '';
-  calculateOrderPrice();
-
-  updateUserUI();
-  renderOrdersTable();
-  AppState.showToast(`Order #${newOrder.id} successfully placed! Status: Pending wholesale delivery.`, 'success');
+  renderAllPrices();
+  document.getElementById('order-link').value = '';
+  AppState.showToast(`Order #${newOrder.id} Placed Successfully!`, 'success');
 }
 
-// Render Orders History Table
-function renderOrdersTable(filterStatus = 'all', searchQuery = '') {
-  const tbody = document.getElementById('orders-table-body');
-  if (!tbody) return;
+/* ==========================================================================
+   VIEW 2: MY ORDERS (2-COLUMN RICH RED-HEADER CARDS — SCREENSHOT 2)
+   ========================================================================== */
+function filterOrdersByStatus(statusKey, btnEl) {
+  currentOrderStatusFilter = statusKey;
+  document.querySelectorAll('#order-status-pills .dil-order-pill').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  renderUserOrders();
+}
 
-  let orders = AppState.getOrders();
+function renderUserOrders() {
+  const grid = document.getElementById('user-orders-cards-grid');
+  if (!grid) return;
 
-  if (filterStatus !== 'all') {
-    orders = orders.filter(o => o.status.toLowerCase() === filterStatus.toLowerCase());
-  }
+  const query = (document.getElementById('order-search-input')?.value || '').toLowerCase().trim();
+  const allOrders = AppState.getOrders();
 
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    orders = orders.filter(o =>
-      o.id.toString().includes(q) ||
-      o.service_name.toLowerCase().includes(q) ||
-      o.link.toLowerCase().includes(q)
-    );
-  }
+  const filtered = allOrders.filter(o => {
+    const st = (o.status || 'Completed').toLowerCase();
+    if (currentOrderStatusFilter !== 'all') {
+      const target = currentOrderStatusFilter.toLowerCase();
+      if (target === 'in progress' && !(st.includes('progress') || st.includes('processing'))) return false;
+      else if (target !== 'in progress' && !st.includes(target)) return false;
+    }
+    if (query) {
+      return (
+        String(o.id).includes(query) ||
+        String(o.service_id).includes(query) ||
+        String(o.service_name || '').toLowerCase().includes(query) ||
+        String(o.link || '').toLowerCase().includes(query)
+      );
+    }
+    return true;
+  });
 
-  if (orders.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--text-muted);">No orders found for this filter.</td></tr>`;
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="dil-red-card" style="grid-column:1 / -1;text-align:center;padding:40px 20px;">
+        <i class="fa-solid fa-box-open" style="font-size:38px;color:var(--primary);margin-bottom:10px;"></i>
+        <h4 style="font-size:16px;font-weight:800;">No Matching Orders Found</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Place a new order from the New Order tab to see live delivery tracking here.</p>
+      </div>
+    `;
     return;
   }
 
-  tbody.innerHTML = orders.map(o => {
-    let badgeClass = 'badge-pending';
-    if (o.status === 'In progress') badgeClass = 'badge-inprogress';
-    if (o.status === 'Completed') badgeClass = 'badge-completed';
-    if (o.status === 'Processing') badgeClass = 'badge-processing';
-    if (o.status === 'Canceled') badgeClass = 'badge-canceled';
+  const isPkr = AppState.currency === 'PKR';
+
+  grid.innerHTML = filtered.map(o => {
+    const qty = Number(o.quantity || 1000);
+    const stLower = String(o.status || 'Completed').toLowerCase();
+    const isComp = stLower.includes('comp');
+    const isCancel = stLower.includes('cancel');
+    const remains = o.remains !== undefined ? Number(o.remains) : (isComp ? 0 : Math.floor(qty * 0.25));
+    const startCnt = o.start_count !== undefined ? o.start_count : 142;
+    const delivered = isCancel ? 0 : Math.max(0, qty - remains);
+    const pct = isCancel ? 0 : Math.min(100, Math.round((delivered / Math.max(1, qty)) * 100));
+
+    let badgeClass = 'st-completed';
+    let badgeIcon = 'fa-check';
+    let badgeText = o.status || 'Completed';
+    if (stLower.includes('progress') || stLower.includes('process')) {
+      badgeClass = 'st-progress';
+      badgeIcon = 'fa-arrows-rotate';
+    } else if (stLower.includes('pend')) {
+      badgeClass = 'st-pending';
+      badgeIcon = 'fa-clock';
+    } else if (isCancel) {
+      badgeClass = 'st-canceled';
+      badgeIcon = 'fa-xmark';
+      badgeText = 'Cancel Refunded';
+    }
+
+    const chargeVal = isPkr ? Number(o.charge_pkr || 0).toFixed(2) : Number(o.charge_usd || 0).toFixed(3);
 
     return `
-      <tr>
-        <td><strong>#${o.id}</strong></td>
-        <td>${o.created_at}</td>
-        <td>
-          <div style="font-weight:600;max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            ${o.service_name}
+      <div class="dil-order-card">
+        <div class="dil-order-card-head">
+          <div>
+            <div class="dil-order-id-line">
+              <input type="checkbox" style="accent-color:#fff;width:15px;height:15px;">
+              <span>#${o.id}</span>
+              <i class="fa-regular fa-copy" style="cursor:pointer;font-size:13px;opacity:0.9;" onclick="AppState.copyText('${o.id}')" title="Copy Order ID"></i>
+            </div>
+            <div class="dil-order-date">
+              <i class="fa-regular fa-calendar"></i> ${o.created_at}
+            </div>
           </div>
-        </td>
-        <td>
-          <a href="${o.link}" target="_blank" style="color:var(--primary);text-decoration:underline;font-size:12px;">
-            ${o.link.substring(0, 24)}...
-          </a>
-        </td>
-        <td><strong>${o.quantity.toLocaleString()}</strong></td>
-        <td>${AppState.formatMoney(o.charge_usd, o.charge_pkr)}</td>
-        <td><span class="badge-status ${badgeClass}">${o.status}</span></td>
-        <td>
-          <button onclick="requestRefill(${o.id})" class="btn-outline" style="padding:4px 8px;font-size:11px;border-radius:4px;">
-            <i class="fa-solid fa-arrows-rotate"></i> Refill
-          </button>
-        </td>
+
+          <span class="dil-order-status-pill ${badgeClass}">
+            <i class="fa-solid ${badgeIcon}"></i> ${badgeText}
+          </span>
+        </div>
+
+        <div class="dil-order-card-body">
+          <div class="dil-order-srv-title">
+            ${o.service_id} - ${AppState.escapeHtml(o.service_name)} | Lifetime Guarantee | ✅🔥⚡
+          </div>
+
+          <div class="dil-order-link-bar">
+            <span class="dil-link-badge">LINK</span>
+            <a href="${AppState.escapeHtml(o.link)}" target="_blank" class="dil-link-url">${AppState.escapeHtml(o.link)}</a>
+            <a href="${AppState.escapeHtml(o.link)}" target="_blank" class="dil-link-icon-btn" title="Open Link">
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+            <button type="button" class="dil-link-icon-btn" onclick="AppState.copyText('${AppState.escapeHtml(o.link)}')" title="Copy Link">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="dil-order-metrics-2x2">
+            <div class="dil-om-box">
+              <div class="dil-om-ic ic-green"><i class="fa-solid fa-dollar-sign"></i></div>
+              <div>
+                <div class="dil-om-lbl">CHARGE</div>
+                <div class="dil-om-val" style="color:#16a34a;">${chargeVal}</div>
+              </div>
+            </div>
+
+            <div class="dil-om-box">
+              <div class="dil-om-ic ic-blue"><i class="fa-solid fa-play"></i></div>
+              <div>
+                <div class="dil-om-lbl">START</div>
+                <div class="dil-om-val">${startCnt}</div>
+              </div>
+            </div>
+
+            <div class="dil-om-box">
+              <div class="dil-om-ic ic-red"><i class="fa-solid fa-box"></i></div>
+              <div>
+                <div class="dil-om-lbl">QUANTITY</div>
+                <div class="dil-om-val">${qty.toLocaleString()}</div>
+              </div>
+            </div>
+
+            <div class="dil-om-box">
+              <div class="dil-om-ic ic-purple"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <div>
+                <div class="dil-om-lbl">REMAINS</div>
+                <div class="dil-om-val">${remains.toLocaleString()}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dil-order-footer">
+            <div class="dil-prog-wrap">
+              <div class="dil-prog-labels">
+                <span style="color:var(--primary);"><i class="fa-solid fa-circle-check"></i> Delivered ${pct}%</span>
+                <span>${delivered.toLocaleString()} of ${qty.toLocaleString()}</span>
+              </div>
+              <div class="dil-prog-bar">
+                <div class="dil-prog-fill" style="width:${pct}%;"></div>
+              </div>
+            </div>
+
+            <div class="dil-order-actions">
+              <button type="button" class="dil-btn-reorder" onclick="AppState.showToast('Refill request submitted for Order #${o.id}!', 'success')">Refill</button>
+              <button type="button" class="dil-btn-reorder" onclick="selectServiceById(${o.service_id})">Reorder</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ==========================================================================
+   VIEW 3: ADD FUNDS (PAYMENT TILES — SCREENSHOT 3)
+   ========================================================================== */
+function selectPaymentGateway(gatewayKey) {
+  const isUpaisa = gatewayKey === 'upaisa';
+  selectedActiveGatewayNumber = isUpaisa ? '03163846672' : '03173983906';
+
+  const epTile = document.getElementById('tile-easypaisa');
+  const upTile = document.getElementById('tile-upaisa');
+  if (epTile) epTile.classList.toggle('active', !isUpaisa);
+  if (upTile) upTile.classList.toggle('active', isUpaisa);
+
+  const titleEl = document.getElementById('selected-gateway-title');
+  const lblEl = document.getElementById('selected-gateway-label');
+  const numEl = document.getElementById('selected-gateway-number');
+  const hiddenInput = document.getElementById('deposit-method');
+  const selBox = document.getElementById('deposit-method-select');
+
+  if (titleEl) titleEl.textContent = isUpaisa ? 'Send Payment via UPaisa (Active)' : 'Send Payment via EasyPaisa (Active)';
+  if (lblEl) lblEl.textContent = isUpaisa ? 'OFFICIAL UPAISA ACCOUNT NUMBER' : 'OFFICIAL EASYPAISA ACCOUNT NUMBER';
+  if (numEl) numEl.textContent = selectedActiveGatewayNumber;
+  if (hiddenInput) hiddenInput.value = isUpaisa ? 'UPaisa (03163846672)' : 'EasyPaisa (03173983906)';
+  if (selBox) selBox.value = isUpaisa ? 'upaisa' : 'easypaisa';
+}
+
+function copySelectedGatewayNumber() {
+  AppState.copyText(selectedActiveGatewayNumber);
+}
+
+function showComingSoonPayment(gatewayName) {
+  AppState.showToast(`${gatewayName} is Coming Soon! Please use EasyPaisa (03173983906) or UPaisa (03163846672).`, 'info');
+}
+
+function submitDepositRequest(e) {
+  e.preventDefault();
+  const method = document.getElementById('deposit-method').value;
+  const amountPkr = parseFloat(document.getElementById('deposit-amount').value);
+  const tid = document.getElementById('deposit-tid').value.trim();
+
+  if (isNaN(amountPkr) || amountPkr < 100) {
+    AppState.showToast('Minimum deposit amount is Rs 100', 'error');
+    return;
+  }
+
+  const amountUsd = Number((amountPkr / 280).toFixed(2));
+  const deposits = AppState.getDeposits();
+
+  const newDep = {
+    id: Math.floor(4300000 + Math.random() * 99999),
+    method: method,
+    tid: tid,
+    amount_pkr: amountPkr,
+    amount_usd: amountUsd,
+    status: 'Approved',
+    created_at: new Date().toISOString().replace('T', ' ').substring(0, 19)
+  };
+
+  deposits.unshift(newDep);
+  AppState.saveDeposits(deposits);
+
+  // Credit demo balance
+  AppState.currentUser.balance_pkr = Number((AppState.currentUser.balance_pkr + amountPkr).toFixed(2));
+  AppState.currentUser.balance_usd = Number((AppState.currentUser.balance_usd + amountUsd).toFixed(2));
+  AppState.saveUser();
+
+  renderAllPrices();
+  document.getElementById('deposit-amount').value = '';
+  document.getElementById('deposit-tid').value = '';
+  AppState.showToast(`Rs ${amountPkr} credited via ${method}!`, 'success');
+}
+
+function renderUserDeposits() {
+  const tbody = document.getElementById('user-deposits-tbody');
+  if (!tbody) return;
+
+  const deps = AppState.getDeposits();
+  tbody.innerHTML = deps.map(d => {
+    const amt = AppState.formatMoney(d.amount_usd, d.amount_pkr);
+    return `
+      <tr>
+        <td><strong>#${d.id}</strong></td>
+        <td>${d.method}</td>
+        <td><code>${d.tid}</code></td>
+        <td style="font-weight:700;color:#16a34a;">+${amt}</td>
+        <td><span class="status-badge status-completed">${d.status}</span></td>
       </tr>
     `;
   }).join('');
 }
 
-window.requestRefill = function(orderId) {
-  AppState.showToast(`Refill request for Order #${orderId} sent to server! Speed checks initiated.`, 'info');
-};
-
-// Sidebar Tab View Switching
-function setupSidebarNavigation() {
-  const navItems = document.querySelectorAll('.sidebar-item[data-view]');
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      navItems.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-
-      const targetView = item.getAttribute('data-view');
-      switchView(targetView);
-
-      // Close mobile sidebar if open
-      document.querySelector('.dashboard-sidebar')?.classList.remove('mobile-open');
-      document.getElementById('sidebar-backdrop')?.classList.remove('active');
-    });
-  });
-
-  // Mobile hamburger
-  const mobBtn = document.querySelector('.topbar-mobile-btn');
-  if (mobBtn) {
-    mobBtn.addEventListener('click', () => {
-      const sb = document.querySelector('.dashboard-sidebar');
-      const bd = document.getElementById('sidebar-backdrop');
-      if (sb) {
-        sb.classList.toggle('mobile-open');
-        if (bd) bd.classList.toggle('active', sb.classList.contains('mobile-open'));
-      }
-    });
-  }
-
-  // Orders Table Tabs
-  document.querySelectorAll('.table-tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.table-tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const status = btn.getAttribute('data-status');
-      const search = document.getElementById('orders-search-input')?.value || '';
-      renderOrdersTable(status, search);
-    });
-  });
-
-  const searchInput = document.getElementById('orders-search-input');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const activeTab = document.querySelector('.table-tab-btn.active')?.getAttribute('data-status') || 'all';
-      renderOrdersTable(activeTab, e.target.value);
-    });
-  }
-}
-
-function switchView(viewId) {
-  document.querySelectorAll('.content-view').forEach(view => {
-    view.classList.remove('active');
-  });
-
-  const activeView = document.getElementById(`view-${viewId}`);
-  if (activeView) activeView.classList.add('active');
-
-  // Sync sidebar active item
-  document.querySelectorAll('.sidebar-item[data-view]').forEach(item => {
-    item.classList.toggle('active', item.getAttribute('data-view') === viewId);
-  });
-
-  // Sync mobile bottom nav active item
-  document.querySelectorAll('.mobile-nav-item[data-mobile-view]').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-mobile-view') === viewId);
-  });
-
-  if (viewId === 'chat' && typeof renderDashboardChatMessages === 'function') {
-    renderDashboardChatMessages();
-  }
-
-  const titleEl = document.querySelector('.topbar-title');
-  if (titleEl) {
-    const titles = {
-      'new-order': 'Place New Order',
-      'orders': 'Orders History & Tracking',
-      'services': 'Master Services & Pricing',
-      'add-funds': 'Deposit Funds & Wallet',
-      'chat': 'Live Chat With Admin',
-      'api': 'Reseller API Documentation',
-      'tickets': 'Customer Support Tickets'
-    };
-    titleEl.textContent = titles[viewId] || 'Dashboard';
-  }
-}
-
-// Deposit & Add Funds Listeners
-function setupDepositListeners() {
-  const methodCards = document.querySelectorAll('.deposit-method-card');
-  methodCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const method = card.getAttribute('data-method');
-      if (card.classList.contains('coming-soon') || card.getAttribute('data-active') === 'false') {
-        AppState.showToast(`${method} Coming Soon! Abhi sirf EasyPaisa (03173983906) ya UPaisa (03163846672) select karein.`, 'info');
-        return;
-      }
-
-      methodCards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      updateDepositInstructions(method);
-    });
-  });
-
-  const depositForm = document.getElementById('deposit-submit-form');
-  if (depositForm) {
-    depositForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const amountInput = document.getElementById('deposit-amount-input');
-      const tidInput = document.getElementById('deposit-tid-input');
-
-      const amount = parseFloat(amountInput.value) || 0;
-      const tid = tidInput.value.trim();
-
-      if (amount < 100) {
-        AppState.showToast('Minimum deposit amount is ₨ 100 / $1.00', 'error');
-        return;
-      }
-
-      if (!tid) {
-        AppState.showToast('Please enter your Transaction ID (TID) / Reference number', 'error');
-        return;
-      }
-
-      const activeMethod = document.querySelector('.deposit-method-card.selected')?.getAttribute('data-method') || 'EasyPaisa';
-
-      const newDeposit = {
-        id: `DEP-${Math.floor(100 + Math.random() * 900)}`,
-        method: activeMethod,
-        account: getDepositAccount(activeMethod),
-        tid: tid,
-        amount_pkr: amount,
-        amount_usd: amount / 280,
-        status: "Pending",
-        created_at: new Date().toISOString().replace('T', ' ').substring(0, 16)
-      };
-
-      const deps = AppState.getDeposits();
-      deps.unshift(newDeposit);
-      AppState.saveDeposits(deps);
-
-      amountInput.value = '';
-      tidInput.value = '';
-
-      AppState.showToast(`Deposit of ₨ ${amount} submitted! Admin will verify TID and credit your wallet within 5-15 minutes.`, 'success');
-      renderDepositsList();
-    });
-  }
-
-  renderDepositsList();
-}
-
-function getDepositAccount(method) {
-  const accounts = {
-    'EasyPaisa': '03173983906 (EasyPaisa)',
-    'UPaisa': '03163846672 (UPaisa)',
-    'Bank Transfer': 'EasyPaisa: 03173983906 | UPaisa: 03163846672',
-    'Crypto': 'Contact WhatsApp: 03173983906'
-  };
-  return accounts[method] || '03173983906 (EasyPaisa)';
-}
-
-function updateDepositInstructions(method) {
-  const titleEl = document.getElementById('deposit-method-title');
-  const accEl = document.getElementById('deposit-account-number');
-
-  if (titleEl) titleEl.textContent = `${method} Payment Details`;
-  if (accEl) accEl.textContent = getDepositAccount(method);
-}
-
-function renderDepositsList() {
-  const container = document.getElementById('deposits-history-list');
-  if (!container) return;
-
-  const deps = AppState.getDeposits();
-  if (deps.length === 0) {
-    container.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:16px;">No deposits submitted yet.</p>`;
-    return;
-  }
-
-  container.innerHTML = deps.map(d => `
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--bg-surface-soft);border-radius:var(--radius-sm);margin-bottom:8px;">
-      <div>
-        <strong>${d.method}</strong> — ₨ ${d.amount_pkr.toLocaleString()}
-        <div style="font-size:11.5px;color:var(--text-muted);">TID: ${d.tid} | ${d.created_at}</div>
-      </div>
-      <span class="badge-status ${d.status === 'Approved' ? 'badge-completed' : 'badge-pending'}">${d.status}</span>
-    </div>
-  `).join('');
-}
-
-// Services Catalog Tab
-function renderServicesCatalog() {
-  const tbody = document.getElementById('catalog-services-body');
+/* ==========================================================================
+   VIEW 4: TRANSACTIONS TABLE (SOLID RED HEADER — SCREENSHOT 4)
+   ========================================================================== */
+function renderUserTransactions() {
+  const tbody = document.getElementById('user-transactions-tbody');
   if (!tbody) return;
 
-  tbody.innerHTML = MASTER_SERVICES.map(s => `
+  const orders = AppState.getOrders();
+  const deposits = AppState.getDeposits();
+  const isPkr = AppState.currency === 'PKR';
+
+  const txRows = [];
+
+  orders.forEach((o, idx) => {
+    const amt = isPkr ? `Rs ${Number(o.charge_pkr || 0).toFixed(0)}` : `$ ${Number(o.charge_usd || 0).toFixed(2)}`;
+    txRows.push({
+      txId: 4442150 + idx,
+      type: 'deduction',
+      amountStr: amt,
+      date: o.created_at || '2026-10-12 18:05:00',
+      orderId: o.id,
+      note: 'New Order Placed'
+    });
+  });
+
+  deposits.forEach((d, idx) => {
+    const amt = isPkr ? `Rs ${Number(d.amount_pkr || 0).toFixed(0)}` : `$ ${Number(d.amount_usd || 0).toFixed(2)}`;
+    txRows.push({
+      txId: 4387060 + idx,
+      type: 'addition',
+      amountStr: amt,
+      date: d.created_at || '2026-10-11 11:30:00',
+      orderId: d.id,
+      note: `${d.method} Wallet Deposit`
+    });
+  });
+
+  tbody.innerHTML = txRows.map(tx => `
     <tr>
-      <td><strong>${s.id}</strong></td>
-      <td><strong>${s.name}</strong></td>
-      <td>${AppState.formatMoney(s.rate_usd, s.rate_pkr)}</td>
-      <td>${s.min.toLocaleString()}</td>
-      <td>${s.max.toLocaleString()}</td>
-      <td><span style="color:var(--success);font-weight:600;"><i class="fa-solid fa-bolt"></i> ${s.avg_time}</span></td>
+      <td style="font-weight:600;">${tx.txId}</td>
+      <td>${tx.type}</td>
+      <td style="font-weight:700;">${tx.amountStr}</td>
+      <td>${tx.date}</td>
       <td>
-        <button onclick="orderThisService(${s.id})" class="btn-primary-grad" style="padding:4px 10px;font-size:11px;">
-          Order
-        </button>
+        <div>Order ID: <span style="color:var(--primary);font-weight:700;">${tx.orderId}</span></div>
+        <div style="font-size:12.5px;color:var(--text-secondary);">${tx.note}</div>
       </td>
     </tr>
   `).join('');
 }
 
-window.orderThisService = function(serviceId) {
-  switchView('new-order');
-  const catSelect = document.getElementById('order-category-select');
-  const srv = getServiceById(serviceId);
-  if (srv && catSelect) {
-    catSelect.value = srv.category;
-    populateServices(srv.category);
-    const srvSelect = document.getElementById('order-service-select');
-    if (srvSelect) {
-      srvSelect.value = srv.id;
-      onServiceSelected(srv.id);
-    }
+/* ==========================================================================
+   VIEW 6: 627+ SERVICES CATALOG
+   ========================================================================== */
+function populateCatalogFilter() {
+  const catFilter = document.getElementById('catalog-cat-filter');
+  if (!catFilter) return;
+
+  catFilter.innerHTML = `<option value="all">All Categories (${MASTER_SERVICES.length} Services)</option>` +
+    MASTER_CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+}
+
+function renderServiceCatalog() {
+  const container = document.getElementById('services-catalog-container');
+  if (!container) return;
+
+  const searchVal = (document.getElementById('catalog-search')?.value || '').toLowerCase().trim();
+  const catFilterVal = document.getElementById('catalog-cat-filter')?.value || 'all';
+
+  let catsToRender = MASTER_CATEGORIES;
+  if (catFilterVal !== 'all') {
+    catsToRender = MASTER_CATEGORIES.filter(c => c.id === catFilterVal);
   }
-};
+
+  let html = '';
+
+  catsToRender.forEach(cat => {
+    let srvs = MASTER_SERVICES.filter(s => s.category_id === cat.id);
+    if (searchVal) {
+      srvs = srvs.filter(s =>
+        s.name.toLowerCase().includes(searchVal) ||
+        s.id.toString().includes(searchVal)
+      );
+    }
+    if (srvs.length === 0) return;
+
+    html += `
+      <div style="margin-bottom:24px;">
+        <div style="background:var(--primary);color:#fff;padding:11px 16px;border-radius:10px 10px 0 0;font-weight:800;font-size:14px;">
+          ${cat.name}
+        </div>
+        <div class="table-responsive" style="border:1px solid var(--border-color);border-top:none;border-radius:0 0 10px 10px;">
+          <table class="smm-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Service Name</th>
+                <th>Rate / 1K</th>
+                <th>Min / Max</th>
+                <th>Avg. Time</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${srvs.map(s => {
+                const rateFormatted = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+                return `
+                  <tr>
+                    <td><span class="srv-id-badge">${s.id}</span></td>
+                    <td style="font-weight:600;">${s.name}</td>
+                    <td style="font-weight:800;color:var(--primary);">${rateFormatted}</td>
+                    <td>${s.min.toLocaleString()} / ${s.max.toLocaleString()}</td>
+                    <td>${s.avg_time}</td>
+                    <td>
+                      <button class="dil-btn-reorder" onclick="selectServiceById(${s.id})">Order</button>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html || `<div style="padding:30px;text-align:center;">No matching services found.</div>`;
+}
+
+/* ==========================================================================
+   CUSTOM SMM PANEL & IN-PANEL LIVE CHAT
+   ========================================================================== */
+function quickOrderService(srvId) {
+  selectServiceById(srvId);
+  AppState.showToast('Custom SMM Panel service selected! Enter your WhatsApp or domain link to order.', 'success');
+}
+
+function openCustomPanelChatInquiry() {
+  switchDashView('chat');
+  sendDashboardChatPreset('Assalam-o-Alaikum Admin! Mujhe apna Customize SMM Panel banwana hai, details aur price bata dein.');
+}
+
+function markUserChatRead() {
+  const chats = AppState.getChats();
+  const identity = AppState.getCurrentChatIdentity();
+  const idx = chats.findIndex(c => c.userId === identity.userId);
+  if (idx !== -1 && chats[idx].unreadByUser > 0) {
+    chats[idx].unreadByUser = 0;
+    AppState.saveChats(chats);
+  }
+}
+
+function renderDashboardChat() {
+  const container = document.getElementById('dash-chat-messages');
+  const thread = AppState.getUserChatThread();
+
+  const unreadBadge = document.getElementById('dash-chat-unread-badge');
+  if (unreadBadge) {
+    const count = thread.unreadByUser || 0;
+    unreadBadge.textContent = count;
+    unreadBadge.style.display = count > 0 ? 'inline-flex' : 'none';
+  }
+
+  if (!container) return;
+
+  container.innerHTML = thread.messages.map(m => `
+    <div class="chat-bubble-row ${m.sender === 'user' ? 'chat-row-user' : 'chat-row-admin'}">
+      <div class="chat-bubble ${m.sender === 'user' ? 'bubble-user' : 'bubble-admin'}">
+        <div class="bubble-sender">${m.sender === 'user' ? 'You (' + AppState.escapeHtml(m.senderName) + ')' : 'Saleem Admin (Official)'}</div>
+        <div class="bubble-text">${AppState.escapeHtml(m.text)}</div>
+        <div class="bubble-time">${m.time}</div>
+      </div>
+    </div>
+  `).join('');
+
+  container.scrollTop = container.scrollHeight;
+}
+
+function handleDashboardChatSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('dash-chat-input');
+  if (!input || !input.value.trim()) return;
+
+  AppState.sendUserChatMessage(input.value);
+  input.value = '';
+  renderDashboardChat();
+  AppState.showToast('Message sent to Admin!', 'success');
+}
+
+function sendDashboardChatPreset(presetText) {
+  AppState.sendUserChatMessage(presetText);
+  renderDashboardChat();
+  AppState.showToast('Inquiry sent to Admin in Live Chat!', 'success');
+}
+
+function regenerateApiKey() {
+  const newKey = 'smm_live_sec_' + Math.random().toString(36).substring(2, 15);
+  const el = document.getElementById('user-api-key');
+  if (el) el.textContent = newKey;
+  if (AppState.currentUser) {
+    AppState.currentUser.apiKey = newKey;
+    AppState.saveUser();
+  }
+  AppState.showToast('New Secret API Key generated!', 'success');
+}

@@ -142,69 +142,67 @@ const DB = {
  * In-Panel Live Chat API (User <-> Admin Real-Time Messaging)
  */
 app.get('/api/chat', (req, res) => {
-  return res.json({ chats: DB.chats });
+  return res.json(DB.chats);
 });
 
 app.post('/api/chat', (req, res) => {
-  const { action, threadId, username, name, email, phone, text, time } = req.body || {};
-  if (!text || !String(text).trim()) {
+  const body = req.body || {};
+  const { action, userId, threadId, username, name, email, phone, text, time, message } = body;
+  const uid = userId || threadId || username || 'guest';
+  const msgObj = message || (text ? {
+    id: 'MSG-' + Date.now(),
+    sender: action === 'admin_reply' ? 'admin' : 'user',
+    senderName: action === 'admin_reply' ? 'Saleem Akhtar (Admin)' : (name || username || 'User'),
+    text: String(text).trim(),
+    time: time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  } : null);
+
+  if (!msgObj || !msgObj.text) {
     return res.status(400).json({ error: "Message text is required" });
   }
 
   if (action === 'user_message') {
-    const tid = threadId || ('chat_' + (username || 'guest').toLowerCase());
-    let thread = DB.chats.find(c => c.threadId === tid);
+    let thread = DB.chats.find(c => (c.userId || c.threadId) === uid);
     if (!thread) {
       thread = {
-        threadId: tid,
-        username: username || 'guest',
+        userId: uid,
+        threadId: uid,
+        username: username || uid,
         name: name || username || 'Visitor',
         email: email || '',
         phone: phone || '',
-        unreadAdmin: 0,
-        unreadUser: 0,
-        updatedAt: time || 'Just now',
+        unreadByAdmin: 0,
+        unreadByUser: 0,
+        updatedAt: msgObj.time || 'Just now',
         messages: [
           {
-            id: Date.now() - 100,
+            id: 'MSG-INIT-' + Date.now(),
             sender: 'admin',
-            senderName: 'Saleem Admin',
+            senderName: 'Saleem Akhtar (Admin)',
             text: 'Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Support 💬. How can we help you today?',
-            time: time || 'Just now'
+            time: msgObj.time || 'Just now'
           }
         ]
       };
       DB.chats.unshift(thread);
     }
 
-    thread.messages.push({
-      id: Date.now(),
-      sender: 'user',
-      senderName: name || username || 'User',
-      text: String(text).trim(),
-      time: time || 'Just now'
-    });
-    thread.unreadAdmin = (thread.unreadAdmin || 0) + 1;
-    thread.updatedAt = time || 'Just now';
+    thread.messages.push(msgObj);
+    thread.unreadByAdmin = (thread.unreadByAdmin || 0) + 1;
+    thread.updatedAt = msgObj.time || 'Just now';
 
     return res.json({ success: true, thread, chats: DB.chats });
   }
 
   if (action === 'admin_reply') {
-    const thread = DB.chats.find(c => c.threadId === threadId);
+    const thread = DB.chats.find(c => (c.userId || c.threadId) === uid);
     if (!thread) {
       return res.status(404).json({ error: "Chat thread not found" });
     }
-    thread.messages.push({
-      id: Date.now(),
-      sender: 'admin',
-      senderName: 'Saleem Admin',
-      text: String(text).trim(),
-      time: time || 'Just now'
-    });
-    thread.unreadAdmin = 0;
-    thread.unreadUser = (thread.unreadUser || 0) + 1;
-    thread.updatedAt = time || 'Just now';
+    thread.messages.push(msgObj);
+    thread.unreadByAdmin = 0;
+    thread.unreadByUser = (thread.unreadByUser || 0) + 1;
+    thread.updatedAt = msgObj.time || 'Just now';
 
     return res.json({ success: true, thread, chats: DB.chats });
   }
