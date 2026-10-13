@@ -6,6 +6,10 @@
 
 const MASTER_CATEGORIES = [
     {
+        "id":  "cat_custom",
+        "name":  "Custom SMM Panel Development"
+    },
+    {
         "id":  "cat_1",
         "name":  "Muse AI » AI Tools [ 1B Tokens ]"
     },
@@ -8752,6 +8756,32 @@ const MASTER_SERVICES = [
         "max":  10000,
         "avg_time":  "47 minutes",
         "description":  "Automated Wholesale Delivery\nService: Snapchat Follower | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 47 minutes\nMin: 10 | Max: 10000"
+    },
+    {
+        "id": 99901,
+        "category": "cat_custom",
+        "category_id": "cat_custom",
+        "category_name": "Custom SMM Panel Development",
+        "name": "Apna Custom SMM Panel Banwayein | Ready-Made Setup + Domain + Hosting | 100% Automated",
+        "rate_pkr": 15000,
+        "rate_usd": 53.57,
+        "min": 1,
+        "max": 1,
+        "avg_time": "24 hours",
+        "description": "Automated Wholesale Delivery\nService: Apna Custom SMM Panel Banwayein | Ready-Made Setup + Domain + Hosting | 100% Automated\nEstimated Completion: 24 hours\nMin: 1 | Max: 1"
+    },
+    {
+        "id": 99902,
+        "category": "cat_custom",
+        "category_id": "cat_custom",
+        "category_name": "Custom SMM Panel Development",
+        "name": "VIP SMM Panel Rental / Script Setup | Complete Admin Control & Payment Gateways",
+        "rate_pkr": 8500,
+        "rate_usd": 30.35,
+        "min": 1,
+        "max": 1,
+        "avg_time": "12 hours",
+        "description": "Automated Wholesale Delivery\nService: VIP SMM Panel Rental / Script Setup | Complete Admin Control & Payment Gateways\nEstimated Completion: 12 hours\nMin: 1 | Max: 1"
     }
 ];
 

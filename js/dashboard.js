@@ -247,6 +247,190 @@ function renderAllPrices() {
 /* ==========================================================================
    NEW ORDER FORM & 14 PLATFORM ICON FILTERS (SCREENSHOT 1)
    ========================================================================== */
+/* ==========================================================================
+   14 MAIN PLATFORMS DEFINITIONS & MATCHER
+   Popular platforms only in Categories dropdown (as requested)
+   ========================================================================== */
+const MAIN_PLATFORMS = [
+  {
+    id: 'instagram',
+    name: 'Instagram Services',
+    icon: 'fa-brands fa-instagram',
+    emoji: '📸',
+    bg: 'linear-gradient(45deg, #f09433, #dc2743, #bc1888)',
+    badgeColor: '#e1306c',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('instagram') || t.includes('insta');
+    }
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok Services',
+    icon: 'fa-brands fa-tiktok',
+    emoji: '🎵',
+    bg: '#000000',
+    badgeColor: '#000000',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('tiktok') || t.includes('tik tok')) && !t.includes('instagram');
+    }
+  },
+  {
+    id: 'youtube',
+    name: 'YouTube Services',
+    icon: 'fa-brands fa-youtube',
+    emoji: '🔴',
+    bg: '#ff0000',
+    badgeColor: '#ff0000',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('youtube') || t.includes('yt ')) && !t.includes('instagram') && !t.includes('tiktok');
+    }
+  },
+  {
+    id: 'facebook',
+    name: 'Facebook Services',
+    icon: 'fa-brands fa-facebook-f',
+    emoji: '🔵',
+    bg: '#1877f2',
+    badgeColor: '#1877f2',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('facebook') || t.includes('fb ')) && !t.includes('instagram');
+    }
+  },
+  {
+    id: 'twitter',
+    name: 'X (Twitter) Services',
+    icon: 'fa-brands fa-x-twitter',
+    emoji: '❌',
+    bg: '#0f1419',
+    badgeColor: '#000000',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('twitter') || t.includes(' x ') || t.startsWith('x »') || t.includes('x »') || t.includes('tweets')) && !t.includes('instagram');
+    }
+  },
+  {
+    id: 'telegram',
+    name: 'Telegram Services',
+    icon: 'fa-brands fa-telegram',
+    emoji: '✈️',
+    bg: '#0088cc',
+    badgeColor: '#0088cc',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('telegram') || t.includes('tg ')) && !t.includes('instagram');
+    }
+  },
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp Services',
+    icon: 'fa-brands fa-whatsapp',
+    emoji: '💬',
+    bg: '#25d366',
+    badgeColor: '#25d366',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return (t.includes('whatsapp') || t.includes('wa ')) && !t.includes('instagram');
+    }
+  },
+  {
+    id: 'spotify',
+    name: 'Spotify Services',
+    icon: 'fa-brands fa-spotify',
+    emoji: '🟢',
+    bg: '#1db954',
+    badgeColor: '#1db954',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('spotify');
+    }
+  },
+  {
+    id: 'snapchat',
+    name: 'Snapchat Services',
+    icon: 'fa-brands fa-snapchat',
+    emoji: '👻',
+    bg: '#fffc00',
+    badgeColor: '#eab308',
+    iconColor: '#000000',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('snapchat');
+    }
+  },
+  {
+    id: 'linkedin',
+    name: 'LinkedIn Services',
+    icon: 'fa-brands fa-linkedin-in',
+    emoji: '💼',
+    bg: '#0a66c2',
+    badgeColor: '#0a66c2',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('linkedin');
+    }
+  },
+  {
+    id: 'threads',
+    name: 'Threads Services',
+    icon: 'fa-brands fa-threads',
+    emoji: '🧵',
+    bg: '#000000',
+    badgeColor: '#000000',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('threads');
+    }
+  },
+  {
+    id: 'ai',
+    name: 'AI Tools & Premium Accounts',
+    icon: 'fa-solid fa-wand-magic-sparkles',
+    emoji: '🤖',
+    bg: 'linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853)',
+    badgeColor: '#3b82f6',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('muse ai') || t.includes('gemini') || t.includes('capcut') || t.includes('canva') || t.includes('chatgpt') || t.includes('ai tool');
+    }
+  },
+  {
+    id: 'traffic',
+    name: 'Website Traffic & SEO',
+    icon: 'fa-solid fa-globe',
+    emoji: '🌐',
+    bg: '#0284c7',
+    badgeColor: '#0284c7',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('traffic') || t.includes('website') || t.includes('seo');
+    }
+  },
+  {
+    id: 'custom',
+    name: 'Custom SMM Panel Development',
+    icon: 'fa-solid fa-crown',
+    emoji: '👑',
+    bg: 'linear-gradient(135deg, #f59e0b, #d97706)',
+    badgeColor: '#f59e0b',
+    match: s => {
+      const t = ((s.name || '') + ' ' + (s.category_name || '')).toLowerCase();
+      return t.includes('custom smm') || t.includes('panel banwayein') || s.id === 99901 || s.id === 99902;
+    }
+  }
+];
+
+function getPlatformForService(s) {
+  if (!s) return MAIN_PLATFORMS[0];
+  for (const plat of MAIN_PLATFORMS) {
+    if (plat.match(s)) return plat;
+  }
+  return MAIN_PLATFORMS[0];
+}
+
 /* Helper: Get Unicode Social Platform Icon/Emoji */
 function getPlatformIconEmoji(text) {
   const t = (text || '').toLowerCase();
@@ -267,9 +451,6 @@ function getPlatformIconEmoji(text) {
   if (t.includes('snapchat')) return '👻';
   if (t.includes('discord')) return '🎮';
   if (t.includes('threads')) return '🧵';
-  if (t.includes('twitch')) return '🟣';
-  if (t.includes('soundcloud')) return '🟠';
-  if (t.includes('pinterest')) return '📌';
   return '⚡';
 }
 
@@ -290,60 +471,37 @@ function getPlatformBadgeMeta(text) {
   if (t.includes('muse ai') || t.includes('ai') || t.includes('chatgpt')) return { icon: 'fa-solid fa-robot', bg: '#2563eb' };
   if (t.includes('custom') || t.includes('panel')) return { icon: 'fa-solid fa-crown', bg: 'linear-gradient(135deg, #f59e0b, #d97706)' };
   if (t.includes('traffic') || t.includes('website')) return { icon: 'fa-solid fa-globe', bg: '#0284c7' };
-  if (t.includes('snapchat')) return { icon: 'fa-brands fa-snapchat', bg: '#fffc00' };
+  if (t.includes('snapchat')) return { icon: 'fa-brands fa-snapchat', bg: '#fffc00', color: '#000000' };
   if (t.includes('discord')) return { icon: 'fa-brands fa-discord', bg: '#5865f2' };
   if (t.includes('threads')) return { icon: 'fa-brands fa-threads', bg: '#000000' };
   return { icon: 'fa-solid fa-layer-group', bg: '#2563eb' };
 }
 
-/* Custom Dropdown Toggles and Option Selectors (Matches dilsmmpanel.com) */
-window.toggleCustomDropdown = function(dropdownId, e) {
-  if (e && e.stopPropagation) {
-    e.stopPropagation();
-  }
-  const target = document.getElementById(dropdownId);
-  if (!target) return;
-  const isAlreadyOpen = target.classList.contains('open');
-  document.querySelectorAll('.dil-custom-select').forEach(el => el.classList.remove('open'));
-  if (!isAlreadyOpen) {
-    target.classList.add('open');
-  }
-};
-
-window.selectCustomCategory = function(catId) {
-  const catSelect = document.getElementById('order-category');
-  if (catSelect) {
-    catSelect.value = catId;
-    onCategoryChange();
-  }
-  document.getElementById('custom-cat-dropdown')?.classList.remove('open');
-};
-
-window.selectCustomService = function(srvId) {
-  const srvSelect = document.getElementById('order-service');
-  if (srvSelect) {
-    srvSelect.value = srvId;
-    onServiceChange();
-  }
-  document.getElementById('custom-srv-dropdown')?.classList.remove('open');
-};
-
-// Auto close dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.dil-custom-select')) {
-    document.querySelectorAll('.dil-custom-select').forEach(el => el.classList.remove('open'));
-  }
-});
-
 window.filterCategoryByPlatform = function(platformKey, btnEl) {
   currentCategoryFilter = platformKey;
   document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => b.classList.remove('active'));
-  if (btnEl) btnEl.classList.add('active');
-  populateCategoriesSelect();
+  if (btnEl) {
+    btnEl.classList.add('active');
+  } else {
+    const matchingBtn = document.querySelector(`#platform-filter-bar .dil-plat-icon[data-plat="${platformKey}"]`);
+    if (matchingBtn) matchingBtn.classList.add('active');
+  }
+
+  const catSelect = document.getElementById('order-category');
+  if (!catSelect) return;
+
+  if (platformKey === 'all') {
+    if (!catSelect.value) catSelect.value = 'instagram';
+    onCategoryChange();
+  } else if (MAIN_PLATFORMS.some(p => p.id === platformKey)) {
+    catSelect.value = platformKey;
+    onCategoryChange();
+  }
 };
 function filterCategoryByPlatform(platformKey, btnEl) {
   window.filterCategoryByPlatform(platformKey, btnEl);
 }
+
 window.populateCategoriesSelect = populateCategoriesSelect;
 window.onCategoryChange = onCategoryChange;
 window.onServiceChange = onServiceChange;
@@ -355,70 +513,84 @@ function populateCategoriesSelect() {
   const catSelect = document.getElementById('order-category');
   if (!catSelect) return;
 
-  if (typeof MASTER_CATEGORIES === 'undefined' || !Array.isArray(MASTER_CATEGORIES) || MASTER_CATEGORIES.length === 0) {
-    console.warn('MASTER_CATEGORIES is not ready yet, retrying...');
+  if (typeof MASTER_SERVICES === 'undefined' || !Array.isArray(MASTER_SERVICES) || MASTER_SERVICES.length === 0) {
+    console.warn('MASTER_SERVICES is not ready yet, retrying...');
     setTimeout(populateCategoriesSelect, 150);
     return;
   }
 
-  const filteredCats = MASTER_CATEGORIES.filter(cat => {
-    if (!currentCategoryFilter || currentCategoryFilter === 'all') return true;
-    const nameLower = (cat.name || '').toLowerCase();
-    if (currentCategoryFilter === 'custom') return nameLower.includes('custom') || nameLower.includes('panel');
-    if (currentCategoryFilter === 'ai') return nameLower.includes('ai') || nameLower.includes('chatgpt') || nameLower.includes('canva') || nameLower.includes('tool') || nameLower.includes('gemini');
-    if (currentCategoryFilter === 'traffic') return nameLower.includes('traffic') || nameLower.includes('website') || nameLower.includes('seo');
-    return (cat.platform && cat.platform === currentCategoryFilter) || nameLower.includes(currentCategoryFilter);
-  });
-
-  const listToUse = filteredCats.length > 0 ? filteredCats : MASTER_CATEGORIES;
-
-  // 1. Populate native select with clean emojis and category titles
-  catSelect.innerHTML = listToUse.map(c => {
-    const iconEmoji = getPlatformIconEmoji(c.name);
-    return `<option value="${c.id}">${iconEmoji} ${c.name}</option>`;
+  // Populate Categories dropdown ONLY with MAIN CATEGORIES (Instagram, TikTok, YouTube, Facebook, etc.)
+  catSelect.innerHTML = MAIN_PLATFORMS.map(p => {
+    const srvCount = MASTER_SERVICES.filter(s => p.match(s)).length;
+    return `<option value="${p.id}">${p.emoji} ${p.name} (${srvCount})</option>`;
   }).join('');
 
-  if (!listToUse.some(c => c.id === catSelect.value)) {
-    catSelect.value = listToUse[0].id;
+  // Default to Instagram or active filter
+  if (!MAIN_PLATFORMS.some(p => p.id === catSelect.value)) {
+    catSelect.value = (currentCategoryFilter && currentCategoryFilter !== 'all' && MAIN_PLATFORMS.some(p => p.id === currentCategoryFilter))
+      ? currentCategoryFilter
+      : 'instagram';
   }
 
   onCategoryChange();
 }
 
-function onCategoryChange() {
+function onCategoryChange(optionalServiceId) {
   const catSelect = document.getElementById('order-category');
   const srvSelect = document.getElementById('order-service');
   if (!catSelect || !srvSelect) return;
 
   if (typeof MASTER_SERVICES === 'undefined' || !Array.isArray(MASTER_SERVICES) || MASTER_SERVICES.length === 0) {
     console.warn('MASTER_SERVICES is not ready yet, retrying...');
-    setTimeout(onCategoryChange, 150);
+    setTimeout(() => onCategoryChange(optionalServiceId), 150);
     return;
   }
 
-  const selectedCatId = catSelect.value;
-  currentServiceList = MASTER_SERVICES.filter(s => (s.category === selectedCatId || s.category_id === selectedCatId || selectedCatId === 'all'));
+  const selectedPlatId = catSelect.value || 'instagram';
+  const platObj = MAIN_PLATFORMS.find(p => p.id === selectedPlatId) || MAIN_PLATFORMS[0];
+
+  // 1. Update Category Badge Icon with official FontAwesome brand icon & gradient
+  const catBadge = document.getElementById('category-badge-icon');
+  if (catBadge && platObj) {
+    catBadge.style.background = platObj.bg;
+    catBadge.style.color = platObj.iconColor || '#ffffff';
+    catBadge.innerHTML = `<i class="${platObj.icon}"></i>`;
+  }
+
+  // 2. Sync top platform filter bar active state
+  document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-plat') === platObj.id);
+  });
+
+  // 3. Filter services for this main platform
+  currentServiceList = MASTER_SERVICES.filter(s => platObj.match(s));
   if (!currentServiceList || currentServiceList.length === 0) {
     currentServiceList = MASTER_SERVICES.slice(0, 50);
   }
 
-  // Update Category Badge Icon (Official Platform color & icon)
-  const selectedCat = MASTER_CATEGORIES.find(c => c.id === selectedCatId);
-  const catBadge = document.getElementById('category-badge-icon');
-  if (selectedCat && catBadge) {
-    const meta = getPlatformBadgeMeta(selectedCat.name);
-    catBadge.style.background = meta.bg;
-    catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
-  }
+  // 4. Group services by subcategory using <optgroup> for clean, mobile-first browsing
+  const groups = {};
+  currentServiceList.forEach(s => {
+    const grpName = s.category_name || platObj.name;
+    if (!groups[grpName]) groups[grpName] = [];
+    groups[grpName].push(s);
+  });
 
-  // 1. Populate native services select with ID, name, rate & time
-  srvSelect.innerHTML = currentServiceList.map(s => {
-    const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
-    const iconEmoji = getPlatformIconEmoji(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
-    return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
+  const isPkr = AppState.currency === 'PKR';
+  const groupKeys = Object.keys(groups);
+
+  srvSelect.innerHTML = groupKeys.map(grpName => {
+    const optionsHtml = groups[grpName].map(s => {
+      const priceStr = isPkr ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      return `<option value="${s.id}">⚡ ${s.id} - ${s.name} — ${priceStr}</option>`;
+    }).join('');
+    return `<optgroup label="${grpName}">${optionsHtml}</optgroup>`;
   }).join('');
 
-  if (currentServiceList.length > 0) {
+  // 5. Select target service or default to first
+  if (optionalServiceId && currentServiceList.some(s => s.id === optionalServiceId)) {
+    srvSelect.value = optionalServiceId;
+  } else if (currentServiceList.length > 0) {
     srvSelect.value = currentServiceList[0].id;
   }
 
@@ -433,11 +605,12 @@ function onServiceChange() {
   selectedServiceObj = MASTER_SERVICES.find(s => s.id === srvId) || currentServiceList[0];
   if (!selectedServiceObj) return;
 
-  // Update Service ID Pill Badge (e.g. 15545)
+  // Update Service ID Pill Badge (e.g. 15545) with official platform brand background
   const idPill = document.getElementById('selected-srv-id-pill');
   if (idPill) {
-    const srvMeta = getPlatformBadgeMeta(selectedServiceObj.name || selectedServiceObj.category_name);
-    idPill.style.background = srvMeta.bg;
+    const srvPlat = getPlatformForService(selectedServiceObj);
+    idPill.style.background = srvPlat.bg;
+    idPill.style.color = srvPlat.iconColor || '#ffffff';
     idPill.textContent = selectedServiceObj.id;
   }
 
@@ -462,7 +635,7 @@ function onServiceChange() {
   if (qtyInput) {
     qtyInput.min = selectedServiceObj.min;
     qtyInput.max = selectedServiceObj.max;
-    if (!qtyInput.value) {
+    if (!qtyInput.value || Number(qtyInput.value) < selectedServiceObj.min) {
       qtyInput.value = selectedServiceObj.min;
     }
   }
@@ -486,26 +659,44 @@ function calculateOrderTotal() {
 }
 
 function handleQuickServiceSearch(query) {
-  const q = query.toLowerCase().trim();
+  const q = (query || '').toLowerCase().trim();
   if (!q) {
-    populateCategoriesSelect();
+    onCategoryChange();
     return;
   }
 
   const matched = MASTER_SERVICES.filter(s =>
+    String(s.id).includes(q) ||
     s.name.toLowerCase().includes(q) ||
-    s.id.toString().includes(q) ||
-    s.category_name.toLowerCase().includes(q)
-  ).slice(0, 60);
+    (s.category_name && s.category_name.toLowerCase().includes(q))
+  ).slice(0, 100);
 
   const srvSelect = document.getElementById('order-service');
   if (matched.length > 0 && srvSelect) {
     currentServiceList = matched;
+    const isPkr = AppState.currency === 'PKR';
     srvSelect.innerHTML = matched.map(s => {
-      const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
-      const iconEmoji = getPlatformIconEmoji(s.name || s.category_name);
-      return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
+      const priceStr = isPkr ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      return `<option value="${s.id}">⚡ ${s.id} - ${s.name} — ${priceStr}</option>`;
     }).join('');
+    srvSelect.value = matched[0].id;
+
+    // Automatically update Category select to match this service's platform
+    const srvPlat = getPlatformForService(matched[0]);
+    const catSelect = document.getElementById('order-category');
+    if (catSelect && srvPlat) {
+      catSelect.value = srvPlat.id;
+      const catBadge = document.getElementById('category-badge-icon');
+      if (catBadge) {
+        catBadge.style.background = srvPlat.bg;
+        catBadge.style.color = srvPlat.iconColor || '#ffffff';
+        catBadge.innerHTML = `<i class="${srvPlat.icon}"></i>`;
+      }
+      document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-plat') === srvPlat.id);
+      });
+    }
+
     onServiceChange();
   }
 }
@@ -515,20 +706,14 @@ function selectServiceById(serviceId) {
   if (!srv) return;
 
   switchDashView('new-order');
-  currentCategoryFilter = 'all';
-  populateCategoriesSelect();
 
+  const plat = getPlatformForService(srv);
   const catSelect = document.getElementById('order-category');
-  if (catSelect) {
-    catSelect.value = srv.category || srv.category_id || 'cat_5';
-    onCategoryChange();
+  if (catSelect && plat) {
+    catSelect.value = plat.id;
   }
 
-  const srvSelect = document.getElementById('order-service');
-  if (srvSelect) {
-    srvSelect.value = srv.id;
-    onServiceChange();
-  }
+  onCategoryChange(srv.id);
 }
 
 function submitNewOrder(e) {

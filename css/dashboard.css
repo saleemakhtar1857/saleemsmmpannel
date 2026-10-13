@@ -663,6 +663,39 @@ body.nightmode {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
 }
 
+.dil-select-box-wrap .dil-cs-badge {
+  position: static;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dil-select-box-wrap .dil-srv-id-pill {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 7px;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.dil-select-native optgroup {
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-surface-2);
+}
+
 .dil-select-native {
   flex: 1;
   width: 100%;
