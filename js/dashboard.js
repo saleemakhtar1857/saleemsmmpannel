@@ -1059,7 +1059,7 @@ function renderServiceCatalog() {
   let html = '';
 
   catsToRender.forEach(cat => {
-    let srvs = MASTER_SERVICES.filter(s => s.category_id === cat.id);
+    let srvs = MASTER_SERVICES.filter(s => (s.category_id === cat.id || s.category === cat.id));
     if (searchVal) {
       srvs = srvs.filter(s =>
         s.name.toLowerCase().includes(searchVal) ||

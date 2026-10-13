@@ -6,631 +6,623 @@
 
 const MASTER_CATEGORIES = [
     {
-        "id":  "all",
-        "name":  "All Categories (625 Services)"
-    },
-    {
         "id":  "cat_1",
-        "name":  "General Services"
-    },
-    {
-        "id":  "cat_2",
         "name":  "Muse AI » AI Tools [ 1B Tokens ]"
     },
     {
-        "id":  "cat_3",
+        "id":  "cat_2",
         "name":  "Google AI | Gemini [ Premium ]"
     },
     {
-        "id":  "cat_4",
+        "id":  "cat_3",
         "name":  "CapCut Pro » Private Accounts"
     },
     {
-        "id":  "cat_5",
+        "id":  "cat_4",
         "name":  "Instagram » Followers [ Cheapest ]"
     },
     {
-        "id":  "cat_6",
+        "id":  "cat_5",
         "name":  "Instagram » Followers [ Best Speed ]"
     },
     {
-        "id":  "cat_7",
+        "id":  "cat_6",
         "name":  "Instagram » Followers [ Non–Drop ]"
     },
     {
-        "id":  "cat_8",
+        "id":  "cat_7",
         "name":  "Instagram » Followers [ sv3 ]"
     },
     {
-        "id":  "cat_9",
+        "id":  "cat_8",
         "name":  "Instagram » Followers [ sv2 ]"
     },
     {
-        "id":  "cat_10",
+        "id":  "cat_9",
         "name":  "Instagram » Followers [ sv1 ]"
     },
     {
-        "id":  "cat_11",
+        "id":  "cat_10",
         "name":  "Instagram » Views + Likes [ Cheapest ]"
     },
     {
-        "id":  "cat_12",
+        "id":  "cat_11",
         "name":  "Instagram » Views + Likes [ Lifetime ]"
     },
     {
-        "id":  "cat_13",
+        "id":  "cat_12",
         "name":  "Instagram » Views [ Cheapest ]"
     },
     {
-        "id":  "cat_14",
+        "id":  "cat_13",
         "name":  "Instagram » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_15",
+        "id":  "cat_14",
         "name":  "Instagram » Views [ Dashhead Add ]"
     },
     {
-        "id":  "cat_16",
+        "id":  "cat_15",
         "name":  "Instagram » Views [ For Stories ]"
     },
     {
-        "id":  "cat_17",
+        "id":  "cat_16",
         "name":  "Instagram » Views [ Impressions ]"
     },
     {
-        "id":  "cat_18",
+        "id":  "cat_17",
         "name":  "Instagram » Likes [ Cheapest ]"
     },
     {
-        "id":  "cat_19",
+        "id":  "cat_18",
         "name":  "Instagram » Likes [ Non–Drop ]"
     },
     {
-        "id":  "cat_20",
+        "id":  "cat_19",
         "name":  "Instagram » Likes [ Best Speed ]"
     },
     {
-        "id":  "cat_21",
+        "id":  "cat_20",
         "name":  "Instagram » Likes [ Targeted 🎯 ]"
     },
     {
-        "id":  "cat_22",
+        "id":  "cat_21",
         "name":  "Instagram » Comments [ Cheapest ]"
     },
     {
-        "id":  "cat_23",
+        "id":  "cat_22",
         "name":  "Instagram » Comments [ Random ]"
     },
     {
-        "id":  "cat_24",
+        "id":  "cat_23",
         "name":  "Instagram » Comments [ Custom ]"
     },
     {
-        "id":  "cat_25",
+        "id":  "cat_24",
         "name":  "Instagram » Statistics [ Best Speed ]"
     },
     {
-        "id":  "cat_26",
+        "id":  "cat_25",
         "name":  "Instagram » Comments [ Emojis ]"
     },
     {
-        "id":  "cat_27",
+        "id":  "cat_26",
         "name":  "Instagram » Comments [ India 🇮🇳 ]"
     },
     {
-        "id":  "cat_28",
+        "id":  "cat_27",
         "name":  "Instagram » Repost [ Best Speed ]"
     },
     {
-        "id":  "cat_29",
+        "id":  "cat_28",
         "name":  "Instagram » Saves [ Cheapest ]"
     },
     {
-        "id":  "cat_30",
+        "id":  "cat_29",
         "name":  "Instagram » Saves [ Lifetime ]"
     },
     {
-        "id":  "cat_31",
+        "id":  "cat_30",
         "name":  "Instagram » Shares [ Lifetime ]"
     },
     {
-        "id":  "cat_32",
+        "id":  "cat_31",
         "name":  "Instagram » Repost [ Cheapest ]"
     },
     {
-        "id":  "cat_33",
+        "id":  "cat_32",
         "name":  "TikTok » Accounts [ Real Monetized ]"
     },
     {
-        "id":  "cat_34",
+        "id":  "cat_33",
         "name":  "TikTok » Accounts [ Fresh – UK / USA ]"
     },
     {
-        "id":  "cat_35",
+        "id":  "cat_34",
         "name":  "TikTok » Creator Growth Challenge"
     },
     {
-        "id":  "cat_36",
+        "id":  "cat_35",
         "name":  "TikTok » Creator Reward Joining"
     },
     {
-        "id":  "cat_37",
+        "id":  "cat_36",
         "name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐂𝐚𝐦𝐩𝐚𝐢𝐠𝐧 ]"
     },
     {
-        "id":  "cat_38",
+        "id":  "cat_37",
         "name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐏𝐀𝐊 🇵🇰 ]"
     },
     {
-        "id":  "cat_39",
+        "id":  "cat_38",
         "name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 🇵🇰"
     },
     {
-        "id":  "cat_40",
+        "id":  "cat_39",
         "name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬"
     },
     {
-        "id":  "cat_41",
+        "id":  "cat_40",
         "name":  "TikTok » Views [ Cheapest ]"
     },
     {
-        "id":  "cat_42",
+        "id":  "cat_41",
         "name":  "TikTok » Views [ UK 🇬🇧 ]"
     },
     {
-        "id":  "cat_43",
+        "id":  "cat_42",
         "name":  "TikTok » Views [ Non–Drop ]"
     },
     {
-        "id":  "cat_44",
+        "id":  "cat_43",
         "name":  "TikTok » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_45",
+        "id":  "cat_44",
         "name":  "TikTok » Views [ No Refill ]"
     },
     {
-        "id":  "cat_46",
+        "id":  "cat_45",
         "name":  "TikTok » Views [ For You ]"
     },
     {
-        "id":  "cat_47",
+        "id":  "cat_46",
         "name":  "TikTok » Views [ Refill Lifetime ]"
     },
     {
-        "id":  "cat_48",
+        "id":  "cat_47",
         "name":  "TikTok » Views – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬"
     },
     {
-        "id":  "cat_49",
+        "id":  "cat_48",
         "name":  "TikTok » Views + Likes [ No Refill ]"
     },
     {
-        "id":  "cat_50",
+        "id":  "cat_49",
         "name":  "TikTok » Followers [ Best Speed ]"
     },
     {
-        "id":  "cat_51",
+        "id":  "cat_50",
         "name":  "TikTok » Followers [ PAK + USA ]"
     },
     {
-        "id":  "cat_52",
+        "id":  "cat_51",
         "name":  "TikTok » Followers [ No Refill ]"
     },
     {
-        "id":  "cat_53",
+        "id":  "cat_52",
         "name":  "TikTok » Likes [ Best Speed ]"
     },
     {
-        "id":  "cat_54",
+        "id":  "cat_53",
         "name":  "TikTok » Likes [ Cheapest ]"
     },
     {
-        "id":  "cat_55",
+        "id":  "cat_54",
         "name":  "TikTok » 𝐋𝐢𝐤𝐞𝐬 [ 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 ]"
     },
     {
-        "id":  "cat_56",
+        "id":  "cat_55",
         "name":  "TikTok » Likes [ Real PAK 🇵🇰 ]"
     },
     {
-        "id":  "cat_57",
+        "id":  "cat_56",
         "name":  "TikTok » Comments [ Best Speed ]"
     },
     {
-        "id":  "cat_58",
+        "id":  "cat_57",
         "name":  "TikTok » Comments [ Non–Drop ]"
     },
     {
-        "id":  "cat_59",
+        "id":  "cat_58",
         "name":  "TikTok » Save [ Cheapest ]"
     },
     {
-        "id":  "cat_60",
+        "id":  "cat_59",
         "name":  "TikTok » Saves [ Best Speed ]"
     },
     {
-        "id":  "cat_61",
+        "id":  "cat_60",
         "name":  "TikTok » Shares [ Best Speed ]"
     },
     {
-        "id":  "cat_62",
+        "id":  "cat_61",
         "name":  "TikTok » Battle Points [ Best Speed ]"
     },
     {
-        "id":  "cat_63",
+        "id":  "cat_62",
         "name":  "YouTube » Views [ Non–Drop ]"
     },
     {
-        "id":  "cat_64",
+        "id":  "cat_63",
         "name":  "YouTube » Views Adword [ Under 4 Mins ]"
     },
     {
-        "id":  "cat_65",
+        "id":  "cat_64",
         "name":  "YouTube » Views Adword [ Under 8 Mins ]"
     },
     {
-        "id":  "cat_66",
+        "id":  "cat_65",
         "name":  "YouTube » Views Adword [ Under 10 Mins ]"
     },
     {
-        "id":  "cat_67",
+        "id":  "cat_66",
         "name":  "YouTube » Views Adword [ Under 60 Mins ]"
     },
     {
-        "id":  "cat_68",
+        "id":  "cat_67",
         "name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]"
     },
     {
-        "id":  "cat_69",
+        "id":  "cat_68",
         "name":  "YouTube » Views – Adword [ IND 🇮🇳 ]"
     },
     {
-        "id":  "cat_70",
+        "id":  "cat_69",
         "name":  "YouTube » Views – Adword [ UK 🇬🇧 ]"
     },
     {
-        "id":  "cat_71",
+        "id":  "cat_70",
         "name":  "YouTube » Views – Adword [ USA 🇺🇸 ]"
     },
     {
-        "id":  "cat_72",
+        "id":  "cat_71",
         "name":  "YouTube » Views – Adword [ In Feed ]"
     },
     {
-        "id":  "cat_73",
+        "id":  "cat_72",
         "name":  "YouTube » Views [ Cheapest ]"
     },
     {
-        "id":  "cat_74",
+        "id":  "cat_73",
         "name":  "YouTube » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_75",
+        "id":  "cat_74",
         "name":  "YouTube » Views [ Video / Short ]"
     },
     {
-        "id":  "cat_76",
+        "id":  "cat_75",
         "name":  "YouTube » Views [ High Retention ]"
     },
     {
-        "id":  "cat_77",
+        "id":  "cat_76",
         "name":  "YouTube » Views [ Native Ads – Cheapest ]"
     },
     {
-        "id":  "cat_78",
+        "id":  "cat_77",
         "name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]"
     },
     {
-        "id":  "cat_79",
+        "id":  "cat_78",
         "name":  "YouTube » Views [ Live Stream ]"
     },
     {
-        "id":  "cat_80",
+        "id":  "cat_79",
         "name":  "YouTube » Likes [ Cheapest ]"
     },
     {
-        "id":  "cat_81",
+        "id":  "cat_80",
         "name":  "YouTube » Likes [ Non–Drop ]"
     },
     {
-        "id":  "cat_82",
+        "id":  "cat_81",
         "name":  "YouTube » Likes [ Best Speed ]"
     },
     {
-        "id":  "cat_83",
+        "id":  "cat_82",
         "name":  "YouTube » Comments [ Cheapest ]"
     },
     {
-        "id":  "cat_84",
+        "id":  "cat_83",
         "name":  "YouTube » Comments [ Best Speed ]"
     },
     {
-        "id":  "cat_85",
+        "id":  "cat_84",
         "name":  "YouTube » Comments [ India 🇮🇳 ]"
     },
     {
-        "id":  "cat_86",
+        "id":  "cat_85",
         "name":  "YouTube » Subscribe [ No Refill ]"
     },
     {
-        "id":  "cat_87",
+        "id":  "cat_86",
         "name":  "YouTube » Subscribe [ Non–Drop ]"
     },
     {
-        "id":  "cat_88",
+        "id":  "cat_87",
         "name":  "YouTube » Watchtime [ RDP Method ]"
     },
     {
-        "id":  "cat_89",
+        "id":  "cat_88",
         "name":  "YouTube » Services [ Shorts ]"
     },
     {
-        "id":  "cat_90",
+        "id":  "cat_89",
         "name":  "Facebook » Reviews [ Real Profiles ]"
     },
     {
-        "id":  "cat_91",
+        "id":  "cat_90",
         "name":  "Facebook » Page [ Monetized ]"
     },
     {
-        "id":  "cat_92",
+        "id":  "cat_91",
         "name":  "Facebook » Followers [ Cheapest ]"
     },
     {
-        "id":  "cat_93",
+        "id":  "cat_92",
         "name":  "Facebook » Followers [ Non–Drop ]"
     },
     {
-        "id":  "cat_94",
+        "id":  "cat_93",
         "name":  "Facebook » Followers + Likes"
     },
     {
-        "id":  "cat_95",
+        "id":  "cat_94",
         "name":  "Facebook » Post Likes [ Cheapest ]"
     },
     {
-        "id":  "cat_96",
+        "id":  "cat_95",
         "name":  "Facebook » Post Likes [ Best Speed ]"
     },
     {
-        "id":  "cat_97",
+        "id":  "cat_96",
         "name":  "Facebook » Reactions [ Cheapest ]"
     },
     {
-        "id":  "cat_98",
+        "id":  "cat_97",
         "name":  "Facebook » Reactions [ Lifetime ⚡️]"
     },
     {
-        "id":  "cat_99",
+        "id":  "cat_98",
         "name":  "Facebook » Reactions [ Best Speed ]"
     },
     {
-        "id":  "cat_100",
+        "id":  "cat_99",
         "name":  "Facebook » Reactions [ Mix Pack ]"
     },
     {
-        "id":  "cat_101",
+        "id":  "cat_100",
         "name":  "Facebook » Views [ Cheapest ]"
     },
     {
-        "id":  "cat_102",
+        "id":  "cat_101",
         "name":  "Facebook » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_103",
+        "id":  "cat_102",
         "name":  "Facebook » Views [ Monitizable ]"
     },
     {
-        "id":  "cat_104",
+        "id":  "cat_103",
         "name":  "Facebook » Views [ Live Stream ]"
     },
     {
-        "id":  "cat_105",
+        "id":  "cat_104",
         "name":  "Facebook » Group Members [ Lifetime ]"
     },
     {
-        "id":  "cat_106",
+        "id":  "cat_105",
         "name":  "Facebook » Shares [ Best Speed ]"
     },
     {
-        "id":  "cat_107",
+        "id":  "cat_106",
         "name":  "X Twitter » Subscription [ Premium ]"
     },
     {
-        "id":  "cat_108",
+        "id":  "cat_107",
         "name":  "X Twitter » Followers [ Best Speed ]"
     },
     {
-        "id":  "cat_109",
+        "id":  "cat_108",
         "name":  "X Twitter » Followers [ Cheapest ]"
     },
     {
-        "id":  "cat_110",
+        "id":  "cat_109",
         "name":  "X Twitter » Followers [ Non Drop ]"
     },
     {
-        "id":  "cat_111",
+        "id":  "cat_110",
         "name":  "X Twitter » Likes [ Best Speed ]"
     },
     {
-        "id":  "cat_112",
+        "id":  "cat_111",
         "name":  "X Twitter » Impressions [ Best Speed ]"
     },
     {
-        "id":  "cat_113",
+        "id":  "cat_112",
         "name":  "X Twitter » Profile Visit [ Best Speed ]"
     },
     {
-        "id":  "cat_114",
+        "id":  "cat_113",
         "name":  "X Twitter » Views [ For Tweet ]"
     },
     {
-        "id":  "cat_115",
+        "id":  "cat_114",
         "name":  "X Twitter » Views [ For Video ]"
     },
     {
-        "id":  "cat_116",
+        "id":  "cat_115",
         "name":  "X Twitter » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_117",
+        "id":  "cat_116",
         "name":  "X Twitter » Views [ Lifetime ]"
     },
     {
-        "id":  "cat_118",
+        "id":  "cat_117",
         "name":  "X Twitter » Tweet Views [ Auto ]"
     },
     {
-        "id":  "cat_119",
+        "id":  "cat_118",
         "name":  "Spotify » Followers [ Lifetime ]"
     },
     {
-        "id":  "cat_120",
+        "id":  "cat_119",
         "name":  "Spotify » Plays [ Best Speed ]"
     },
     {
-        "id":  "cat_121",
+        "id":  "cat_120",
         "name":  "Spotify » Plays [ Premium ]"
     },
     {
-        "id":  "cat_122",
+        "id":  "cat_121",
         "name":  "Spotify » Plays [ Targeted ]"
     },
     {
-        "id":  "cat_123",
+        "id":  "cat_122",
         "name":  "Spotify » Monthly Listerners"
     },
     {
-        "id":  "cat_124",
+        "id":  "cat_123",
         "name":  "Spotify » Saves [ Refill ]"
     },
     {
-        "id":  "cat_125",
+        "id":  "cat_124",
         "name":  "Telegram » Members [ Cheapest ]"
     },
     {
-        "id":  "cat_126",
+        "id":  "cat_125",
         "name":  "Telegram » Members [ Drop – 0% ]"
     },
     {
-        "id":  "cat_127",
+        "id":  "cat_126",
         "name":  "Telegram » Members [ Non–Drop ]"
     },
     {
-        "id":  "cat_128",
+        "id":  "cat_127",
         "name":  "Telegram » Members [ Best Speed ]"
     },
     {
-        "id":  "cat_129",
+        "id":  "cat_128",
         "name":  "Telegram » Members [ Refill Button ]"
     },
     {
-        "id":  "cat_130",
+        "id":  "cat_129",
         "name":  "Telegram » Members [ Premium ]"
     },
     {
-        "id":  "cat_131",
+        "id":  "cat_130",
         "name":  "Telegram » Members [ India 🇮🇳 ]"
     },
     {
-        "id":  "cat_132",
+        "id":  "cat_131",
         "name":  "Telegram » Members [ Online ]"
     },
     {
-        "id":  "cat_133",
+        "id":  "cat_132",
         "name":  "Telegram » Views [ Cheapest ]"
     },
     {
-        "id":  "cat_134",
+        "id":  "cat_133",
         "name":  "Telegram » Views [ Best Speed ]"
     },
     {
-        "id":  "cat_135",
+        "id":  "cat_134",
         "name":  "Telegram » Views Future [ Auto ]"
     },
     {
-        "id":  "cat_136",
+        "id":  "cat_135",
         "name":  "Telegram » Reactions [ Cheapest ]"
     },
     {
-        "id":  "cat_137",
+        "id":  "cat_136",
         "name":  "Telegram » Reactions Future [ Auto ]"
     },
     {
-        "id":  "cat_138",
+        "id":  "cat_137",
         "name":  "Telegram » Reactions [ Premium ]"
     },
     {
-        "id":  "cat_139",
+        "id":  "cat_138",
         "name":  "Telegram Reactions » [ Best Speed ]"
     },
     {
-        "id":  "cat_140",
+        "id":  "cat_139",
         "name":  "Whatsapp » Poll Votes [ 30d Refill ]"
     },
     {
-        "id":  "cat_141",
+        "id":  "cat_140",
         "name":  "Whatsapp » Poll Votes [ Best Speed ]"
     },
     {
-        "id":  "cat_142",
+        "id":  "cat_141",
         "name":  "WhatsApp » Followers [ Cheapest ]"
     },
     {
-        "id":  "cat_143",
+        "id":  "cat_142",
         "name":  "WhatsApp » Followers [ Best Speed ]"
     },
     {
-        "id":  "cat_144",
+        "id":  "cat_143",
         "name":  "WhatsApp » Followers [ Targeted ]"
     },
     {
-        "id":  "cat_145",
+        "id":  "cat_144",
         "name":  "WhatsApp » Reactions [ 30d Refill ]"
     },
     {
-        "id":  "cat_146",
+        "id":  "cat_145",
         "name":  "WhatsApp » Reactions [ Cheapest ]"
     },
     {
-        "id":  "cat_147",
+        "id":  "cat_146",
         "name":  "WhatsApp » Reactions [ Best Speed ]"
     },
     {
-        "id":  "cat_148",
+        "id":  "cat_147",
         "name":  "WhatsApp » Reactions [ Targeted 🎯 ]"
     },
     {
-        "id":  "cat_149",
+        "id":  "cat_148",
         "name":  "WhatsApp » Reactions [ Automatic ]"
     },
     {
-        "id":  "cat_150",
+        "id":  "cat_149",
         "name":  "Website » Traffic [ Global ]"
     },
     {
-        "id":  "cat_151",
+        "id":  "cat_150",
         "name":  "Website » Traffic [ USA 🇺🇸 ]"
     },
     {
-        "id":  "cat_152",
+        "id":  "cat_151",
         "name":  "LinkedIn » Services [ USA 🇺🇸 ]"
     },
     {
-        "id":  "cat_153",
+        "id":  "cat_152",
         "name":  "LinkedIn » Followers [ Refill ]"
     },
     {
-        "id":  "cat_154",
+        "id":  "cat_153",
         "name":  "Threads » Likes [ No Refill ]"
     },
     {
-        "id":  "cat_155",
+        "id":  "cat_154",
         "name":  "Threads » Followers [ No Refill ]"
     },
     {
-        "id":  "cat_156",
+        "id":  "cat_155",
         "name":  "Snapchat » Followers [ Refill ]"
     }
 ];
@@ -638,19 +630,21 @@ const MASTER_CATEGORIES = [
 const MASTER_SERVICES = [
     {
         "id":  15545,
-        "category":  "cat_2",
+        "category":  "cat_1",
+        "category_id":  "cat_1",
         "category_name":  "Muse AI » AI Tools [ 1B Tokens ]",
         "name":  "Muse AI – Veo 3 Ultra Alternative | AI Video \u0026 Image Generator | 𝟏𝐁 𝐓𝐨𝐤𝐞𝐧𝐬 | 𝐋𝐨𝐠𝐢𝐧 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  650,
         "rate_usd":  2.3214,
         "min":  1,
         "max":  1000000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Muse AI – Veo 3 Ultra Alternative | AI Video \u0026 Image Generator | 𝟏𝐁 𝐓𝐨𝐤𝐞𝐧𝐬 | 𝐋𝐨𝐠𝐢𝐧 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 1 | Max: 1000000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Muse AI – Veo 3 Ultra Alternative | AI Video \u0026 Image Generator | 𝟏𝐁 𝐓𝐨𝐤𝐞𝐧𝐬 | 𝐋𝐨𝐠𝐢𝐧 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 5 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15441,
-        "category":  "cat_3",
+        "category":  "cat_2",
+        "category_id":  "cat_2",
         "category_name":  "Google AI | Gemini [ Premium ]",
         "name":  "Google AI Pro | Gemini Pro | Admin Account | 5 Invites | 18 Months | 𝐂𝐨𝐮𝐩𝐨𝐧 𝐑𝐞𝐝𝐞𝐞𝐦 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  845,
@@ -658,11 +652,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Google AI Pro | Gemini Pro | Admin Account | 5 Invites | 18 Months | 𝐂𝐨𝐮𝐩𝐨𝐧 𝐑𝐞𝐝𝐞𝐞𝐦 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 21 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Google AI Pro | Gemini Pro | Admin Account | 5 Invites | 18 Months | 𝐂𝐨𝐮𝐩𝐨𝐧 𝐑𝐞𝐝𝐞𝐞𝐦 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 21 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14941,
-        "category":  "cat_4",
+        "category":  "cat_3",
+        "category_id":  "cat_3",
         "category_name":  "CapCut Pro » Private Accounts",
         "name":  "CapCut Pro | 1 User | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  910,
@@ -670,35 +665,38 @@ const MASTER_SERVICES = [
         "min":  30,
         "max":  1000000,
         "avg_time":  "2 hours and 36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: CapCut Pro | 1 User | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 2 hours and 36 minutes\nMin: 30 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: CapCut Pro | 1 User | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 2 hours and 36 minutes\nMin: 30 | Max: 1000000"
     },
     {
         "id":  15210,
-        "category":  "cat_5",
+        "category":  "cat_4",
+        "category_id":  "cat_4",
         "category_name":  "Instagram » Followers [ Cheapest ]",
         "name":  "Instagram Followers | Speed 10K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  72.8,
         "rate_usd":  0.26,
         "min":  100,
         "max":  50000,
-        "avg_time":  "1 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 10K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 1 hours and 11 minutes\nMin: 100 | Max: 50000"
+        "avg_time":  "1 hour and 11 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 10K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 1 hour and 11 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15193,
-        "category":  "cat_5",
+        "category":  "cat_4",
+        "category_id":  "cat_4",
         "category_name":  "Instagram » Followers [ Cheapest ]",
         "name":  "Instagram Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  81.9,
         "rate_usd":  0.2925,
         "min":  100,
         "max":  50000,
-        "avg_time":  "1 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 1 hours and 11 minutes\nMin: 100 | Max: 50000"
+        "avg_time":  "1 hour and 11 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 1 hour and 11 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  14672,
-        "category":  "cat_5",
+        "category":  "cat_4",
+        "category_id":  "cat_4",
         "category_name":  "Instagram » Followers [ Cheapest ]",
         "name":  "Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  479.7,
@@ -706,23 +704,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "2 hours and 44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 2 hours and 44 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 2 hours and 44 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14624,
-        "category":  "cat_5",
+        "category":  "cat_4",
+        "category_id":  "cat_4",
         "category_name":  "Instagram » Followers [ Cheapest ]",
         "name":  "Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  621.4,
         "rate_usd":  2.2193,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 32 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 32 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Speed 50K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 32 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14607,
-        "category":  "cat_6",
+        "category":  "cat_5",
+        "category_id":  "cat_5",
         "category_name":  "Instagram » Followers [ Best Speed ]",
         "name":  "Instagram Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  911.3,
@@ -730,23 +730,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "3 hours and 50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 3 hours and 50 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 3 hours and 50 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14199,
-        "category":  "cat_6",
+        "category":  "cat_5",
+        "category_id":  "cat_5",
         "category_name":  "Instagram » Followers [ Best Speed ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1401.4,
         "rate_usd":  5.005,
         "min":  3,
         "max":  1000000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 3 | Max: 1000000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 5 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15200,
-        "category":  "cat_6",
+        "category":  "cat_5",
+        "category_id":  "cat_5",
         "category_name":  "Instagram » Followers [ Best Speed ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | 𝟐𝟎% 𝐄𝐱𝐭𝐫𝐚 | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1131,
@@ -754,23 +756,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "6 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | 𝟐𝟎% 𝐄𝐱𝐭𝐫𝐚 | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 6 hours and 11 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | 𝟐𝟎% 𝐄𝐱𝐭𝐫𝐚 | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 6 hours and 11 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14437,
-        "category":  "cat_6",
+        "category":  "cat_5",
+        "category_id":  "cat_5",
         "category_name":  "Instagram » Followers [ Best Speed ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1401.4,
         "rate_usd":  5.005,
         "min":  3,
         "max":  1000000,
-        "avg_time":  "1 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 10 minutes\nMin: 3 | Max: 1000000"
+        "avg_time":  "1 hour and 10 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 10 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15449,
-        "category":  "cat_6",
+        "category":  "cat_5",
+        "category_id":  "cat_5",
         "category_name":  "Instagram » Followers [ Best Speed ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  755.3,
@@ -778,11 +782,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  40000,
         "avg_time":  "2 hours and 50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 2 hours and 50 minutes\nMin: 100 | Max: 40000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 2 hours and 50 minutes\nMin: 100 | Max: 40000"
     },
     {
         "id":  15057,
-        "category":  "cat_7",
+        "category":  "cat_6",
+        "category_id":  "cat_6",
         "category_name":  "Instagram » Followers [ Non–Drop ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1401.4,
@@ -790,23 +795,25 @@ const MASTER_SERVICES = [
         "min":  3,
         "max":  1000000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 44 minutes\nMin: 3 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 44 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15058,
-        "category":  "cat_7",
+        "category":  "cat_6",
+        "category_id":  "cat_6",
         "category_name":  "Instagram » Followers [ Non–Drop ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1457.3,
         "rate_usd":  5.2046,
         "min":  3,
         "max":  1000000,
-        "avg_time":  "1 hours and 30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 30 minutes\nMin: 3 | Max: 1000000"
+        "avg_time":  "1 hour and 30 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 30 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15061,
-        "category":  "cat_8",
+        "category":  "cat_7",
+        "category_id":  "cat_7",
         "category_name":  "Instagram » Followers [ sv3 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️",
         "rate_pkr":  1293.5,
@@ -814,23 +821,25 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "4 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion Time: 4 hours and 12 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion: 4 hours and 12 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14592,
-        "category":  "cat_8",
+        "category":  "cat_7",
+        "category_id":  "cat_7",
         "category_name":  "Instagram » Followers [ sv3 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1401.4,
         "rate_usd":  5.005,
         "min":  3,
         "max":  1000000,
-        "avg_time":  "1 hours and 57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 57 minutes\nMin: 3 | Max: 1000000"
+        "avg_time":  "1 hour and 57 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 57 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  14507,
-        "category":  "cat_9",
+        "category":  "cat_8",
+        "category_id":  "cat_8",
         "category_name":  "Instagram » Followers [ sv2 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️",
         "rate_pkr":  781.3,
@@ -838,11 +847,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion Time: 57 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion: 57 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14625,
-        "category":  "cat_9",
+        "category":  "cat_8",
+        "category_id":  "cat_8",
         "category_name":  "Instagram » Followers [ sv2 ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️",
         "rate_pkr":  834.6,
@@ -850,23 +860,25 @@ const MASTER_SERVICES = [
         "min":  3,
         "max":  1000000,
         "avg_time":  "2 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion Time: 2 hours and 11 minutes\nMin: 3 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion: 2 hours and 11 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15233,
-        "category":  "cat_9",
+        "category":  "cat_8",
+        "category_id":  "cat_8",
         "category_name":  "Instagram » Followers [ sv2 ]",
         "name":  "🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️",
         "rate_pkr":  889.2,
         "rate_usd":  3.1757,
         "min":  3,
         "max":  1000000,
-        "avg_time":  "1 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 51 minutes\nMin: 3 | Max: 1000000"
+        "avg_time":  "1 hour and 51 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 51 minutes\nMin: 3 | Max: 1000000"
     },
     {
         "id":  15228,
-        "category":  "cat_10",
+        "category":  "cat_9",
+        "category_id":  "cat_9",
         "category_name":  "Instagram » Followers [ sv1 ]",
         "name":  "Instagram Followers | Real Profiles | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  1346.8,
@@ -874,23 +886,25 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "53 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 53 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 53 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15234,
-        "category":  "cat_10",
+        "category":  "cat_9",
+        "category_id":  "cat_9",
         "category_name":  "Instagram » Followers [ sv1 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  889.2,
         "rate_usd":  3.1757,
         "min":  1,
         "max":  1000000,
-        "avg_time":  "1 hours and 8 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 8 minutes\nMin: 1 | Max: 1000000"
+        "avg_time":  "1 hour and 8 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 8 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15235,
-        "category":  "cat_10",
+        "category":  "cat_9",
+        "category_id":  "cat_9",
         "category_name":  "Instagram » Followers [ sv1 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  834.6,
@@ -898,35 +912,38 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "4 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 4 hours and 11 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 4 hours and 11 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15236,
-        "category":  "cat_10",
+        "category":  "cat_9",
+        "category_id":  "cat_9",
         "category_name":  "Instagram » Followers [ sv1 ]",
         "name":  "Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1401.4,
         "rate_usd":  5.005,
         "min":  1,
         "max":  1000000,
-        "avg_time":  "1 hours and 13 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 13 minutes\nMin: 1 | Max: 1000000"
+        "avg_time":  "1 hour and 13 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Followers | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐁𝐮𝐭𝐭𝐨𝐧 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 13 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15502,
-        "category":  "cat_11",
+        "category":  "cat_10",
+        "category_id":  "cat_10",
         "category_name":  "Instagram » Views + Likes [ Cheapest ]",
         "name":  "Instagram Views + 5% Likes | Speed 500K+ / DAY | 🔥⚡️",
         "rate_pkr":  2.6,
         "rate_usd":  0.0093,
         "min":  100,
         "max":  500000000,
-        "avg_time":  "1 hours and 35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 5% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion Time: 1 hours and 35 minutes\nMin: 100 | Max: 500000000"
+        "avg_time":  "1 hour and 35 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 5% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion: 1 hour and 35 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  15503,
-        "category":  "cat_11",
+        "category":  "cat_10",
+        "category_id":  "cat_10",
         "category_name":  "Instagram » Views + Likes [ Cheapest ]",
         "name":  "Instagram Views + 10% Likes | Speed 500K+ / DAY | 🔥⚡️",
         "rate_pkr":  5.2,
@@ -934,59 +951,64 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  500000000,
         "avg_time":  "5 hours and 23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 10% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion Time: 5 hours and 23 minutes\nMin: 100 | Max: 500000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 10% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion: 5 hours and 23 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  15504,
-        "category":  "cat_11",
+        "category":  "cat_10",
+        "category_id":  "cat_10",
         "category_name":  "Instagram » Views + Likes [ Cheapest ]",
         "name":  "Instagram Views + 20% Likes | Speed 500K+ / DAY | 🔥⚡️",
         "rate_pkr":  6.5,
         "rate_usd":  0.0232,
         "min":  100,
         "max":  10000000,
-        "avg_time":  "1 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 20% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion Time: 1 hours and 12 minutes\nMin: 100 | Max: 10000000"
+        "avg_time":  "1 hour and 12 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 20% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion: 1 hour and 12 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15505,
-        "category":  "cat_11",
+        "category":  "cat_10",
+        "category_id":  "cat_10",
         "category_name":  "Instagram » Views + Likes [ Cheapest ]",
         "name":  "Instagram Views + 25% Likes | Speed 500K+ / DAY | 🔥⚡️",
         "rate_pkr":  9.1,
         "rate_usd":  0.0325,
         "min":  100,
         "max":  15000000,
-        "avg_time":  "1 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 25% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion Time: 1 hours and 21 minutes\nMin: 100 | Max: 15000000"
+        "avg_time":  "1 hour and 21 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 25% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion: 1 hour and 21 minutes\nMin: 100 | Max: 15000000"
     },
     {
         "id":  15506,
-        "category":  "cat_11",
+        "category":  "cat_10",
+        "category_id":  "cat_10",
         "category_name":  "Instagram » Views + Likes [ Cheapest ]",
         "name":  "Instagram Views + 50% Likes | Speed 500K+ / DAY | 🔥⚡️",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  100,
         "max":  15000000,
-        "avg_time":  "1 hours and 24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 50% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion Time: 1 hours and 24 minutes\nMin: 100 | Max: 15000000"
+        "avg_time":  "1 hour and 24 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 50% Likes | Speed 500K+ / DAY | 🔥⚡️\nEstimated Completion: 1 hour and 24 minutes\nMin: 100 | Max: 15000000"
     },
     {
         "id":  14580,
-        "category":  "cat_12",
+        "category":  "cat_11",
+        "category_id":  "cat_11",
         "category_name":  "Instagram » Views + Likes [ Lifetime ]",
         "name":  "Instagram Views + 5% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  3.9,
         "rate_usd":  0.0139,
         "min":  100,
         "max":  500000000,
-        "avg_time":  "1 hours and 33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 5% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 33 minutes\nMin: 100 | Max: 500000000"
+        "avg_time":  "1 hour and 33 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 5% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 33 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  14581,
-        "category":  "cat_12",
+        "category":  "cat_11",
+        "category_id":  "cat_11",
         "category_name":  "Instagram » Views + Likes [ Lifetime ]",
         "name":  "Instagram Views + 10% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  6.5,
@@ -994,11 +1016,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  500000000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 10% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 39 minutes\nMin: 100 | Max: 500000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 10% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 39 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  14582,
-        "category":  "cat_12",
+        "category":  "cat_11",
+        "category_id":  "cat_11",
         "category_name":  "Instagram » Views + Likes [ Lifetime ]",
         "name":  "Instagram Views + 20% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  9.1,
@@ -1006,35 +1029,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "2 hours and 15 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 20% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 2 hours and 15 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 20% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 2 hours and 15 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  14583,
-        "category":  "cat_12",
+        "category":  "cat_11",
+        "category_id":  "cat_11",
         "category_name":  "Instagram » Views + Likes [ Lifetime ]",
         "name":  "Instagram Views + 25% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  10.4,
         "rate_usd":  0.0371,
         "min":  100,
         "max":  15000000,
-        "avg_time":  "1 hours and 23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 25% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 23 minutes\nMin: 100 | Max: 15000000"
+        "avg_time":  "1 hour and 23 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 25% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 23 minutes\nMin: 100 | Max: 15000000"
     },
     {
         "id":  14588,
-        "category":  "cat_12",
+        "category":  "cat_11",
+        "category_id":  "cat_11",
         "category_name":  "Instagram » Views + Likes [ Lifetime ]",
         "name":  "Instagram Views + 50% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  22.1,
         "rate_usd":  0.0789,
         "min":  100,
         "max":  15000000,
-        "avg_time":  "1 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 50% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 37 minutes\nMin: 100 | Max: 15000000"
+        "avg_time":  "1 hour and 37 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + 50% Likes | Non–Drop | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 37 minutes\nMin: 100 | Max: 15000000"
     },
     {
         "id":  14075,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Views | All Links | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  0.26,
@@ -1042,11 +1068,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | All Links | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 45 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | All Links | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 45 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  14628,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Views | Speed 1M+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  0.39,
@@ -1054,11 +1081,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Speed 1M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 27 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Speed 1M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 27 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  13930,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ☑️🔥⚡",
         "rate_pkr":  1.04,
@@ -1066,11 +1094,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  2147483647,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ☑️🔥⚡\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ☑️🔥⚡\nEstimated Completion: 27 minutes\nMin: 10 | Max: 2147483647"
     },
     {
         "id":  14869,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Views | All Links Accepted | Non Drop | Speed 5M+ Per DAY | 🔥⚡",
         "rate_pkr":  0.65,
@@ -1078,11 +1107,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2000000,
         "avg_time":  "3 hours and 8 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | All Links Accepted | Non Drop | Speed 5M+ Per DAY | 🔥⚡\nEstimated Completion Time: 3 hours and 8 minutes\nMin: 100 | Max: 2000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | All Links Accepted | Non Drop | Speed 5M+ Per DAY | 🔥⚡\nEstimated Completion: 3 hours and 8 minutes\nMin: 100 | Max: 2000000"
     },
     {
         "id":  14667,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Reel Views | Speed 1M+ Per DAY | Start Time 0-5 Minutes | 🔥🔥⚡⚡",
         "rate_pkr":  0.65,
@@ -1090,11 +1120,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  200000000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reel Views | Speed 1M+ Per DAY | Start Time 0-5 Minutes | 🔥🔥⚡⚡\nEstimated Completion Time: 43 minutes\nMin: 100 | Max: 200000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reel Views | Speed 1M+ Per DAY | Start Time 0-5 Minutes | 🔥🔥⚡⚡\nEstimated Completion: 43 minutes\nMin: 100 | Max: 200000000"
     },
     {
         "id":  14629,
-        "category":  "cat_13",
+        "category":  "cat_12",
+        "category_id":  "cat_12",
         "category_name":  "Instagram » Views [ Cheapest ]",
         "name":  "Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡",
         "rate_pkr":  0.78,
@@ -1102,23 +1133,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion: 33 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14566,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Reel Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1.3,
         "rate_usd":  0.0046,
         "min":  100,
         "max":  2000000,
-        "avg_time":  "1 hours and 43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reel Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 43 minutes\nMin: 100 | Max: 2000000"
+        "avg_time":  "1 hour and 43 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reel Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 43 minutes\nMin: 100 | Max: 2000000"
     },
     {
         "id":  14062,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Views | Reel + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1.3,
@@ -1126,11 +1159,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "14 hours and 53 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Reel + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 14 hours and 53 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Reel + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 14 hours and 53 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14066,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1.3,
@@ -1138,35 +1172,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2000000,
         "avg_time":  "7 hours and 42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 7 hours and 42 minutes\nMin: 100 | Max: 2000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 7 hours and 42 minutes\nMin: 100 | Max: 2000000"
     },
     {
         "id":  14068,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Views | Reel + IGTV | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1.3,
         "rate_usd":  0.0046,
         "min":  100,
         "max":  200000000,
-        "avg_time":  "1 hours and 52 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Reel + IGTV | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 52 minutes\nMin: 100 | Max: 200000000"
+        "avg_time":  "1 hour and 52 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Reel + IGTV | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 52 minutes\nMin: 100 | Max: 200000000"
     },
     {
         "id":  14079,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Views | Video + Reels + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1.3,
         "rate_usd":  0.0046,
         "min":  100,
         "max":  2000000,
-        "avg_time":  "1 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Video + Reels + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 1 hours and 18 minutes\nMin: 100 | Max: 2000000"
+        "avg_time":  "1 hour and 18 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Video + Reels + IGTV | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Minutes | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 1 hour and 18 minutes\nMin: 100 | Max: 2000000"
     },
     {
         "id":  14071,
-        "category":  "cat_14",
+        "category":  "cat_13",
+        "category_id":  "cat_13",
         "category_name":  "Instagram » Views [ Best Speed ]",
         "name":  "Instagram Views | Video + Reels + IGTV | Non Drop | Speed 10M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡",
         "rate_pkr":  0.52,
@@ -1174,11 +1211,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Video + Reels + IGTV | Non Drop | Speed 10M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion Time: 32 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Video + Reels + IGTV | Non Drop | Speed 10M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion: 32 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14080,
-        "category":  "cat_15",
+        "category":  "cat_14",
+        "category_id":  "cat_14",
         "category_name":  "Instagram » Views [ Dashhead Add ]",
         "name":  "Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡",
         "rate_pkr":  2.6,
@@ -1186,11 +1224,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "2 hours and 2 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion Time: 2 hours and 2 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion: 2 hours and 2 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  14326,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️",
         "rate_pkr":  52,
@@ -1198,11 +1237,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion Time: 51 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion: 51 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14325,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |",
         "rate_pkr":  53.3,
@@ -1210,23 +1250,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  1000000,
         "avg_time":  "19 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |\nEstimated Completion Time: 19 hours and 21 minutes\nMin: 100 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |\nEstimated Completion: 19 hours and 21 minutes\nMin: 100 | Max: 1000000"
     },
     {
         "id":  14328,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️",
         "rate_pkr":  48.1,
         "rate_usd":  0.1718,
         "min":  100,
         "max":  100000,
-        "avg_time":  "1 hours",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion Time: 1 hours\nMin: 100 | Max: 100000"
+        "avg_time":  "1 hour",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 50K+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion: 1 hour\nMin: 100 | Max: 100000"
     },
     {
         "id":  14329,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |",
         "rate_pkr":  52,
@@ -1234,11 +1276,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  15000,
         "avg_time":  "2 hours and 45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |\nEstimated Completion Time: 2 hours and 45 minutes\nMin: 100 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 10K+ / DAY | Start Time 0-5 Minutes |\nEstimated Completion: 2 hours and 45 minutes\nMin: 100 | Max: 15000"
     },
     {
         "id":  14077,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | Speed 5M+ Per DAY | Start Time 0-5 Minutes | 🔥⚡️",
         "rate_pkr":  55.9,
@@ -1246,11 +1289,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  15000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 5M+ Per DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion Time: 56 minutes\nMin: 100 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | Speed 5M+ Per DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion: 56 minutes\nMin: 100 | Max: 15000"
     },
     {
         "id":  14324,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | All Stories | 100% Real Active | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️",
         "rate_pkr":  309.4,
@@ -1258,11 +1302,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "4 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | 100% Real Active | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion Time: 4 hours and 21 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | All Stories | 100% Real Active | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion: 4 hours and 21 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14078,
-        "category":  "cat_16",
+        "category":  "cat_15",
+        "category_id":  "cat_15",
         "category_name":  "Instagram » Views [ For Stories ]",
         "name":  "Instagram Story Views | Speed 50K+ Per DAY | Start Time 0-5 Minutes | No Refill | ⛔️",
         "rate_pkr":  55.9,
@@ -1270,11 +1315,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  15000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | Speed 50K+ Per DAY | Start Time 0-5 Minutes | No Refill | ⛔️\nEstimated Completion Time: 32 minutes\nMin: 100 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Story Views | Speed 50K+ Per DAY | Start Time 0-5 Minutes | No Refill | ⛔️\nEstimated Completion: 32 minutes\nMin: 100 | Max: 15000"
     },
     {
         "id":  14067,
-        "category":  "cat_17",
+        "category":  "cat_16",
+        "category_id":  "cat_16",
         "category_name":  "Instagram » Views [ Impressions ]",
         "name":  "Instagram Reach Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡",
         "rate_pkr":  19.5,
@@ -1282,11 +1328,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  300000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reach Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 300000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reach Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion: 40 minutes\nMin: 10 | Max: 300000"
     },
     {
         "id":  13749,
-        "category":  "cat_18",
+        "category":  "cat_17",
+        "category_id":  "cat_17",
         "category_name":  "Instagram » Likes [ Cheapest ]",
         "name":  "Instagram Likes | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  20.8,
@@ -1294,11 +1341,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 26 minutes\nMin: 10 | Max: 100000000"
     },
     {
         "id":  14192,
-        "category":  "cat_18",
+        "category":  "cat_17",
+        "category_id":  "cat_17",
         "category_name":  "Instagram » Likes [ Cheapest ]",
         "name":  "Instagram Likes | Real Profiles | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  22.1,
@@ -1306,11 +1354,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 29 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 29 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14668,
-        "category":  "cat_18",
+        "category":  "cat_17",
+        "category_id":  "cat_17",
         "category_name":  "Instagram » Likes [ Cheapest ]",
         "name":  "Instagram Likes | Real Profiles | Non Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡",
         "rate_pkr":  27.3,
@@ -1318,11 +1367,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  100000,
         "avg_time":  "58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion Time: 58 minutes\nMin: 1 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion: 58 minutes\nMin: 1 | Max: 100000"
     },
     {
         "id":  14082,
-        "category":  "cat_19",
+        "category":  "cat_18",
+        "category_id":  "cat_18",
         "category_name":  "Instagram » Likes [ Non–Drop ]",
         "name":  "🆅🅸🅿 Instagram Likes | 𝟏𝟎% 𝐄𝐱𝐭𝐫𝐚 | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡",
         "rate_pkr":  41.6,
@@ -1330,11 +1380,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | 𝟏𝟎% 𝐄𝐱𝐭𝐫𝐚 | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | 𝟏𝟎% 𝐄𝐱𝐭𝐫𝐚 | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion: 33 minutes\nMin: 10 | Max: 5000000"
     },
     {
         "id":  13751,
-        "category":  "cat_20",
+        "category":  "cat_19",
+        "category_id":  "cat_19",
         "category_name":  "Instagram » Likes [ Best Speed ]",
         "name":  "Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  37.7,
@@ -1342,11 +1393,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 42 minutes\nMin: 10 | Max: 5000000"
     },
     {
         "id":  14565,
-        "category":  "cat_20",
+        "category":  "cat_19",
+        "category_id":  "cat_19",
         "category_name":  "Instagram » Likes [ Best Speed ]",
         "name":  "Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡",
         "rate_pkr":  26,
@@ -1354,11 +1406,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Real Profiles | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  11550,
-        "category":  "cat_20",
+        "category":  "cat_19",
+        "category_id":  "cat_19",
         "category_name":  "Instagram » Likes [ Best Speed ]",
         "name":  "🆅🅸🅿 Instagram Likes | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡",
         "rate_pkr":  41.6,
@@ -1366,11 +1419,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion: 42 minutes\nMin: 10 | Max: 5000000"
     },
     {
         "id":  14084,
-        "category":  "cat_20",
+        "category":  "cat_19",
+        "category_id":  "cat_19",
         "category_name":  "Instagram » Likes [ Best Speed ]",
         "name":  "🆅🅸🅿 Instagram Likes | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡",
         "rate_pkr":  45.5,
@@ -1378,11 +1432,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 Instagram Likes | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Real Profiles | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅🔥⚡\nEstimated Completion: 46 minutes\nMin: 10 | Max: 5000000"
     },
     {
         "id":  15212,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  113.1,
@@ -1390,11 +1445,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡️\nEstimated Completion: 32 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14057,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes | India 🇮🇳 | Premium | Real Profiles | Non Drop | Speed 100K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  184.6,
@@ -1402,23 +1458,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  300000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | India 🇮🇳 | Premium | Real Profiles | Non Drop | Speed 100K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 37 minutes\nMin: 50 | Max: 300000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | India 🇮🇳 | Premium | Real Profiles | Non Drop | Speed 100K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 37 minutes\nMin: 50 | Max: 300000"
     },
     {
         "id":  15213,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Russia 🇷🇺 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Russia 🇷🇺 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  128.7,
         "rate_usd":  0.4596,
         "min":  10,
         "max":  50000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Russia 🇷🇺 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 10 | Max: 50000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Russia 🇷🇺 | Real Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 5 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  15170,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  89.7,
@@ -1426,23 +1484,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 40 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15214,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | USA 🇺🇸 | Mix Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | USA 🇺🇸 | Mix Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  113.1,
         "rate_usd":  0.4039,
         "min":  10,
         "max":  20000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | USA 🇺🇸 | Mix Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | USA 🇺🇸 | Mix Profiles | Speed 10K – 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 42 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15171,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 30 Days Refill | ✅️🔥⚡️",
         "rate_pkr":  94.9,
@@ -1450,59 +1510,64 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 30 Days Refill | ✅️🔥⚡️\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 30 Days Refill | ✅️🔥⚡️\nEstimated Completion: 30 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15215,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | USA 🇺🇸 | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | USA 🇺🇸 | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  117,
         "rate_usd":  0.4179,
         "min":  10,
         "max":  50000,
         "avg_time":  "7 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | USA 🇺🇸 | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 7 hours and 51 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | USA 🇺🇸 | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 7 hours and 51 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  15172,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡",
+        "name":  "Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡",
         "rate_pkr":  113.1,
         "rate_usd":  0.4039,
         "min":  10,
         "max":  20000,
-        "avg_time":  "1 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 1 hours and 10 minutes\nMin: 10 | Max: 20000"
+        "avg_time":  "1 hour and 10 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes Impressions | USA 🇺🇸 | Real Profiles | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡\nEstimated Completion: 1 hour and 10 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15216,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Arab / Iran | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Arab / Iran | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  516.1,
         "rate_usd":  1.8432,
         "min":  100,
         "max":  100000,
         "avg_time":  "10 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Arab / Iran | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 10 hours and 10 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Arab / Iran | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 10 hours and 10 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15217,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Iran 🇮🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Iran 🇮🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  458.9,
         "rate_usd":  1.6389,
         "min":  100,
         "max":  100000,
         "avg_time":  "3 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Iran 🇮🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 3 hours and 21 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Iran 🇮🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 3 hours and 21 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15218,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes | India 🇮🇳 | Real Profiles | Non–Drop | Speed 500K / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  132.6,
@@ -1510,11 +1575,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | India 🇮🇳 | Real Profiles | Non–Drop | Speed 500K / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 45 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | India 🇮🇳 | Real Profiles | Non–Drop | Speed 500K / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 45 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15219,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
         "name":  "Instagram Likes | Pakistan 🇵🇰 | Mix Profiles | Speed 5000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥",
         "rate_pkr":  235.3,
@@ -1522,119 +1588,129 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  5000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Pakistan 🇵🇰 | Mix Profiles | Speed 5000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥\nEstimated Completion Time: 57 minutes\nMin: 20 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Pakistan 🇵🇰 | Mix Profiles | Speed 5000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥\nEstimated Completion: 57 minutes\nMin: 20 | Max: 5000"
     },
     {
         "id":  15220,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Korea 🇰🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Korea 🇰🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  5423.6,
         "rate_usd":  19.37,
         "min":  20,
         "max":  20000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Korea 🇰🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 20 | Max: 20000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Korea 🇰🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 20 | Max: 20000"
     },
     {
         "id":  15221,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | China 🇨🇳 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | China 🇨🇳 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  703.3,
         "rate_usd":  2.5118,
         "min":  20,
         "max":  6000,
         "avg_time":  "11 hours and 30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | China 🇨🇳 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 11 hours and 30 minutes\nMin: 20 | Max: 6000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | China 🇨🇳 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 11 hours and 30 minutes\nMin: 20 | Max: 6000"
     },
     {
         "id":  15222,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Japan 🇯🇵 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Japan 🇯🇵 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  2262,
         "rate_usd":  8.0786,
         "min":  20,
         "max":  1000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Japan 🇯🇵 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 20 | Max: 1000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Japan 🇯🇵 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 20 | Max: 1000"
     },
     {
         "id":  15223,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | France 🇫🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | France 🇫🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  5855.2,
         "rate_usd":  20.9114,
         "min":  25,
         "max":  1000,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | France 🇫🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 25 | Max: 1000"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | France 🇫🇷 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 4 minutes\nMin: 25 | Max: 1000"
     },
     {
         "id":  15224,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Indonesia 🇮🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Indonesia 🇮🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  52,
         "rate_usd":  0.1857,
         "min":  100,
         "max":  50000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Indonesia 🇮🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 56 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Indonesia 🇮🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 56 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15225,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Italy 🇮🇹 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Italy 🇮🇹 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  3643.9,
         "rate_usd":  13.0139,
         "min":  25,
         "max":  1000,
         "avg_time":  "31 hours and 40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Italy 🇮🇹 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 31 hours and 40 minutes\nMin: 25 | Max: 1000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Italy 🇮🇹 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 31 hours and 40 minutes\nMin: 25 | Max: 1000"
     },
     {
         "id":  15226,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  140.4,
         "rate_usd":  0.5014,
         "min":  10,
         "max":  50000,
-        "avg_time":  "1 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 1 minutes\nMin: 10 | Max: 50000"
+        "avg_time":  "1 hour and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Brazil 🇧🇷 | Real Profiles | Speed 5K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 1 minute\nMin: 10 | Max: 50000"
     },
     {
         "id":  15227,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Spain 🇪🇸 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Spain 🇪🇸 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  3643.9,
         "rate_usd":  13.0139,
         "min":  20,
         "max":  1000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Spain 🇪🇸 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 47 minutes\nMin: 20 | Max: 1000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Spain 🇪🇸 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 47 minutes\nMin: 20 | Max: 1000"
     },
     {
         "id":  15229,
-        "category":  "cat_21",
+        "category":  "cat_20",
+        "category_id":  "cat_20",
         "category_name":  "Instagram » Likes [ Targeted 🎯 ]",
-        "name":  "Instagram Likes | Bangladesh 🇧🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️",
+        "name":  "Instagram Likes | Bangladesh 🇧🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️",
         "rate_pkr":  319.8,
         "rate_usd":  1.1421,
         "min":  10,
         "max":  50000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Bangladesh 🇧🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 50000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Likes | Bangladesh 🇧🇩 | Real Profiles | Speed 1K – 10K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  15143,
-        "category":  "cat_22",
+        "category":  "cat_21",
+        "category_id":  "cat_21",
         "category_name":  "Instagram » Comments [ Cheapest ]",
         "name":  "Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  1064.7,
@@ -1642,35 +1718,38 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 35 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 35 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  15144,
-        "category":  "cat_22",
+        "category":  "cat_21",
+        "category_id":  "cat_21",
         "category_name":  "Instagram » Comments [ Cheapest ]",
         "name":  "Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥",
         "rate_pkr":  1362.4,
         "rate_usd":  4.8657,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 8 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥\nEstimated Completion Time: 1 hours and 8 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 8 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 5K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥\nEstimated Completion: 1 hour and 8 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15231,
-        "category":  "cat_22",
+        "category":  "cat_21",
+        "category_id":  "cat_21",
         "category_name":  "Instagram » Comments [ Cheapest ]",
         "name":  "Instagram Comments | Custom | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  351,
         "rate_usd":  1.2536,
         "min":  20,
         "max":  5000,
-        "avg_time":  "1 hours and 25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 1 hours and 25 minutes\nMin: 20 | Max: 5000"
+        "avg_time":  "1 hour and 25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 5K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 1 hour and 25 minutes\nMin: 20 | Max: 5000"
     },
     {
         "id":  15146,
-        "category":  "cat_22",
+        "category":  "cat_21",
+        "category_id":  "cat_21",
         "category_name":  "Instagram » Comments [ Cheapest ]",
         "name":  "Instagram Comments | Custom | Real Profiles | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  365.3,
@@ -1678,11 +1757,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  5000,
         "avg_time":  "8 hours and 24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 8 hours and 24 minutes\nMin: 20 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 8 hours and 24 minutes\nMin: 20 | Max: 5000"
     },
     {
         "id":  14660,
-        "category":  "cat_23",
+        "category":  "cat_22",
+        "category_id":  "cat_22",
         "category_name":  "Instagram » Comments [ Random ]",
         "name":  "Instagram Comments | Random | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  322.4,
@@ -1690,11 +1770,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "5 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 5 hours and 5 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 5 hours and 5 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14658,
-        "category":  "cat_23",
+        "category":  "cat_22",
+        "category_id":  "cat_22",
         "category_name":  "Instagram » Comments [ Random ]",
         "name":  "Instagram Comments | Random | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️",
         "rate_pkr":  1362.4,
@@ -1702,11 +1783,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡️\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15145,
-        "category":  "cat_24",
+        "category":  "cat_23",
+        "category_id":  "cat_23",
         "category_name":  "Instagram » Comments [ Custom ]",
         "name":  "Instagram Comments | Custom | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  351,
@@ -1714,11 +1796,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  100000,
         "avg_time":  "2 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 2 hours and 37 minutes\nMin: 20 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 2 hours and 37 minutes\nMin: 20 | Max: 100000"
     },
     {
         "id":  15230,
-        "category":  "cat_24",
+        "category":  "cat_23",
+        "category_id":  "cat_23",
         "category_name":  "Instagram » Comments [ Custom ]",
         "name":  "Instagram Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  351,
@@ -1726,11 +1809,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  100000,
         "avg_time":  "3 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 3 hours and 29 minutes\nMin: 20 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 3 hours and 29 minutes\nMin: 20 | Max: 100000"
     },
     {
         "id":  14659,
-        "category":  "cat_24",
+        "category":  "cat_23",
+        "category_id":  "cat_23",
         "category_name":  "Instagram » Comments [ Custom ]",
         "name":  "Instagram Comments | Custom | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  392.6,
@@ -1738,23 +1822,25 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  100000,
         "avg_time":  "17 hours and 38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 17 hours and 38 minutes\nMin: 20 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start: 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 17 hours and 38 minutes\nMin: 20 | Max: 100000"
     },
     {
         "id":  15081,
-        "category":  "cat_25",
+        "category":  "cat_24",
+        "category_id":  "cat_24",
         "category_name":  "Instagram » Statistics [ Best Speed ]",
         "name":  "Instagram Views + Reach + Impressions | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️",
         "rate_pkr":  24.7,
         "rate_usd":  0.0882,
         "min":  100,
         "max":  10000000,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + Reach + Impressions | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 100 | Max: 10000000"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + Reach + Impressions | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion: 1 hour and 4 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15082,
-        "category":  "cat_25",
+        "category":  "cat_24",
+        "category_id":  "cat_24",
         "category_name":  "Instagram » Statistics [ Best Speed ]",
         "name":  "Instagram Profile Visits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️",
         "rate_pkr":  23.4,
@@ -1762,11 +1848,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Profile Visits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Profile Visits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion: 30 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15083,
-        "category":  "cat_25",
+        "category":  "cat_24",
+        "category_id":  "cat_24",
         "category_name":  "Instagram » Statistics [ Best Speed ]",
         "name":  "Instagram Views + Reach + ProfileVisits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️",
         "rate_pkr":  23.4,
@@ -1774,11 +1861,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Views + Reach + ProfileVisits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Views + Reach + ProfileVisits | Speed 5M+ / DAY | Start Time 0–5 Mins |🔥⚡️\nEstimated Completion: 46 minutes\nMin: 10 | Max: 10000000"
     },
     {
         "id":  14691,
-        "category":  "cat_26",
+        "category":  "cat_25",
+        "category_id":  "cat_25",
         "category_name":  "Instagram » Comments [ Emojis ]",
         "name":  "Instagram Comments | Positive Emojis | Speed 500K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1885,
@@ -1786,23 +1874,25 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  20000,
         "avg_time":  "34 hours and 31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Positive Emojis | Speed 500K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 34 hours and 31 minutes\nMin: 1 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Positive Emojis | Speed 500K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 34 hours and 31 minutes\nMin: 1 | Max: 20000"
     },
     {
         "id":  14692,
-        "category":  "cat_26",
+        "category":  "cat_25",
+        "category_id":  "cat_25",
         "category_name":  "Instagram » Comments [ Emojis ]",
         "name":  "Instagram Comments | Negative Emojis | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1244.1,
         "rate_usd":  4.4432,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 16 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Negative Emojis | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 1 hours and 16 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 16 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Negative Emojis | Real Profiles | Speed 100K+ / DAY | Start: 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 1 hour and 16 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15396,
-        "category":  "cat_26",
+        "category":  "cat_25",
+        "category_id":  "cat_25",
         "category_name":  "Instagram » Comments [ Emojis ]",
         "name":  "Instagram Comments | Positive Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️",
         "rate_pkr":  3016,
@@ -1810,11 +1900,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  20000,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Positive Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion Time: 35 minutes\nMin: 1 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Positive Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion: 35 minutes\nMin: 1 | Max: 20000"
     },
     {
         "id":  15397,
-        "category":  "cat_26",
+        "category":  "cat_25",
+        "category_id":  "cat_25",
         "category_name":  "Instagram » Comments [ Emojis ]",
         "name":  "Instagram Comments | Negative Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️",
         "rate_pkr":  1990.3,
@@ -1822,11 +1913,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Negative Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Negative Emojis | Real Profiles | Speed 500K+ / DAY | Start: 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15394,
-        "category":  "cat_27",
+        "category":  "cat_26",
+        "category_id":  "cat_26",
         "category_name":  "Instagram » Comments [ India 🇮🇳 ]",
         "name":  "Instagram Comments | Random | Real Active India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Hours | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  387.4,
@@ -1834,23 +1926,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "7 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Active India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Hours | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 7 hours and 18 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | Real Active India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Hours | No Refill | ⛔️🔥⚡️\nEstimated Completion: 7 hours and 18 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15395,
-        "category":  "cat_27",
+        "category":  "cat_26",
+        "category_id":  "cat_26",
         "category_name":  "Instagram » Comments [ India 🇮🇳 ]",
         "name":  "Instagram Comments | Random | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  387.4,
         "rate_usd":  1.3836,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 1 hours and 1 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Random | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 1 hour and 1 minute\nMin: 10 | Max: 100000"
     },
     {
         "id":  15393,
-        "category":  "cat_27",
+        "category":  "cat_26",
+        "category_id":  "cat_26",
         "category_name":  "Instagram » Comments [ India 🇮🇳 ]",
         "name":  "Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1102.4,
@@ -1858,11 +1952,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 23 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  14470,
-        "category":  "cat_27",
+        "category":  "cat_26",
+        "category_id":  "cat_26",
         "category_name":  "Instagram » Comments [ India 🇮🇳 ]",
         "name":  "Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️",
         "rate_pkr":  421.2,
@@ -1870,11 +1965,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  1000,
         "avg_time":  "3 hours and 35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion Time: 3 hours and 35 minutes\nMin: 20 | Max: 1000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion: 3 hours and 35 minutes\nMin: 20 | Max: 1000"
     },
     {
         "id":  14616,
-        "category":  "cat_27",
+        "category":  "cat_26",
+        "category_id":  "cat_26",
         "category_name":  "Instagram » Comments [ India 🇮🇳 ]",
         "name":  "Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️",
         "rate_pkr":  1764.1,
@@ -1882,11 +1978,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Comments | Custom | India 🇮🇳 | Real Profiles | Non–Drop | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🎗🔥⚡️\nEstimated Completion: 34 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  14081,
-        "category":  "cat_28",
+        "category":  "cat_27",
+        "category_id":  "cat_27",
         "category_name":  "Instagram » Repost [ Best Speed ]",
         "name":  "Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  174.2,
@@ -1894,11 +1991,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  2147483647,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 1 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 33 minutes\nMin: 1 | Max: 2147483647"
     },
     {
         "id":  14868,
-        "category":  "cat_28",
+        "category":  "cat_27",
+        "category_id":  "cat_27",
         "category_name":  "Instagram » Repost [ Best Speed ]",
         "name":  "Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  161.2,
@@ -1906,11 +2004,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  10000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 1 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 100K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 42 minutes\nMin: 1 | Max: 10000000"
     },
     {
         "id":  15533,
-        "category":  "cat_29",
+        "category":  "cat_28",
+        "category_id":  "cat_28",
         "category_name":  "Instagram » Saves [ Cheapest ]",
         "name":  "Instagram Saves | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡",
         "rate_pkr":  19.5,
@@ -1918,11 +2017,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  2147483647,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 31 minutes\nMin: 1 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡\nEstimated Completion: 31 minutes\nMin: 1 | Max: 2147483647"
     },
     {
         "id":  15534,
-        "category":  "cat_29",
+        "category":  "cat_28",
+        "category_id":  "cat_28",
         "category_name":  "Instagram » Saves [ Cheapest ]",
         "name":  "Instagram Saves | Real Profiles | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡",
         "rate_pkr":  22.1,
@@ -1930,11 +2030,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  2147483647,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Real Profiles | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 1 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Real Profiles | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion: 48 minutes\nMin: 1 | Max: 2147483647"
     },
     {
         "id":  13632,
-        "category":  "cat_30",
+        "category":  "cat_29",
+        "category_id":  "cat_29",
         "category_name":  "Instagram » Saves [ Lifetime ]",
         "name":  "Instagram Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡",
         "rate_pkr":  46.8,
@@ -1942,11 +2043,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  100000000,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion Time: 28 minutes\nMin: 1 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion: 28 minutes\nMin: 1 | Max: 100000000"
     },
     {
         "id":  14513,
-        "category":  "cat_31",
+        "category":  "cat_30",
+        "category_id":  "cat_30",
         "category_name":  "Instagram » Shares [ Lifetime ]",
         "name":  "Instagram Shares | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  0.39,
@@ -1954,11 +2056,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Shares | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 44 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Shares | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 44 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  13937,
-        "category":  "cat_32",
+        "category":  "cat_31",
+        "category_id":  "cat_31",
         "category_name":  "Instagram » Repost [ Cheapest ]",
         "name":  "Instagram Repost | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  140.4,
@@ -1966,11 +2069,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  2147483647,
         "avg_time":  "22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Repost | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 22 minutes\nMin: 1 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Repost | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 22 minutes\nMin: 1 | Max: 2147483647"
     },
     {
         "id":  14536,
-        "category":  "cat_32",
+        "category":  "cat_31",
+        "category_id":  "cat_31",
         "category_name":  "Instagram » Repost [ Cheapest ]",
         "name":  "Instagram Reposts | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡",
         "rate_pkr":  174.2,
@@ -1978,11 +2082,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  2147483647,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion Time: 24 minutes\nMin: 1 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Instagram Reposts | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️🔥⚡\nEstimated Completion: 24 minutes\nMin: 1 | Max: 2147483647"
     },
     {
         "id":  14817,
-        "category":  "cat_33",
+        "category":  "cat_32",
+        "category_id":  "cat_32",
         "category_name":  "TikTok » Accounts [ Real Monetized ]",
         "name":  "TikTok Account | UK 🇬🇧 | Real Monetized | 10K+ Followers | Read Description | 🔥",
         "rate_pkr":  19240,
@@ -1990,11 +2095,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "11 hours and 20 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | Real Monetized | 10K+ Followers | Read Description | 🔥\nEstimated Completion Time: 11 hours and 20 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | Real Monetized | 10K+ Followers | Read Description | 🔥\nEstimated Completion: 11 hours and 20 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14473,
-        "category":  "cat_33",
+        "category":  "cat_32",
+        "category_id":  "cat_32",
         "category_name":  "TikTok » Accounts [ Real Monetized ]",
         "name":  "TikTok Account | UK 🇬🇧 | Real Monetized | 50K+ Followers | Read Description | 🔥",
         "rate_pkr":  32500,
@@ -2002,11 +2108,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "19 hours and 23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | Real Monetized | 50K+ Followers | Read Description | 🔥\nEstimated Completion Time: 19 hours and 23 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | Real Monetized | 50K+ Followers | Read Description | 🔥\nEstimated Completion: 19 hours and 23 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  13698,
-        "category":  "cat_34",
+        "category":  "cat_33",
+        "category_id":  "cat_33",
         "category_name":  "TikTok » Accounts [ Fresh – UK / USA ]",
         "name":  "TikTok Account | USA 🇺🇸 | 100% Real | Read Description | 🔥",
         "rate_pkr":  390,
@@ -2014,11 +2121,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "3 hours and 47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Account | USA 🇺🇸 | 100% Real | Read Description | 🔥\nEstimated Completion Time: 3 hours and 47 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Account | USA 🇺🇸 | 100% Real | Read Description | 🔥\nEstimated Completion: 3 hours and 47 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  13699,
-        "category":  "cat_34",
+        "category":  "cat_33",
+        "category_id":  "cat_33",
         "category_name":  "TikTok » Accounts [ Fresh – UK / USA ]",
         "name":  "TikTok Account | UK 🇬🇧 | 100% Real | Read Description | 🔥",
         "rate_pkr":  390,
@@ -2026,11 +2134,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "9 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | 100% Real | Read Description | 🔥\nEstimated Completion Time: 9 hours and 37 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Account | UK 🇬🇧 | 100% Real | Read Description | 🔥\nEstimated Completion: 9 hours and 37 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15450,
-        "category":  "cat_35",
+        "category":  "cat_34",
+        "category_id":  "cat_34",
         "category_name":  "TikTok » Creator Growth Challenge",
         "name":  "TikTok Creator Growth Challenge Activation | Fresh USA Account",
         "rate_pkr":  7540,
@@ -2038,11 +2147,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "13 hours and 19 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Creator Growth Challenge Activation | Fresh USA Account\nEstimated Completion Time: 13 hours and 19 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Creator Growth Challenge Activation | Fresh USA Account\nEstimated Completion: 13 hours and 19 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14558,
-        "category":  "cat_36",
+        "category":  "cat_35",
+        "category_id":  "cat_35",
         "category_name":  "TikTok » Creator Reward Joining",
         "name":  "Creator Reward Program Joining Service | Required 1K+ Followers Account | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 |🔥",
         "rate_pkr":  4550,
@@ -2050,11 +2160,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "7 hours and 31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Creator Reward Program Joining Service | Required 1K+ Followers Account | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 |🔥\nEstimated Completion Time: 7 hours and 31 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Creator Reward Program Joining Service | Required 1K+ Followers Account | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 |🔥\nEstimated Completion: 7 hours and 31 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15004,
-        "category":  "cat_37",
+        "category":  "cat_36",
+        "category_id":  "cat_36",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐂𝐚𝐦𝐩𝐚𝐢𝐠𝐧 ]",
         "name":  "TikTok Likes Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  131.3,
@@ -2062,11 +2173,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "203 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Likes Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 203 hours and 18 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Likes Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 203 hours and 18 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15005,
-        "category":  "cat_37",
+        "category":  "cat_36",
+        "category_id":  "cat_36",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐂𝐚𝐦𝐩𝐚𝐢𝐠𝐧 ]",
         "name":  "TikTok Followers Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  447.2,
@@ -2074,11 +2186,12 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  1000000,
         "avg_time":  "34 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 34 hours and 18 minutes\nMin: 5000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers Campaign | Min–10K | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 34 hours and 18 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15013,
-        "category":  "cat_38",
+        "category":  "cat_37",
+        "category_id":  "cat_37",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐏𝐀𝐊 🇵🇰 ]",
         "name":  "🆅🅸🅿 TikTok Views | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  102.7,
@@ -2086,11 +2199,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "21 hours and 57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 21 hours and 57 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 21 hours and 57 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15045,
-        "category":  "cat_38",
+        "category":  "cat_37",
+        "category_id":  "cat_37",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐏𝐀𝐊 🇵🇰 ]",
         "name":  "🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  430.3,
@@ -2098,11 +2212,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  1000000,
         "avg_time":  "7 hours and 49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 7 hours and 49 minutes\nMin: 1000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 7 hours and 49 minutes\nMin: 1000 | Max: 1000000"
     },
     {
         "id":  15086,
-        "category":  "cat_38",
+        "category":  "cat_37",
+        "category_id":  "cat_37",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐏𝐀𝐊 🇵🇰 ]",
         "name":  "🆅🅸🅿 TikTok Followers | 𝐈𝐬𝐥𝐚𝐦𝐢𝐜 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡",
         "rate_pkr":  5112.9,
@@ -2110,11 +2225,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  1000000,
         "avg_time":  "9 hours and 7 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Followers | 𝐈𝐬𝐥𝐚𝐦𝐢𝐜 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion Time: 9 hours and 7 minutes\nMin: 500 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Followers | 𝐈𝐬𝐥𝐚𝐦𝐢𝐜 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion: 9 hours and 7 minutes\nMin: 500 | Max: 1000000"
     },
     {
         "id":  15087,
-        "category":  "cat_38",
+        "category":  "cat_37",
+        "category_id":  "cat_37",
         "category_name":  "TikTok » 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 [ 𝐏𝐀𝐊 🇵🇰 ]",
         "name":  "🆅🅸🅿 TikTok Followers | 𝐘𝐨𝐮𝐫 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡",
         "rate_pkr":  6384.3,
@@ -2122,11 +2238,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  1000000,
         "avg_time":  "80 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Followers | 𝐘𝐨𝐮𝐫 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion Time: 80 hours and 37 minutes\nMin: 500 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Followers | 𝐘𝐨𝐮𝐫 𝐏𝐨𝐬𝐭 | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion: 80 hours and 37 minutes\nMin: 500 | Max: 1000000"
     },
     {
         "id":  14417,
-        "category":  "cat_39",
+        "category":  "cat_38",
+        "category_id":  "cat_38",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 🇵🇰",
         "name":  "🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  78,
@@ -2134,11 +2251,12 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  1000000,
         "avg_time":  "84 hours and 58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 84 hours and 58 minutes\nMin: 100000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 84 hours and 58 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  14741,
-        "category":  "cat_39",
+        "category":  "cat_38",
+        "category_id":  "cat_38",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 🇵🇰",
         "name":  "🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  75.4,
@@ -2146,11 +2264,12 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  100000,
         "avg_time":  "25 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 25 hours and 29 minutes\nMin: 50000 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 hours and 29 minutes\nMin: 50000 | Max: 100000"
     },
     {
         "id":  15014,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  78,
@@ -2158,11 +2277,12 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  1000000,
         "avg_time":  "31 hours and 8 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 31 hours and 8 minutes\nMin: 100000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 31 hours and 8 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15012,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  75.4,
@@ -2170,11 +2290,12 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  1000000,
         "avg_time":  "44 hours and 34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 44 hours and 34 minutes\nMin: 50000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 44 hours and 34 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  15009,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–40K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  84.5,
@@ -2182,11 +2303,12 @@ const MASTER_SERVICES = [
         "min":  40000,
         "max":  1000000,
         "avg_time":  "27 hours and 49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–40K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 27 hours and 49 minutes\nMin: 40000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–40K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 27 hours and 49 minutes\nMin: 40000 | Max: 1000000"
     },
     {
         "id":  15008,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–30K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  85.8,
@@ -2194,11 +2316,12 @@ const MASTER_SERVICES = [
         "min":  30000,
         "max":  1000000,
         "avg_time":  "24 hours and 50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–30K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 24 hours and 50 minutes\nMin: 30000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–30K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 24 hours and 50 minutes\nMin: 30000 | Max: 1000000"
     },
     {
         "id":  15007,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–20K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  94.9,
@@ -2206,11 +2329,12 @@ const MASTER_SERVICES = [
         "min":  20000,
         "max":  1000000,
         "avg_time":  "12 hours and 49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–20K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 12 hours and 49 minutes\nMin: 20000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–20K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 12 hours and 49 minutes\nMin: 20000 | Max: 1000000"
     },
     {
         "id":  15006,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–10K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  98.8,
@@ -2218,11 +2342,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "20 hours and 22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–10K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 20 hours and 22 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–10K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 20 hours and 22 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15011,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–5K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  122.2,
@@ -2230,11 +2355,12 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  1000000,
         "avg_time":  "15 hours and 55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–5K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 15 hours and 55 minutes\nMin: 5000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–5K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 15 hours and 55 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15073,
-        "category":  "cat_40",
+        "category":  "cat_39",
+        "category_id":  "cat_39",
         "category_name":  "TikTok » 𝐕𝐢𝐞𝐰𝐬 – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views | Min–2K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  171.6,
@@ -2242,11 +2368,12 @@ const MASTER_SERVICES = [
         "min":  2000,
         "max":  2000,
         "avg_time":  "24 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–2K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 24 hours and 5 minutes\nMin: 2000 | Max: 2000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views | Min–2K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 24 hours and 5 minutes\nMin: 2000 | Max: 2000"
     },
     {
         "id":  15038,
-        "category":  "cat_41",
+        "category":  "cat_40",
+        "category_id":  "cat_40",
         "category_name":  "TikTok » Views [ Cheapest ]",
         "name":  "TikTok Video Views | Speed 1M+ / DAY | No Refill | ⛔🔥⚡️",
         "rate_pkr":  1.3,
@@ -2254,11 +2381,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 1M+ / DAY | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 33 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 1M+ / DAY | No Refill | ⛔🔥⚡️\nEstimated Completion: 33 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14393,
-        "category":  "cat_41",
+        "category":  "cat_40",
+        "category_id":  "cat_40",
         "category_name":  "TikTok » Views [ Cheapest ]",
         "name":  "TikTok Video Views | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  2.6,
@@ -2266,11 +2394,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 28 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 28 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14953,
-        "category":  "cat_41",
+        "category":  "cat_40",
+        "category_id":  "cat_40",
         "category_name":  "TikTok » Views [ Cheapest ]",
         "name":  "TikTok Views | Speed 5M+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  2.6,
@@ -2278,11 +2407,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 5M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 24 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 5M+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 24 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  15062,
-        "category":  "cat_42",
+        "category":  "cat_41",
+        "category_id":  "cat_41",
         "category_name":  "TikTok » Views [ UK 🇬🇧 ]",
         "name":  "TikTok Views | UK 🇬🇧 | For You | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  27.3,
@@ -2290,11 +2420,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | UK 🇬🇧 | For You | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 27 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | UK 🇬🇧 | For You | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 27 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  15136,
-        "category":  "cat_43",
+        "category":  "cat_42",
+        "category_id":  "cat_42",
         "category_name":  "TikTok » Views [ Non–Drop ]",
         "name":  "TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡",
         "rate_pkr":  22.1,
@@ -2302,11 +2433,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 42 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion: 42 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  15010,
-        "category":  "cat_43",
+        "category":  "cat_42",
+        "category_id":  "cat_42",
         "category_name":  "TikTok » Views [ Non–Drop ]",
         "name":  "TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  23.4,
@@ -2314,11 +2446,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 51 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 51 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15015,
-        "category":  "cat_43",
+        "category":  "cat_42",
+        "category_id":  "cat_42",
         "category_name":  "TikTok » Views [ Non–Drop ]",
         "name":  "TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  24.7,
@@ -2326,11 +2459,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 34 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 34 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15340,
-        "category":  "cat_43",
+        "category":  "cat_42",
+        "category_id":  "cat_42",
         "category_name":  "TikTok » Views [ Non–Drop ]",
         "name":  "TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  23.4,
@@ -2338,11 +2472,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 29 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 29 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  14713,
-        "category":  "cat_44",
+        "category":  "cat_43",
+        "category_id":  "cat_43",
         "category_name":  "TikTok » Views [ Best Speed ]",
         "name":  "TikTok Views | Non Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  19.5,
@@ -2350,11 +2485,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 31 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15112,
-        "category":  "cat_44",
+        "category":  "cat_43",
+        "category_id":  "cat_43",
         "category_name":  "TikTok » Views [ Best Speed ]",
         "name":  "TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  29.9,
@@ -2362,11 +2498,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 41 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 41 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14296,
-        "category":  "cat_45",
+        "category":  "cat_44",
+        "category_id":  "cat_44",
         "category_name":  "TikTok » Views [ No Refill ]",
         "name":  "TikTok Video Views | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  2.6,
@@ -2374,11 +2511,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 26 minutes\nMin: 100 | Max: 10000000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Video Views | Speed 1M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 26 minutes\nMin: 100 | Max: 10000000000"
     },
     {
         "id":  14316,
-        "category":  "cat_45",
+        "category":  "cat_44",
+        "category_id":  "cat_44",
         "category_name":  "TikTok » Views [ No Refill ]",
         "name":  "TikTok Views | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡",
         "rate_pkr":  2.6,
@@ -2386,11 +2524,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 47 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion: 47 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  13830,
-        "category":  "cat_45",
+        "category":  "cat_44",
+        "category_id":  "cat_44",
         "category_name":  "TikTok » Views [ No Refill ]",
         "name":  "TikTok Views | Speed 10M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡",
         "rate_pkr":  2.6,
@@ -2398,11 +2537,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 10M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 31 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Speed 10M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion: 31 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14544,
-        "category":  "cat_46",
+        "category":  "cat_45",
+        "category_id":  "cat_45",
         "category_name":  "TikTok » Views [ For You ]",
         "name":  "TikTok Views | For You | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  26,
@@ -2410,11 +2550,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | For You | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 22 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | For You | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 22 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  14487,
-        "category":  "cat_47",
+        "category":  "cat_46",
+        "category_id":  "cat_46",
         "category_name":  "TikTok » Views [ Refill Lifetime ]",
         "name":  "TikTok Views | Drop – No | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  24.7,
@@ -2422,11 +2563,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Drop – No | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 21 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Drop – No | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 21 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14310,
-        "category":  "cat_47",
+        "category":  "cat_46",
+        "category_id":  "cat_46",
         "category_name":  "TikTok » Views [ Refill Lifetime ]",
         "name":  "TikTok Views | Drop – No | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  24.7,
@@ -2434,11 +2576,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Drop – No | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 35 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views | Drop – No | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 35 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15017,
-        "category":  "cat_48",
+        "category":  "cat_47",
+        "category_id":  "cat_47",
         "category_name":  "TikTok » Views – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  78,
@@ -2446,11 +2589,12 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  1000000,
         "avg_time":  "16 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 16 hours and 46 minutes\nMin: 100000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–100K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 16 hours and 46 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  14676,
-        "category":  "cat_48",
+        "category":  "cat_47",
+        "category_id":  "cat_47",
         "category_name":  "TikTok » Views – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–10K | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  98.8,
@@ -2458,11 +2602,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "27 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–10K | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 27 hours and 29 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–10K | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 27 hours and 29 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15016,
-        "category":  "cat_48",
+        "category":  "cat_47",
+        "category_id":  "cat_47",
         "category_name":  "TikTok » Views – 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬",
         "name":  "🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  75.4,
@@ -2470,23 +2615,25 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  1000000,
         "avg_time":  "59 hours and 57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 59 hours and 57 minutes\nMin: 50000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Views + Bonus Likes | 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 𝐀𝐝𝐬 | 𝐌𝐨𝐧𝐢𝐭𝐢𝐳𝐚𝐛𝐥𝐞 | Min–50K | Non–Drop | Speed 100K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 59 hours and 57 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  14715,
-        "category":  "cat_49",
+        "category":  "cat_48",
+        "category_id":  "cat_48",
         "category_name":  "TikTok » Views + Likes [ No Refill ]",
         "name":  "TikTok Views + 5% Likes | Speed 10K+ / DAY | 🔥⚡️",
         "rate_pkr":  36.4,
         "rate_usd":  0.13,
         "min":  500,
         "max":  20000,
-        "avg_time":  "1 hours and 14 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 5% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion Time: 1 hours and 14 minutes\nMin: 500 | Max: 20000"
+        "avg_time":  "1 hour and 14 minutes",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 5% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion: 1 hour and 14 minutes\nMin: 500 | Max: 20000"
     },
     {
         "id":  14716,
-        "category":  "cat_49",
+        "category":  "cat_48",
+        "category_id":  "cat_48",
         "category_name":  "TikTok » Views + Likes [ No Refill ]",
         "name":  "TikTok Views + 10% Likes | Speed 10K+ / DAY | 🔥⚡️",
         "rate_pkr":  45.5,
@@ -2494,23 +2641,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  10000,
         "avg_time":  "8 hours and 39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 10% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion Time: 8 hours and 39 minutes\nMin: 500 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 10% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion: 8 hours and 39 minutes\nMin: 500 | Max: 10000"
     },
     {
         "id":  14717,
-        "category":  "cat_49",
+        "category":  "cat_48",
+        "category_id":  "cat_48",
         "category_name":  "TikTok » Views + Likes [ No Refill ]",
         "name":  "TikTok Views + 15% Likes | Speed 10K+ / DAY | 🔥⚡️",
         "rate_pkr":  54.6,
         "rate_usd":  0.195,
         "min":  500,
         "max":  10000,
-        "avg_time":  "38 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 15% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion Time: 38 hours and 1 minutes\nMin: 500 | Max: 10000"
+        "avg_time":  "38 hours and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 15% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion: 38 hours and 1 minute\nMin: 500 | Max: 10000"
     },
     {
         "id":  14718,
-        "category":  "cat_49",
+        "category":  "cat_48",
+        "category_id":  "cat_48",
         "category_name":  "TikTok » Views + Likes [ No Refill ]",
         "name":  "TikTok Views + 25% Likes | Speed 10K+ / DAY | 🔥⚡️",
         "rate_pkr":  70.2,
@@ -2518,11 +2667,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  10000,
         "avg_time":  "9 hours and 54 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 25% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion Time: 9 hours and 54 minutes\nMin: 500 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 25% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion: 9 hours and 54 minutes\nMin: 500 | Max: 10000"
     },
     {
         "id":  14719,
-        "category":  "cat_49",
+        "category":  "cat_48",
+        "category_id":  "cat_48",
         "category_name":  "TikTok » Views + Likes [ No Refill ]",
         "name":  "TikTok Views + 50% Likes | Speed 10K+ / DAY | 🔥⚡️",
         "rate_pkr":  104,
@@ -2530,11 +2680,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  10000,
         "avg_time":  "43 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 50% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion Time: 43 hours and 18 minutes\nMin: 500 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Views + 50% Likes | Speed 10K+ / DAY | 🔥⚡️\nEstimated Completion: 43 hours and 18 minutes\nMin: 500 | Max: 10000"
     },
     {
         "id":  15040,
-        "category":  "cat_50",
+        "category":  "cat_49",
+        "category_id":  "cat_49",
         "category_name":  "TikTok » Followers [ Best Speed ]",
         "name":  "TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️",
         "rate_pkr":  705.9,
@@ -2542,11 +2693,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "7 hours and 49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 7 hours and 49 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️\nEstimated Completion: 7 hours and 49 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15431,
-        "category":  "cat_51",
+        "category":  "cat_50",
+        "category_id":  "cat_50",
         "category_name":  "TikTok » Followers [ PAK + USA ]",
         "name":  "TikTok Followers | PAK + USA | Real Profiles | Speed 1K+ / DAY | Start Time 0–5 Mins | 🔥⚡️",
         "rate_pkr":  2450.5,
@@ -2554,35 +2706,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "5 hours and 57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 1K+ / DAY | Start Time 0–5 Mins | 🔥⚡️\nEstimated Completion Time: 5 hours and 57 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 1K+ / DAY | Start Time 0–5 Mins | 🔥⚡️\nEstimated Completion: 5 hours and 57 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15432,
-        "category":  "cat_51",
+        "category":  "cat_50",
+        "category_id":  "cat_50",
         "category_name":  "TikTok » Followers [ PAK + USA ]",
         "name":  "TikTok Followers | PAK + USA | Real Profiles | Speed 5K+ / DAY | Start Time 0–5 Mins | 🔥",
         "rate_pkr":  2827.5,
         "rate_usd":  10.0982,
         "min":  100,
         "max":  100000,
-        "avg_time":  "1 hours and 39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 5K+ / DAY | Start Time 0–5 Mins | 🔥\nEstimated Completion Time: 1 hours and 39 minutes\nMin: 100 | Max: 100000"
+        "avg_time":  "1 hour and 39 minutes",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 5K+ / DAY | Start Time 0–5 Mins | 🔥\nEstimated Completion: 1 hour and 39 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15433,
-        "category":  "cat_51",
+        "category":  "cat_50",
+        "category_id":  "cat_50",
         "category_name":  "TikTok » Followers [ PAK + USA ]",
         "name":  "TikTok Followers | PAK + USA | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | 🔥",
         "rate_pkr":  3062.8,
         "rate_usd":  10.9386,
         "min":  100,
         "max":  100000,
-        "avg_time":  "1 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | 🔥\nEstimated Completion Time: 1 hours and 12 minutes\nMin: 100 | Max: 100000"
+        "avg_time":  "1 hour and 12 minutes",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | PAK + USA | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | 🔥\nEstimated Completion: 1 hour and 12 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14501,
-        "category":  "cat_52",
+        "category":  "cat_51",
+        "category_id":  "cat_51",
         "category_name":  "TikTok » Followers [ No Refill ]",
         "name":  "TikTok Followers | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥",
         "rate_pkr":  352.3,
@@ -2590,23 +2745,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥\nEstimated Completion: 26 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  14102,
-        "category":  "cat_52",
+        "category":  "cat_51",
+        "category_id":  "cat_51",
         "category_name":  "TikTok » Followers [ No Refill ]",
         "name":  "TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️",
         "rate_pkr":  470.6,
         "rate_usd":  1.6807,
         "min":  5,
         "max":  1000000,
-        "avg_time":  "1 hours and 22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 1 hours and 22 minutes\nMin: 5 | Max: 1000000"
+        "avg_time":  "1 hour and 22 minutes",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔🔥⚡️\nEstimated Completion: 1 hour and 22 minutes\nMin: 5 | Max: 1000000"
     },
     {
         "id":  15041,
-        "category":  "cat_53",
+        "category":  "cat_52",
+        "category_id":  "cat_52",
         "category_name":  "TikTok » Likes [ Best Speed ]",
         "name":  "TikTok Likes | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  137.8,
@@ -2614,11 +2771,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 37 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 37 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  15039,
-        "category":  "cat_54",
+        "category":  "cat_53",
+        "category_id":  "cat_53",
         "category_name":  "TikTok » Likes [ Cheapest ]",
         "name":  "TikTok Likes | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  84.5,
@@ -2626,11 +2784,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000000,
         "avg_time":  "4 hours and 3 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 4 hours and 3 minutes\nMin: 10 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 4 hours and 3 minutes\nMin: 10 | Max: 10000000"
     },
     {
         "id":  15046,
-        "category":  "cat_54",
+        "category":  "cat_53",
+        "category_id":  "cat_53",
         "category_name":  "TikTok » Likes [ Cheapest ]",
         "name":  "TikTok Likes | HQ Profiles | 50K+ / DAY | No Refill ⛔️🔥",
         "rate_pkr":  154.7,
@@ -2638,11 +2797,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | HQ Profiles | 50K+ / DAY | No Refill ⛔️🔥\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | HQ Profiles | 50K+ / DAY | No Refill ⛔️🔥\nEstimated Completion: 40 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14557,
-        "category":  "cat_55",
+        "category":  "cat_54",
+        "category_id":  "cat_54",
         "category_name":  "TikTok » 𝐋𝐢𝐤𝐞𝐬 [ 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 ]",
         "name":  "🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  400.4,
@@ -2650,11 +2810,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  1000000,
         "avg_time":  "5 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 5 hours and 29 minutes\nMin: 1000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 5 hours and 29 minutes\nMin: 1000 | Max: 1000000"
     },
     {
         "id":  14488,
-        "category":  "cat_55",
+        "category":  "cat_54",
+        "category_id":  "cat_54",
         "category_name":  "TikTok » 𝐋𝐢𝐤𝐞𝐬 [ 𝐑𝐞𝐚𝐥 𝐒𝐩𝐨𝐧𝐬𝐨𝐫 ]",
         "name":  "🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  582.4,
@@ -2662,23 +2823,25 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  1000000,
         "avg_time":  "6 hours and 28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 6 hours and 28 minutes\nMin: 1000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 TikTok Likes | Non–Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 6 hours and 28 minutes\nMin: 1000 | Max: 1000000"
     },
     {
         "id":  15257,
-        "category":  "cat_56",
+        "category":  "cat_55",
+        "category_id":  "cat_55",
         "category_name":  "TikTok » Likes [ Real PAK 🇵🇰 ]",
         "name":  "TikTok Likes | PAK 🇵🇰 | Real Active Profiles | Speed 1000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥",
         "rate_pkr":  630.5,
         "rate_usd":  2.2518,
         "min":  100,
         "max":  5000,
-        "avg_time":  "1 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | PAK 🇵🇰 | Real Active Profiles | Speed 1000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥\nEstimated Completion Time: 1 hours and 46 minutes\nMin: 100 | Max: 5000"
+        "avg_time":  "1 hour and 46 minutes",
+        "description":  "Automated Wholesale Delivery\nService: TikTok Likes | PAK 🇵🇰 | Real Active Profiles | Speed 1000+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥\nEstimated Completion: 1 hour and 46 minutes\nMin: 100 | Max: 5000"
     },
     {
         "id":  15025,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Random | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  894.4,
@@ -2686,11 +2849,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 29 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 29 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  15026,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Custom | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  894.4,
@@ -2698,11 +2862,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  10000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 37 minutes\nMin: 1 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 37 minutes\nMin: 1 | Max: 10000"
     },
     {
         "id":  15027,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Emojis | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Minutes | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  894.4,
@@ -2710,11 +2875,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  50000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Minutes | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 44 minutes\nMin: 1 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Speed 10K+ / DAY | Start Time 0–5 Minutes | No Refill | ⛔️🔥⚡️\nEstimated Completion: 44 minutes\nMin: 1 | Max: 50000"
     },
     {
         "id":  15068,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Random | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1249.3,
@@ -2722,11 +2888,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  15000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 26 minutes\nMin: 10 | Max: 15000"
     },
     {
         "id":  15069,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1249.3,
@@ -2734,11 +2901,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  15000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 46 minutes\nMin: 10 | Max: 15000"
     },
     {
         "id":  15070,
-        "category":  "cat_57",
+        "category":  "cat_56",
+        "category_id":  "cat_56",
         "category_name":  "TikTok » Comments [ Best Speed ]",
         "name":  "TikTok Comments | Emojis | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1249.3,
@@ -2746,11 +2914,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  15000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 43 minutes\nMin: 10 | Max: 15000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 43 minutes\nMin: 10 | Max: 15000"
     },
     {
         "id":  15071,
-        "category":  "cat_58",
+        "category":  "cat_57",
+        "category_id":  "cat_57",
         "category_name":  "TikTok » Comments [ Non–Drop ]",
         "name":  "TikTok Comments | Random | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1158.3,
@@ -2758,11 +2927,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  50000,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 28 minutes\nMin: 1 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Random | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 28 minutes\nMin: 1 | Max: 50000"
     },
     {
         "id":  15072,
-        "category":  "cat_58",
+        "category":  "cat_57",
+        "category_id":  "cat_57",
         "category_name":  "TikTok » Comments [ Non–Drop ]",
         "name":  "TikTok Comments | Custom | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1158.3,
@@ -2770,11 +2940,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  50000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 23 minutes\nMin: 1 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Custom | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 23 minutes\nMin: 1 | Max: 50000"
     },
     {
         "id":  15088,
-        "category":  "cat_58",
+        "category":  "cat_57",
+        "category_id":  "cat_57",
         "category_name":  "TikTok » Comments [ Non–Drop ]",
         "name":  "TikTok Comments | Emojis | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️",
         "rate_pkr":  1158.3,
@@ -2782,11 +2953,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  50000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 26 minutes\nMin: 1 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Comments | Emojis | Real Profiles | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡️\nEstimated Completion: 26 minutes\nMin: 1 | Max: 50000"
     },
     {
         "id":  15101,
-        "category":  "cat_59",
+        "category":  "cat_58",
+        "category_id":  "cat_58",
         "category_name":  "TikTok » Save [ Cheapest ]",
         "name":  "TikTok Saves | Non Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  2.6,
@@ -2794,11 +2966,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 44 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 44 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15102,
-        "category":  "cat_59",
+        "category":  "cat_58",
+        "category_id":  "cat_58",
         "category_name":  "TikTok » Save [ Cheapest ]",
         "name":  "TikTok Saves | Non Drop | Speed 100K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  2.6,
@@ -2806,11 +2979,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non Drop | Speed 100K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 46 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non Drop | Speed 100K+ / DAY | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐆𝐮𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 46 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14954,
-        "category":  "cat_60",
+        "category":  "cat_59",
+        "category_id":  "cat_59",
         "category_name":  "TikTok » Saves [ Best Speed ]",
         "name":  "TikTok Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡",
         "rate_pkr":  35.1,
@@ -2818,11 +2992,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Saves | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡\nEstimated Completion: 27 minutes\nMin: 10 | Max: 100000000"
     },
     {
         "id":  14739,
-        "category":  "cat_61",
+        "category":  "cat_60",
+        "category_id":  "cat_60",
         "category_name":  "TikTok » Shares [ Best Speed ]",
         "name":  "TikTok Shares | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  53.3,
@@ -2830,11 +3005,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Shares | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 44 minutes\nMin: 10 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Shares | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 44 minutes\nMin: 10 | Max: 10000000"
     },
     {
         "id":  14840,
-        "category":  "cat_61",
+        "category":  "cat_60",
+        "category_id":  "cat_60",
         "category_name":  "TikTok » Shares [ Best Speed ]",
         "name":  "TikTok Shares | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  41.6,
@@ -2842,11 +3018,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok Shares | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: TikTok Shares | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 31 minutes\nMin: 10 | Max: 5000000"
     },
     {
         "id":  14432,
-        "category":  "cat_62",
+        "category":  "cat_61",
+        "category_id":  "cat_61",
         "category_name":  "TikTok » Battle Points [ Best Speed ]",
         "name":  "TikTok PK Battle Points | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡",
         "rate_pkr":  46.8,
@@ -2854,23 +3031,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  2147483647,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: TikTok PK Battle Points | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: TikTok PK Battle Points | Speed 10M+ / DAY | No Refill | ⛔️🔥⚡\nEstimated Completion: 30 minutes\nMin: 10 | Max: 2147483647"
     },
     {
         "id":  14721,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  395.2,
         "rate_usd":  1.4114,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "28 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 28 hours and 1 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "28 hours and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 28 hours and 1 minute\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  14720,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  306.8,
@@ -2878,11 +3057,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "9 hours and 48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 9 hours and 48 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 9 hours and 48 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  14282,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 50K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  157.3,
@@ -2890,11 +3070,12 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  50000000,
         "avg_time":  "9 hours",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 50K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 9 hours\nMin: 50000 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 50K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 9 hours\nMin: 50000 | Max: 50000000"
     },
     {
         "id":  14738,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 100K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  131.3,
@@ -2902,95 +3083,103 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  100000000,
         "avg_time":  "9 hours and 55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 100K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 9 hours and 55 minutes\nMin: 100000 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 100K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 9 hours and 55 minutes\nMin: 100000 | Max: 100000000"
     },
     {
         "id":  15492,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  526.5,
         "rate_usd":  1.8804,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 5K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15493,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  395.2,
         "rate_usd":  1.4114,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | Minimum 10K | Non–Drop | Speed 1 Million+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15510,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  162.5,
         "rate_usd":  0.5804,
         "min":  50000,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 5000000"
     },
     {
         "id":  15511,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  137.8,
         "rate_usd":  0.4921,
         "min":  100000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 100000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15512,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  395.2,
         "rate_usd":  1.4114,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15513,
-        "category":  "cat_63",
+        "category":  "cat_62",
+        "category_id":  "cat_62",
         "category_name":  "YouTube » Views [ Non–Drop ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  306.8,
         "rate_usd":  1.0957,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15124,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–1M | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  88.4,
         "rate_usd":  0.3157,
         "min":  1000000,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–1M | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 1000000 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–1M | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 1000000 | Max: 5000000"
     },
     {
         "id":  14547,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–500K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  92.3,
@@ -2998,47 +3187,51 @@ const MASTER_SERVICES = [
         "min":  500000,
         "max":  1000000,
         "avg_time":  "28 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–500K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 28 hours and 51 minutes\nMin: 500000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–500K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 28 hours and 51 minutes\nMin: 500000 | Max: 1000000"
     },
     {
         "id":  12814,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  123.5,
         "rate_usd":  0.4411,
         "min":  100000,
         "max":  1000000,
-        "avg_time":  "12 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 12 hours and 1 minutes\nMin: 100000 | Max: 1000000"
+        "avg_time":  "12 hours and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 12 hours and 1 minute\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15123,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  133.9,
         "rate_usd":  0.4782,
         "min":  50000,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 5000000"
     },
     {
         "id":  15127,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
-        "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚ŋ𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
+        "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  306.8,
         "rate_usd":  1.0957,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚ŋ𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15126,
-        "category":  "cat_64",
+        "category":  "cat_63",
+        "category_id":  "cat_63",
         "category_name":  "YouTube » Views Adword [ Under 4 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  328.9,
@@ -3046,11 +3239,12 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  1000000,
         "avg_time":  "5 hours and 34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 5 hours and 34 minutes\nMin: 5000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟒 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 5 hours and 34 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15135,
-        "category":  "cat_65",
+        "category":  "cat_64",
+        "category_id":  "cat_64",
         "category_name":  "YouTube » Views Adword [ Under 8 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  131.3,
@@ -3058,71 +3252,77 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  50000000,
         "avg_time":  "31 hours and 57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 31 hours and 57 minutes\nMin: 100000 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 31 hours and 57 minutes\nMin: 100000 | Max: 50000000"
     },
     {
         "id":  15133,
-        "category":  "cat_65",
+        "category":  "cat_64",
+        "category_id":  "cat_64",
         "category_name":  "YouTube » Views Adword [ Under 8 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  157.3,
         "rate_usd":  0.5618,
         "min":  50000,
         "max":  50000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 50000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 50000000"
     },
     {
         "id":  15507,
-        "category":  "cat_65",
+        "category":  "cat_64",
+        "category_id":  "cat_64",
         "category_name":  "YouTube » Views Adword [ Under 8 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  210.6,
         "rate_usd":  0.7521,
         "min":  25000,
         "max":  25000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 25000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 25000000"
     },
     {
         "id":  15491,
-        "category":  "cat_65",
+        "category":  "cat_64",
+        "category_id":  "cat_64",
         "category_name":  "YouTube » Views Adword [ Under 8 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  306.8,
         "rate_usd":  1.0957,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15490,
-        "category":  "cat_65",
+        "category":  "cat_64",
+        "category_id":  "cat_64",
         "category_name":  "YouTube » Views Adword [ Under 8 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  395.2,
         "rate_usd":  1.4114,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟖 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15125,
-        "category":  "cat_66",
+        "category":  "cat_65",
+        "category_id":  "cat_65",
         "category_name":  "YouTube » Views Adword [ Under 10 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  137.8,
         "rate_usd":  0.4921,
         "min":  100000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 100000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15132,
-        "category":  "cat_66",
+        "category":  "cat_65",
+        "category_id":  "cat_65",
         "category_name":  "YouTube » Views Adword [ Under 10 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  162.5,
@@ -3130,23 +3330,25 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  5000000,
         "avg_time":  "37 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 37 hours and 5 minutes\nMin: 50000 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 37 hours and 5 minutes\nMin: 50000 | Max: 5000000"
     },
     {
         "id":  15509,
-        "category":  "cat_66",
+        "category":  "cat_65",
+        "category_id":  "cat_65",
         "category_name":  "YouTube » Views Adword [ Under 10 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  215.8,
         "rate_usd":  0.7707,
         "min":  25000,
         "max":  2500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 2500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟏𝟎 𝐌𝐢𝐧𝐬 | Min–25K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 2500000"
     },
     {
         "id":  15508,
-        "category":  "cat_67",
+        "category":  "cat_66",
+        "category_id":  "cat_66",
         "category_name":  "YouTube » Views Adword [ Under 60 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  328.9,
@@ -3154,11 +3356,12 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  1000000,
         "avg_time":  "44 hours and 45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 44 hours and 45 minutes\nMin: 100000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–100K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 44 hours and 45 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15515,
-        "category":  "cat_67",
+        "category":  "cat_66",
+        "category_id":  "cat_66",
         "category_name":  "YouTube » Views Adword [ Under 60 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  395.2,
@@ -3166,11 +3369,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  1000000,
         "avg_time":  "27 hours and 58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 27 hours and 58 minutes\nMin: 10000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–10K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 27 hours and 58 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15514,
-        "category":  "cat_67",
+        "category":  "cat_66",
+        "category_id":  "cat_66",
         "category_name":  "YouTube » Views Adword [ Under 60 Mins ]",
         "name":  "🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  526.5,
@@ -3178,11 +3382,12 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  1000000,
         "avg_time":  "36 hours and 11 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 36 hours and 11 minutes\nMin: 5000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | 𝐔𝐧𝐝𝐞𝐫 𝟔𝟎 𝐌𝐢𝐧𝐬 | Min–5K | Non–Drop | Speed 1M+ / DAY | Start Time 0–6 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 36 hours and 11 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15466,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  387.4,
@@ -3190,47 +3395,51 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  1000000,
         "avg_time":  "35 hours and 3 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 35 hours and 3 minutes\nMin: 5000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 35 hours and 3 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15467,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  364,
         "rate_usd":  1.3,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15468,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  209.3,
         "rate_usd":  0.7475,
         "min":  25000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 1000000"
     },
     {
         "id":  15469,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  182,
         "rate_usd":  0.65,
         "min":  50000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  15470,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  161.2,
@@ -3238,215 +3447,233 @@ const MASTER_SERVICES = [
         "min":  100000,
         "max":  1000000,
         "avg_time":  "29 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 29 hours and 46 minutes\nMin: 100000 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 29 hours and 46 minutes\nMin: 100000 | Max: 1000000"
     },
     {
         "id":  15471,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  139.1,
         "rate_usd":  0.4968,
         "min":  500000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 500000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 500000 | Max: 1000000"
     },
     {
         "id":  15472,
-        "category":  "cat_68",
+        "category":  "cat_67",
+        "category_id":  "cat_67",
         "category_name":  "YouTube » Views – Adword [ PAK 🇵🇰 ]",
         "name":  "🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–1M | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  130,
         "rate_usd":  0.4643,
         "min":  1000000,
         "max":  10000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–1M | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 1000000 | Max: 10000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | PAK 🇵🇰 | Min–1M | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 1000000 | Max: 10000000"
     },
     {
         "id":  15473,
-        "category":  "cat_69",
+        "category":  "cat_68",
+        "category_id":  "cat_68",
         "category_name":  "YouTube » Views – Adword [ IND 🇮🇳 ]",
         "name":  "🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  200.2,
         "rate_usd":  0.715,
         "min":  25000,
         "max":  2500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 2500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 2500000"
     },
     {
         "id":  15474,
-        "category":  "cat_69",
+        "category":  "cat_68",
+        "category_id":  "cat_68",
         "category_name":  "YouTube » Views – Adword [ IND 🇮🇳 ]",
         "name":  "🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  182,
         "rate_usd":  0.65,
         "min":  50000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  15475,
-        "category":  "cat_69",
+        "category":  "cat_68",
+        "category_id":  "cat_68",
         "category_name":  "YouTube » Views – Adword [ IND 🇮🇳 ]",
         "name":  "🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  171.6,
         "rate_usd":  0.6129,
         "min":  100000,
         "max":  10000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 100000 | Max: 10000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–100K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 100000 | Max: 10000000"
     },
     {
         "id":  15476,
-        "category":  "cat_69",
+        "category":  "cat_68",
+        "category_id":  "cat_68",
         "category_name":  "YouTube » Views – Adword [ IND 🇮🇳 ]",
         "name":  "🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  143,
         "rate_usd":  0.5107,
         "min":  500000,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 500000 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–500K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 500000 | Max: 5000000"
     },
     {
         "id":  15477,
-        "category":  "cat_69",
+        "category":  "cat_68",
+        "category_id":  "cat_68",
         "category_name":  "YouTube » Views – Adword [ IND 🇮🇳 ]",
         "name":  "🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  318.5,
         "rate_usd":  1.1375,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | IND 🇮🇳 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15483,
-        "category":  "cat_70",
+        "category":  "cat_69",
+        "category_id":  "cat_69",
         "category_name":  "YouTube » Views – Adword [ UK 🇬🇧 ]",
         "name":  "🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1710.8,
         "rate_usd":  6.11,
         "min":  1000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 1000000"
     },
     {
         "id":  15484,
-        "category":  "cat_70",
+        "category":  "cat_69",
+        "category_id":  "cat_69",
         "category_name":  "YouTube » Views – Adword [ UK 🇬🇧 ]",
         "name":  "🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1459.9,
         "rate_usd":  5.2139,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15485,
-        "category":  "cat_70",
+        "category":  "cat_69",
+        "category_id":  "cat_69",
         "category_name":  "YouTube » Views – Adword [ UK 🇬🇧 ]",
         "name":  "🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1368.9,
         "rate_usd":  4.8889,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15486,
-        "category":  "cat_70",
+        "category":  "cat_69",
+        "category_id":  "cat_69",
         "category_name":  "YouTube » Views – Adword [ UK 🇬🇧 ]",
         "name":  "🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1290.9,
         "rate_usd":  4.6104,
         "min":  25000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 1000000"
     },
     {
         "id":  15487,
-        "category":  "cat_70",
+        "category":  "cat_69",
+        "category_id":  "cat_69",
         "category_name":  "YouTube » Views – Adword [ UK 🇬🇧 ]",
         "name":  "🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1206.4,
         "rate_usd":  4.3086,
         "min":  50000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | UK 🇬🇧 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  15478,
-        "category":  "cat_71",
+        "category":  "cat_70",
+        "category_id":  "cat_70",
         "category_name":  "YouTube » Views – Adword [ USA 🇺🇸 ]",
         "name":  "🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1710.8,
         "rate_usd":  6.11,
         "min":  1000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–1K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 1000000"
     },
     {
         "id":  15479,
-        "category":  "cat_71",
+        "category":  "cat_70",
+        "category_id":  "cat_70",
         "category_name":  "YouTube » Views – Adword [ USA 🇺🇸 ]",
         "name":  "🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1459.9,
         "rate_usd":  5.2139,
         "min":  5000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–5K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5000 | Max: 1000000"
     },
     {
         "id":  15480,
-        "category":  "cat_71",
+        "category":  "cat_70",
+        "category_id":  "cat_70",
         "category_name":  "YouTube » Views – Adword [ USA 🇺🇸 ]",
         "name":  "🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1348.1,
         "rate_usd":  4.8146,
         "min":  10000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–10K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10000 | Max: 1000000"
     },
     {
         "id":  15481,
-        "category":  "cat_71",
+        "category":  "cat_70",
+        "category_id":  "cat_70",
         "category_name":  "YouTube » Views – Adword [ USA 🇺🇸 ]",
         "name":  "🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1261,
         "rate_usd":  4.5036,
         "min":  25000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 25000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–25K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 25000 | Max: 1000000"
     },
     {
         "id":  15482,
-        "category":  "cat_71",
+        "category":  "cat_70",
+        "category_id":  "cat_70",
         "category_name":  "YouTube » Views – Adword [ USA 🇺🇸 ]",
         "name":  "🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  1206.4,
         "rate_usd":  4.3086,
         "min":  50000,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | USA 🇺🇸 | Min–50K | Under 4 Mins Video | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 1000000"
     },
     {
         "id":  15095,
-        "category":  "cat_72",
+        "category":  "cat_71",
+        "category_id":  "cat_71",
         "category_name":  "YouTube » Views – Adword [ In Feed ]",
         "name":  "🆅🅸🅿 YouTube Views | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  273,
@@ -3454,11 +3681,12 @@ const MASTER_SERVICES = [
         "min":  50000,
         "max":  100000,
         "avg_time":  "156 hours and 36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 156 hours and 36 minutes\nMin: 50000 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Views | Min–50K | Non–Drop | Speed 1M+ / DAY | Start Time 6–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 156 hours and 36 minutes\nMin: 50000 | Max: 100000"
     },
     {
         "id":  14435,
-        "category":  "cat_73",
+        "category":  "cat_72",
+        "category_id":  "cat_72",
         "category_name":  "YouTube » Views [ Cheapest ]",
         "name":  "YouTube View | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  341.9,
@@ -3466,23 +3694,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "4 hours and 42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 4 hours and 42 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 4 hours and 42 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  14699,
-        "category":  "cat_73",
+        "category":  "cat_72",
+        "category_id":  "cat_72",
         "category_name":  "YouTube » Views [ Cheapest ]",
         "name":  "YouTube View | Non–Drop | Speed 15K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  501.8,
         "rate_usd":  1.7921,
         "min":  50,
         "max":  15000,
-        "avg_time":  "1 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 1 hours and 46 minutes\nMin: 50 | Max: 15000"
+        "avg_time":  "1 hour and 46 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 1 hour and 46 minutes\nMin: 50 | Max: 15000"
     },
     {
         "id":  14614,
-        "category":  "cat_73",
+        "category":  "cat_72",
+        "category_id":  "cat_72",
         "category_name":  "YouTube » Views [ Cheapest ]",
         "name":  "YouTube View | Non–Drop | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  516.1,
@@ -3490,11 +3720,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  20000,
         "avg_time":  "2 hours and 42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 2 hours and 42 minutes\nMin: 50 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 2 hours and 42 minutes\nMin: 50 | Max: 20000"
     },
     {
         "id":  14621,
-        "category":  "cat_73",
+        "category":  "cat_72",
+        "category_id":  "cat_72",
         "category_name":  "YouTube » Views [ Cheapest ]",
         "name":  "YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  305.5,
@@ -3502,11 +3733,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 57 minutes\nMin: 50 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 57 minutes\nMin: 50 | Max: 5000"
     },
     {
         "id":  12820,
-        "category":  "cat_73",
+        "category":  "cat_72",
+        "category_id":  "cat_72",
         "category_name":  "YouTube » Views [ Cheapest ]",
         "name":  "YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  302.9,
@@ -3514,11 +3746,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000,
         "avg_time":  "4 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 4 hours and 46 minutes\nMin: 50 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 1K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 4 hours and 46 minutes\nMin: 50 | Max: 10000"
     },
     {
         "id":  14736,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 3K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  371.8,
@@ -3526,11 +3759,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  500000,
         "avg_time":  "8 hours and 30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 3K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 8 hours and 30 minutes\nMin: 50 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 3K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 8 hours and 30 minutes\nMin: 50 | Max: 500000"
     },
     {
         "id":  15105,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 5K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  440.7,
@@ -3538,23 +3772,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "3 hours and 8 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 5K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 3 hours and 8 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 5K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 3 hours and 8 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15106,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  501.8,
         "rate_usd":  1.7921,
         "min":  50,
         "max":  100000,
-        "avg_time":  "1 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 1 hours and 29 minutes\nMin: 50 | Max: 100000"
+        "avg_time":  "1 hour and 29 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 1 hour and 29 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  15107,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  501.8,
@@ -3562,23 +3798,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "2 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 2 hours and 12 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 15K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 2 hours and 12 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14734,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  458.9,
         "rate_usd":  1.6389,
         "min":  100,
         "max":  500000,
-        "avg_time":  "9 hours and 1 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 9 hours and 1 minutes\nMin: 100 | Max: 500000"
+        "avg_time":  "9 hours and 1 minute",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 9 hours and 1 minute\nMin: 100 | Max: 500000"
     },
     {
         "id":  14737,
-        "category":  "cat_74",
+        "category":  "cat_73",
+        "category_id":  "cat_73",
         "category_name":  "YouTube » Views [ Best Speed ]",
         "name":  "YouTube View | Non–Drop | Speed 800+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  315.9,
@@ -3586,11 +3824,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  5000,
         "avg_time":  "7 hours and 40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 800+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 7 hours and 40 minutes\nMin: 100 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Non–Drop | Speed 800+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 7 hours and 40 minutes\nMin: 100 | Max: 5000"
     },
     {
         "id":  15194,
-        "category":  "cat_75",
+        "category":  "cat_74",
+        "category_id":  "cat_74",
         "category_name":  "YouTube » Views [ Video / Short ]",
         "name":  "YouTube View | Video / Short | Speed 500+ / DAY | Start Time 0-1 Hour | 30 Days Refill | ✅🔥",
         "rate_pkr":  293.8,
@@ -3598,11 +3837,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "5 hours and 3 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 500+ / DAY | Start Time 0-1 Hour | 30 Days Refill | ✅🔥\nEstimated Completion Time: 5 hours and 3 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 500+ / DAY | Start Time 0-1 Hour | 30 Days Refill | ✅🔥\nEstimated Completion: 5 hours and 3 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15195,
-        "category":  "cat_75",
+        "category":  "cat_74",
+        "category_id":  "cat_74",
         "category_name":  "YouTube » Views [ Video / Short ]",
         "name":  "YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 365 Days Refill | ✅🔥⚡",
         "rate_pkr":  361.4,
@@ -3610,11 +3850,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "29 hours and 36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 365 Days Refill | ✅🔥⚡\nEstimated Completion Time: 29 hours and 36 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 365 Days Refill | ✅🔥⚡\nEstimated Completion: 29 hours and 36 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15196,
-        "category":  "cat_75",
+        "category":  "cat_74",
+        "category_id":  "cat_74",
         "category_name":  "YouTube » Views [ Video / Short ]",
         "name":  "YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  383.5,
@@ -3622,11 +3863,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "32 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 32 hours and 10 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Video / Short | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 32 hours and 10 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15048,
-        "category":  "cat_76",
+        "category":  "cat_75",
+        "category_id":  "cat_75",
         "category_name":  "YouTube » Views [ High Retention ]",
         "name":  "🆅🅸🅿 YouTube View | 1–5 Mins Retention | Non Drop | Speed 2000+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡",
         "rate_pkr":  546,
@@ -3634,71 +3876,77 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "2 hours and 56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | 1–5 Mins Retention | Non Drop | Speed 2000+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion Time: 2 hours and 56 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube View | 1–5 Mins Retention | Non Drop | Speed 2000+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡\nEstimated Completion: 2 hours and 56 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15149,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–1M | Speed 1M+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  239.2,
         "rate_usd":  0.8543,
         "min":  1000000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–1M | Speed 1M+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 1000000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–1M | Speed 1M+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 1000000 | Max: 2147483647"
     },
     {
         "id":  15150,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–500K | Speed 500K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  245.7,
         "rate_usd":  0.8775,
         "min":  500000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–500K | Speed 500K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 500000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–500K | Speed 500K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 500000 | Max: 2147483647"
     },
     {
         "id":  15151,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–200K | Speed 200K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  270.4,
         "rate_usd":  0.9657,
         "min":  100000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–200K | Speed 200K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–200K | Speed 200K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 100000 | Max: 2147483647"
     },
     {
         "id":  15152,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–100K | Speed 100K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  270.4,
         "rate_usd":  0.9657,
         "min":  100000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–100K | Speed 100K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–100K | Speed 100K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 100000 | Max: 2147483647"
     },
     {
         "id":  15153,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–40K | Speed 40K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  263.9,
         "rate_usd":  0.9425,
         "min":  40000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–40K | Speed 40K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 40000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–40K | Speed 40K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 40000 | Max: 2147483647"
     },
     {
         "id":  15154,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–20K | Speed 20K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  286,
@@ -3706,11 +3954,12 @@ const MASTER_SERVICES = [
         "min":  20000,
         "max":  2147483647,
         "avg_time":  "35 hours and 28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–20K | Speed 20K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 35 hours and 28 minutes\nMin: 20000 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–20K | Speed 20K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 35 hours and 28 minutes\nMin: 20000 | Max: 2147483647"
     },
     {
         "id":  15155,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–10K | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  286,
@@ -3718,11 +3967,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  2147483647,
         "avg_time":  "52 hours and 31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–10K | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 52 hours and 31 minutes\nMin: 10000 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–10K | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 52 hours and 31 minutes\nMin: 10000 | Max: 2147483647"
     },
     {
         "id":  15156,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–5K | Speed 5K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  305.5,
@@ -3730,11 +3980,12 @@ const MASTER_SERVICES = [
         "min":  5000,
         "max":  2147483647,
         "avg_time":  "10 hours and 13 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–5K | Speed 5K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 10 hours and 13 minutes\nMin: 5000 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–5K | Speed 5K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 10 hours and 13 minutes\nMin: 5000 | Max: 2147483647"
     },
     {
         "id":  15157,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–3K | Speed 3K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  291.2,
@@ -3742,11 +3993,12 @@ const MASTER_SERVICES = [
         "min":  3000,
         "max":  2147483647,
         "avg_time":  "25 hours and 35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–3K | Speed 3K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 25 hours and 35 minutes\nMin: 3000 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–3K | Speed 3K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 25 hours and 35 minutes\nMin: 3000 | Max: 2147483647"
     },
     {
         "id":  15158,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–1K | Speed 1K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  408.2,
@@ -3754,11 +4006,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "13 hours and 7 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–1K | Speed 1K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 13 hours and 7 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–1K | Speed 1K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 13 hours and 7 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15159,
-        "category":  "cat_77",
+        "category":  "cat_76",
+        "category_id":  "cat_76",
         "category_name":  "YouTube » Views [ Native Ads – Cheapest ]",
         "name":  "YouTube View | Native Ads | Non–Drop | Min–100 | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  317.2,
@@ -3766,23 +4019,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  2147483647,
         "avg_time":  "13 hours and 31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–100 | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 13 hours and 31 minutes\nMin: 500 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: YouTube View | Native Ads | Non–Drop | Min–100 | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 13 hours and 31 minutes\nMin: 500 | Max: 2147483647"
     },
     {
         "id":  15162,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 1K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  391.3,
         "rate_usd":  1.3975,
         "min":  1000,
         "max":  100000000,
-        "avg_time":  "1 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 1K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 1 hours and 18 minutes\nMin: 1000 | Max: 100000000"
+        "avg_time":  "1 hour and 18 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 1K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 1 hour and 18 minutes\nMin: 1000 | Max: 100000000"
     },
     {
         "id":  14321,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 3K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  414.7,
@@ -3790,11 +4045,12 @@ const MASTER_SERVICES = [
         "min":  3000,
         "max":  100000000,
         "avg_time":  "22 hours and 14 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 3K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 22 hours and 14 minutes\nMin: 3000 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 3K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 22 hours and 14 minutes\nMin: 3000 | Max: 100000000"
     },
     {
         "id":  14844,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 10K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  379.6,
@@ -3802,11 +4058,12 @@ const MASTER_SERVICES = [
         "min":  10000,
         "max":  100000000,
         "avg_time":  "18 hours and 3 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 10K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 18 hours and 3 minutes\nMin: 10000 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 10K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 18 hours and 3 minutes\nMin: 10000 | Max: 100000000"
     },
     {
         "id":  14714,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 20K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  406.9,
@@ -3814,11 +4071,12 @@ const MASTER_SERVICES = [
         "min":  20000,
         "max":  50000000,
         "avg_time":  "27 hours and 42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 20K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 27 hours and 42 minutes\nMin: 20000 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 20K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 27 hours and 42 minutes\nMin: 20000 | Max: 50000000"
     },
     {
         "id":  14322,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 30K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  445.9,
@@ -3826,11 +4084,12 @@ const MASTER_SERVICES = [
         "min":  30000,
         "max":  100000000,
         "avg_time":  "8 hours and 19 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 30K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 8 hours and 19 minutes\nMin: 30000 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 30K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 8 hours and 19 minutes\nMin: 30000 | Max: 100000000"
     },
     {
         "id":  14620,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  374.4,
@@ -3838,35 +4097,38 @@ const MASTER_SERVICES = [
         "min":  40000,
         "max":  50000000,
         "avg_time":  "47 hours and 25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 47 hours and 25 minutes\nMin: 40000 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 47 hours and 25 minutes\nMin: 40000 | Max: 50000000"
     },
     {
         "id":  15161,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  427.7,
         "rate_usd":  1.5275,
         "min":  40000,
         "max":  2000000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 40000 | Max: 2000000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 40K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 25 minutes\nMin: 40000 | Max: 2000000000"
     },
     {
         "id":  15163,
-        "category":  "cat_78",
+        "category":  "cat_77",
+        "category_id":  "cat_77",
         "category_name":  "YouTube » Views [ Native Ads – 🆅🅸🅿 ]",
         "name":  "🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 50K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  417.3,
         "rate_usd":  1.4904,
         "min":  50000,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 50K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 50000 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Native Ads View | 100% Real Views | Non Drop | Minimum 50K | Speed 50K+ / DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 25 minutes\nMin: 50000 | Max: 5000000"
     },
     {
         "id":  15049,
-        "category":  "cat_79",
+        "category":  "cat_78",
+        "category_id":  "cat_78",
         "category_name":  "YouTube » Views [ Live Stream ]",
         "name":  "YouTube Live Stream Views 15 Minutes⚡️",
         "rate_pkr":  27.3,
@@ -3874,11 +4136,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000000,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 15 Minutes⚡️\nEstimated Completion Time: 49 minutes\nMin: 50 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 15 Minutes⚡️\nEstimated Completion: 49 minutes\nMin: 50 | Max: 10000000"
     },
     {
         "id":  15050,
-        "category":  "cat_79",
+        "category":  "cat_78",
+        "category_id":  "cat_78",
         "category_name":  "YouTube » Views [ Live Stream ]",
         "name":  "YouTube Live Stream Views 30 Minutes⚡️",
         "rate_pkr":  54.6,
@@ -3886,23 +4149,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 30 Minutes⚡️\nEstimated Completion Time: 56 minutes\nMin: 50 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 30 Minutes⚡️\nEstimated Completion: 56 minutes\nMin: 50 | Max: 10000000"
     },
     {
         "id":  15051,
-        "category":  "cat_79",
+        "category":  "cat_78",
+        "category_id":  "cat_78",
         "category_name":  "YouTube » Views [ Live Stream ]",
         "name":  "YouTube Live Stream Views 60 Minutes⚡️",
         "rate_pkr":  109.2,
         "rate_usd":  0.39,
         "min":  50,
         "max":  10000000,
-        "avg_time":  "1 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 60 Minutes⚡️\nEstimated Completion Time: 1 hours and 21 minutes\nMin: 50 | Max: 10000000"
+        "avg_time":  "1 hour and 21 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 60 Minutes⚡️\nEstimated Completion: 1 hour and 21 minutes\nMin: 50 | Max: 10000000"
     },
     {
         "id":  15052,
-        "category":  "cat_79",
+        "category":  "cat_78",
+        "category_id":  "cat_78",
         "category_name":  "YouTube » Views [ Live Stream ]",
         "name":  "YouTube Live Stream Views 90 Minutes⚡️",
         "rate_pkr":  165.1,
@@ -3910,11 +4175,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 90 Minutes⚡️\nEstimated Completion Time: 38 minutes\nMin: 50 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 90 Minutes⚡️\nEstimated Completion: 38 minutes\nMin: 50 | Max: 10000000"
     },
     {
         "id":  15053,
-        "category":  "cat_79",
+        "category":  "cat_78",
+        "category_id":  "cat_78",
         "category_name":  "YouTube » Views [ Live Stream ]",
         "name":  "YouTube Live Stream Views 120 Minutes⚡️",
         "rate_pkr":  219.7,
@@ -3922,11 +4188,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 120 Minutes⚡️\nEstimated Completion Time: 29 minutes\nMin: 50 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Live Stream Views 120 Minutes⚡️\nEstimated Completion: 29 minutes\nMin: 50 | Max: 10000000"
     },
     {
         "id":  14571,
-        "category":  "cat_80",
+        "category":  "cat_79",
+        "category_id":  "cat_79",
         "category_name":  "YouTube » Likes [ Cheapest ]",
         "name":  "YouTube Likes | Speed 1K+ / Minute | No Refill | ⛔🔥",
         "rate_pkr":  93.6,
@@ -3934,11 +4201,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Speed 1K+ / Minute | No Refill | ⛔🔥\nEstimated Completion Time: 36 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Speed 1K+ / Minute | No Refill | ⛔🔥\nEstimated Completion: 36 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14520,
-        "category":  "cat_80",
+        "category":  "cat_79",
+        "category_id":  "cat_79",
         "category_name":  "YouTube » Likes [ Cheapest ]",
         "name":  "Youtube Likes | Speed 500K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡",
         "rate_pkr":  98.8,
@@ -3946,11 +4214,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion Time: 51 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion: 51 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14400,
-        "category":  "cat_80",
+        "category":  "cat_79",
+        "category_id":  "cat_79",
         "category_name":  "YouTube » Likes [ Cheapest ]",
         "name":  "Youtube Likes | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  117,
@@ -3958,11 +4227,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 45 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 45 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14124,
-        "category":  "cat_80",
+        "category":  "cat_79",
+        "category_id":  "cat_79",
         "category_name":  "YouTube » Likes [ Cheapest ]",
         "name":  "YouTube Likes | Speed 500K+ / DAY | No Refill | ⛔🔥⚡",
         "rate_pkr":  263.9,
@@ -3970,11 +4240,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Speed 500K+ / DAY | No Refill | ⛔🔥⚡\nEstimated Completion Time: 56 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Speed 500K+ / DAY | No Refill | ⛔🔥⚡\nEstimated Completion: 56 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14918,
-        "category":  "cat_81",
+        "category":  "cat_80",
+        "category_id":  "cat_80",
         "category_name":  "YouTube » Likes [ Non–Drop ]",
         "name":  "Youtube Likes | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  386.1,
@@ -3982,11 +4253,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Non–Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14862,
-        "category":  "cat_81",
+        "category":  "cat_80",
+        "category_id":  "cat_80",
         "category_name":  "YouTube » Likes [ Non–Drop ]",
         "name":  "Youtube Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  464.1,
@@ -3994,11 +4266,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 39 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 39 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13944,
-        "category":  "cat_82",
+        "category":  "cat_81",
+        "category_id":  "cat_81",
         "category_name":  "YouTube » Likes [ Best Speed ]",
         "name":  "Youtube Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡",
         "rate_pkr":  239.2,
@@ -4006,23 +4279,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14125,
-        "category":  "cat_82",
+        "category":  "cat_81",
+        "category_id":  "cat_81",
         "category_name":  "YouTube » Likes [ Best Speed ]",
         "name":  "Youtube Likes | Real | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  361.4,
         "rate_usd":  1.2907,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 17 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Real | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 1 hours and 17 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 17 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Real | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 1 hour and 17 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14526,
-        "category":  "cat_82",
+        "category":  "cat_81",
+        "category_id":  "cat_81",
         "category_name":  "YouTube » Likes [ Best Speed ]",
         "name":  "YouTube Likes | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  297.7,
@@ -4030,11 +4305,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 35 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Likes | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 35 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14561,
-        "category":  "cat_82",
+        "category":  "cat_81",
+        "category_id":  "cat_81",
         "category_name":  "YouTube » Likes [ Best Speed ]",
         "name":  "Youtube Likes | Real Profiles | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️⭐🔥⚡",
         "rate_pkr":  508.3,
@@ -4042,11 +4318,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Real Profiles | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️⭐🔥⚡\nEstimated Completion Time: 39 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Real Profiles | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️⭐🔥⚡\nEstimated Completion: 39 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  13942,
-        "category":  "cat_82",
+        "category":  "cat_81",
+        "category_id":  "cat_81",
         "category_name":  "YouTube » Likes [ Best Speed ]",
         "name":  "Youtube Likes | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐁𝐮𝐭𝐭𝐨𝐧 + 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅⭐🔥⚡",
         "rate_pkr":  383.5,
@@ -4054,11 +4331,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐁𝐮𝐭𝐭𝐨𝐧 + 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅⭐🔥⚡\nEstimated Completion Time: 41 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Youtube Likes | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐁𝐮𝐭𝐭𝐨𝐧 + 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅⭐🔥⚡\nEstimated Completion: 41 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14459,
-        "category":  "cat_83",
+        "category":  "cat_82",
+        "category_id":  "cat_82",
         "category_name":  "YouTube » Comments [ Cheapest ]",
         "name":  "YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  767,
@@ -4066,11 +4344,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  20000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 37 minutes\nMin: 5 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 37 minutes\nMin: 5 | Max: 20000"
     },
     {
         "id":  15392,
-        "category":  "cat_83",
+        "category":  "cat_82",
+        "category_id":  "cat_82",
         "category_name":  "YouTube » Comments [ Cheapest ]",
         "name":  "YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥",
         "rate_pkr":  1765.4,
@@ -4078,11 +4357,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  10000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥\nEstimated Completion Time: 31 minutes\nMin: 5 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | Non Drop | Speed 5000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥\nEstimated Completion: 31 minutes\nMin: 5 | Max: 10000"
     },
     {
         "id":  14458,
-        "category":  "cat_84",
+        "category":  "cat_83",
+        "category_id":  "cat_83",
         "category_name":  "YouTube » Comments [ Best Speed ]",
         "name":  "🆅🅸🅿 YouTube Comments | Custom Type | Real HQ | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️",
         "rate_pkr":  5300.1,
@@ -4090,11 +4370,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  100000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Comments | Custom Type | Real HQ | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion Time: 29 minutes\nMin: 5 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Comments | Custom Type | Real HQ | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion: 29 minutes\nMin: 5 | Max: 100000"
     },
     {
         "id":  14515,
-        "category":  "cat_84",
+        "category":  "cat_83",
+        "category_id":  "cat_83",
         "category_name":  "YouTube » Comments [ Best Speed ]",
         "name":  "🆅🅸🅿 YouTube Comments | Auto Title Related | Non Drop | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⚡️🔥",
         "rate_pkr":  2221.7,
@@ -4102,11 +4383,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  10000,
         "avg_time":  "3 hours and 45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Comments | Auto Title Related | Non Drop | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⚡️🔥\nEstimated Completion Time: 3 hours and 45 minutes\nMin: 5 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 YouTube Comments | Auto Title Related | Non Drop | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⚡️🔥\nEstimated Completion: 3 hours and 45 minutes\nMin: 5 | Max: 10000"
     },
     {
         "id":  14884,
-        "category":  "cat_85",
+        "category":  "cat_84",
+        "category_id":  "cat_84",
         "category_name":  "YouTube » Comments [ India 🇮🇳 ]",
         "name":  "YouTube Comments | Custom | India 🇮🇳 | Real Profiles | Non Drop | Speed 1000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥",
         "rate_pkr":  3989.7,
@@ -4114,11 +4396,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  300000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | India 🇮🇳 | Real Profiles | Non Drop | Speed 1000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥\nEstimated Completion Time: 57 minutes\nMin: 100 | Max: 300000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Comments | Custom | India 🇮🇳 | Real Profiles | Non Drop | Speed 1000+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥\nEstimated Completion: 57 minutes\nMin: 100 | Max: 300000"
     },
     {
         "id":  14701,
-        "category":  "cat_86",
+        "category":  "cat_85",
+        "category_id":  "cat_85",
         "category_name":  "YouTube » Subscribe [ No Refill ]",
         "name":  "YouTube Subscribe | Drop–100% | Speed 100K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡",
         "rate_pkr":  9.1,
@@ -4126,11 +4409,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 100K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion Time: 49 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 100K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion: 49 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  13990,
-        "category":  "cat_86",
+        "category":  "cat_85",
+        "category_id":  "cat_85",
         "category_name":  "YouTube » Subscribe [ No Refill ]",
         "name":  "YouTube Subscribe | Drop–100% | Speed 500K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡",
         "rate_pkr":  14.3,
@@ -4138,11 +4422,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  100000,
         "avg_time":  "4 hours and 13 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 500K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion Time: 4 hours and 13 minutes\nMin: 1 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 500K+ / DAY | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion: 4 hours and 13 minutes\nMin: 1 | Max: 100000"
     },
     {
         "id":  15448,
-        "category":  "cat_86",
+        "category":  "cat_85",
+        "category_id":  "cat_85",
         "category_name":  "YouTube » Subscribe [ No Refill ]",
         "name":  "YouTube Subscribe | Drop–100% | Speed 10K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡",
         "rate_pkr":  10.4,
@@ -4150,23 +4435,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "2 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 10K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion Time: 2 hours and 37 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 10K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion: 2 hours and 37 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14618,
-        "category":  "cat_86",
+        "category":  "cat_85",
+        "category_id":  "cat_85",
         "category_name":  "YouTube » Subscribe [ No Refill ]",
         "name":  "YouTube Subscribe | Drop–100% | Speed 500K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡",
         "rate_pkr":  15.6,
         "rate_usd":  0.0557,
         "min":  1,
         "max":  500000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 500K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 1 | Max: 500000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Drop–100% | Speed 500K+ / Hour | Start 0–5 Mins | No–Refill | ⛔🔥⚡\nEstimated Completion: 1 hour and 5 minutes\nMin: 1 | Max: 500000"
     },
     {
         "id":  15415,
-        "category":  "cat_87",
+        "category":  "cat_86",
+        "category_id":  "cat_86",
         "category_name":  "YouTube » Subscribe [ Non–Drop ]",
         "name":  "YouTube Subscribe | Non–Drop | Speed 50+ / DAY | Start Time 0–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥",
         "rate_pkr":  5850,
@@ -4174,11 +4461,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  500,
         "avg_time":  "28 hours and 20 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Non–Drop | Speed 50+ / DAY | Start Time 0–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion Time: 28 hours and 20 minutes\nMin: 50 | Max: 500"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Subscribe | Non–Drop | Speed 50+ / DAY | Start Time 0–12 Hours | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥\nEstimated Completion: 28 hours and 20 minutes\nMin: 50 | Max: 500"
     },
     {
         "id":  14384,
-        "category":  "cat_88",
+        "category":  "cat_87",
+        "category_id":  "cat_87",
         "category_name":  "YouTube » Watchtime [ RDP Method ]",
         "name":  "YouTube Watchtime | RDP Method | Non–Drop | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 | 🔥",
         "rate_pkr":  4712.5,
@@ -4186,11 +4474,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  5000,
         "avg_time":  "214 hours and 15 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Watchtime | RDP Method | Non–Drop | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 | 🔥\nEstimated Completion Time: 214 hours and 15 minutes\nMin: 1000 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Watchtime | RDP Method | Non–Drop | 𝐑𝐞𝐚𝐝 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 | 🔥\nEstimated Completion: 214 hours and 15 minutes\nMin: 1000 | Max: 5000"
     },
     {
         "id":  14693,
-        "category":  "cat_89",
+        "category":  "cat_88",
+        "category_id":  "cat_88",
         "category_name":  "YouTube » Services [ Shorts ]",
         "name":  "YouTube Short Likes | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅",
         "rate_pkr":  1894.1,
@@ -4198,35 +4487,38 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Short Likes | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion Time: 44 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Short Likes | Speed 50K / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion: 44 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14617,
-        "category":  "cat_89",
+        "category":  "cat_88",
+        "category_id":  "cat_88",
         "category_name":  "YouTube » Services [ Shorts ]",
         "name":  "YouTube Short Video View | Non Drop | Speed 500+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅",
         "rate_pkr":  431.6,
         "rate_usd":  1.5414,
         "min":  100,
         "max":  500000,
-        "avg_time":  "1 hours and 38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video View | Non Drop | Speed 500+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅\nEstimated Completion Time: 1 hours and 38 minutes\nMin: 100 | Max: 500000"
+        "avg_time":  "1 hour and 38 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video View | Non Drop | Speed 500+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅\nEstimated Completion: 1 hour and 38 minutes\nMin: 100 | Max: 500000"
     },
     {
         "id":  14696,
-        "category":  "cat_89",
+        "category":  "cat_88",
+        "category_id":  "cat_88",
         "category_name":  "YouTube » Services [ Shorts ]",
         "name":  "YouTube Short Video View | Non Drop | Speed 1K+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅",
         "rate_pkr":  449.8,
         "rate_usd":  1.6064,
         "min":  100,
         "max":  500000,
-        "avg_time":  "1 hours and 47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video View | Non Drop | Speed 1K+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅\nEstimated Completion Time: 1 hours and 47 minutes\nMin: 100 | Max: 500000"
+        "avg_time":  "1 hour and 47 minutes",
+        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video View | Non Drop | Speed 1K+ Per DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅\nEstimated Completion: 1 hour and 47 minutes\nMin: 100 | Max: 500000"
     },
     {
         "id":  14694,
-        "category":  "cat_89",
+        "category":  "cat_88",
+        "category_id":  "cat_88",
         "category_name":  "YouTube » Services [ Shorts ]",
         "name":  "YouTube Short Video Views | Non Drop | Native Ads | Speed 500K+ Per DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️",
         "rate_pkr":  507,
@@ -4234,11 +4526,12 @@ const MASTER_SERVICES = [
         "min":  20000,
         "max":  10000000,
         "avg_time":  "96 hours and 42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video Views | Non Drop | Native Ads | Speed 500K+ Per DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion Time: 96 hours and 42 minutes\nMin: 20000 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: YouTube Short Video Views | Non Drop | Native Ads | Speed 500K+ Per DAY | Start Time 0-12 Hours | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion: 96 hours and 42 minutes\nMin: 20000 | Max: 10000000"
     },
     {
         "id":  15496,
-        "category":  "cat_90",
+        "category":  "cat_89",
+        "category_id":  "cat_89",
         "category_name":  "Facebook » Reviews [ Real Profiles ]",
         "name":  "Facebook Page Reviews | Random | DP Profile | Speed 15+ / DAY | Start Time 0–12 Hours | 🔥",
         "rate_pkr":  13000,
@@ -4246,11 +4539,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  40,
         "avg_time":  "3 hours and 13 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Random | DP Profile | Speed 15+ / DAY | Start Time 0–12 Hours | 🔥\nEstimated Completion Time: 3 hours and 13 minutes\nMin: 5 | Max: 40"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Random | DP Profile | Speed 15+ / DAY | Start Time 0–12 Hours | 🔥\nEstimated Completion: 3 hours and 13 minutes\nMin: 5 | Max: 40"
     },
     {
         "id":  15497,
-        "category":  "cat_90",
+        "category":  "cat_89",
+        "category_id":  "cat_89",
         "category_name":  "Facebook » Reviews [ Real Profiles ]",
         "name":  "Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 🔥",
         "rate_pkr":  15600,
@@ -4258,23 +4552,25 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  40,
         "avg_time":  "3 hours and 9 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 🔥\nEstimated Completion Time: 3 hours and 9 minutes\nMin: 5 | Max: 40"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 🔥\nEstimated Completion: 3 hours and 9 minutes\nMin: 5 | Max: 40"
     },
     {
         "id":  15498,
-        "category":  "cat_90",
+        "category":  "cat_89",
+        "category_id":  "cat_89",
         "category_name":  "Facebook » Reviews [ Real Profiles ]",
         "name":  "Facebook Page Reviews | Custom | DP Profile | Speed 30+ / DAY | Start Time 0–6 Hours | 🔥⚡️",
         "rate_pkr":  20800,
         "rate_usd":  74.2857,
         "min":  5,
         "max":  40,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 30+ / DAY | Start Time 0–6 Hours | 🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5 | Max: 40"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 30+ / DAY | Start Time 0–6 Hours | 🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5 | Max: 40"
     },
     {
         "id":  15499,
-        "category":  "cat_90",
+        "category":  "cat_89",
+        "category_id":  "cat_89",
         "category_name":  "Facebook » Reviews [ Real Profiles ]",
         "name":  "Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 15 Days Refill | ✅️🔥",
         "rate_pkr":  23400,
@@ -4282,11 +4578,12 @@ const MASTER_SERVICES = [
         "min":  5,
         "max":  40,
         "avg_time":  "17 hours and 45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 15 Days Refill | ✅️🔥\nEstimated Completion Time: 17 hours and 45 minutes\nMin: 5 | Max: 40"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Page Reviews | Custom | DP Profile | Speed 10+ / DAY | Start Time 0–12 Hours | 15 Days Refill | ✅️🔥\nEstimated Completion: 17 hours and 45 minutes\nMin: 5 | Max: 40"
     },
     {
         "id":  15174,
-        "category":  "cat_91",
+        "category":  "cat_90",
+        "category_id":  "cat_90",
         "category_name":  "Facebook » Page [ Monetized ]",
         "name":  "Facebook CM Setup Page | Content Monetized | Ready to Setup | 🔥",
         "rate_pkr":  16965,
@@ -4294,11 +4591,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "4 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook CM Setup Page | Content Monetized | Ready to Setup | 🔥\nEstimated Completion Time: 4 hours and 51 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook CM Setup Page | Content Monetized | Ready to Setup | 🔥\nEstimated Completion: 4 hours and 51 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15103,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  59.8,
@@ -4306,11 +4604,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "2 hours and 33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 2 hours and 33 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 2 hours and 33 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  14563,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥",
         "rate_pkr":  68.9,
@@ -4318,35 +4617,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion Time: 57 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion: 57 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15104,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥",
         "rate_pkr":  70.2,
         "rate_usd":  0.2507,
         "min":  100,
         "max":  45000,
-        "avg_time":  "1 hours and 49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion Time: 1 hours and 49 minutes\nMin: 100 | Max: 45000"
+        "avg_time":  "1 hour and 49 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion: 1 hour and 49 minutes\nMin: 100 | Max: 45000"
     },
     {
         "id":  14491,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥",
         "rate_pkr":  70.2,
         "rate_usd":  0.2507,
         "min":  100,
         "max":  45000,
-        "avg_time":  "1 hours and 40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion Time: 1 hours and 40 minutes\nMin: 100 | Max: 45000"
+        "avg_time":  "1 hour and 40 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Speed 20K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion: 1 hour and 40 minutes\nMin: 100 | Max: 45000"
     },
     {
         "id":  14684,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers + Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  117,
@@ -4354,11 +4656,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  50000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 36 minutes\nMin: 1 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 36 minutes\nMin: 1 | Max: 50000"
     },
     {
         "id":  15054,
-        "category":  "cat_92",
+        "category":  "cat_91",
+        "category_id":  "cat_91",
         "category_name":  "Facebook » Followers [ Cheapest ]",
         "name":  "Facebook Followers + Likes | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥",
         "rate_pkr":  81.9,
@@ -4366,11 +4669,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  20000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion Time: 44 minutes\nMin: 100 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion: 44 minutes\nMin: 100 | Max: 20000"
     },
     {
         "id":  15465,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  68.9,
@@ -4378,11 +4682,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 39 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 39 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15451,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  93.6,
@@ -4390,11 +4695,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 51 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 51 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15452,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  107.9,
@@ -4402,11 +4708,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 42 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15453,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  81.9,
@@ -4414,11 +4721,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  20000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 27 minutes\nMin: 100 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | MiX Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 27 minutes\nMin: 100 | Max: 20000"
     },
     {
         "id":  15488,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  124.8,
@@ -4426,11 +4734,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 46 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15489,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  124.8,
@@ -4438,11 +4747,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 36 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15098,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡",
         "rate_pkr":  179.4,
@@ -4450,23 +4760,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion: 48 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15099,
-        "category":  "cat_93",
+        "category":  "cat_92",
+        "category_id":  "cat_92",
         "category_name":  "Facebook » Followers [ Non–Drop ]",
         "name":  "Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡",
         "rate_pkr":  179.4,
         "rate_usd":  0.6407,
         "min":  10,
         "max":  500000,
-        "avg_time":  "1 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion Time: 1 hours and 18 minutes\nMin: 10 | Max: 500000"
+        "avg_time":  "1 hour and 18 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion: 1 hour and 18 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15030,
-        "category":  "cat_94",
+        "category":  "cat_93",
+        "category_id":  "cat_93",
         "category_name":  "Facebook » Followers + Likes",
         "name":  "Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  93.6,
@@ -4474,11 +4786,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 31 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  13218,
-        "category":  "cat_94",
+        "category":  "cat_93",
+        "category_id":  "cat_93",
         "category_name":  "Facebook » Followers + Likes",
         "name":  "Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  81.9,
@@ -4486,11 +4799,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  20000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 57 minutes\nMin: 100 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Followers + Likes | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 57 minutes\nMin: 100 | Max: 20000"
     },
     {
         "id":  14570,
-        "category":  "cat_95",
+        "category":  "cat_94",
+        "category_id":  "cat_94",
         "category_name":  "Facebook » Post Likes [ Cheapest ]",
         "name":  "Facebook Post Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  93.6,
@@ -4498,11 +4812,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  200000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 47 minutes\nMin: 10 | Max: 200000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 10K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 47 minutes\nMin: 10 | Max: 200000"
     },
     {
         "id":  13658,
-        "category":  "cat_95",
+        "category":  "cat_94",
+        "category_id":  "cat_94",
         "category_name":  "Facebook » Post Likes [ Cheapest ]",
         "name":  "Facebook Post Likes | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥",
         "rate_pkr":  117,
@@ -4510,11 +4825,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion Time: 38 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥\nEstimated Completion: 38 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  13674,
-        "category":  "cat_96",
+        "category":  "cat_95",
+        "category_id":  "cat_95",
         "category_name":  "Facebook » Post Likes [ Best Speed ]",
         "name":  "Facebook Post Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  117,
@@ -4522,11 +4838,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  500000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 50 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 500K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 31 minutes\nMin: 50 | Max: 500000"
     },
     {
         "id":  14162,
-        "category":  "cat_96",
+        "category":  "cat_95",
+        "category_id":  "cat_95",
         "category_name":  "Facebook » Post Likes [ Best Speed ]",
         "name":  "Facebook Post Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  117,
@@ -4534,11 +4851,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 39 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 39 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14163,
-        "category":  "cat_96",
+        "category":  "cat_95",
+        "category_id":  "cat_95",
         "category_name":  "Facebook » Post Likes [ Best Speed ]",
         "name":  "Facebook Post Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️",
         "rate_pkr":  140.4,
@@ -4546,11 +4864,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion Time: 33 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Likes | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡️\nEstimated Completion: 33 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  13657,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Like 👍 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
@@ -4558,11 +4877,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 27 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13051,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Heart ❤️ | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  35.1,
@@ -4570,11 +4890,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Heart ❤️ | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 45 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Heart ❤️ | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 45 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13052,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Care 🥰 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
@@ -4582,11 +4903,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 22 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 22 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13053,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Wow 😲 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
@@ -4594,11 +4916,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13054,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Haha 😂 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
@@ -4606,23 +4929,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 34 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13055,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Sad 😢 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
         "rate_usd":  0.1486,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "1 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😢 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 1 hours and 18 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "1 hour and 18 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😢 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 1 hour and 18 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  14411,
-        "category":  "cat_97",
+        "category":  "cat_96",
+        "category_id":  "cat_96",
         "category_name":  "Facebook » Reactions [ Cheapest ]",
         "name":  "Facebook Post Reaction | Angry 😡 | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  41.6,
@@ -4630,11 +4955,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 32 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  14877,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4642,11 +4968,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 47 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 47 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14171,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Love ❤️ | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4654,23 +4981,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Love ❤️ | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 55 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Love ❤️ | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 55 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13656,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
         "rate_usd":  0.7521,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 12 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 12 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 12 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13660,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Sad 😥 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4678,11 +5007,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😥 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😥 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 34 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13659,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4690,11 +5020,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 28 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 28 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  13661,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4702,11 +5033,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 44 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 44 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14751,
-        "category":  "cat_98",
+        "category":  "cat_97",
+        "category_id":  "cat_97",
         "category_name":  "Facebook » Reactions [ Lifetime ⚡️]",
         "name":  "Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  210.6,
@@ -4714,11 +5046,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 58 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 58 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15341,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4726,11 +5059,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Like 👍 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 42 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14879,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Heart ❤️ | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4738,11 +5072,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Heart ❤️ | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Heart ❤️ | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 42 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14878,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4750,11 +5085,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Wow 😲 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 31 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15342,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4762,11 +5098,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Haha 😂 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 31 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14885,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Sad 😢 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4774,11 +5111,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😢 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Sad 😢 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 42 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14880,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4786,11 +5124,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 37 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Care 🥰 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 37 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15343,
-        "category":  "cat_99",
+        "category":  "cat_98",
+        "category_id":  "cat_98",
         "category_name":  "Facebook » Reactions [ Best Speed ]",
         "name":  "Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️",
         "rate_pkr":  163.8,
@@ -4798,11 +5137,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Post Reaction | Angry 😡 | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | ⛔🔥⚡️\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15423,
-        "category":  "cat_100",
+        "category":  "cat_99",
+        "category_id":  "cat_99",
         "category_name":  "Facebook » Reactions [ Mix Pack ]",
         "name":  "Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  141.7,
@@ -4810,11 +5150,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 32 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 32 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15424,
-        "category":  "cat_100",
+        "category":  "cat_99",
+        "category_id":  "cat_99",
         "category_name":  "Facebook » Reactions [ Mix Pack ]",
         "name":  "Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡",
         "rate_pkr":  152.1,
@@ -4822,11 +5163,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion: 33 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  15425,
-        "category":  "cat_100",
+        "category":  "cat_99",
+        "category_id":  "cat_99",
         "category_name":  "Facebook » Reactions [ Mix Pack ]",
         "name":  "Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡",
         "rate_pkr":  162.5,
@@ -4834,35 +5176,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  10000000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion Time: 24 minutes\nMin: 100 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Good Reactions | Real Profiles | Non Drop | Speed 50K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ☑️🔥⚡\nEstimated Completion: 24 minutes\nMin: 100 | Max: 10000000"
     },
     {
         "id":  12912,
-        "category":  "cat_101",
+        "category":  "cat_100",
+        "category_id":  "cat_100",
         "category_name":  "Facebook » Views [ Cheapest ]",
         "name":  "Facebook Video Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️",
         "rate_pkr":  10.4,
         "rate_usd":  0.0371,
         "min":  100,
         "max":  70000,
-        "avg_time":  "1 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️\nEstimated Completion Time: 1 hours and 10 minutes\nMin: 100 | Max: 70000"
+        "avg_time":  "1 hour and 10 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️\nEstimated Completion: 1 hour and 10 minutes\nMin: 100 | Max: 70000"
     },
     {
         "id":  13673,
-        "category":  "cat_101",
+        "category":  "cat_100",
+        "category_id":  "cat_100",
         "category_name":  "Facebook » Views [ Cheapest ]",
         "name":  "Facebook Reel Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️",
         "rate_pkr":  10.4,
         "rate_usd":  0.0371,
         "min":  100,
         "max":  70000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 100 | Max: 70000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views | Non Drop | Speed 10K+ / DAY | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ☑️\nEstimated Completion: 1 hour and 5 minutes\nMin: 100 | Max: 70000"
     },
     {
         "id":  15060,
-        "category":  "cat_101",
+        "category":  "cat_100",
+        "category_id":  "cat_100",
         "category_name":  "Facebook » Views [ Cheapest ]",
         "name":  "Facebook Reel Views / Plays | Non Drop | Speed 10K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥",
         "rate_pkr":  13,
@@ -4870,11 +5215,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000000,
         "avg_time":  "4 hours and 54 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views / Plays | Non Drop | Speed 10K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥\nEstimated Completion Time: 4 hours and 54 minutes\nMin: 500 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views / Plays | Non Drop | Speed 10K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥\nEstimated Completion: 4 hours and 54 minutes\nMin: 500 | Max: 100000000"
     },
     {
         "id":  14861,
-        "category":  "cat_101",
+        "category":  "cat_100",
+        "category_id":  "cat_100",
         "category_name":  "Facebook » Views [ Cheapest ]",
         "name":  "Facebook Video Views | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  23.4,
@@ -4882,23 +5228,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 56 minutes\nMin: 500 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 5000+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 56 minutes\nMin: 500 | Max: 100000000"
     },
     {
         "id":  14396,
-        "category":  "cat_102",
+        "category":  "cat_101",
+        "category_id":  "cat_101",
         "category_name":  "Facebook » Views [ Best Speed ]",
         "name":  "Facebook Reel Views | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  27.3,
         "rate_usd":  0.0975,
         "min":  500,
         "max":  10000000,
-        "avg_time":  "1 hours and 53 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 1 hours and 53 minutes\nMin: 500 | Max: 10000000"
+        "avg_time":  "1 hour and 53 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Reel Views | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 1 hour and 53 minutes\nMin: 500 | Max: 10000000"
     },
     {
         "id":  14146,
-        "category":  "cat_102",
+        "category":  "cat_101",
+        "category_id":  "cat_101",
         "category_name":  "Facebook » Views [ Best Speed ]",
         "name":  "Facebook Video Views | Non Drop | Speed 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  44.2,
@@ -4906,11 +5254,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000000,
         "avg_time":  "58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 58 minutes\nMin: 500 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Video Views | Non Drop | Speed 50K / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 58 minutes\nMin: 500 | Max: 100000000"
     },
     {
         "id":  14147,
-        "category":  "cat_102",
+        "category":  "cat_101",
+        "category_id":  "cat_101",
         "category_name":  "Facebook » Views [ Best Speed ]",
         "name":  "Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡",
         "rate_pkr":  10.4,
@@ -4918,23 +5267,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  2147483647,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡\nEstimated Completion Time: 50 minutes\nMin: 10 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡\nEstimated Completion: 50 minutes\nMin: 10 | Max: 2147483647"
     },
     {
         "id":  15256,
-        "category":  "cat_103",
+        "category":  "cat_102",
+        "category_id":  "cat_102",
         "category_name":  "Facebook » Views [ Monitizable ]",
         "name":  "Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡",
         "rate_pkr":  9.1,
         "rate_usd":  0.0325,
         "min":  10,
         "max":  2147483647,
-        "avg_time":  "1 hours and 29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡\nEstimated Completion Time: 1 hours and 29 minutes\nMin: 10 | Max: 2147483647"
+        "avg_time":  "1 hour and 29 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Views | Monetizable | Non–Drop | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️⭐️🔥⚡\nEstimated Completion: 1 hour and 29 minutes\nMin: 10 | Max: 2147483647"
     },
     {
         "id":  14901,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 15 Minutes⚡️",
         "rate_pkr":  198.9,
@@ -4942,11 +5293,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 15 Minutes⚡️\nEstimated Completion Time: 41 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 15 Minutes⚡️\nEstimated Completion: 41 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14902,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 30 Minutes⚡️",
         "rate_pkr":  397.8,
@@ -4954,11 +5306,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 30 Minutes⚡️\nEstimated Completion Time: 29 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 30 Minutes⚡️\nEstimated Completion: 29 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14903,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 60 Minutes⚡️",
         "rate_pkr":  795.6,
@@ -4966,11 +5319,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 60 Minutes⚡️\nEstimated Completion Time: 31 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 60 Minutes⚡️\nEstimated Completion: 31 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14904,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 90 Minutes⚡️",
         "rate_pkr":  1193.4,
@@ -4978,11 +5332,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 90 Minutes⚡️\nEstimated Completion Time: 43 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 90 Minutes⚡️\nEstimated Completion: 43 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14905,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 120 Minutes⚡️",
         "rate_pkr":  1591.2,
@@ -4990,23 +5345,25 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 120 Minutes⚡️\nEstimated Completion Time: 48 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 120 Minutes⚡️\nEstimated Completion: 48 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14906,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 150 Minutes⚡️",
         "rate_pkr":  1990.3,
         "rate_usd":  7.1082,
         "min":  20,
         "max":  10000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 150 Minutes⚡️\nEstimated Completion Time: 40 minutes\nMin: 20 | Max: 10000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 150 Minutes⚡️\nEstimated Completion: 25 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14907,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 180 Minutes⚡️",
         "rate_pkr":  2388.1,
@@ -5014,11 +5371,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 180 Minutes⚡️\nEstimated Completion Time: 41 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 180 Minutes⚡️\nEstimated Completion: 41 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  14908,
-        "category":  "cat_104",
+        "category":  "cat_103",
+        "category_id":  "cat_103",
         "category_name":  "Facebook » Views [ Live Stream ]",
         "name":  "Facebook Live Stream Views 300 Minutes⚡️",
         "rate_pkr":  3980.6,
@@ -5026,11 +5384,12 @@ const MASTER_SERVICES = [
         "min":  20,
         "max":  10000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 300 Minutes⚡️\nEstimated Completion Time: 31 minutes\nMin: 20 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Live Stream Views 300 Minutes⚡️\nEstimated Completion: 31 minutes\nMin: 20 | Max: 10000"
     },
     {
         "id":  15454,
-        "category":  "cat_105",
+        "category":  "cat_104",
+        "category_id":  "cat_104",
         "category_name":  "Facebook » Group Members [ Lifetime ]",
         "name":  "Facebook Group Members | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  133.9,
@@ -5038,23 +5397,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Group Members | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 39 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Group Members | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 39 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15173,
-        "category":  "cat_105",
+        "category":  "cat_104",
+        "category_id":  "cat_104",
         "category_name":  "Facebook » Group Members [ Lifetime ]",
         "name":  "Facebook Group Members | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  137.8,
         "rate_usd":  0.4921,
         "min":  10,
         "max":  100000,
-        "avg_time":  "1 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Group Members | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 1 hours and 51 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "1 hour and 51 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Facebook Group Members | Real Profiles | Non–Drop | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 1 hour and 51 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15120,
-        "category":  "cat_106",
+        "category":  "cat_105",
+        "category_id":  "cat_105",
         "category_name":  "Facebook » Shares [ Best Speed ]",
         "name":  "Facebook Shares | All Links | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  494,
@@ -5062,59 +5423,64 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  1000000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Facebook Shares | All Links | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 30 minutes\nMin: 50 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Facebook Shares | All Links | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 30 minutes\nMin: 50 | Max: 1000000"
     },
     {
         "id":  15434,
-        "category":  "cat_107",
+        "category":  "cat_106",
+        "category_id":  "cat_106",
         "category_name":  "X Twitter » Subscription [ Premium ]",
         "name":  "Twitter Premium | Blue Tick | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  3016,
         "rate_usd":  10.7714,
         "min":  60,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 40 minutes\nMin: 60 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 25 minutes\nMin: 60 | Max: 1000000"
     },
     {
         "id":  15435,
-        "category":  "cat_107",
+        "category":  "cat_106",
+        "category_id":  "cat_106",
         "category_name":  "X Twitter » Subscription [ Premium ]",
         "name":  "Twitter Premium | Blue Tick | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  3770,
         "rate_usd":  13.4643,
         "min":  90,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 40 minutes\nMin: 90 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 25 minutes\nMin: 90 | Max: 1000000"
     },
     {
         "id":  15436,
-        "category":  "cat_107",
+        "category":  "cat_106",
+        "category_id":  "cat_106",
         "category_name":  "X Twitter » Subscription [ Premium ]",
         "name":  "Twitter Premium | Blue Tick | 𝟏𝟓𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  4901,
         "rate_usd":  17.5036,
         "min":  150,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟏𝟓𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 40 minutes\nMin: 150 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟏𝟓𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 25 minutes\nMin: 150 | Max: 1000000"
     },
     {
         "id":  15437,
-        "category":  "cat_107",
+        "category":  "cat_106",
+        "category_id":  "cat_106",
         "category_name":  "X Twitter » Subscription [ Premium ]",
         "name":  "Twitter Premium | Blue Tick | 𝟏𝟖𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥",
         "rate_pkr":  5655,
         "rate_usd":  20.1964,
         "min":  180,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟏𝟖𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion Time: 40 minutes\nMin: 180 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Premium | Blue Tick | 𝟏𝟖𝟎 𝐃𝐚𝐲𝐬 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥\nEstimated Completion: 25 minutes\nMin: 180 | Max: 1000000"
     },
     {
         "id":  13841,
-        "category":  "cat_108",
+        "category":  "cat_107",
+        "category_id":  "cat_107",
         "category_name":  "X Twitter » Followers [ Best Speed ]",
         "name":  "Twitter Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  1380.6,
@@ -5122,11 +5488,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 41 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 41 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15028,
-        "category":  "cat_108",
+        "category":  "cat_107",
+        "category_id":  "cat_107",
         "category_name":  "X Twitter » Followers [ Best Speed ]",
         "name":  "Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️",
         "rate_pkr":  1262.3,
@@ -5134,11 +5501,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion: 32 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15029,
-        "category":  "cat_108",
+        "category":  "cat_107",
+        "category_id":  "cat_107",
         "category_name":  "X Twitter » Followers [ Best Speed ]",
         "name":  "Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️ 🔥 ⚡️",
         "rate_pkr":  3097.9,
@@ -5146,11 +5514,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️ 🔥 ⚡️\nEstimated Completion Time: 41 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | HQ Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️ 🔥 ⚡️\nEstimated Completion: 41 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15255,
-        "category":  "cat_109",
+        "category":  "cat_108",
+        "category_id":  "cat_108",
         "category_name":  "X Twitter » Followers [ Cheapest ]",
         "name":  "Twitter Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  800.8,
@@ -5158,11 +5527,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  500000,
         "avg_time":  "11 hours and 20 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 11 hours and 20 minutes\nMin: 100 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Speed 50K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 11 hours and 20 minutes\nMin: 100 | Max: 500000"
     },
     {
         "id":  14410,
-        "category":  "cat_109",
+        "category":  "cat_108",
+        "category_id":  "cat_108",
         "category_name":  "X Twitter » Followers [ Cheapest ]",
         "name":  "Twitter Followers | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️",
         "rate_pkr":  464.1,
@@ -5170,11 +5540,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  100000,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion Time: 50 minutes\nMin: 50 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Speed 100K+ / DAY | Start Time 0–1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion: 50 minutes\nMin: 50 | Max: 100000"
     },
     {
         "id":  14893,
-        "category":  "cat_110",
+        "category":  "cat_109",
+        "category_id":  "cat_109",
         "category_name":  "X Twitter » Followers [ Non Drop ]",
         "name":  "Twitter Followers | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️ 🔥 ⚡️",
         "rate_pkr":  1407.9,
@@ -5182,11 +5553,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion Time: 40 minutes\nMin: 50 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Followers | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️ 🔥 ⚡️\nEstimated Completion: 40 minutes\nMin: 50 | Max: 10000"
     },
     {
         "id":  12987,
-        "category":  "cat_111",
+        "category":  "cat_110",
+        "category_id":  "cat_110",
         "category_name":  "X Twitter » Likes [ Best Speed ]",
         "name":  "Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | 🔥⚡",
         "rate_pkr":  380.9,
@@ -5194,11 +5566,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | 🔥⚡\nEstimated Completion Time: 56 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | No Refill | 🔥⚡\nEstimated Completion: 56 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  15261,
-        "category":  "cat_111",
+        "category":  "cat_110",
+        "category_id":  "cat_110",
         "category_name":  "X Twitter » Likes [ Best Speed ]",
         "name":  "Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡",
         "rate_pkr":  942.5,
@@ -5206,11 +5579,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  5000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 38 minutes\nMin: 10 | Max: 5000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Likes | Speed 50K+ / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡\nEstimated Completion: 38 minutes\nMin: 10 | Max: 5000"
     },
     {
         "id":  14678,
-        "category":  "cat_112",
+        "category":  "cat_111",
+        "category_id":  "cat_111",
         "category_name":  "X Twitter » Impressions [ Best Speed ]",
         "name":  "Twitter Twitter Tweet/Video Views + Impressions + Engagements + Details + Profile Visits | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡",
         "rate_pkr":  0.52,
@@ -5218,11 +5592,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Twitter Tweet/Video Views + Impressions + Engagements + Details + Profile Visits | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 100 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Twitter Tweet/Video Views + Impressions + Engagements + Details + Profile Visits | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝐑𝐞𝐟𝐢𝐥𝐥 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 | ✅️🔥⚡\nEstimated Completion: 48 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  13312,
-        "category":  "cat_112",
+        "category":  "cat_111",
+        "category_id":  "cat_111",
         "category_name":  "X Twitter » Impressions [ Best Speed ]",
         "name":  "Twitter Impressions | 𝐀𝐝𝐝 𝐢𝐧 𝐃𝐚𝐬𝐡𝐛𝐨𝐚𝐫𝐝 | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡",
         "rate_pkr":  22.1,
@@ -5230,35 +5605,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Impressions | 𝐀𝐝𝐝 𝐢𝐧 𝐃𝐚𝐬𝐡𝐛𝐨𝐚𝐫𝐝 | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion Time: 32 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Impressions | 𝐀𝐝𝐝 𝐢𝐧 𝐃𝐚𝐬𝐡𝐛𝐨𝐚𝐫𝐝 | Non–Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅️🔥⚡\nEstimated Completion: 32 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  13868,
-        "category":  "cat_112",
+        "category":  "cat_111",
+        "category_id":  "cat_111",
         "category_name":  "X Twitter » Impressions [ Best Speed ]",
-        "name":  "Twitter Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡",
+        "name":  "Twitter Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡",
         "rate_pkr":  0.78,
         "rate_usd":  0.0028,
         "min":  100,
         "max":  500000000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 100 | Max: 500000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Impressions | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡\nEstimated Completion: 33 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  14427,
-        "category":  "cat_113",
+        "category":  "cat_112",
+        "category_id":  "cat_112",
         "category_name":  "X Twitter » Profile Visit [ Best Speed ]",
-        "name":  "Twitter Profile Visits | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡",
+        "name":  "Twitter Profile Visits | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡",
         "rate_pkr":  1.3,
         "rate_usd":  0.0046,
         "min":  100,
         "max":  10000000000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Profile Visits | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 47 minutes\nMin: 100 | Max: 10000000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Profile Visits | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡\nEstimated Completion: 47 minutes\nMin: 100 | Max: 10000000000"
     },
     {
         "id":  14568,
-        "category":  "cat_114",
+        "category":  "cat_113",
+        "category_id":  "cat_113",
         "category_name":  "X Twitter » Views [ For Tweet ]",
         "name":  "Twitter Tweet Views | Speed 1M+ / DAY | Start Time 0-5 Minutes | 🔥⚡️",
         "rate_pkr":  1.3,
@@ -5266,11 +5644,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 1M+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion Time: 27 minutes\nMin: 100 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 1M+ / DAY | Start Time 0-5 Minutes | 🔥⚡️\nEstimated Completion: 27 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  14197,
-        "category":  "cat_114",
+        "category":  "cat_113",
+        "category_id":  "cat_113",
         "category_name":  "X Twitter » Views [ For Tweet ]",
         "name":  "Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 🔥⚡",
         "rate_pkr":  3.9,
@@ -5278,11 +5657,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  500000000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 🔥⚡\nEstimated Completion Time: 39 minutes\nMin: 100 | Max: 500000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 🔥⚡\nEstimated Completion: 39 minutes\nMin: 100 | Max: 500000000"
     },
     {
         "id":  14608,
-        "category":  "cat_114",
+        "category":  "cat_113",
+        "category_id":  "cat_113",
         "category_name":  "X Twitter » Views [ For Tweet ]",
         "name":  "Twitter Tweet Views | Speed 50K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  3.9,
@@ -5290,11 +5670,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 50K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 29 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 50K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 29 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  13844,
-        "category":  "cat_114",
+        "category":  "cat_113",
+        "category_id":  "cat_113",
         "category_name":  "X Twitter » Views [ For Tweet ]",
         "name":  "Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡",
         "rate_pkr":  0.91,
@@ -5302,11 +5683,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡\nEstimated Completion Time: 32 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡\nEstimated Completion: 32 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  14567,
-        "category":  "cat_114",
+        "category":  "cat_113",
+        "category_id":  "cat_113",
         "category_name":  "X Twitter » Views [ For Tweet ]",
         "name":  "Twitter Tweet Views | Non Drop | Speed 10M / DAY | Start Time 0-5 Minutes | 🔥⚡",
         "rate_pkr":  0.78,
@@ -5314,11 +5696,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Non Drop | Speed 10M / DAY | Start Time 0-5 Minutes | 🔥⚡\nEstimated Completion Time: 23 minutes\nMin: 100 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Non Drop | Speed 10M / DAY | Start Time 0-5 Minutes | 🔥⚡\nEstimated Completion: 23 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  12994,
-        "category":  "cat_115",
+        "category":  "cat_114",
+        "category_id":  "cat_114",
         "category_name":  "X Twitter » Views [ For Video ]",
         "name":  "Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡",
         "rate_pkr":  0.91,
@@ -5326,11 +5709,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡\nEstimated Completion Time: 49 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Speed 5M+ / DAY | Start Time 0–5 Mins | 🔥⚡\nEstimated Completion: 49 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  13860,
-        "category":  "cat_115",
+        "category":  "cat_114",
+        "category_id":  "cat_114",
         "category_name":  "X Twitter » Views [ For Video ]",
         "name":  "Twitter Video Views | Non Drop | Speed 100K Per DAY | Start Time 0-1 Hour | 🔥⚡",
         "rate_pkr":  6.5,
@@ -5338,11 +5722,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147483647,
         "avg_time":  "9 hours and 35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Video Views | Non Drop | Speed 100K Per DAY | Start Time 0-1 Hour | 🔥⚡\nEstimated Completion Time: 9 hours and 35 minutes\nMin: 100 | Max: 2147483647"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Video Views | Non Drop | Speed 100K Per DAY | Start Time 0-1 Hour | 🔥⚡\nEstimated Completion: 9 hours and 35 minutes\nMin: 100 | Max: 2147483647"
     },
     {
         "id":  15354,
-        "category":  "cat_116",
+        "category":  "cat_115",
+        "category_id":  "cat_115",
         "category_name":  "X Twitter » Views [ Best Speed ]",
         "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡",
         "rate_pkr":  0.39,
@@ -5350,59 +5735,64 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147482677,
         "avg_time":  "35 hours and 16 minutes",
-        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 35 hours and 16 minutes\nMin: 100 | Max: 2147482677"
+        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡\nEstimated Completion: 35 hours and 16 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  15355,
-        "category":  "cat_116",
+        "category":  "cat_115",
+        "category_id":  "cat_115",
         "category_name":  "X Twitter » Views [ Best Speed ]",
         "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅️🔥⚡",
         "rate_pkr":  0.52,
         "rate_usd":  0.0019,
         "min":  100,
         "max":  2147482677,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅️🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 2147482677"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅️🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  15356,
-        "category":  "cat_116",
+        "category":  "cat_115",
+        "category_id":  "cat_115",
         "category_name":  "X Twitter » Views [ Best Speed ]",
         "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 365 Days Refill | ✅️🔥⚡",
         "rate_pkr":  0.65,
         "rate_usd":  0.0023,
         "min":  100,
         "max":  2147482677,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 365 Days Refill | ✅️🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 2147482677"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 365 Days Refill | ✅️🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  15357,
-        "category":  "cat_116",
+        "category":  "cat_115",
+        "category_id":  "cat_115",
         "category_name":  "X Twitter » Views [ Best Speed ]",
-        "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡",
+        "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡",
         "rate_pkr":  0.65,
         "rate_usd":  0.0023,
         "min":  100,
         "max":  2147482677,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 41 minutes\nMin: 100 | Max: 2147482677"
+        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡\nEstimated Completion: 41 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  14677,
-        "category":  "cat_117",
+        "category":  "cat_116",
+        "category_id":  "cat_116",
         "category_name":  "X Twitter » Views [ Lifetime ]",
-        "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡",
+        "name":  "X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡",
         "rate_pkr":  0.52,
         "rate_usd":  0.0019,
         "min":  100,
         "max":  2147482677,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝐥𝐥 | ✅️🔥⚡\nEstimated Completion Time: 42 minutes\nMin: 100 | Max: 2147482677"
+        "description":  "Automated Wholesale Delivery\nService: X / Twitter Tweet – Video Views | Non–Drop | Speed 5M+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | ✅️🔥⚡\nEstimated Completion: 42 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  14670,
-        "category":  "cat_117",
+        "category":  "cat_116",
+        "category_id":  "cat_116",
         "category_name":  "X Twitter » Views [ Lifetime ]",
         "name":  "Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  1.3,
@@ -5410,11 +5800,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  2147482677,
         "avg_time":  "15 hours and 51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 15 hours and 51 minutes\nMin: 100 | Max: 2147482677"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Views | Tweet + Video | Non Drop | Speed 50K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 15 hours and 51 minutes\nMin: 100 | Max: 2147482677"
     },
     {
         "id":  15364,
-        "category":  "cat_118",
+        "category":  "cat_117",
+        "category_id":  "cat_117",
         "category_name":  "X Twitter » Tweet Views [ Auto ]",
         "name":  "Twitter Tweet Views | Last 1 Tweet | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡",
         "rate_pkr":  1.3,
@@ -5422,59 +5813,64 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000000,
         "avg_time":  "22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 1 Tweet | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion Time: 22 minutes\nMin: 100 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 1 Tweet | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion: 22 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  15365,
-        "category":  "cat_118",
+        "category":  "cat_117",
+        "category_id":  "cat_117",
         "category_name":  "X Twitter » Tweet Views [ Auto ]",
         "name":  "Twitter Tweet Views | Last 5 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡",
         "rate_pkr":  15.6,
         "rate_usd":  0.0557,
         "min":  100,
         "max":  100000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 5 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 100000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 5 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  15366,
-        "category":  "cat_118",
+        "category":  "cat_117",
+        "category_id":  "cat_117",
         "category_name":  "X Twitter » Tweet Views [ Auto ]",
         "name":  "Twitter Tweet Views | Last 10 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡",
         "rate_pkr":  31.2,
         "rate_usd":  0.1114,
         "min":  100,
         "max":  100000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 10 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 100000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 10 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  15367,
-        "category":  "cat_118",
+        "category":  "cat_117",
+        "category_id":  "cat_117",
         "category_name":  "X Twitter » Tweet Views [ Auto ]",
         "name":  "Twitter Tweet Views | Last 20 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡",
         "rate_pkr":  63.7,
         "rate_usd":  0.2275,
         "min":  100,
         "max":  100000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 20 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 100000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 20 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  15368,
-        "category":  "cat_118",
+        "category":  "cat_117",
+        "category_id":  "cat_117",
         "category_name":  "X Twitter » Tweet Views [ Auto ]",
         "name":  "Twitter Tweet Views | Last 50 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡",
         "rate_pkr":  128.7,
         "rate_usd":  0.4596,
         "min":  100,
         "max":  100000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 50 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 100000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Twitter Tweet Views | Last 50 Tweets | Speed 500K / DAY | Start Time: 0–5 Mins | No Refill |🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  13554,
-        "category":  "cat_119",
+        "category":  "cat_118",
+        "category_id":  "cat_118",
         "category_name":  "Spotify » Followers [ Lifetime ]",
         "name":  "Spotify Followers | No Drop | Speed 50K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  104,
@@ -5482,11 +5878,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000000,
         "avg_time":  "59 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Followers | No Drop | Speed 50K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 59 minutes\nMin: 100 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Followers | No Drop | Speed 50K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 59 minutes\nMin: 100 | Max: 100000000"
     },
     {
         "id":  13908,
-        "category":  "cat_119",
+        "category":  "cat_118",
+        "category_id":  "cat_118",
         "category_name":  "Spotify » Followers [ Lifetime ]",
         "name":  "Spotify Followers | No Drop | Speed 100K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  111.8,
@@ -5494,11 +5891,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000000,
         "avg_time":  "44 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Followers | No Drop | Speed 100K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 44 hours and 21 minutes\nMin: 100 | Max: 50000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Followers | No Drop | Speed 100K / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 44 hours and 21 minutes\nMin: 100 | Max: 50000000"
     },
     {
         "id":  13543,
-        "category":  "cat_120",
+        "category":  "cat_119",
+        "category_id":  "cat_119",
         "category_name":  "Spotify » Plays [ Best Speed ]",
         "name":  "Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️",
         "rate_pkr":  111.8,
@@ -5506,23 +5904,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  20000000,
         "avg_time":  "12 hours and 39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion Time: 12 hours and 39 minutes\nMin: 500 | Max: 20000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐆𝐮𝐚𝐫𝐚𝐧𝐭𝐞𝐞 | ✅🔥⚡️\nEstimated Completion: 12 hours and 39 minutes\nMin: 500 | Max: 20000000"
     },
     {
         "id":  13877,
-        "category":  "cat_120",
+        "category":  "cat_119",
+        "category_id":  "cat_119",
         "category_name":  "Spotify » Plays [ Best Speed ]",
         "name":  "Spotify Free Plays | Global 🌍 | Speed 20K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️",
         "rate_pkr":  275.6,
         "rate_usd":  0.9843,
         "min":  500,
         "max":  20000000,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Free Plays | Global 🌍 | Speed 20K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 500 | Max: 20000000"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Free Plays | Global 🌍 | Speed 20K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡️\nEstimated Completion: 1 hour and 4 minutes\nMin: 500 | Max: 20000000"
     },
     {
         "id":  13878,
-        "category":  "cat_121",
+        "category":  "cat_120",
+        "category_id":  "cat_120",
         "category_name":  "Spotify » Plays [ Premium ]",
         "name":  "Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️",
         "rate_pkr":  275.6,
@@ -5530,11 +5930,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  20000000,
         "avg_time":  "6 hours and 7 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion Time: 6 hours and 7 minutes\nMin: 500 | Max: 20000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | USA 🇺🇸 | Speed 50K+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion: 6 hours and 7 minutes\nMin: 500 | Max: 20000000"
     },
     {
         "id":  13881,
-        "category":  "cat_121",
+        "category":  "cat_120",
+        "category_id":  "cat_120",
         "category_name":  "Spotify » Plays [ Premium ]",
         "name":  "Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  336.7,
@@ -5542,11 +5943,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  10000000,
         "avg_time":  "17 hours and 24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 17 hours and 24 minutes\nMin: 1000 | Max: 10000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 17 hours and 24 minutes\nMin: 1000 | Max: 10000000"
     },
     {
         "id":  13879,
-        "category":  "cat_121",
+        "category":  "cat_120",
+        "category_id":  "cat_120",
         "category_name":  "Spotify » Plays [ Premium ]",
         "name":  "Spotify Plays | Premium | Speed 1000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️",
         "rate_pkr":  382.2,
@@ -5554,47 +5956,51 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  100000000,
         "avg_time":  "12 hours and 23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 1000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion Time: 12 hours and 23 minutes\nMin: 1000 | Max: 100000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 1000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion: 12 hours and 23 minutes\nMin: 1000 | Max: 100000000"
     },
     {
         "id":  13880,
-        "category":  "cat_121",
+        "category":  "cat_120",
+        "category_id":  "cat_120",
         "category_name":  "Spotify » Plays [ Premium ]",
         "name":  "Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️",
         "rate_pkr":  796.9,
         "rate_usd":  2.8461,
         "min":  1000,
         "max":  2147483647,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 2147483647"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | Premium | Speed 5000+ / DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 2147483647"
     },
     {
         "id":  13903,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇧🇪 BELGIUM | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇧🇪 BELGIUM | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇧🇪 BELGIUM | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13914,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇹🇷 TURKEY | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇹🇷 TURKEY | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇹🇷 TURKEY | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13913,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇦🇷 ARGENTINA | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5602,23 +6008,25 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "5 hours and 7 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇦🇷 ARGENTINA | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 5 hours and 7 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇦🇷 ARGENTINA | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 5 hours and 7 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13909,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇬🇷 GREECE | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇬🇷 GREECE | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇬🇷 GREECE | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13907,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇨🇭 SWITZERLAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5626,35 +6034,38 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "24 hours and 17 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇨🇭 SWITZERLAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 24 hours and 17 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇨🇭 SWITZERLAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 24 hours and 17 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13906,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇳🇿 NEW ZEALAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇿 NEW ZEALAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇿 NEW ZEALAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13905,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇦🇹 AUSTRIA | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇦🇹 AUSTRIA | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇦🇹 AUSTRIA | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13904,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇵🇹 PORTUGAL | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5662,23 +6073,25 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "22 hours and 18 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇵🇹 PORTUGAL | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 22 hours and 18 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇵🇹 PORTUGAL | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 22 hours and 18 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13901,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇳🇴 NORWAY | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
         "rate_usd":  0.5246,
         "min":  1000,
         "max":  500000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇴 NORWAY | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 40 minutes\nMin: 1000 | Max: 500000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇴 NORWAY | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 25 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13900,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇳🇱 NETHERLANDS | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5686,11 +6099,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "11 hours and 31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇱 NETHERLANDS | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 11 hours and 31 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇳🇱 NETHERLANDS | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 11 hours and 31 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13899,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇲🇽 MEXICO | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5698,11 +6112,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "6 hours and 36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇲🇽 MEXICO | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 6 hours and 36 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇲🇽 MEXICO | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 6 hours and 36 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13897,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇮🇪 IRELAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5710,11 +6125,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "115 hours and 46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇮🇪 IRELAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 115 hours and 46 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇮🇪 IRELAND | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 115 hours and 46 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13895,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇸🇪 SWEDEN | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5722,11 +6138,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "9 hours and 39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇸🇪 SWEDEN | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 9 hours and 39 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇸🇪 SWEDEN | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 9 hours and 39 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13894,
-        "category":  "cat_122",
+        "category":  "cat_121",
+        "category_id":  "cat_121",
         "category_name":  "Spotify » Plays [ Targeted ]",
         "name":  "Spotify Plays | 🇬🇧 UK | Lifetime Guarantee | Max 500K | 20k-25k/Day |",
         "rate_pkr":  146.9,
@@ -5734,11 +6151,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  500000,
         "avg_time":  "16 hours and 10 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇬🇧 UK | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion Time: 16 hours and 10 minutes\nMin: 1000 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Plays | 🇬🇧 UK | Lifetime Guarantee | Max 500K | 20k-25k/Day |\nEstimated Completion: 16 hours and 10 minutes\nMin: 1000 | Max: 500000"
     },
     {
         "id":  13917,
-        "category":  "cat_123",
+        "category":  "cat_122",
+        "category_id":  "cat_122",
         "category_name":  "Spotify » Monthly Listerners",
         "name":  "Spotify Monthly Listerners | 🇺🇲 USA | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅",
         "rate_pkr":  967.2,
@@ -5746,11 +6164,12 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  5000000,
         "avg_time":  "24 hours and 16 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Monthly Listerners | 🇺🇲 USA | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion Time: 24 hours and 16 minutes\nMin: 1000 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Monthly Listerners | 🇺🇲 USA | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion: 24 hours and 16 minutes\nMin: 1000 | Max: 5000000"
     },
     {
         "id":  13918,
-        "category":  "cat_123",
+        "category":  "cat_122",
+        "category_id":  "cat_122",
         "category_name":  "Spotify » Monthly Listerners",
         "name":  "Spotify Monthly Listerners | 🌍 Global | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅",
         "rate_pkr":  967.2,
@@ -5758,23 +6177,25 @@ const MASTER_SERVICES = [
         "min":  1000,
         "max":  5000000,
         "avg_time":  "24 hours and 37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Monthly Listerners | 🌍 Global | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion Time: 24 hours and 37 minutes\nMin: 1000 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Monthly Listerners | 🌍 Global | Speed: 1-3K Per DAY | Start Time 0-1 Hour | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 ✅\nEstimated Completion: 24 hours and 37 minutes\nMin: 1000 | Max: 5000000"
     },
     {
         "id":  13919,
-        "category":  "cat_124",
+        "category":  "cat_123",
+        "category_id":  "cat_123",
         "category_name":  "Spotify » Saves [ Refill ]",
         "name":  "Spotify Saves [Track/Album/Episode] 30 Days Refill | Max 1M | Start 1-12 Hours | 50K/Day |",
         "rate_pkr":  132.6,
         "rate_usd":  0.4736,
         "min":  100,
         "max":  1000000,
-        "avg_time":  "1 hours and 13 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Saves [Track/Album/Episode] 30 Days Refill | Max 1M | Start 1-12 Hours | 50K/Day |\nEstimated Completion Time: 1 hours and 13 minutes\nMin: 100 | Max: 1000000"
+        "avg_time":  "1 hour and 13 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Spotify Saves [Track/Album/Episode] 30 Days Refill | Max 1M | Start 1-12 Hours | 50K/Day |\nEstimated Completion: 1 hour and 13 minutes\nMin: 100 | Max: 1000000"
     },
     {
         "id":  13920,
-        "category":  "cat_124",
+        "category":  "cat_123",
+        "category_id":  "cat_123",
         "category_name":  "Spotify » Saves [ Refill ]",
         "name":  "Spotify Saves [For Track/Album] | Lifetime Guaranteed | Max 100K | Start 1-12 Hours | 1.5K-3K/Day |♻️",
         "rate_pkr":  122.2,
@@ -5782,11 +6203,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  1000000,
         "avg_time":  "3 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Spotify Saves [For Track/Album] | Lifetime Guaranteed | Max 100K | Start 1-12 Hours | 1.5K-3K/Day |♻️\nEstimated Completion Time: 3 hours and 5 minutes\nMin: 100 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Spotify Saves [For Track/Album] | Lifetime Guaranteed | Max 100K | Start 1-12 Hours | 1.5K-3K/Day |♻️\nEstimated Completion: 3 hours and 5 minutes\nMin: 100 | Max: 1000000"
     },
     {
         "id":  14873,
-        "category":  "cat_125",
+        "category":  "cat_124",
+        "category_id":  "cat_124",
         "category_name":  "Telegram » Members [ Cheapest ]",
         "name":  "Telegram Members | Speed 10K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  5.2,
@@ -5794,11 +6216,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 34 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 34 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  14955,
-        "category":  "cat_125",
+        "category":  "cat_124",
+        "category_id":  "cat_124",
         "category_name":  "Telegram » Members [ Cheapest ]",
         "name":  "Telegram Members | Speed 15K+ / DAY | No Refill | ⛔🔥",
         "rate_pkr":  24.7,
@@ -5806,11 +6229,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "4 hours and 7 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 15K+ / DAY | No Refill | ⛔🔥\nEstimated Completion Time: 4 hours and 7 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 15K+ / DAY | No Refill | ⛔🔥\nEstimated Completion: 4 hours and 7 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15244,
-        "category":  "cat_125",
+        "category":  "cat_124",
+        "category_id":  "cat_124",
         "category_name":  "Telegram » Members [ Cheapest ]",
         "name":  "Telegram Members | Speed 10K+ / DAY | 3 Days Refill | ✅️🔥",
         "rate_pkr":  5.2,
@@ -5818,11 +6242,12 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 3 Days Refill | ✅️🔥\nEstimated Completion Time: 31 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 3 Days Refill | ✅️🔥\nEstimated Completion: 31 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15245,
-        "category":  "cat_125",
+        "category":  "cat_124",
+        "category_id":  "cat_124",
         "category_name":  "Telegram » Members [ Cheapest ]",
         "name":  "Telegram Members | Speed 10K+ / DAY | 7 Days Refill | ✅️🔥",
         "rate_pkr":  5.2,
@@ -5830,23 +6255,25 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  1000000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 7 Days Refill | ✅️🔥\nEstimated Completion Time: 30 minutes\nMin: 1 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 7 Days Refill | ✅️🔥\nEstimated Completion: 30 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15246,
-        "category":  "cat_125",
+        "category":  "cat_124",
+        "category_id":  "cat_124",
         "category_name":  "Telegram » Members [ Cheapest ]",
         "name":  "Telegram Members | Speed 10K+ / DAY | 30 Days Refill | ✅️🔥",
         "rate_pkr":  5.2,
         "rate_usd":  0.0186,
         "min":  1,
         "max":  1000000,
-        "avg_time":  "1 hours and 28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 30 Days Refill | ✅️🔥\nEstimated Completion Time: 1 hours and 28 minutes\nMin: 1 | Max: 1000000"
+        "avg_time":  "1 hour and 28 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 10K+ / DAY | 30 Days Refill | ✅️🔥\nEstimated Completion: 1 hour and 28 minutes\nMin: 1 | Max: 1000000"
     },
     {
         "id":  15442,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  107.9,
@@ -5854,23 +6281,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000,
         "avg_time":  "13 hours and 30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 13 hours and 30 minutes\nMin: 500 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 13 hours and 30 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15443,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  122.2,
         "rate_usd":  0.4364,
         "min":  500,
         "max":  100000,
-        "avg_time":  "1 hours and 24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 1 hours and 24 minutes\nMin: 500 | Max: 100000"
+        "avg_time":  "1 hour and 24 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 1 hour and 24 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15444,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  131.3,
@@ -5878,11 +6307,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000,
         "avg_time":  "4 hours and 52 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 4 hours and 52 minutes\nMin: 500 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟔𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 4 hours and 52 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15445,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  140.4,
@@ -5890,11 +6320,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000,
         "avg_time":  "4 hours and 25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 4 hours and 25 minutes\nMin: 500 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟗𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 4 hours and 25 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15446,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  154.7,
@@ -5902,11 +6333,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000,
         "avg_time":  "3 hours and 59 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 3 hours and 59 minutes\nMin: 500 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝟑𝟔𝟓 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 3 hours and 59 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15447,
-        "category":  "cat_126",
+        "category":  "cat_125",
+        "category_id":  "cat_125",
         "category_name":  "Telegram » Members [ Drop – 0% ]",
         "name":  "Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  169,
@@ -5914,11 +6346,12 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  100000,
         "avg_time":  "3 hours and 55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 3 hours and 55 minutes\nMin: 500 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non–Drop | Speed 50K / DAY | Start Time 0–5 Mins | 𝐋𝐢𝐟𝐞𝐭𝐢𝐦𝐞 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 3 hours and 55 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  15358,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop |🔥⚡",
         "rate_pkr":  211.9,
@@ -5926,11 +6359,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "3 hours and 56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop |🔥⚡\nEstimated Completion Time: 3 hours and 56 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop |🔥⚡\nEstimated Completion: 3 hours and 56 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15359,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 60 Days Non–Drop |🔥⚡",
         "rate_pkr":  258.7,
@@ -5938,11 +6372,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 60 Days Non–Drop |🔥⚡\nEstimated Completion Time: 43 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 60 Days Non–Drop |🔥⚡\nEstimated Completion: 43 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15360,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 90 Days Non–Drop |🔥⚡",
         "rate_pkr":  305.5,
@@ -5950,23 +6385,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 90 Days Non–Drop |🔥⚡\nEstimated Completion Time: 51 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 90 Days Non–Drop |🔥⚡\nEstimated Completion: 51 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15361,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 180 Days Non–Drop |🔥⚡",
         "rate_pkr":  352.3,
         "rate_usd":  1.2582,
         "min":  100,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 180 Days Non–Drop |🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 100 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 180 Days Non–Drop |🔥⚡\nEstimated Completion: 25 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15362,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 365 Days Non–Drop |🔥⚡",
         "rate_pkr":  400.4,
@@ -5974,11 +6411,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 365 Days Non–Drop |🔥⚡\nEstimated Completion Time: 30 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 365 Days Non–Drop |🔥⚡\nEstimated Completion: 30 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  14451,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  626.6,
@@ -5986,11 +6424,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 38 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 38 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14385,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡",
         "rate_pkr":  626.6,
@@ -5998,35 +6437,38 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅⭐🔥⚡\nEstimated Completion: 32 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14248,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  429,
         "rate_usd":  1.5321,
         "min":  500,
         "max":  1000000,
-        "avg_time":  "1 hours and 32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 1 hours and 32 minutes\nMin: 500 | Max: 1000000"
+        "avg_time":  "1 hour and 32 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 1 hour and 32 minutes\nMin: 500 | Max: 1000000"
     },
     {
         "id":  14874,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | 30 Days Refill | ✅🔥⚡️",
         "rate_pkr":  378.3,
         "rate_usd":  1.3511,
         "min":  500,
         "max":  100000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | 30 Days Refill | ✅🔥⚡️\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 500 | Max: 100000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | 30 Days Refill | ✅🔥⚡️\nEstimated Completion: 1 hour and 5 minutes\nMin: 500 | Max: 100000"
     },
     {
         "id":  13712,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡",
         "rate_pkr":  210.6,
@@ -6034,11 +6476,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  1000000,
         "avg_time":  "55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion Time: 55 minutes\nMin: 100 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real HQ Profiles | Non Drop | Speed 50K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion: 55 minutes\nMin: 100 | Max: 1000000"
     },
     {
         "id":  14386,
-        "category":  "cat_128",
+        "category":  "cat_127",
+        "category_id":  "cat_127",
         "category_name":  "Telegram » Members [ Best Speed ]",
         "name":  "Telegram Members | Real Profiles | Speed 100K+ / DAY | Start Time 0-5 Minute | 365 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  722.8,
@@ -6046,11 +6489,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  200000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Speed 100K+ / DAY | Start Time 0-5 Minute | 365 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 42 minutes\nMin: 10 | Max: 200000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Speed 100K+ / DAY | Start Time 0-5 Minute | 365 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 42 minutes\nMin: 10 | Max: 200000"
     },
     {
         "id":  15344,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  191.1,
@@ -6058,11 +6502,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 10K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 48 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15345,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  149.5,
@@ -6070,11 +6515,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 43 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Mins | 30 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 43 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15346,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  275.6,
@@ -6082,11 +6528,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  500000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 42 minutes\nMin: 100 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 42 minutes\nMin: 100 | Max: 500000"
     },
     {
         "id":  15347,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 180 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  295.1,
@@ -6094,35 +6541,38 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "3 hours and 36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 180 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 3 hours and 36 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 180 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 3 hours and 36 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15348,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  439.4,
         "rate_usd":  1.5693,
         "min":  500,
         "max":  200000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 500 | Max: 200000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 25 minutes\nMin: 500 | Max: 200000"
     },
     {
         "id":  15349,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡",
         "rate_pkr":  491.4,
         "rate_usd":  1.755,
         "min":  500,
         "max":  200000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 500 | Max: 200000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill | ✅⭐🔥⚡\nEstimated Completion: 25 minutes\nMin: 500 | Max: 200000"
     },
     {
         "id":  15350,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 30 Days Refill ♻️ | ✅⭐🔥⚡",
         "rate_pkr":  453.7,
@@ -6130,11 +6580,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 30 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 30 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15351,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill ♻️ | ✅⭐🔥⚡",
         "rate_pkr":  661.7,
@@ -6142,11 +6593,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 60 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion: 48 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15352,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill ♻️ | ✅⭐🔥⚡",
         "rate_pkr":  894.4,
@@ -6154,11 +6606,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion Time: 50 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 90 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion: 50 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15353,
-        "category":  "cat_127",
+        "category":  "cat_126",
+        "category_id":  "cat_126",
         "category_name":  "Telegram » Members [ Non–Drop ]",
         "name":  "Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 180 Days Refill ♻️ | ✅⭐🔥⚡",
         "rate_pkr":  1303.9,
@@ -6166,11 +6619,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 180 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion Time: 21 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Real Profiles | Non Drop | Speed 1M+ / DAY | Start Time 0–5 Mins | 180 Days Refill ♻️ | ✅⭐🔥⚡\nEstimated Completion: 21 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15247,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡",
         "rate_pkr":  26,
@@ -6178,11 +6632,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | No Refill | ⛔️🔥⚡\nEstimated Completion: 36 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15248,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡",
         "rate_pkr":  29.9,
@@ -6190,11 +6645,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡\nEstimated Completion Time: 45 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡\nEstimated Completion: 45 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15249,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡",
         "rate_pkr":  33.8,
@@ -6202,11 +6658,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡\nEstimated Completion Time: 48 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡\nEstimated Completion: 48 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15250,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡",
         "rate_pkr":  65,
@@ -6214,11 +6671,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "22 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion Time: 22 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion: 22 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15251,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡",
         "rate_pkr":  81.9,
@@ -6226,23 +6684,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡\nEstimated Completion: 31 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15252,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡",
         "rate_pkr":  98.8,
         "rate_usd":  0.3529,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15253,
-        "category":  "cat_129",
+        "category":  "cat_128",
+        "category_id":  "cat_128",
         "category_name":  "Telegram » Members [ Refill Button ]",
         "name":  "Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡",
         "rate_pkr":  120.9,
@@ -6250,11 +6710,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | Mix Profiles | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡\nEstimated Completion: 40 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  14929,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 7 days | 🔥",
         "rate_pkr":  1401.4,
@@ -6262,11 +6723,12 @@ const MASTER_SERVICES = [
         "min":  200,
         "max":  50000,
         "avg_time":  "59 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 7 days | 🔥\nEstimated Completion Time: 59 minutes\nMin: 200 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 7 days | 🔥\nEstimated Completion: 59 minutes\nMin: 200 | Max: 50000"
     },
     {
         "id":  14930,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 14 days | 🔥",
         "rate_pkr":  1675.7,
@@ -6274,23 +6736,25 @@ const MASTER_SERVICES = [
         "min":  500,
         "max":  50000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 14 days | 🔥\nEstimated Completion Time: 51 minutes\nMin: 500 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 14 days | 🔥\nEstimated Completion: 51 minutes\nMin: 500 | Max: 50000"
     },
     {
         "id":  14931,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 30 days | 🔥",
         "rate_pkr":  2236,
         "rate_usd":  7.9857,
         "min":  200,
         "max":  50000,
-        "avg_time":  "1 hours and 2 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 30 days | 🔥\nEstimated Completion Time: 1 hours and 2 minutes\nMin: 200 | Max: 50000"
+        "avg_time":  "1 hour and 2 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 30 days | 🔥\nEstimated Completion: 1 hour and 2 minutes\nMin: 200 | Max: 50000"
     },
     {
         "id":  14932,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 60 days | 🔥",
         "rate_pkr":  3357.9,
@@ -6298,11 +6762,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "2 hours and 16 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 60 days | 🔥\nEstimated Completion Time: 2 hours and 16 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 60 days | 🔥\nEstimated Completion: 2 hours and 16 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  14933,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 90 days | 🔥",
         "rate_pkr":  7287.8,
@@ -6310,23 +6775,25 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  50000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 90 days | 🔥\nEstimated Completion Time: 33 minutes\nMin: 100 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 90 days | 🔥\nEstimated Completion: 33 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  14875,
-        "category":  "cat_130",
+        "category":  "cat_129",
+        "category_id":  "cat_129",
         "category_name":  "Telegram » Members [ Premium ]",
         "name":  "Telegram Members | PREMIUM | Online | 180 days | 🔥",
         "rate_pkr":  8970,
         "rate_usd":  32.0357,
         "min":  100,
         "max":  50000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 180 days | 🔥\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 100 | Max: 50000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | PREMIUM | Online | 180 days | 🔥\nEstimated Completion: 1 hour and 5 minutes\nMin: 100 | Max: 50000"
     },
     {
         "id":  15237,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡",
         "rate_pkr":  202.8,
@@ -6334,11 +6801,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡\nEstimated Completion Time: 35 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 7 Days Refill | ✅🔥⚡\nEstimated Completion: 35 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15238,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡",
         "rate_pkr":  226.2,
@@ -6346,35 +6814,38 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "4 hours and 50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡\nEstimated Completion Time: 4 hours and 50 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 15 Days Refill | ✅🔥⚡\nEstimated Completion: 4 hours and 50 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  15239,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡",
         "rate_pkr":  248.3,
         "rate_usd":  0.8868,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 30 Days Refill | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15240,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡",
         "rate_pkr":  293.8,
         "rate_usd":  1.0493,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 60 Days Refill | ✅🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15241,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡",
         "rate_pkr":  339.3,
@@ -6382,11 +6853,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "2 hours and 17 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡\nEstimated Completion Time: 2 hours and 17 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 90 Days Refill | ✅🔥⚡\nEstimated Completion: 2 hours and 17 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15242,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡",
         "rate_pkr":  383.5,
@@ -6394,11 +6866,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 365 Days Refill | ✅🔥⚡\nEstimated Completion: 40 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15243,
-        "category":  "cat_131",
+        "category":  "cat_130",
+        "category_id":  "cat_130",
         "category_name":  "Telegram » Members [ India 🇮🇳 ]",
         "name":  "Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  429,
@@ -6406,11 +6879,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 50 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Members | India 🇮🇳 | Real Profiles | Non Drop | Speed 100K+ / DAY | Start Time 0-5 Minutes | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 50 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15363,
-        "category":  "cat_132",
+        "category":  "cat_131",
+        "category_id":  "cat_131",
         "category_name":  "Telegram » Members [ Online ]",
         "name":  "Telegram Online Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop | ✅⭐🔥⚡",
         "rate_pkr":  416,
@@ -6418,11 +6892,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Online Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop | ✅⭐🔥⚡\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Online Members | Speed 50K+ / DAY | Start Time 0–5 Mins | 30 Days Non–Drop | ✅⭐🔥⚡\nEstimated Completion: 23 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15389,
-        "category":  "cat_133",
+        "category":  "cat_132",
+        "category_id":  "cat_132",
         "category_name":  "Telegram » Views [ Cheapest ]",
         "name":  "Telegram Views | Non–Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥",
         "rate_pkr":  1.04,
@@ -6430,11 +6905,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "21 hours and 21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion Time: 21 hours and 21 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 100K+ / DAY | No Refill | ⛔️🔥\nEstimated Completion: 21 hours and 21 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  15390,
-        "category":  "cat_133",
+        "category":  "cat_132",
+        "category_id":  "cat_132",
         "category_name":  "Telegram » Views [ Cheapest ]",
         "name":  "Telegram Views | Non–Drop | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥",
         "rate_pkr":  1.17,
@@ -6442,11 +6918,12 @@ const MASTER_SERVICES = [
         "min":  100,
         "max":  100000,
         "avg_time":  "35 hours and 24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥\nEstimated Completion Time: 35 hours and 24 minutes\nMin: 100 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 100K+ / DAY | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥\nEstimated Completion: 35 hours and 24 minutes\nMin: 100 | Max: 100000"
     },
     {
         "id":  13965,
-        "category":  "cat_134",
+        "category":  "cat_133",
+        "category_id":  "cat_133",
         "category_name":  "Telegram » Views [ Best Speed ]",
         "name":  "Telegram Views | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥⚡",
         "rate_pkr":  16.9,
@@ -6454,11 +6931,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  2147482677,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥⚡\nEstimated Completion Time: 38 minutes\nMin: 10 | Max: 2147482677"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Non–Drop | Speed 500K+ / DAY | Start Time 0–5 Mins | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ☑️🔥⚡\nEstimated Completion: 38 minutes\nMin: 10 | Max: 2147482677"
     },
     {
         "id":  15391,
-        "category":  "cat_134",
+        "category":  "cat_133",
+        "category_id":  "cat_133",
         "category_name":  "Telegram » Views [ Best Speed ]",
         "name":  "Telegram Views | Speed 500K+ / DAY | Start Instant 0–5 Mins |🔥⚡",
         "rate_pkr":  15.6,
@@ -6466,11 +6944,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  500000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Speed 500K+ / DAY | Start Instant 0–5 Mins |🔥⚡\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 500000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | Speed 500K+ / DAY | Start Instant 0–5 Mins |🔥⚡\nEstimated Completion: 32 minutes\nMin: 10 | Max: 500000"
     },
     {
         "id":  14249,
-        "category":  "cat_134",
+        "category":  "cat_133",
+        "category_id":  "cat_133",
         "category_name":  "Telegram » Views [ Best Speed ]",
         "name":  "Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 1 Post | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡",
         "rate_pkr":  39,
@@ -6478,11 +6957,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 1 Post | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 1 Post | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡\nEstimated Completion: 27 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14250,
-        "category":  "cat_134",
+        "category":  "cat_133",
+        "category_id":  "cat_133",
         "category_name":  "Telegram » Views [ Best Speed ]",
         "name":  "Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 5 Posts | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡",
         "rate_pkr":  197.6,
@@ -6490,11 +6970,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 5 Posts | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡\nEstimated Completion Time: 57 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Views | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 | Last 5 Posts | Speed 500K / DAY | Start Instant 0–5 Mins | 🔥⚡\nEstimated Completion: 57 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15382,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 5 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  9.1,
@@ -6502,11 +6983,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 5 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 5 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 33 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15383,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 10 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  16.9,
@@ -6514,11 +6996,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 10 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 24 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 10 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 24 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15384,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 15 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  24.7,
@@ -6526,11 +7009,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 15 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 15 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 23 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15385,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 20 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  33.8,
@@ -6538,11 +7022,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 20 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 20 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 27 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15386,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 30 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  50.7,
@@ -6550,11 +7035,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 30 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 30 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 27 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15387,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 50 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  85.8,
@@ -6562,11 +7048,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 50 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 21 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 50 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 21 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15388,
-        "category":  "cat_135",
+        "category":  "cat_134",
+        "category_id":  "cat_134",
         "category_name":  "Telegram » Views Future [ Auto ]",
         "name":  "Telegram Post Views | Future 100 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡",
         "rate_pkr":  171.6,
@@ -6574,11 +7061,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 100 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Post Views | Future 100 Posts | Speed 100K / DAY | Start Time: 0–5 Mins |🔥⚡\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13450,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions | Speed 10K / DAY | Positive 👍🤩🔥❤️🥰",
         "rate_pkr":  10.4,
@@ -6586,11 +7074,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Speed 10K / DAY | Positive 👍🤩🔥❤️🥰\nEstimated Completion Time: 56 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Speed 10K / DAY | Positive 👍🤩🔥❤️🥰\nEstimated Completion: 56 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13449,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions | Speed 10K / DAY | Negative 👎💩 🤮😢 😱",
         "rate_pkr":  6.5,
@@ -6598,11 +7087,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Speed 10K / DAY | Negative 👎💩 🤮😢 😱\nEstimated Completion Time: 50 minutes\nMin: 50 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Speed 10K / DAY | Negative 👎💩 🤮😢 😱\nEstimated Completion: 50 minutes\nMin: 50 | Max: 10000"
     },
     {
         "id":  13442,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [😢] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6610,11 +7100,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😢] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 49 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😢] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 49 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13452,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [👻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6622,23 +7113,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "58 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 58 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 58 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13451,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [👀] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 2 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👀] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 2 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 2 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👀] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 2 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13448,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [💯] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6646,35 +7139,38 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [💯] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 42 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [💯] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 42 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13447,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [😭] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 6 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😭] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 6 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 6 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😭] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 6 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13446,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [😐] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😐] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 40 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😐] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 25 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13445,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🖕] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6682,23 +7178,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "3 hours and 56 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🖕] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 3 hours and 56 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🖕] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 3 hours and 56 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13444,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🤮] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🤮] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 40 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 40 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🤮] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 40 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13443,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [💩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6706,23 +7204,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [💩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 37 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [💩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 37 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13429,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [👍] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👍] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 27 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 27 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👍] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 27 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13440,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [👌🏻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6730,23 +7230,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👌🏻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 43 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [👌🏻] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 43 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13439,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🙏] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  91,
         "rate_usd":  0.325,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 5 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🙏] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 5 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 5 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🙏] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 5 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13438,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [😁] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6754,11 +7256,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "5 hours and 25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😁] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 5 hours and 25 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😁] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 5 hours and 25 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13437,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🤩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6766,23 +7269,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🤩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 41 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🤩] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 41 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13436,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🎉] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🎉] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🎉] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 4 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13435,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [⚡️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6790,11 +7295,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "2 hours and 38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [⚡️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 2 hours and 38 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [⚡️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 2 hours and 38 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13434,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [😱] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6802,23 +7308,25 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😱] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 47 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [😱] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 47 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13432,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [🔥] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
         "rate_usd":  0.065,
         "min":  50,
         "max":  5000000,
-        "avg_time":  "1 hours and 12 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🔥] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 1 hours and 12 minutes\nMin: 50 | Max: 5000000"
+        "avg_time":  "1 hour and 12 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [🔥] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 1 hour and 12 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  13431,
-        "category":  "cat_136",
+        "category":  "cat_135",
+        "category_id":  "cat_135",
         "category_name":  "Telegram » Reactions [ Cheapest ]",
         "name":  "Telegram Reactions [❤️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant",
         "rate_pkr":  18.2,
@@ -6826,11 +7334,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  5000000,
         "avg_time":  "42 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [❤️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion Time: 42 minutes\nMin: 50 | Max: 5000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions [❤️] 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗥𝗲𝗳𝗶𝗹𝗹 | Non Drop | Instant\nEstimated Completion: 42 minutes\nMin: 50 | Max: 5000000"
     },
     {
         "id":  15369,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 5 Future Posts |",
         "rate_pkr":  92.3,
@@ -6838,11 +7347,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 5 Future Posts |\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 5 Future Posts |\nEstimated Completion: 30 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15370,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 15 Future Posts |",
         "rate_pkr":  139.1,
@@ -6850,11 +7360,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 15 Future Posts |\nEstimated Completion Time: 38 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 15 Future Posts |\nEstimated Completion: 38 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15371,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 20 Future Posts |",
         "rate_pkr":  185.9,
@@ -6862,11 +7373,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 20 Future Posts |\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 20 Future Posts |\nEstimated Completion: 30 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15372,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 30 Future Posts |",
         "rate_pkr":  278.2,
@@ -6874,11 +7386,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 30 Future Posts |\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 30 Future Posts |\nEstimated Completion: 34 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15373,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 50 Future Posts |",
         "rate_pkr":  464.1,
@@ -6886,11 +7399,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 50 Future Posts |\nEstimated Completion Time: 35 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 50 Future Posts |\nEstimated Completion: 35 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15374,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 100 Future Posts |",
         "rate_pkr":  929.5,
@@ -6898,11 +7412,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 100 Future Posts |\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Positive Reactions Bonus Views |👍🤩🎉🔥❤️🥰👏🏻🥳😍❤️‍🔥💯 | 100 Future Posts |\nEstimated Completion: 26 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15375,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 5 Future Posts |",
         "rate_pkr":  45.5,
@@ -6910,71 +7425,77 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 5 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 5 Future Posts |\nEstimated Completion: 40 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15376,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 10 Future Posts |",
         "rate_pkr":  92.3,
         "rate_usd":  0.3296,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 10 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 10 Future Posts |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15377,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 15 Future Posts |",
         "rate_pkr":  139.1,
         "rate_usd":  0.4968,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 15 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 15 Future Posts |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15378,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 20 Future Posts |",
         "rate_pkr":  185.9,
         "rate_usd":  0.6639,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 20 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 20 Future Posts |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15379,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 30 Future Posts |",
         "rate_pkr":  278.2,
         "rate_usd":  0.9936,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 30 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 30 Future Posts |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15380,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 50 Future Posts |",
         "rate_pkr":  464.1,
         "rate_usd":  1.6575,
         "min":  10,
         "max":  1000000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 50 Future Posts |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 1000000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 50 Future Posts |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15381,
-        "category":  "cat_137",
+        "category":  "cat_136",
+        "category_id":  "cat_136",
         "category_name":  "Telegram » Reactions Future [ Auto ]",
         "name":  "Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 100 Future Posts |",
         "rate_pkr":  929.5,
@@ -6982,11 +7503,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 100 Future Posts |\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Negative Reactions BonusViews |🖕💔👎😢💩🤮🤬😡🥱🍌😈 | 100 Future Posts |\nEstimated Completion: 34 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13366,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🤬 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -6994,11 +7516,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤬 + Views | Max 1M | Day 50K\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤬 + Views | Max 1M | Day 50K\nEstimated Completion: 25 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13374,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🤣 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -7006,11 +7529,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤣 + Views | Max 1M | Day 50K\nEstimated Completion Time: 51 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤣 + Views | Max 1M | Day 50K\nEstimated Completion: 51 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13370,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🕊 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -7018,11 +7542,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🕊 + Views | Max 1M | Day 50K\nEstimated Completion Time: 44 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🕊 + Views | Max 1M | Day 50K\nEstimated Completion: 44 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13369,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🤭 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -7030,11 +7555,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "55 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤭 + Views | Max 1M | Day 50K\nEstimated Completion Time: 55 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤭 + Views | Max 1M | Day 50K\nEstimated Completion: 55 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13368,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🤡 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -7042,11 +7568,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤡 + Views | Max 1M | Day 50K\nEstimated Completion Time: 47 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🤡 + Views | Max 1M | Day 50K\nEstimated Completion: 47 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13367,
-        "category":  "cat_138",
+        "category":  "cat_137",
+        "category_id":  "cat_137",
         "category_name":  "Telegram » Reactions [ Premium ]",
         "name":  "Telegram Permium Reaction | 🙏 + Views | Max 1M | Day 50K",
         "rate_pkr":  76.7,
@@ -7054,11 +7581,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "57 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🙏 + Views | Max 1M | Day 50K\nEstimated Completion Time: 57 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Permium Reaction | 🙏 + Views | Max 1M | Day 50K\nEstimated Completion: 57 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  13041,
-        "category":  "cat_139",
+        "category":  "cat_138",
+        "category_id":  "cat_138",
         "category_name":  "Telegram Reactions » [ Best Speed ]",
         "name":  "Telegram Reactions | Non Drop | Speed 500K+ / DAY | Positive 👍🤩🎉🔥❤️🥰👏🏻 | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡",
         "rate_pkr":  6.5,
@@ -7066,11 +7594,12 @@ const MASTER_SERVICES = [
         "min":  50,
         "max":  10000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Non Drop | Speed 500K+ / DAY | Positive 👍🤩🎉🔥❤️🥰👏🏻 | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion Time: 47 minutes\nMin: 50 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Telegram Reactions | Non Drop | Speed 500K+ / DAY | Positive 👍🤩🎉🔥❤️🥰👏🏻 | 𝗟𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗚𝘂𝗮𝗿𝗮𝗻𝘁𝗲𝗲 | ✅🔥⚡\nEstimated Completion: 47 minutes\nMin: 50 | Max: 10000"
     },
     {
         "id":  15540,
-        "category":  "cat_140",
+        "category":  "cat_139",
+        "category_id":  "cat_139",
         "category_name":  "Whatsapp » Poll Votes [ 30d Refill ]",
         "name":  "WhatsApp Poll Votes | A | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  361.4,
@@ -7078,11 +7607,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | A | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 21 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | A | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 21 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15541,
-        "category":  "cat_140",
+        "category":  "cat_139",
+        "category_id":  "cat_139",
         "category_name":  "Whatsapp » Poll Votes [ 30d Refill ]",
         "name":  "WhatsApp Poll Votes | B | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  361.4,
@@ -7090,11 +7620,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | B | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | B | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 26 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15542,
-        "category":  "cat_140",
+        "category":  "cat_139",
+        "category_id":  "cat_139",
         "category_name":  "Whatsapp » Poll Votes [ 30d Refill ]",
         "name":  "WhatsApp Poll Votes | C | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  361.4,
@@ -7102,11 +7633,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "38 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | C | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 38 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | C | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 38 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15543,
-        "category":  "cat_140",
+        "category":  "cat_139",
+        "category_id":  "cat_139",
         "category_name":  "Whatsapp » Poll Votes [ 30d Refill ]",
         "name":  "WhatsApp Poll Votes | D | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  361.4,
@@ -7114,11 +7646,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | D | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | D | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 30 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15544,
-        "category":  "cat_140",
+        "category":  "cat_139",
+        "category_id":  "cat_139",
         "category_name":  "Whatsapp » Poll Votes [ 30d Refill ]",
         "name":  "WhatsApp Poll Votes | E | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  361.4,
@@ -7126,11 +7659,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "5 hours and 40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | E | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 5 hours and 40 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Poll Votes | E | 100% Real Profiles | Non Drop | Speed 100K / DAY | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 5 hours and 40 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15113,
-        "category":  "cat_141",
+        "category":  "cat_140",
+        "category_id":  "cat_140",
         "category_name":  "Whatsapp » Poll Votes [ Best Speed ]",
         "name":  "Whatsapp Poll Votes | A | Speed 5K+/DAY | 🔥",
         "rate_pkr":  418.6,
@@ -7138,11 +7672,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | A | Speed 5K+/DAY | 🔥\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | A | Speed 5K+/DAY | 🔥\nEstimated Completion: 34 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15114,
-        "category":  "cat_141",
+        "category":  "cat_140",
+        "category_id":  "cat_140",
         "category_name":  "Whatsapp » Poll Votes [ Best Speed ]",
         "name":  "Whatsapp Poll Votes | B | Speed 5K+/DAY | 🔥",
         "rate_pkr":  418.6,
@@ -7150,11 +7685,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | B | Speed 5K+/DAY | 🔥\nEstimated Completion Time: 49 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | B | Speed 5K+/DAY | 🔥\nEstimated Completion: 49 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15115,
-        "category":  "cat_141",
+        "category":  "cat_140",
+        "category_id":  "cat_140",
         "category_name":  "Whatsapp » Poll Votes [ Best Speed ]",
         "name":  "Whatsapp Poll Votes | C | Speed 5K+/DAY | 🔥",
         "rate_pkr":  418.6,
@@ -7162,11 +7698,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | C | Speed 5K+/DAY | 🔥\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | C | Speed 5K+/DAY | 🔥\nEstimated Completion: 46 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15116,
-        "category":  "cat_141",
+        "category":  "cat_140",
+        "category_id":  "cat_140",
         "category_name":  "Whatsapp » Poll Votes [ Best Speed ]",
         "name":  "Whatsapp Poll Votes | D | Speed 5K+/DAY | 🔥",
         "rate_pkr":  418.6,
@@ -7174,11 +7711,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "44 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | D | Speed 5K+/DAY | 🔥\nEstimated Completion Time: 44 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | D | Speed 5K+/DAY | 🔥\nEstimated Completion: 44 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15117,
-        "category":  "cat_141",
+        "category":  "cat_140",
+        "category_id":  "cat_140",
         "category_name":  "Whatsapp » Poll Votes [ Best Speed ]",
         "name":  "Whatsapp Poll Votes | E | Speed 5K+/DAY | 🔥",
         "rate_pkr":  208,
@@ -7186,23 +7724,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | E | Speed 5K+/DAY | 🔥\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Poll Votes | E | Speed 5K+/DAY | 🔥\nEstimated Completion: 23 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15206,
-        "category":  "cat_142",
+        "category":  "cat_141",
+        "category_id":  "cat_141",
         "category_name":  "WhatsApp » Followers [ Cheapest ]",
         "name":  "Whatsapp Channel Followers / Members | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  235.3,
         "rate_usd":  0.8404,
         "min":  10,
         "max":  10000,
-        "avg_time":  "1 hours and 2 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 1 hours and 2 minutes\nMin: 10 | Max: 10000"
+        "avg_time":  "1 hour and 2 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 1 hour and 2 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  14949,
-        "category":  "cat_143",
+        "category":  "cat_142",
+        "category_id":  "cat_142",
         "category_name":  "WhatsApp » Followers [ Best Speed ]",
         "name":  "Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  340.6,
@@ -7210,11 +7750,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 37 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 37 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  14981,
-        "category":  "cat_143",
+        "category":  "cat_142",
+        "category_id":  "cat_142",
         "category_name":  "WhatsApp » Followers [ Best Speed ]",
         "name":  "Whatsapp Channel Members / Followers | Real HQ Profiles | Speed 10K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  235.3,
@@ -7222,23 +7763,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "48 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Members / Followers | Real HQ Profiles | Speed 10K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 48 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Members / Followers | Real HQ Profiles | Speed 10K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 48 minutes\nMin: 10 | Max: 10000"
     },
     {
         "id":  14855,
-        "category":  "cat_143",
+        "category":  "cat_142",
+        "category_id":  "cat_142",
         "category_name":  "WhatsApp » Followers [ Best Speed ]",
         "name":  "Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  117,
         "rate_usd":  0.4179,
         "min":  10,
         "max":  20000,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 10 | Max: 20000"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers / Members | Real HQ Profiles | Speed 50K+ / DAY | No Refill | ⛔️🔥⚡️\nEstimated Completion: 1 hour and 4 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15412,
-        "category":  "cat_144",
+        "category":  "cat_143",
+        "category_id":  "cat_143",
         "category_name":  "WhatsApp » Followers [ Targeted ]",
         "name":  "Whatsapp Channel Followers | USA 🇺🇸 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  340.6,
@@ -7246,11 +7789,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "50 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | USA 🇺🇸 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 50 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | USA 🇺🇸 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 50 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15410,
-        "category":  "cat_144",
+        "category":  "cat_143",
+        "category_id":  "cat_143",
         "category_name":  "WhatsApp » Followers [ Targeted ]",
         "name":  "Whatsapp Channel Followers | India 🇮🇳 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  1413.1,
@@ -7258,11 +7802,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | India 🇮🇳 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | India 🇮🇳 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 46 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15411,
-        "category":  "cat_144",
+        "category":  "cat_143",
+        "category_id":  "cat_143",
         "category_name":  "WhatsApp » Followers [ Targeted ]",
         "name":  "Whatsapp Channel Followers | Arab 🇦🇪 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  1413.1,
@@ -7270,11 +7815,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Arab 🇦🇪 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 51 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Arab 🇦🇪 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 51 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15413,
-        "category":  "cat_144",
+        "category":  "cat_143",
+        "category_id":  "cat_143",
         "category_name":  "WhatsApp » Followers [ Targeted ]",
         "name":  "Whatsapp Channel Followers | Europe 🇪🇺 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  1413.1,
@@ -7282,11 +7828,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Europe 🇪🇺 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 29 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Europe 🇪🇺 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 29 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15414,
-        "category":  "cat_144",
+        "category":  "cat_143",
+        "category_id":  "cat_143",
         "category_name":  "WhatsApp » Followers [ Targeted ]",
         "name":  "Whatsapp Channel Followers | Turkey 🇹🇷 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️",
         "rate_pkr":  1413.1,
@@ -7294,11 +7841,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "41 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Turkey 🇹🇷 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion Time: 41 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Followers | Turkey 🇹🇷 | Real Profiles | Speed 50K+ / DAY | No Refill | ⛔️ 🔥⚡️\nEstimated Completion: 41 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15516,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reactions | Mix 👍❤️😂😲😥🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
@@ -7306,11 +7854,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reactions | Mix 👍❤️😂😲😥🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reactions | Mix 👍❤️😂😲😥🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 23 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15517,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | 👍 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
@@ -7318,11 +7867,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 👍 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 24 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 👍 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 24 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15518,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | ❤️ | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
@@ -7330,23 +7880,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | ❤️ | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 24 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | ❤️ | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 24 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15519,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | 😂 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
         "rate_usd":  0.0325,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😂 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😂 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15520,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | 😲 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
@@ -7354,11 +7906,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😲 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 47 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😲 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 47 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15521,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | 😥 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
@@ -7366,23 +7919,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "23 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😥 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 23 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 😥 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 23 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15522,
-        "category":  "cat_145",
+        "category":  "cat_144",
+        "category_id":  "cat_144",
         "category_name":  "WhatsApp » Reactions [ 30d Refill ]",
         "name":  "Whatsapp Channel Emoji Reaction | 🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  9.1,
         "rate_usd":  0.0325,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Emoji Reaction | 🙏 | Non Drop | Speed 100K+ / DAY | Start Time 0–5 Minutes | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15455,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | Random Mix 👍❤️😂😲😥🙏 | Speed 50K / DAY | 🔥",
         "rate_pkr":  18.2,
@@ -7390,11 +7945,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "21 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | Random Mix 👍❤️😂😲😥🙏 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 21 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | Random Mix 👍❤️😂😲😥🙏 | Speed 50K / DAY | 🔥\nEstimated Completion: 21 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15456,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | 👍 | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
@@ -7402,11 +7958,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 👍 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 👍 | Speed 50K / DAY | 🔥\nEstimated Completion: 33 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15457,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | ❤️ | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
@@ -7414,11 +7971,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | ❤️ | Speed 50K / DAY | 🔥\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | ❤️ | Speed 50K / DAY | 🔥\nEstimated Completion: 33 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15458,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | 😂 | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
@@ -7426,23 +7984,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "27 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😂 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 27 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😂 | Speed 50K / DAY | 🔥\nEstimated Completion: 27 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15459,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | 😯 | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
         "rate_usd":  0.0325,
         "min":  10,
         "max":  20000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😯 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 20000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😯 | Speed 50K / DAY | 🔥\nEstimated Completion: 25 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15460,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | 😭 | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
@@ -7450,11 +8010,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😭 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 😭 | Speed 50K / DAY | 🔥\nEstimated Completion: 40 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15461,
-        "category":  "cat_146",
+        "category":  "cat_145",
+        "category_id":  "cat_145",
         "category_name":  "WhatsApp » Reactions [ Cheapest ]",
         "name":  "WhatsApp Channel Post Emoji Reactions | 🙏 | Speed 50K / DAY | 🔥",
         "rate_pkr":  9.1,
@@ -7462,11 +8023,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 🙏 | Speed 50K / DAY | 🔥\nEstimated Completion Time: 51 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: WhatsApp Channel Post Emoji Reactions | 🙏 | Speed 50K / DAY | 🔥\nEstimated Completion: 51 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  14403,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reactions | 👍❤️😂😯😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7474,11 +8036,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | 👍❤️😂😯😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | 👍❤️😂😯😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14404,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 😂 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7486,11 +8049,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "51 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😂 | Speed 100K + / DAY |\nEstimated Completion Time: 51 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😂 | Speed 100K + / DAY |\nEstimated Completion: 51 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14405,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 👍 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7498,11 +8062,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 👍 | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 👍 | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14406,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 🙏🏻 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7510,11 +8075,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "26 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🙏🏻 | Speed 100K + / DAY |\nEstimated Completion Time: 26 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🙏🏻 | Speed 100K + / DAY |\nEstimated Completion: 26 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14407,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | ❤️ | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7522,11 +8088,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | ❤️ | Speed 100K + / DAY |\nEstimated Completion Time: 39 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | ❤️ | Speed 100K + / DAY |\nEstimated Completion: 39 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14409,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 😥 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7534,11 +8101,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😥 | Speed 100K + / DAY |\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😥 | Speed 100K + / DAY |\nEstimated Completion: 31 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14992,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 😯 | Speed 100K + / DAY |",
         "rate_pkr":  9.1,
@@ -7546,11 +8114,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😯 | Speed 100K + / DAY |\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 😯 | Speed 100K + / DAY |\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14995,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 👏 | Speed 100K + / DAY |",
         "rate_pkr":  414.7,
@@ -7558,11 +8127,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 👏 | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 👏 | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14996,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 🔥 | Speed 100K + / DAY |",
         "rate_pkr":  414.7,
@@ -7570,11 +8140,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🔥 | Speed 100K + / DAY |\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🔥 | Speed 100K + / DAY |\nEstimated Completion: 31 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14997,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 🏆 | Speed 100K + / DAY |",
         "rate_pkr":  414.7,
@@ -7582,11 +8153,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "52 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🏆 | Speed 100K + / DAY |\nEstimated Completion Time: 52 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🏆 | Speed 100K + / DAY |\nEstimated Completion: 52 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14998,
-        "category":  "cat_147",
+        "category":  "cat_146",
+        "category_id":  "cat_146",
         "category_name":  "WhatsApp » Reactions [ Best Speed ]",
         "name":  "Whatsapp Channel Post Reaction | 🎉 | Speed 100K + / DAY |",
         "rate_pkr":  414.7,
@@ -7594,11 +8166,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "33 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🎉 | Speed 100K + / DAY |\nEstimated Completion Time: 33 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reaction | 🎉 | Speed 100K + / DAY |\nEstimated Completion: 33 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14989,
-        "category":  "cat_148",
+        "category":  "cat_147",
+        "category_id":  "cat_147",
         "category_name":  "WhatsApp » Reactions [ Targeted 🎯 ]",
         "name":  "Whatsapp Channel Post Reactions | Turkey 🇹🇷 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  423.8,
@@ -7606,11 +8179,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "2 hours and 25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Turkey 🇹🇷 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 2 hours and 25 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Turkey 🇹🇷 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 2 hours and 25 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14990,
-        "category":  "cat_148",
+        "category":  "cat_147",
+        "category_id":  "cat_147",
         "category_name":  "WhatsApp » Reactions [ Targeted 🎯 ]",
         "name":  "Whatsapp Channel Post Reactions | India 🇮🇳 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  423.8,
@@ -7618,11 +8192,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | India 🇮🇳 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 46 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | India 🇮🇳 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 46 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14991,
-        "category":  "cat_148",
+        "category":  "cat_147",
+        "category_id":  "cat_147",
         "category_name":  "WhatsApp » Reactions [ Targeted 🎯 ]",
         "name":  "Whatsapp Channel Post Reactions | Arab 🇦🇪 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  423.8,
@@ -7630,11 +8205,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Arab 🇦🇪 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 37 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Arab 🇦🇪 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 37 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14993,
-        "category":  "cat_148",
+        "category":  "cat_147",
+        "category_id":  "cat_147",
         "category_name":  "WhatsApp » Reactions [ Targeted 🎯 ]",
         "name":  "Whatsapp Channel Post Reactions | USA 🇺🇸 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  423.8,
@@ -7642,11 +8218,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  50000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | USA 🇺🇸 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 50000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | USA 🇺🇸 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 50000"
     },
     {
         "id":  14994,
-        "category":  "cat_148",
+        "category":  "cat_147",
+        "category_id":  "cat_147",
         "category_name":  "WhatsApp » Reactions [ Targeted 🎯 ]",
         "name":  "Whatsapp Channel Post Reactions | Europe 🇪🇺 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |",
         "rate_pkr":  414.7,
@@ -7654,11 +8231,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Europe 🇪🇺 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Post Reactions | Europe 🇪🇺 | Reactions Mix 👍❤️😂😲😥🙏 | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15398,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 10 Posts | Speed 100K + / DAY |",
         "rate_pkr":  1978.6,
@@ -7666,23 +8244,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 34 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion: 34 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15399,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 25 Posts | Speed 100K + / DAY |",
         "rate_pkr":  3958.5,
         "rate_usd":  14.1375,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15400,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 50 Posts | Speed 100K + / DAY |",
         "rate_pkr":  7917,
@@ -7690,23 +8270,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 28 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reactions |🙏👍😂👏🎉🔥🏆❤️😮 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion: 28 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15401,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 👍 | Future 10 Posts | Speed 100K + / DAY |",
         "rate_pkr":  1978.6,
         "rate_usd":  7.0664,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15402,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 👍 | Future 25 Posts | Speed 100K + / DAY |",
         "rate_pkr":  3958.5,
@@ -7714,23 +8296,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15403,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 👍 | Future 50 Posts | Speed 100K + / DAY |",
         "rate_pkr":  7917,
         "rate_usd":  28.275,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 👍 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15404,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | ❤️ | Future 10 Posts | Speed 100K + / DAY |",
         "rate_pkr":  1978.6,
@@ -7738,23 +8322,25 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "25 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 25 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15405,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | ❤️ | Future 25 Posts | Speed 100K + / DAY |",
         "rate_pkr":  3958.5,
         "rate_usd":  14.1375,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15406,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | ❤️ | Future 50 Posts | Speed 100K + / DAY |",
         "rate_pkr":  7917,
@@ -7762,47 +8348,51 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "36 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 36 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | ❤️ | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion: 36 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15407,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 😂 | Future 10 Posts | Speed 100K + / DAY |",
         "rate_pkr":  1978.6,
         "rate_usd":  7.0664,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 10 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15408,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 😂 | Future 25 Posts | Speed 100K + / DAY |",
         "rate_pkr":  39585,
         "rate_usd":  141.375,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 25 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15409,
-        "category":  "cat_149",
+        "category":  "cat_148",
+        "category_id":  "cat_148",
         "category_name":  "WhatsApp » Reactions [ Automatic ]",
         "name":  "Whatsapp Channel Auto Post Reaction | 😂 | Future 50 Posts | Speed 100K + / DAY |",
         "rate_pkr":  7917,
         "rate_usd":  28.275,
         "min":  10,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion Time: 40 minutes\nMin: 10 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Whatsapp Channel Auto Post Reaction | 😂 | Future 50 Posts | Speed 100K + / DAY |\nEstimated Completion: 25 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  14723,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Facebook | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7810,11 +8400,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "46 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Facebook | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 46 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Facebook | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 46 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14724,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From LinkedIn | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7822,11 +8413,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From LinkedIn | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 32 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From LinkedIn | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 32 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14725,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Twitter | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7834,11 +8426,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Twitter | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 40 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Twitter | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 40 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14726,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Instagram | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7846,11 +8439,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Instagram | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 30 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Instagram | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 30 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14727,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Amazon | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7858,11 +8452,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "45 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Amazon | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 45 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Amazon | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 45 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14728,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Google | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7870,23 +8465,25 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Google | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 43 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Google | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 43 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14729,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Twitch.TV | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
         "rate_usd":  0.3854,
         "min":  88,
         "max":  88888888,
-        "avg_time":  "1 hours and 4 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Twitch.TV | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 1 hours and 4 minutes\nMin: 88 | Max: 88888888"
+        "avg_time":  "1 hour and 4 minutes",
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Twitch.TV | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 1 hour and 4 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14730,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Pinterest | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7894,11 +8491,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Pinterest | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 28 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Pinterest | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 28 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14731,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Blogger.com| WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7906,11 +8504,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Blogger.com| WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 34 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Blogger.com| WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 34 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14732,
-        "category":  "cat_150",
+        "category":  "cat_149",
+        "category_id":  "cat_149",
         "category_name":  "Website » Traffic [ Global ]",
         "name":  "Website Traffic From Fiverr.com | WW | Speed 50K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7918,11 +8517,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Fiverr.com | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion Time: 43 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: Website Traffic From Fiverr.com | WW | Speed 50K Per DAY | No Refill |\nEstimated Completion: 43 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14461,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Google | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7930,11 +8530,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "37 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Google | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 37 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Google | Speed 10K Per DAY | No Refill |\nEstimated Completion: 37 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14462,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Facebook | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7942,11 +8543,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "43 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Facebook | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 43 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Facebook | Speed 10K Per DAY | No Refill |\nEstimated Completion: 43 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14463,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Instagram | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7954,11 +8556,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Instagram | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 30 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Instagram | Speed 10K Per DAY | No Refill |\nEstimated Completion: 30 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14464,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Pinterest | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7966,11 +8569,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "29 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Pinterest | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 29 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Pinterest | Speed 10K Per DAY | No Refill |\nEstimated Completion: 29 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14465,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Twitter | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7978,11 +8582,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "34 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Twitter | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 34 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Twitter | Speed 10K Per DAY | No Refill |\nEstimated Completion: 34 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14466,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Youtube | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -7990,11 +8595,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "35 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Youtube | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 35 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Youtube | Speed 10K Per DAY | No Refill |\nEstimated Completion: 35 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  14467,
-        "category":  "cat_151",
+        "category":  "cat_150",
+        "category_id":  "cat_150",
         "category_name":  "Website » Traffic [ USA 🇺🇸 ]",
         "name":  "🇺🇸USA Traffic from Blogspot/Blogger.com | Speed 10K Per DAY | No Refill |",
         "rate_pkr":  107.9,
@@ -8002,11 +8608,12 @@ const MASTER_SERVICES = [
         "min":  88,
         "max":  88888888,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Blogspot/Blogger.com | Speed 10K Per DAY | No Refill |\nEstimated Completion Time: 31 minutes\nMin: 88 | Max: 88888888"
+        "description":  "Automated Wholesale Delivery\nService: 🇺🇸USA Traffic from Blogspot/Blogger.com | Speed 10K Per DAY | No Refill |\nEstimated Completion: 31 minutes\nMin: 88 | Max: 88888888"
     },
     {
         "id":  15186,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Reposts | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  9529,
@@ -8014,11 +8621,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "24 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Reposts | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 24 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Reposts | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 24 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15187,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Sends | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  3811.6,
@@ -8026,11 +8634,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "32 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Sends | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 32 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Sends | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 32 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15188,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Connections | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  23822.5,
@@ -8038,11 +8647,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "39 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Connections | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 39 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Connections | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 39 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15189,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Endorsements | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  47646.3,
@@ -8050,11 +8660,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "30 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Endorsements | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 30 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Endorsements | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 30 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15190,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Reactions | Heart ❤️ | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  9529,
@@ -8062,11 +8673,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  100000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Reactions | Heart ❤️ | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Reactions | Heart ❤️ | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 31 minutes\nMin: 10 | Max: 100000"
     },
     {
         "id":  15191,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Custom Comments | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  47646.3,
@@ -8074,23 +8686,25 @@ const MASTER_SERVICES = [
         "min":  1,
         "max":  100000,
         "avg_time":  "49 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Custom Comments | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 49 minutes\nMin: 1 | Max: 100000"
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Custom Comments | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 49 minutes\nMin: 1 | Max: 100000"
     },
     {
         "id":  15192,
-        "category":  "cat_152",
+        "category":  "cat_151",
+        "category_id":  "cat_151",
         "category_name":  "LinkedIn » Services [ USA 🇺🇸 ]",
         "name":  "LinkedIn Recommendations | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  476474.7,
         "rate_usd":  1701.6954,
         "min":  5,
         "max":  100000,
-        "avg_time":  "40 minutes",
-        "description":  "Automated Wholesale Delivery\nService: LinkedIn Recommendations | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 40 minutes\nMin: 5 | Max: 100000"
+        "avg_time":  "25 minutes",
+        "description":  "Automated Wholesale Delivery\nService: LinkedIn Recommendations | USA 🇺🇸 | Real Profiles | Speed 10K+ / DAY | Start Time 0-1 Hour | No Refill | ⛔️🔥⚡️\nEstimated Completion: 25 minutes\nMin: 5 | Max: 100000"
     },
     {
         "id":  15495,
-        "category":  "cat_153",
+        "category":  "cat_152",
+        "category_id":  "cat_152",
         "category_name":  "LinkedIn » Followers [ Refill ]",
         "name":  "🆅🅸🅿 LinkedIn Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️",
         "rate_pkr":  6572.8,
@@ -8098,11 +8712,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  1000000,
         "avg_time":  "28 minutes",
-        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 LinkedIn Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion Time: 28 minutes\nMin: 10 | Max: 1000000"
+        "description":  "Automated Wholesale Delivery\nService: 🆅🅸🅿 LinkedIn Followers | Real Profiles | Speed 50K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅🔥⚡️\nEstimated Completion: 28 minutes\nMin: 10 | Max: 1000000"
     },
     {
         "id":  15500,
-        "category":  "cat_154",
+        "category":  "cat_153",
+        "category_id":  "cat_153",
         "category_name":  "Threads » Likes [ No Refill ]",
         "name":  "Threads Likes | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  235.3,
@@ -8110,11 +8725,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "31 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Threads Likes | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 31 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Threads Likes | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 31 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  15501,
-        "category":  "cat_155",
+        "category":  "cat_154",
+        "category_id":  "cat_154",
         "category_name":  "Threads » Followers [ No Refill ]",
         "name":  "Threads Followers | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️",
         "rate_pkr":  235.3,
@@ -8122,11 +8738,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  20000,
         "avg_time":  "4 hours and 20 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Threads Followers | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion Time: 4 hours and 20 minutes\nMin: 10 | Max: 20000"
+        "description":  "Automated Wholesale Delivery\nService: Threads Followers | Real Profiles | Speed 50K / DAY | Start Time 0–5 Mins | No Refill | ⛔️🔥⚡️\nEstimated Completion: 4 hours and 20 minutes\nMin: 10 | Max: 20000"
     },
     {
         "id":  14851,
-        "category":  "cat_156",
+        "category":  "cat_155",
+        "category_id":  "cat_155",
         "category_name":  "Snapchat » Followers [ Refill ]",
         "name":  "Snapchat Follower | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️",
         "rate_pkr":  6679.4,
@@ -8134,48 +8751,12 @@ const MASTER_SERVICES = [
         "min":  10,
         "max":  10000,
         "avg_time":  "47 minutes",
-        "description":  "Automated Wholesale Delivery\nService: Snapchat Follower | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion Time: 47 minutes\nMin: 10 | Max: 10000"
+        "description":  "Automated Wholesale Delivery\nService: Snapchat Follower | Real Profiles | Speed 10K+ / DAY | Start Time 0–1 Hour | 𝟑𝟎 𝐃𝐚𝐲𝐬 𝐑𝐞𝐟𝐢𝐥𝐥 | ✅️🔥⚡️\nEstimated Completion: 47 minutes\nMin: 10 | Max: 10000"
     }
 ];
 
-// Register Custom SMM Panel Development Category & Services at the top
-MASTER_CATEGORIES.splice(1, 0, {
-  id: "cat_custom_panel",
-  name: "👑 Custom SMM Panel Development [ Apna SMM Panel Banwayein ]"
-});
-
-MASTER_SERVICES.unshift(
-  {
-    id: 99901,
-    category: "cat_custom_panel",
-    category_name: "👑 Custom SMM Panel Development [ Apna SMM Panel Banwayein ]",
-    name: "👑 Custom Full-Featured SMM Panel Website (Apna Khud Ka Customize SMM Panel Banwayein — Complete Website + Admin Panel + 625+ Services + EasyPaisa/UPaisa) | Order Ke Liye Panel Live Chat Ya WhatsApp (03163846672) Par Rabta Karein ✅🔥",
-    rate_pkr: 15000,
-    rate_usd: 53.57,
-    min: 1000,
-    max: 1000,
-    avg_time: "24 hours",
-    description: "👑 APNA KHUD KA CUSTOMIZE SMM PANEL BANWAYEIN!\n✅ Complete Ready-To-Earn SMM Panel Website (Jaisa Saleem SMM Panel Hai)\n✅ Exclusive Admin Dashboard + Automated Profit Margin Control\n✅ 625+ Wholesale Active Services Connected\n✅ EasyPaisa & UPaisa Payment System + Live Chat System\n📞 Order Ya Details Ke Liye Abhi Panel Ke Live Chat Mein Message Karein Ya WhatsApp (03163846672) Par Rabta Karein!"
-  },
-  {
-    id: 99902,
-    category: "cat_custom_panel",
-    category_name: "👑 Custom SMM Panel Development [ Apna SMM Panel Banwayein ]",
-    name: "🚀 Reseller Child SMM Panel Setup (Connected With Saleem SMM API + Custom Branding & Domain) | Order On WhatsApp 03163846672 Or Live Chat ⚡🔥",
-    rate_pkr: 8500,
-    rate_usd: 30.36,
-    min: 1000,
-    max: 1000,
-    avg_time: "12 hours",
-    description: "🚀 RESELLER CHILD SMM PANEL SETUP\n✅ Connected Directly To Saleem SMM Wholesale API\n✅ Apna Naam, Logo Aur Custom Profit Margin\n✅ Mobile-First Responsive Design\n📞 Order Ke Liye Panel Live Chat Mein Message Karein Ya WhatsApp (03163846672) Par Rabta Karein!"
-  }
-);
-
-function getServiceById(id) {
-  return MASTER_SERVICES.find(s => s.id === parseInt(id));
+if (typeof window !== 'undefined') {
+  window.MASTER_CATEGORIES = MASTER_CATEGORIES;
+  window.MASTER_SERVICES = MASTER_SERVICES;
 }
 
-function getServicesByCategory(catId) {
-  if (!catId || catId === 'all') return MASTER_SERVICES;
-  return MASTER_SERVICES.filter(s => s.category === catId);
-}
