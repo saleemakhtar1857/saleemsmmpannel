@@ -142,6 +142,10 @@ function switchDashView(viewName) {
   closeDashSidebar();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+window.switchDashView = switchDashView;
+window.toggleDashSidebar = toggleDashSidebar;
+window.closeDashSidebar = closeDashSidebar;
+window.toggleCurrency = toggleCurrency;
 
 /* ==========================================================================
    CURRENCY & USER STATS UPDATER
@@ -352,7 +356,8 @@ function populateCategoriesSelect() {
   if (!catSelect) return;
 
   if (typeof MASTER_CATEGORIES === 'undefined' || !Array.isArray(MASTER_CATEGORIES) || MASTER_CATEGORIES.length === 0) {
-    console.warn('MASTER_CATEGORIES is not ready yet');
+    console.warn('MASTER_CATEGORIES is not ready yet, retrying...');
+    setTimeout(populateCategoriesSelect, 150);
     return;
   }
 
@@ -386,7 +391,8 @@ function onCategoryChange() {
   if (!catSelect || !srvSelect) return;
 
   if (typeof MASTER_SERVICES === 'undefined' || !Array.isArray(MASTER_SERVICES) || MASTER_SERVICES.length === 0) {
-    console.warn('MASTER_SERVICES is not ready yet');
+    console.warn('MASTER_SERVICES is not ready yet, retrying...');
+    setTimeout(onCategoryChange, 150);
     return;
   }
 
@@ -446,41 +452,6 @@ function onServiceChange() {
   const qtyHint = document.getElementById('quantity-hint');
   const qtyInput = document.getElementById('order-quantity');
 
-  if (descName) descName.textContent = `${selectedServiceObj.name} 🔥`;
-  if (descRate) descRate.textContent = rateText;
-  if (descTime) descTime.textContent = selectedServiceObj.avg_time;
-  if (descMinMax) descMinMax.textContent = `${selectedServiceObj.min.toLocaleString()} / ${selectedServiceObj.max.toLocaleString()}`;
-  if (avgBox) avgBox.value = selectedServiceObj.avg_time;
-  if (qtyHint) qtyHint.textContent = `Min: ${selectedServiceObj.min.toLocaleString()} — Max: ${selectedServiceObj.max.toLocaleString()}`;
-
-  if (qtyInput) {
-    qtyInput.min = selectedServiceObj.min;
-    qtyInput.max = selectedServiceObj.max;
-    if (!qtyInput.value) {
-      qtyInput.value = selectedServiceObj.min;
-    }
-  }
-
-  calculateOrderTotal();
-}
-  if (srvLabel) {
-    srvLabel.textContent = `${selectedServiceObj.id} - ${selectedServiceObj.name} — ${rateText}`;
-  }
-
-  // Highlight selected option in custom service menu
-  document.querySelectorAll('#custom-srv-menu .dil-cs-option').forEach(opt => {
-    opt.classList.toggle('selected', opt.textContent.includes(String(selectedServiceObj.id)));
-  });
-
-  const descName = document.getElementById('desc-srv-name');
-  const descRate = document.getElementById('desc-srv-rate');
-  const descTime = document.getElementById('desc-srv-time');
-  const descMinMax = document.getElementById('desc-srv-minmax');
-  const avgBox = document.getElementById('order-avg-time-box');
-  const qtyHint = document.getElementById('quantity-hint');
-  const qtyInput = document.getElementById('order-quantity');
-
-  if (idPill) idPill.textContent = selectedServiceObj.id;
   if (descName) descName.textContent = `${selectedServiceObj.name} 🔥`;
   if (descRate) descRate.textContent = rateText;
   if (descTime) descTime.textContent = selectedServiceObj.avg_time;
