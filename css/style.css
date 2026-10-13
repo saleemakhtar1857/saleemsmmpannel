@@ -1877,11 +1877,11 @@ body.nightmode .site-nav {
     justify-content: center;
     text-align: center;
   }
-  .auth-card, .calculator-card {
-    padding: 18px 14px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+  .auth-card, .calculator-card, .hero-card {
+    padding: 18px 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .platform-cards-grid {
     grid-template-columns: 1fr;

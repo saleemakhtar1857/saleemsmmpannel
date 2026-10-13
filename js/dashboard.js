@@ -10,36 +10,44 @@ let selectedServiceObj = null;
 let currentOrderStatusFilter = 'all';
 let selectedActiveGatewayNumber = '03173983906';
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initDashboard();
+  });
+} else {
   initDashboard();
-});
+}
 
 function initDashboard() {
-  if (!AppState.currentUser) {
-    AppState.loadUser();
+  try {
+    if (!AppState.currentUser) {
+      AppState.loadUser();
+    }
+  } catch (e) {
+    console.error('Error loading user:', e);
   }
 
-  AppState.updateNavAuthUI();
-  populateCategoriesSelect();
-  populateCatalogFilter();
-  renderUserOrders();
-  renderUserDeposits();
-  renderUserTransactions();
-  renderServiceCatalog();
-  renderDashboardChat();
-  renderAllPrices();
+  try { AppState.updateNavAuthUI(); } catch (e) { console.error('updateNavAuthUI error:', e); }
+  try { populateCategoriesSelect(); } catch (e) { console.error('populateCategoriesSelect error:', e); }
+  try { populateCatalogFilter(); } catch (e) { console.error('populateCatalogFilter error:', e); }
+  try { renderUserOrders(); } catch (e) { console.error('renderUserOrders error:', e); }
+  try { renderUserDeposits(); } catch (e) { console.error('renderUserDeposits error:', e); }
+  try { renderUserTransactions(); } catch (e) { console.error('renderUserTransactions error:', e); }
+  try { renderServiceCatalog(); } catch (e) { console.error('renderServiceCatalog error:', e); }
+  try { renderDashboardChat(); } catch (e) { console.error('renderDashboardChat error:', e); }
+  try { renderAllPrices(); } catch (e) { console.error('renderAllPrices error:', e); }
 
   // Auto polling for live chat updates
   setInterval(() => {
-    renderDashboardChat();
+    try { renderDashboardChat(); } catch (e) {}
   }, 3000);
 
   window.addEventListener('saleem_chats_updated', () => {
-    renderDashboardChat();
+    try { renderDashboardChat(); } catch (e) {}
   });
   window.addEventListener('storage', (e) => {
     if (e.key === STORAGE_KEYS.CHATS) {
-      renderDashboardChat();
+      try { renderDashboardChat(); } catch (err) {}
     }
   });
 
@@ -323,49 +331,50 @@ document.addEventListener('click', (e) => {
   }
 });
 
-function filterCategoryByPlatform(platformKey, btnEl) {
+window.filterCategoryByPlatform = function(platformKey, btnEl) {
   currentCategoryFilter = platformKey;
   document.querySelectorAll('#platform-filter-bar .dil-plat-icon').forEach(b => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
   populateCategoriesSelect();
+};
+function filterCategoryByPlatform(platformKey, btnEl) {
+  window.filterCategoryByPlatform(platformKey, btnEl);
 }
+window.populateCategoriesSelect = populateCategoriesSelect;
+window.onCategoryChange = onCategoryChange;
+window.onServiceChange = onServiceChange;
+window.selectServiceById = selectServiceById;
+window.handleQuickServiceSearch = handleQuickServiceSearch;
+window.submitNewOrder = submitNewOrder;
 
 function populateCategoriesSelect() {
   const catSelect = document.getElementById('order-category');
-  const catMenu = document.getElementById('custom-cat-menu');
   if (!catSelect) return;
 
+  if (typeof MASTER_CATEGORIES === 'undefined' || !Array.isArray(MASTER_CATEGORIES) || MASTER_CATEGORIES.length === 0) {
+    console.warn('MASTER_CATEGORIES is not ready yet');
+    return;
+  }
+
   const filteredCats = MASTER_CATEGORIES.filter(cat => {
-    if (currentCategoryFilter === 'all') return true;
-    const nameLower = cat.name.toLowerCase();
+    if (!currentCategoryFilter || currentCategoryFilter === 'all') return true;
+    const nameLower = (cat.name || '').toLowerCase();
     if (currentCategoryFilter === 'custom') return nameLower.includes('custom') || nameLower.includes('panel');
     if (currentCategoryFilter === 'ai') return nameLower.includes('ai') || nameLower.includes('chatgpt') || nameLower.includes('canva') || nameLower.includes('tool') || nameLower.includes('gemini');
     if (currentCategoryFilter === 'traffic') return nameLower.includes('traffic') || nameLower.includes('website') || nameLower.includes('seo');
-    return cat.platform === currentCategoryFilter || nameLower.includes(currentCategoryFilter);
+    return (cat.platform && cat.platform === currentCategoryFilter) || nameLower.includes(currentCategoryFilter);
   });
 
   const listToUse = filteredCats.length > 0 ? filteredCats : MASTER_CATEGORIES;
 
-  // 1. Populate native select
+  // 1. Populate native select with clean emojis and category titles
   catSelect.innerHTML = listToUse.map(c => {
     const iconEmoji = getPlatformIconEmoji(c.name);
     return `<option value="${c.id}">${iconEmoji} ${c.name}</option>`;
   }).join('');
 
-  // 2. Populate custom dropdown menu with official brand icon badges
-  if (catMenu) {
-    catMenu.innerHTML = listToUse.map(c => {
-      const meta = getPlatformBadgeMeta(c.name);
-      const isSel = c.id === catSelect.value;
-      return `
-        <div class="dil-cs-option ${isSel ? 'selected' : ''}" onclick="selectCustomCategory('${c.id}')">
-          <span class="dil-opt-brand-icon" style="background:${meta.bg};">
-            <i class="${meta.icon}"></i>
-          </span>
-          <span class="dil-opt-text">${c.name}</span>
-        </div>
-      `;
-    }).join('');
+  if (!listToUse.some(c => c.id === catSelect.value)) {
+    catSelect.value = listToUse[0].id;
   }
 
   onCategoryChange();
@@ -374,8 +383,12 @@ function populateCategoriesSelect() {
 function onCategoryChange() {
   const catSelect = document.getElementById('order-category');
   const srvSelect = document.getElementById('order-service');
-  const srvMenu = document.getElementById('custom-srv-menu');
   if (!catSelect || !srvSelect) return;
+
+  if (typeof MASTER_SERVICES === 'undefined' || !Array.isArray(MASTER_SERVICES) || MASTER_SERVICES.length === 0) {
+    console.warn('MASTER_SERVICES is not ready yet');
+    return;
+  }
 
   const selectedCatId = catSelect.value;
   currentServiceList = MASTER_SERVICES.filter(s => (s.category === selectedCatId || s.category_id === selectedCatId || selectedCatId === 'all'));
@@ -383,49 +396,24 @@ function onCategoryChange() {
     currentServiceList = MASTER_SERVICES.slice(0, 50);
   }
 
-  // Update Category Badge Icon & Label on custom trigger (Matches Screenshot 1 & 4)
+  // Update Category Badge Icon (Official Platform color & icon)
   const selectedCat = MASTER_CATEGORIES.find(c => c.id === selectedCatId);
   const catBadge = document.getElementById('category-badge-icon');
-  const catLabel = document.getElementById('custom-cat-label');
-  if (selectedCat) {
+  if (selectedCat && catBadge) {
     const meta = getPlatformBadgeMeta(selectedCat.name);
-    if (catBadge) {
-      catBadge.style.background = meta.bg;
-      catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
-    }
-    if (catLabel) {
-      catLabel.textContent = selectedCat.name;
-    }
+    catBadge.style.background = meta.bg;
+    catBadge.innerHTML = `<i class="${meta.icon}"></i>`;
   }
 
-  // Highlight selected option in custom category menu
-  document.querySelectorAll('#custom-cat-menu .dil-cs-option').forEach(opt => {
-    opt.classList.toggle('selected', opt.textContent.includes(selectedCat ? selectedCat.name : ''));
-  });
-
-  // 1. Populate native services select
+  // 1. Populate native services select with ID, name, rate & time
   srvSelect.innerHTML = currentServiceList.map(s => {
     const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
     const iconEmoji = getPlatformIconEmoji(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
     return `<option value="${s.id}">${iconEmoji} ${s.id} - ${s.name} — ${priceStr}</option>`;
   }).join('');
 
-  // 2. Populate custom services dropdown menu with official brand badges & ID pills
-  if (srvMenu) {
-    srvMenu.innerHTML = currentServiceList.map(s => {
-      const meta = getPlatformBadgeMeta(s.name || s.category_name || (selectedCat ? selectedCat.name : ''));
-      const priceStr = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
-      const isSel = s.id === parseInt(srvSelect.value);
-      return `
-        <div class="dil-cs-option ${isSel ? 'selected' : ''}" onclick="selectCustomService(${s.id})">
-          <span class="dil-opt-brand-icon" style="background:${meta.bg};">
-            <i class="${meta.icon}"></i>
-          </span>
-          <span class="dil-opt-srv-id">${s.id}</span>
-          <span class="dil-opt-text">${s.name} — ${priceStr}</span>
-        </div>
-      `;
-    }).join('');
+  if (currentServiceList.length > 0) {
+    srvSelect.value = currentServiceList[0].id;
   }
 
   onServiceChange();
@@ -439,17 +427,42 @@ function onServiceChange() {
   selectedServiceObj = MASTER_SERVICES.find(s => s.id === srvId) || currentServiceList[0];
   if (!selectedServiceObj) return;
 
-  // Update Service ID Pill & Label on custom trigger (Matches Screenshot 1)
+  // Update Service ID Pill Badge (e.g. 15545)
   const idPill = document.getElementById('selected-srv-id-pill');
-  const srvLabel = document.getElementById('custom-srv-label');
-  const isPkr = AppState.currency === 'PKR';
-  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
-
   if (idPill) {
     const srvMeta = getPlatformBadgeMeta(selectedServiceObj.name || selectedServiceObj.category_name);
     idPill.style.background = srvMeta.bg;
     idPill.textContent = selectedServiceObj.id;
   }
+
+  const isPkr = AppState.currency === 'PKR';
+  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
+
+  const descName = document.getElementById('desc-srv-name');
+  const descRate = document.getElementById('desc-srv-rate');
+  const descTime = document.getElementById('desc-srv-time');
+  const descMinMax = document.getElementById('desc-srv-minmax');
+  const avgBox = document.getElementById('order-avg-time-box');
+  const qtyHint = document.getElementById('quantity-hint');
+  const qtyInput = document.getElementById('order-quantity');
+
+  if (descName) descName.textContent = `${selectedServiceObj.name} 🔥`;
+  if (descRate) descRate.textContent = rateText;
+  if (descTime) descTime.textContent = selectedServiceObj.avg_time;
+  if (descMinMax) descMinMax.textContent = `${selectedServiceObj.min.toLocaleString()} / ${selectedServiceObj.max.toLocaleString()}`;
+  if (avgBox) avgBox.value = selectedServiceObj.avg_time;
+  if (qtyHint) qtyHint.textContent = `Min: ${selectedServiceObj.min.toLocaleString()} — Max: ${selectedServiceObj.max.toLocaleString()}`;
+
+  if (qtyInput) {
+    qtyInput.min = selectedServiceObj.min;
+    qtyInput.max = selectedServiceObj.max;
+    if (!qtyInput.value) {
+      qtyInput.value = selectedServiceObj.min;
+    }
+  }
+
+  calculateOrderTotal();
+}
   if (srvLabel) {
     srvLabel.textContent = `${selectedServiceObj.id} - ${selectedServiceObj.name} — ${rateText}`;
   }

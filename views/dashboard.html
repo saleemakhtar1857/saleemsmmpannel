@@ -314,35 +314,23 @@
 
             <!-- New Order Form -->
             <form id="new-order-form" onsubmit="submitNewOrder(event)">
-              <!-- Categories Custom Dropdown with Official Brand Icons (Matches dilsmmpanel.com) -->
+              <!-- Categories Mobile-First Dropdown with Official Brand Badges -->
               <div class="dil-field-group">
-                <label class="dil-field-label">Categories</label>
-                <div class="dil-custom-select" id="custom-cat-dropdown">
-                  <div class="dil-cs-trigger" id="custom-cat-trigger" onclick="toggleCustomDropdown('custom-cat-dropdown', event)" tabindex="0" role="button" aria-expanded="false">
-                    <span class="dil-cs-badge" id="category-badge-icon"><i class="fa-solid fa-layer-group"></i></span>
-                    <span class="dil-cs-label" id="custom-cat-label">Select Category...</span>
-                    <i class="fa-solid fa-chevron-down dil-cs-caret"></i>
-                  </div>
-                  <div class="dil-cs-menu" id="custom-cat-menu">
-                    <!-- Populated dynamically with official brand icons -->
-                  </div>
-                  <select id="order-category" class="dil-hidden-select" onchange="onCategoryChange()"></select>
+                <label class="dil-field-label" for="order-category">Categories</label>
+                <div class="dil-select-box-wrap">
+                  <span class="dil-cs-badge" id="category-badge-icon"><i class="fa-solid fa-layer-group"></i></span>
+                  <select id="order-category" class="dil-select-native" onchange="onCategoryChange()" aria-label="Select Category"></select>
+                  <i class="fa-solid fa-chevron-down dil-cs-caret-icon"></i>
                 </div>
               </div>
 
-              <!-- Services Custom Dropdown with IDs and Official Brand Icons -->
+              <!-- Services Mobile-First Dropdown with Service IDs and Rates -->
               <div class="dil-field-group">
-                <label class="dil-field-label">Services</label>
-                <div class="dil-custom-select" id="custom-srv-dropdown">
-                  <div class="dil-cs-trigger" id="custom-srv-trigger" onclick="toggleCustomDropdown('custom-srv-dropdown', event)" tabindex="0" role="button" aria-expanded="false">
-                    <span class="dil-srv-id-pill" id="selected-srv-id-pill">15210</span>
-                    <span class="dil-cs-label" id="custom-srv-label">Select Service...</span>
-                    <i class="fa-solid fa-chevron-down dil-cs-caret"></i>
-                  </div>
-                  <div class="dil-cs-menu" id="custom-srv-menu">
-                    <!-- Populated dynamically with official brand badges and rates -->
-                  </div>
-                  <select id="order-service" class="dil-hidden-select" onchange="onServiceChange()"></select>
+                <label class="dil-field-label" for="order-service">Services</label>
+                <div class="dil-select-box-wrap">
+                  <span class="dil-srv-id-pill" id="selected-srv-id-pill">15545</span>
+                  <select id="order-service" class="dil-select-native" onchange="onServiceChange()" aria-label="Select Service"></select>
+                  <i class="fa-solid fa-chevron-down dil-cs-caret-icon"></i>
                 </div>
               </div>
 
