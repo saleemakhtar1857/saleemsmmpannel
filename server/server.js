@@ -114,7 +114,7 @@ const DB = {
       username: "saleem_vip",
       name: "Saleem VIP Reseller",
       email: "vip@saleemsmm.pk",
-      phone: "03173983906",
+      phone: "03163846672",
       unreadAdmin: 1,
       unreadUser: 0,
       updatedAt: "Just now",

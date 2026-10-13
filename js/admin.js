@@ -180,9 +180,13 @@ function renderPendingDeposits() {
   tbody.innerHTML = deposits.map(d => `
     <tr>
       <td><strong>${d.id}</strong></td>
+      <td>
+        <div style="font-weight:700;">@${AppState.escapeHtml(d.userId || 'Client')}</div>
+        <div style="font-size:11px;color:var(--text-muted);">${AppState.escapeHtml(d.userEmail || '')}</div>
+      </td>
       <td><strong>${d.method}</strong></td>
       <td><code>${d.tid}</code></td>
-      <td><strong>₨ ${d.amount_pkr.toLocaleString()}</strong></td>
+      <td><strong style="color:#16a34a;">₨ ${d.amount_pkr.toLocaleString()}</strong></td>
       <td>${d.created_at}</td>
       <td>
         <span class="badge-status ${d.status === 'Approved' ? 'badge-completed' : d.status === 'Rejected' ? 'badge-canceled' : 'badge-pending'}">
@@ -207,25 +211,39 @@ function renderPendingDeposits() {
 
 window.approveDeposit = function(depositId) {
   const deposits = AppState.getDeposits();
-  const dep = deposits.find(d => d.id === depositId);
+  const dep = deposits.find(d => String(d.id) === String(depositId));
   if (!dep) return;
 
   dep.status = 'Approved';
   AppState.saveDeposits(deposits);
 
-  const user = AppState.currentUser;
-  user.balance_pkr += dep.amount_pkr;
-  user.balance_usd += (dep.amount_usd || dep.amount_pkr / 280);
-  AppState.saveUser();
+  // Credit balance to the specific user who submitted the deposit
+  const users = AppState.getUsers();
+  const targetUser = users.find(u =>
+    (dep.userEmail && u.email && u.email.toLowerCase().trim() === dep.userEmail.toLowerCase().trim()) ||
+    (dep.userId && u.username && u.username.toLowerCase().trim() === dep.userId.toLowerCase().trim())
+  );
+
+  if (targetUser) {
+    targetUser.balance_pkr = Number(((targetUser.balance_pkr || 0) + dep.amount_pkr).toFixed(2));
+    targetUser.balance_usd = Number(((targetUser.balance_usd || 0) + (dep.amount_usd || dep.amount_pkr / 280)).toFixed(2));
+    AppState.saveUsers(users);
+
+    if (AppState.currentUser && (AppState.currentUser.email === targetUser.email || AppState.currentUser.username === targetUser.username)) {
+      AppState.currentUser.balance_pkr = targetUser.balance_pkr;
+      AppState.currentUser.balance_usd = targetUser.balance_usd;
+      AppState.saveUser();
+    }
+  }
 
   updateAdminStats();
   renderPendingDeposits();
-  AppState.showToast(`Deposit #${depositId} Approved! ₨ ${dep.amount_pkr} has been credited to wallet.`, 'success');
+  AppState.showToast(`Deposit #${depositId} Approved! ₨ ${dep.amount_pkr} credited to ${targetUser ? '@' + targetUser.username : 'user account'}.`, 'success');
 };
 
 window.rejectDeposit = function(depositId) {
   const deposits = AppState.getDeposits();
-  const dep = deposits.find(d => d.id === depositId);
+  const dep = deposits.find(d => String(d.id) === String(depositId));
   if (!dep) return;
 
   dep.status = 'Rejected';

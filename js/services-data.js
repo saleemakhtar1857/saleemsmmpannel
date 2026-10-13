@@ -8149,25 +8149,25 @@ MASTER_SERVICES.unshift(
     id: 99901,
     category: "cat_custom_panel",
     category_name: "👑 Custom SMM Panel Development [ Apna SMM Panel Banwayein ]",
-    name: "👑 Custom Full-Featured SMM Panel Website (Apna Khud Ka Customize SMM Panel Banwayein — Complete Website + Admin Panel + 625+ Services + EasyPaisa/UPaisa) | Order Ke Liye Panel Live Chat Ya WhatsApp (03173983906) Par Rabta Karein ✅🔥",
+    name: "👑 Custom Full-Featured SMM Panel Website (Apna Khud Ka Customize SMM Panel Banwayein — Complete Website + Admin Panel + 625+ Services + EasyPaisa/UPaisa) | Order Ke Liye Panel Live Chat Ya WhatsApp (03163846672) Par Rabta Karein ✅🔥",
     rate_pkr: 15000,
     rate_usd: 53.57,
     min: 1000,
     max: 1000,
     avg_time: "24 hours",
-    description: "👑 APNA KHUD KA CUSTOMIZE SMM PANEL BANWAYEIN!\n✅ Complete Ready-To-Earn SMM Panel Website (Jaisa Saleem SMM Panel Hai)\n✅ Exclusive Admin Dashboard + Automated Profit Margin Control\n✅ 625+ Wholesale Active Services Connected\n✅ EasyPaisa & UPaisa Payment System + Live Chat System\n📞 Order Ya Details Ke Liye Abhi Panel Ke Live Chat Mein Message Karein Ya WhatsApp (03173983906) Par Rabta Karein!"
+    description: "👑 APNA KHUD KA CUSTOMIZE SMM PANEL BANWAYEIN!\n✅ Complete Ready-To-Earn SMM Panel Website (Jaisa Saleem SMM Panel Hai)\n✅ Exclusive Admin Dashboard + Automated Profit Margin Control\n✅ 625+ Wholesale Active Services Connected\n✅ EasyPaisa & UPaisa Payment System + Live Chat System\n📞 Order Ya Details Ke Liye Abhi Panel Ke Live Chat Mein Message Karein Ya WhatsApp (03163846672) Par Rabta Karein!"
   },
   {
     id: 99902,
     category: "cat_custom_panel",
     category_name: "👑 Custom SMM Panel Development [ Apna SMM Panel Banwayein ]",
-    name: "🚀 Reseller Child SMM Panel Setup (Connected With Saleem SMM API + Custom Branding & Domain) | Order On WhatsApp 03173983906 Or Live Chat ⚡🔥",
+    name: "🚀 Reseller Child SMM Panel Setup (Connected With Saleem SMM API + Custom Branding & Domain) | Order On WhatsApp 03163846672 Or Live Chat ⚡🔥",
     rate_pkr: 8500,
     rate_usd: 30.36,
     min: 1000,
     max: 1000,
     avg_time: "12 hours",
-    description: "🚀 RESELLER CHILD SMM PANEL SETUP\n✅ Connected Directly To Saleem SMM Wholesale API\n✅ Apna Naam, Logo Aur Custom Profit Margin\n✅ Mobile-First Responsive Design\n📞 Order Ke Liye Panel Live Chat Mein Message Karein Ya WhatsApp (03173983906) Par Rabta Karein!"
+    description: "🚀 RESELLER CHILD SMM PANEL SETUP\n✅ Connected Directly To Saleem SMM Wholesale API\n✅ Apna Naam, Logo Aur Custom Profit Margin\n✅ Mobile-First Responsive Design\n📞 Order Ke Liye Panel Live Chat Mein Message Karein Ya WhatsApp (03163846672) Par Rabta Karein!"
   }
 );
 

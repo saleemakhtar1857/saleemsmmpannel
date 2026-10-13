@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initDashboard() {
+  // Enforce login — guest users cannot access dashboard
+  if (!AppState.currentUser) {
+    window.location.replace('../index.html#auth');
+    return;
+  }
+
   populateCategoriesSelect();
   populateCatalogFilter();
   renderUserOrders();
@@ -356,6 +362,13 @@ function submitNewOrder(e) {
   e.preventDefault();
   if (!selectedServiceObj) return;
 
+  const user = AppState.currentUser;
+  if (!user) {
+    AppState.showToast('Please login to place an order!', 'error');
+    window.location.replace('../index.html#auth');
+    return;
+  }
+
   const link = document.getElementById('order-link').value.trim();
   const qty = parseInt(document.getElementById('order-quantity').value);
 
@@ -366,22 +379,32 @@ function submitNewOrder(e) {
 
   const chargePkr = Number(((qty / 1000) * selectedServiceObj.rate_pkr).toFixed(2));
   const chargeUsd = Number(((qty / 1000) * selectedServiceObj.rate_usd).toFixed(4));
+  const userBal = Number(user.balance_pkr || 0);
 
-  if (AppState.currentUser.balance_pkr < chargePkr) {
-    AppState.showToast('Insufficient wallet balance! Please Add Funds via EasyPaisa or UPaisa.', 'error');
+  // STRICT BALANCE CHECK: Empty balance cannot place order!
+  if (userBal <= 0) {
+    AppState.showToast('❌ Wallet Balance Empty (Rs 0.00)! Pehle Add Funds se EasyPaisa ya UPaisa par payment karein aur Admin approval ka wait karein.', 'error');
     switchDashView('add-funds');
     return;
   }
 
-  // Deduct balance
-  AppState.currentUser.balance_pkr = Number((AppState.currentUser.balance_pkr - chargePkr).toFixed(2));
-  AppState.currentUser.balance_usd = Number((AppState.currentUser.balance_usd - chargeUsd).toFixed(4));
-  AppState.currentUser.spent_pkr = Number((AppState.currentUser.spent_pkr + chargePkr).toFixed(2));
-  AppState.currentUser.spent_usd = Number((AppState.currentUser.spent_usd + chargeUsd).toFixed(4));
+  if (userBal < chargePkr) {
+    AppState.showToast(`❌ Insufficient Balance! Order cost Rs ${chargePkr} hai lekin aapka balance Rs ${userBal.toFixed(2)} hai. Please Add Funds karein.`, 'error');
+    switchDashView('add-funds');
+    return;
+  }
+
+  // Deduct balance from user
+  user.balance_pkr = Number((user.balance_pkr - chargePkr).toFixed(2));
+  user.balance_usd = Number((user.balance_usd - chargeUsd).toFixed(4));
+  user.spent_pkr = Number(((user.spent_pkr || 0) + chargePkr).toFixed(2));
+  user.spent_usd = Number(((user.spent_usd || 0) + chargeUsd).toFixed(4));
   AppState.saveUser();
 
   const newOrder = {
     id: Math.floor(3900000 + Math.random() * 99999),
+    userId: user.username,
+    userEmail: user.email,
     service_id: selectedServiceObj.id,
     service_name: selectedServiceObj.name,
     link: link,
@@ -400,7 +423,62 @@ function submitNewOrder(e) {
 
   renderAllPrices();
   document.getElementById('order-link').value = '';
-  AppState.showToast(`Order #${newOrder.id} Placed Successfully!`, 'success');
+
+  // WhatsApp Instant Message Text: "I have placed the order"
+  const waMsgText = encodeURIComponent(
+    `I have placed the order\n\n` +
+    `📦 Order ID: #${newOrder.id}\n` +
+    `⚡ Service: ${selectedServiceObj.name}\n` +
+    `🔢 Quantity: ${qty}\n` +
+    `🔗 Link: ${link}\n` +
+    `💰 Charge: Rs ${chargePkr}\n` +
+    `👤 Username: @${user.username}`
+  );
+  const waOrderUrl = `https://wa.me/923163846672?text=${waMsgText}`;
+
+  // Show Order Placed Notification with 1-Click WhatsApp Button
+  showOrderSuccessPopup(newOrder, waOrderUrl);
+}
+
+function showOrderSuccessPopup(order, waUrl) {
+  const existing = document.getElementById('saleem-order-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'saleem-order-modal';
+  modal.style.cssText = `
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    z-index: 10010; display: flex; align-items: center; justify-content: center; padding: 16px;
+  `;
+
+  modal.innerHTML = `
+    <div style="background:var(--bg-surface);border:2px solid var(--primary);border-radius:18px;max-width:440px;width:100%;padding:24px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,0.5);">
+      <div style="width:60px;height:60px;background:#22c55e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 style="font-size:20px;font-weight:900;color:var(--text-primary);margin-bottom:6px;">Order Placed Successfully!</h3>
+      <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:16px;">
+        Order <strong>#${order.id}</strong> has been submitted to automated queue.
+      </p>
+
+      <div style="background:var(--bg-surface-2);border-radius:12px;padding:12px;text-align:left;font-size:12.5px;margin-bottom:18px;line-height:1.6;">
+        <div><strong>Service:</strong> ${AppState.escapeHtml(order.service_name)}</div>
+        <div><strong>Quantity:</strong> ${order.quantity.toLocaleString()}</div>
+        <div><strong>Charged:</strong> Rs ${order.charge_pkr}</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="${waUrl}" target="_blank" class="dil-wa-btn" style="padding:12px;font-size:14px;background:#25d366;" onclick="document.getElementById('saleem-order-modal').remove()">
+          <i class="fa-brands fa-whatsapp"></i> Send to WhatsApp: 03163846672
+        </a>
+        <button type="button" class="dil-submit-btn" style="padding:10px;background:var(--bg-surface-2);color:var(--text-primary);border:1px solid var(--border-color);" onclick="document.getElementById('saleem-order-modal').remove()">
+          Close & View Orders
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
 }
 
 /* ==========================================================================
@@ -604,6 +682,13 @@ function showComingSoonPayment(gatewayName) {
 
 function submitDepositRequest(e) {
   e.preventDefault();
+  const user = AppState.currentUser;
+  if (!user) {
+    AppState.showToast('Please login to submit deposit!', 'error');
+    window.location.replace('../index.html#auth');
+    return;
+  }
+
   const method = document.getElementById('deposit-method').value;
   const amountPkr = parseFloat(document.getElementById('deposit-amount').value);
   const tid = document.getElementById('deposit-tid').value.trim();
@@ -613,47 +698,94 @@ function submitDepositRequest(e) {
     return;
   }
 
+  if (!tid) {
+    AppState.showToast('Please enter the Transaction ID (TID) from your receipt', 'error');
+    return;
+  }
+
   const amountUsd = Number((amountPkr / 280).toFixed(2));
   const deposits = AppState.getDeposits();
 
+  // Create PENDING deposit request for Admin verification
   const newDep = {
     id: Math.floor(4300000 + Math.random() * 99999),
+    userId: user.username,
+    userEmail: user.email,
+    userName: user.name || user.username,
+    userPhone: user.phone || '',
     method: method,
+    account: method.includes('EasyPaisa') ? '03173983906' : '03163846672',
     tid: tid,
     amount_pkr: amountPkr,
     amount_usd: amountUsd,
-    status: 'Approved',
+    status: 'Pending', // PENDING: Waiting for Admin approval!
     created_at: new Date().toISOString().replace('T', ' ').substring(0, 19)
   };
 
   deposits.unshift(newDep);
   AppState.saveDeposits(deposits);
 
-  // Credit demo balance
-  AppState.currentUser.balance_pkr = Number((AppState.currentUser.balance_pkr + amountPkr).toFixed(2));
-  AppState.currentUser.balance_usd = Number((AppState.currentUser.balance_usd + amountUsd).toFixed(2));
-  AppState.saveUser();
-
-  renderAllPrices();
+  renderUserDeposits();
+  renderUserTransactions();
   document.getElementById('deposit-amount').value = '';
   document.getElementById('deposit-tid').value = '';
-  AppState.showToast(`Rs ${amountPkr} credited via ${method}!`, 'success');
+
+  // Prompt WhatsApp quick verification
+  const waDepText = encodeURIComponent(
+    `Assalam-o-Alaikum Admin!\n\n` +
+    `Maine Saleem SMM Panel par payment send ki hai, please mera deposit approve kar dein.\n\n` +
+    `💳 Deposit ID: #${newDep.id}\n` +
+    `💰 Amount: Rs ${amountPkr}\n` +
+    `🧾 TID / Ref: ${tid}\n` +
+    `🏦 Method: ${method}\n` +
+    `👤 Username: @${user.username}`
+  );
+  const waDepUrl = `https://wa.me/923163846672?text=${waDepText}`;
+
+  AppState.showToast(`✅ Deposit request #${newDep.id} submitted (Pending)! Admin approval ke baad wallet mein balance add ho jayega.`, 'success');
+
+  // Also prompt live chat preset
+  if (typeof AppState.sendUserChatMessage === 'function') {
+    AppState.sendUserChatMessage(`Assalam-o-Alaikum Admin! Maine Rs ${amountPkr} bhej diye hain via ${method} (TID: ${tid}). Please mera deposit approve kar dein.`);
+    renderDashboardChat();
+  }
 }
 
 function renderUserDeposits() {
   const tbody = document.getElementById('user-deposits-tbody');
   if (!tbody) return;
 
-  const deps = AppState.getDeposits();
-  tbody.innerHTML = deps.map(d => {
+  const user = AppState.currentUser;
+  const allDeps = AppState.getDeposits();
+  // Filter deposits for this specific user
+  const userDeps = user ? allDeps.filter(d => d.userEmail === user.email || d.userId === user.username || !d.userEmail) : allDeps;
+
+  if (userDeps.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:16px;color:var(--text-muted);">No deposits yet. Submit payment above.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = userDeps.map(d => {
     const amt = AppState.formatMoney(d.amount_usd, d.amount_pkr);
+    const isPending = d.status === 'Pending';
+    const isApproved = d.status === 'Approved';
+    const badgeClass = isApproved ? 'status-completed' : (isPending ? 'status-pending' : 'status-rejected');
+    const badgeLabel = isApproved ? 'Approved' : (isPending ? 'Pending Approval' : 'Rejected');
+
     return `
       <tr>
         <td><strong>#${d.id}</strong></td>
         <td>${d.method}</td>
         <td><code>${d.tid}</code></td>
-        <td style="font-weight:700;color:#16a34a;">+${amt}</td>
-        <td><span class="status-badge status-completed">${d.status}</span></td>
+        <td style="font-weight:700;color:${isApproved ? '#16a34a' : 'var(--primary)'};">+${amt}</td>
+        <td>
+          <span class="status-badge ${badgeClass}">${badgeLabel}</span>
+          ${isPending ? `
+            <a href="https://wa.me/923163846672?text=${encodeURIComponent('Assalam-o-Alaikum! Please approve my deposit #' + d.id + ' (TID: ' + d.tid + ')')}" target="_blank" style="margin-left:6px;font-size:11px;color:#16a34a;font-weight:700;text-decoration:none;" title="Send TID to WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> Verify
+            </a>
+          ` : ''}
+        </td>
       </tr>
     `;
   }).join('');

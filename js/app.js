@@ -15,8 +15,8 @@ const STORAGE_KEYS = {
 };
 
 const ADMIN_EMAIL = 'saleembaloch1857@gmail.com';
-const OFFICIAL_WHATSAPP = '03173983906';
-const OFFICIAL_WHATSAPP_INTL = '923173983906';
+const OFFICIAL_WHATSAPP = '03163846672';
+const OFFICIAL_WHATSAPP_INTL = '923163846672';
 const OFFICIAL_EASYPAISA = '03173983906';
 const OFFICIAL_UPAISA = '03163846672';
 
@@ -200,14 +200,19 @@ const AppState = {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        parsed.role = (parsed.email && parsed.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
-        this.currentUser = parsed;
+        // Verify user still exists in database
+        if (parsed && parsed.email) {
+          parsed.role = (parsed.email.toLowerCase().trim() === ADMIN_EMAIL) ? 'admin' : 'client';
+          this.currentUser = parsed;
+        } else {
+          this.currentUser = null;
+        }
       } catch (e) {
-        this.currentUser = DEFAULT_ACCOUNTS[0];
+        this.currentUser = null;
       }
     } else {
-      this.currentUser = DEFAULT_ACCOUNTS[0];
-      this.saveUser();
+      // No session — require login
+      this.currentUser = null;
     }
   },
 
@@ -278,8 +283,8 @@ const AppState = {
       phone: phone ? phone.trim() : "",
       password: password,
       role: "client",
-      balance_pkr: 100.00,
-      balance_usd: 0.36,
+      balance_pkr: 0.00,
+      balance_usd: 0.00,
       spent_pkr: 0.00,
       spent_usd: 0.00,
       apiKey: "smm_live_sec_" + Math.random().toString(36).substring(2, 14),
@@ -456,7 +461,7 @@ const AppState = {
               id: "MSG-101",
               sender: "admin",
               senderName: "Saleem Akhtar (Admin)",
-              text: "Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Support. Aap yahan panel ke andar direct Admin se baat kar sakte hain ya apna Customize SMM Panel banwane ke liye order de sakte hain. WhatsApp: 03173983906",
+              text: "Assalam-o-Alaikum! Welcome to Saleem SMM Panel Live Support. Aap yahan panel ke andar direct Admin se baat kar sakte hain ya apna Customize SMM Panel banwane ke liye order de sakte hain. WhatsApp: 03163846672",
               time: "03:45 AM"
             },
             {
@@ -931,6 +936,43 @@ window.handleFloatingChatSubmit = function(e) {
   if (typeof renderDashboardChatMessages === 'function') {
     renderDashboardChatMessages();
   }
+};
+
+/* copyText helper used across dashboard */
+AppState.copyText = function(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).catch(() => {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      el.remove();
+    });
+  } else {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    el.remove();
+  }
+  AppState.showToast('Copied to clipboard!', 'success');
+};
+
+/* requireLogin — redirect to login page if not authenticated */
+AppState.requireLogin = function(redirectIfAdmin) {
+  if (!AppState.currentUser) {
+    const inViews = window.location.pathname.includes('/views/') || window.location.pathname.includes('/pages/');
+    window.location.replace(inViews ? '../index.html#auth' : 'index.html#auth');
+    return false;
+  }
+  if (redirectIfAdmin && AppState.isAdmin()) {
+    const inViews = window.location.pathname.includes('/views/') || window.location.pathname.includes('/pages/');
+    window.location.replace(inViews ? 'admin.html' : 'views/admin.html');
+    return false;
+  }
+  return true;
 };
 
 document.addEventListener('DOMContentLoaded', () => {

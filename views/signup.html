@@ -92,7 +92,7 @@
         </div>
 
         <button type="submit" class="btn-primary-grad btn-block" style="padding:14px;font-size:15px;margin-top:10px;">
-          <i class="fa-solid fa-rocket"></i> Register & Claim ₨ 100 Bonus
+          <i class="fa-solid fa-rocket"></i> Create Account & Access Dashboard
         </button>
       </form>
 
@@ -127,7 +127,7 @@
 
       const res = AppState.registerUser(name, username, email, phone, pass);
       if (res.success) {
-        AppState.showToast('Welcome to Saleem SMM Panel! ₨ 100 gift credited.', 'success');
+        AppState.showToast('Account created successfully! Redirecting to Dashboard...', 'success');
         setTimeout(() => {
           if (AppState.isAdmin()) {
             window.location.href = 'admin.html';
