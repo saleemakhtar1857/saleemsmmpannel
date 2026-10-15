@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Admin Control Center — Saleem SMM Panel</title>
+  <title>Admin Command Center — Saleem SMM Panel</title>
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts: Poppins & Righteous -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css">
@@ -23,276 +23,483 @@
   <div class="sidebar-backdrop" id="admin-sidebar-backdrop" onclick="closeAdminMobileSidebar()"></div>
 
   <div class="dashboard-layout">
-    <!-- Sidebar -->
+    <!-- ========================================================================
+         LEFT SIDEBAR
+         ======================================================================== -->
     <aside class="dashboard-sidebar" id="admin-sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="brand-logo">
-          <div class="logo-badge" style="background:#ff4757;"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="logo-text">Admin<span>Panel</span></div>
+      <div class="sidebar-header" style="padding:16px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;">
+        <a href="../index.html" class="brand-logo" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="background:#dc2626;"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="logo-text" style="font-size:18px;font-weight:900;color:var(--text-primary);">Saleem<span style="color:#dc2626;">Admin</span></div>
         </a>
       </div>
 
-      <div class="user-quick-profile" style="background:rgba(255, 71, 87, 0.1);border:1px solid rgba(255, 71, 87, 0.3);">
-        <div class="user-quick-avatar" id="admin-sidebar-avatar" style="background:#ff4757;">A</div>
-        <div class="user-quick-info">
-          <h4 id="admin-sidebar-name">Saleem Akhtar</h4>
-          <span id="admin-sidebar-email" style="font-size:11px;color:#ff4757;font-weight:700;word-break:break-all;">saleembaloch1857@gmail.com</span>
+      <!-- Logged-in Admin Profile Card -->
+      <div class="user-quick-profile" style="margin:14px 12px;padding:12px;border-radius:12px;background:rgba(220, 38, 38, 0.1);border:1px solid rgba(220, 38, 38, 0.28);display:flex;align-items:center;gap:10px;">
+        <div class="user-quick-avatar" id="admin-sidebar-avatar" style="width:40px;height:40px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;">S</div>
+        <div class="user-quick-info" style="min-width:0;flex:1;">
+          <h4 id="admin-sidebar-name" style="font-size:13.5px;font-weight:800;margin:0 0 2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Saleem Akhtar</h4>
+          <span id="admin-sidebar-email" style="font-size:11px;color:#dc2626;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">saleembaloch1857@gmail.com</span>
         </div>
       </div>
 
-      <nav class="sidebar-menu">
-        <a href="#section-analytics" class="sidebar-item active" onclick="closeAdminMobileSidebar()">
+      <!-- Navigation Menu Tabs -->
+      <nav class="sidebar-menu" style="padding:0 12px;flex:1;overflow-y:auto;">
+        <a href="javascript:void(0)" class="sidebar-item active" data-tab="overview" onclick="switchAdminTab('overview')">
           <i class="fa-solid fa-chart-line"></i>
           <span>Overview Analytics</span>
         </a>
-        <a href="#section-chats" class="sidebar-item" onclick="closeAdminMobileSidebar()">
-          <i class="fa-solid fa-comments"></i>
-          <span>Live User Chats</span>
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="users" onclick="switchAdminTab('users')">
+          <i class="fa-solid fa-users"></i>
+          <span>Users & Wallets</span>
+          <span class="sidebar-badge" id="badge-users-count">3</span>
         </a>
-        <a href="#section-deposits" class="sidebar-item" onclick="closeAdminMobileSidebar()">
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="deposits" onclick="switchAdminTab('deposits')">
           <i class="fa-solid fa-money-check-dollar"></i>
           <span>Approve Deposits</span>
+          <span class="sidebar-badge" id="badge-deposits-count" style="display:none;">0</span>
         </a>
-        <a href="#section-orders" class="sidebar-item" onclick="closeAdminMobileSidebar()">
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="chats" onclick="switchAdminTab('chats')">
+          <i class="fa-solid fa-comments"></i>
+          <span>Live User Chats</span>
+          <span class="sidebar-badge" id="badge-chats-count" style="display:none;">1</span>
+        </a>
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="orders" onclick="switchAdminTab('orders')">
           <i class="fa-solid fa-boxes-stacked"></i>
           <span>Manage Orders</span>
         </a>
-        <a href="#section-provider" class="sidebar-item" onclick="closeAdminMobileSidebar()">
-          <i class="fa-solid fa-server"></i>
-          <span>Provider API Sync</span>
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="cloud" onclick="switchAdminTab('cloud')">
+          <i class="fa-solid fa-cloud"></i>
+          <span>Supabase Cloud Sync</span>
+          <span class="sidebar-badge" style="background:#10b981;">DB</span>
         </a>
-        <a href="#section-services" class="sidebar-item" onclick="closeAdminMobileSidebar()">
-          <i class="fa-solid fa-tags"></i>
-          <span>Pricing & Services</span>
+        <a href="javascript:void(0)" class="sidebar-item" data-tab="provider" onclick="switchAdminTab('provider')">
+          <i class="fa-solid fa-server"></i>
+          <span>Provider API & Margins</span>
         </a>
       </nav>
 
-      <div class="sidebar-footer">
-        <a href="dashboard.html" class="sidebar-item" style="color:var(--primary);">
+      <div class="sidebar-footer" style="padding:14px 12px;border-top:1px solid var(--border-color);display:flex;flex-direction:column;gap:6px;">
+        <a href="dashboard.html" class="sidebar-item" style="color:var(--primary);margin:0;">
           <i class="fa-solid fa-user"></i>
           <span>Switch to Client Portal</span>
         </a>
-        <a href="../index.html" class="sidebar-item" style="color:var(--text-muted);">
+        <a href="../index.html" class="sidebar-item" style="color:var(--text-muted);margin:0;">
           <i class="fa-solid fa-house"></i>
-          <span>Public Website</span>
+          <span>Public Landing Page</span>
         </a>
+        <button type="button" class="sidebar-item" style="color:#ef4444;background:none;border:none;cursor:pointer;width:100%;text-align:left;font-family:inherit;margin:0;" onclick="AppState.logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout Admin</span>
+        </button>
       </div>
     </aside>
 
-    <!-- Main Content -->
+    <!-- ========================================================================
+         MAIN WORKSPACE
+         ======================================================================== -->
     <main class="dashboard-main">
-      <header class="dashboard-topbar">
-        <div class="topbar-left">
-          <button class="topbar-mobile-btn" onclick="toggleAdminMobileSidebar()" aria-label="Menu">
+      <!-- Topbar Header -->
+      <header class="dashboard-topbar" style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:var(--bg-surface);border-bottom:1px solid var(--border-color);border-radius:0 0 14px 14px;margin-bottom:18px;">
+        <div class="topbar-left" style="display:flex;align-items:center;gap:12px;">
+          <button class="topbar-mobile-btn" onclick="toggleAdminMobileSidebar()" aria-label="Menu" style="background:var(--primary);color:#fff;border:none;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <h2 class="topbar-title">Saleem SMM — Admin Control Center</h2>
+          <h2 class="topbar-title" id="admin-page-title" style="font-size:18px;font-weight:900;margin:0;color:var(--text-primary);">
+            Admin Control Center
+          </h2>
         </div>
 
-        <div class="topbar-right">
-          <span class="admin-header-badge hide-sm"><i class="fa-solid fa-bolt"></i> Live Wholesale Server</span>
-          <button class="theme-toggle-btn" onclick="AppState.toggleTheme()">
+        <div class="topbar-right" style="display:flex;align-items:center;gap:10px;">
+          <!-- Supabase Cloud Connection Status Indicator -->
+          <div class="cloud-status-pill offline" id="admin-cloud-indicator" onclick="switchAdminTab('cloud')" title="Click to configure Supabase Cloud Database">
+            <span class="cloud-dot"></span>
+            <span id="admin-cloud-label">Local Storage</span>
+          </div>
+
+          <button class="theme-toggle-btn" onclick="AppState.toggleTheme()" title="Toggle Theme" style="background:var(--bg-surface-soft);border:1px solid var(--border-color);color:var(--text-primary);border-radius:8px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
             <i class="theme-toggle-icon fa-solid fa-sun"></i>
           </button>
         </div>
       </header>
 
-      <div class="dashboard-content">
-        <!-- Analytics Stat Bar -->
-        <div class="dash-stats-grid" id="section-analytics">
-          <div class="dash-stat-card">
-            <div class="stat-info">
-              <h5>Total Gross Revenue</h5>
-              <h3 id="admin-stat-revenue" style="color:#2ed573;">₨ 0.00</h3>
-            </div>
-            <div class="stat-icon-box" style="background:rgba(46, 213, 115, 0.1);color:#2ed573;">
-              <i class="fa-solid fa-sack-dollar"></i>
-            </div>
-          </div>
+      <div class="dashboard-content" style="padding-bottom:80px;">
 
-          <div class="dash-stat-card">
-            <div class="stat-info">
-              <h5>Total Platform Orders</h5>
-              <h3 id="admin-stat-orders">0</h3>
-            </div>
-            <div class="stat-icon-box"><i class="fa-solid fa-cart-shopping"></i></div>
-          </div>
-
-          <div class="dash-stat-card">
-            <div class="stat-info">
-              <h5>Pending Payment Slips</h5>
-              <h3 id="admin-stat-pending-deposits" style="color:#ffa502;">0</h3>
-            </div>
-            <div class="stat-icon-box" style="background:rgba(255, 165, 2, 0.1);color:#ffa502;">
-              <i class="fa-solid fa-receipt"></i>
-            </div>
-          </div>
-
-          <div class="dash-stat-card">
-            <div class="stat-info">
-              <h5>Active User Chats</h5>
-              <h3 id="admin-stat-chats" style="color:#1e90ff;">0</h3>
-            </div>
-            <div class="stat-icon-box" style="background:rgba(30, 144, 255, 0.1);color:#1e90ff;">
-              <i class="fa-solid fa-comments"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION: IN-PANEL LIVE USER CHATS & ADMIN REPLY CONSOLE -->
-        <div class="table-panel" id="section-chats" style="margin-bottom:28px;">
-          <div class="table-toolbar" style="margin-bottom:14px;">
-            <div>
-              <h3 style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;">
-                <i class="fa-solid fa-comments" style="color:var(--primary);"></i>
-                In-Panel Live User Chats & Custom SMM Panel Inquiries
-              </h3>
-              <p style="font-size:13px;color:var(--text-muted);margin-top:2px;">
-                Select any user on the left to read their messages and send a direct reply inside their panel!
-              </p>
-            </div>
-          </div>
-
-          <div class="admin-chat-grid">
-            <!-- Left: User Conversations List -->
-            <div class="admin-chat-users" id="admin-chat-users-list"></div>
-
-            <!-- Right: Selected User Chat Thread & Reply Input -->
-            <div class="admin-chat-thread">
-              <div style="padding:12px 16px;background:var(--bg-surface-soft);border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-                <div>
-                  <strong id="admin-active-chat-user" style="font-size:14.5px;">Select a user conversation</strong>
-                  <div id="admin-active-chat-meta" style="font-size:11.5px;color:var(--text-muted);"></div>
-                </div>
-                <a id="admin-active-chat-wa" href="https://wa.me/923163846672" target="_blank" class="chat-wa-mini-btn" style="display:none;">
-                  <i class="fa-brands fa-whatsapp"></i> WhatsApp User
-                </a>
+        <!-- ====================================================================
+             TAB 1: OVERVIEW ANALYTICS
+             ==================================================================== -->
+        <div id="pane-overview" class="admin-tab-pane active">
+          <!-- 4 Stat Cards -->
+          <div class="dash-stats-grid">
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Total Gross Revenue</h5>
+                <h3 id="admin-stat-revenue" style="color:#10b981;">₨ 0.00</h3>
               </div>
+              <div class="stat-icon-box" style="background:rgba(16, 185, 129, 0.12);color:#10b981;">
+                <i class="fa-solid fa-sack-dollar"></i>
+              </div>
+            </div>
 
-              <div class="panel-chat-messages" id="admin-chat-messages-box"></div>
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Total Platform Orders</h5>
+                <h3 id="admin-stat-orders">0</h3>
+              </div>
+              <div class="stat-icon-box" style="background:rgba(37, 99, 235, 0.12);color:#2563eb;">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
 
-              <form class="panel-chat-form" onsubmit="handleAdminChatReply(event)">
-                <input type="text" id="admin-chat-reply-input" class="form-input" placeholder="Type reply to send to user's panel..." autocomplete="off" required>
-                <button type="submit" class="btn-primary-grad" style="padding:0 22px;">
-                  <i class="fa-solid fa-reply"></i> Reply
-                </button>
-              </form>
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Pending Payments</h5>
+                <h3 id="admin-stat-pending-deposits" style="color:#f59e0b;">0</h3>
+              </div>
+              <div class="stat-icon-box" style="background:rgba(245, 158, 11, 0.12);color:#f59e0b;">
+                <i class="fa-solid fa-receipt"></i>
+              </div>
+            </div>
+
+            <div class="dash-stat-card">
+              <div class="stat-info">
+                <h5>Total Client Accounts</h5>
+                <h3 id="admin-stat-users-total" style="color:#8b5cf6;">0</h3>
+              </div>
+              <div class="stat-icon-box" style="background:rgba(139, 92, 246, 0.12);color:#8b5cf6;">
+                <i class="fa-solid fa-users"></i>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- SECTION: APPROVE PENDING DEPOSITS -->
-        <div class="table-panel" id="section-deposits" style="margin-bottom:28px;">
-          <div class="table-toolbar">
-            <div>
-              <h3 style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;">
-                <i class="fa-solid fa-money-check-dollar" style="color:var(--primary);"></i>
-                Pending EasyPaisa (03173983906) & UPaisa (03163846672) Deposits
-              </h3>
-              <p style="font-size:13px;color:var(--text-muted);margin-top:2px;">
-                Verify the Transaction ID (TID) against your mobile SMS and click "Approve" to instantly credit the user's wallet.
-              </p>
-            </div>
+          <!-- Quick Actions Bar -->
+          <div class="admin-quick-actions">
+            <button class="admin-action-btn" onclick="switchAdminTab('users')">
+              <i class="fa-solid fa-user-plus" style="color:#10b981;"></i> Manage Users & Wallets
+            </button>
+            <button class="admin-action-btn" onclick="switchAdminTab('deposits')">
+              <i class="fa-solid fa-money-check-dollar" style="color:#f59e0b;"></i> Approve Pending Deposits
+            </button>
+            <button class="admin-action-btn" onclick="switchAdminTab('chats')">
+              <i class="fa-solid fa-comments" style="color:#3b82f6;"></i> Open Live User Chat
+            </button>
+            <button class="admin-action-btn" onclick="switchAdminTab('cloud')">
+              <i class="fa-solid fa-cloud" style="color:#8b5cf6;"></i> Supabase Cloud Config
+            </button>
           </div>
 
-          <div class="data-table-container">
-            <table class="custom-data-table">
-              <thead>
-                <tr>
-                  <th>Deposit ID</th>
-                  <th>User / Client</th>
-                  <th>Method</th>
-                  <th>Transaction ID (TID)</th>
-                  <th>Amount (₨)</th>
-                  <th>Date & Time</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="admin-deposits-body"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- SECTION: WHOLESALE SMM PROVIDER CONFIG -->
-        <div class="table-panel" id="section-provider" style="margin-bottom:28px;">
-          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
-            <i class="fa-solid fa-server" style="color:var(--primary);"></i>
-            Connected Wholesale SMM Provider Gateway
-          </h3>
-          <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:18px;">
-            Orders placed on Saleem SMM Panel are automatically routed to your wholesale provider via standard SMM REST API (v2).
-          </p>
-
+          <!-- Wholesale Provider Gateway Banner -->
           <div class="provider-card">
             <div class="provider-info">
-              <h4>Primary Provider: Peakerr SMM Global Wholesale</h4>
-              <p style="font-size:13px;color:var(--text-muted);">API Endpoint: <code>https://api.peakerr.com/v2</code></p>
-              <div class="provider-status-badge">API Connected & Active (200 OK)</div>
+              <h4 style="margin:0 0 4px 0;font-size:16px;">Primary Provider: Peakerr SMM Global Wholesale</h4>
+              <p style="font-size:13px;color:var(--text-muted);margin:0 0 6px 0;">API Endpoint: <code>https://api.peakerr.com/v2</code></p>
+              <div class="provider-status-badge" style="color:#10b981;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+                API Connected & Operational (200 OK)
+              </div>
             </div>
             <div>
-              <button id="btn-test-provider-api" class="admin-action-btn">
+              <button id="btn-test-provider-api" class="admin-action-btn" style="padding:8px 14px;font-size:12.5px;">
                 <i class="fa-solid fa-plug"></i> Test Connection
               </button>
             </div>
           </div>
+        </div>
 
-          <!-- Profit Margin Multiplier -->
-          <div class="profit-margin-slider-box">
-            <label>
-              <span>Automated Profit Markup On Wholesale Rates</span>
-              <span id="profit-margin-label" style="color:var(--primary);">30% Markup</span>
-            </label>
-            <input type="range" min="10" max="100" value="30" class="profit-slider" id="profit-margin-slider">
-            <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">
-              Example: If wholesale cost is ₨ 100, your retail price is automatically set to ₨ 130 (+30% profit).
+        <!-- ====================================================================
+             TAB 2: USERS & WALLETS MANAGER (KEY USER REQUEST)
+             ==================================================================== -->
+        <div id="pane-users" class="admin-tab-pane">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div>
+                <h3 style="font-size:18px;font-weight:800;margin:0 0 4px 0;display:flex;align-items:center;gap:8px;">
+                  <i class="fa-solid fa-users" style="color:var(--primary);"></i>
+                  Registered Users & Wallet Balances
+                </h3>
+                <p style="font-size:13px;color:var(--text-muted);margin:0;">
+                  Manage client accounts, view phone numbers, credit payments (+₨), deduct balance (-₨), or reset wallet to zero (₨ 0).
+                </p>
+              </div>
+
+              <!-- Search Bar -->
+              <div style="display:flex;gap:8px;min-width:260px;">
+                <input type="text" id="admin-user-search-input" class="form-input" placeholder="Search by name, email, phone..." oninput="renderAdminUsersTable()" style="padding:8px 12px;font-size:13px;">
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>User / Client</th>
+                    <th>Username & Role</th>
+                    <th>WhatsApp / Phone</th>
+                    <th>Current Balance</th>
+                    <th>Total Spent</th>
+                    <th>Joined</th>
+                    <th style="text-align:right;">Wallet Controls</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-table-body"></tbody>
+              </table>
             </div>
           </div>
         </div>
 
-        <!-- SECTION: ORDERS MANAGEMENT -->
-        <div class="table-panel" id="section-orders" style="margin-bottom:28px;">
-          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
-            <i class="fa-solid fa-boxes-stacked" style="color:var(--primary);"></i>
-            Live Order Dispatcher & Status Override
-          </h3>
-          <div class="data-table-container">
-            <table class="custom-data-table">
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Service</th>
-                  <th>Target Link</th>
-                  <th>Quantity</th>
-                  <th>Charge</th>
-                  <th>Update Status</th>
-                </tr>
-              </thead>
-              <tbody id="admin-orders-body"></tbody>
-            </table>
+        <!-- ====================================================================
+             TAB 3: APPROVE PENDING DEPOSITS
+             ==================================================================== -->
+        <div id="pane-deposits" class="admin-tab-pane">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div>
+                <h3 style="font-size:18px;font-weight:800;margin:0 0 4px 0;display:flex;align-items:center;gap:8px;">
+                  <i class="fa-solid fa-money-check-dollar" style="color:#10b981;"></i>
+                  EasyPaisa (03173983906) & UPaisa (03163846672) Payment Approvals
+                </h3>
+                <p style="font-size:13px;color:var(--text-muted);margin:0;">
+                  Verify the Transaction ID (TID) against your mobile SMS. Clicking "Approve" will **instantly credit** the user's wallet!
+                </p>
+              </div>
+
+              <!-- Filter buttons -->
+              <div style="display:flex;gap:6px;">
+                <button type="button" class="admin-action-btn" onclick="filterAdminDeposits('all')" style="padding:6px 12px;font-size:12px;">All</button>
+                <button type="button" class="admin-action-btn" onclick="filterAdminDeposits('Pending')" style="padding:6px 12px;font-size:12px;color:#d97706;border-color:#d97706;">Pending Only</button>
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>Deposit ID</th>
+                    <th>User / Client</th>
+                    <th>Payment Method</th>
+                    <th>Transaction ID (TID)</th>
+                    <th>Amount (₨)</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th style="text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-deposits-body"></tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <!-- SECTION: SERVICES OVERVIEW -->
-        <div class="table-panel" id="section-services">
-          <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
-            <i class="fa-solid fa-tags" style="color:var(--primary);"></i>
-            Active Catalog Services
-          </h3>
-          <div class="data-table-container">
-            <table class="custom-data-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Service Name</th>
-                  <th>Rate (₨)</th>
-                  <th>Rate ($)</th>
-                  <th>Min / Max</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="admin-services-body"></tbody>
-            </table>
+        <!-- ====================================================================
+             TAB 4: IN-PANEL LIVE USER CHATS
+             ==================================================================== -->
+        <div id="pane-chats" class="admin-tab-pane">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div>
+                <h3 style="font-size:18px;font-weight:800;margin:0 0 4px 0;display:flex;align-items:center;gap:8px;">
+                  <i class="fa-solid fa-comments" style="color:var(--primary);"></i>
+                  In-Panel Live User Chats & Inquiries
+                </h3>
+                <p style="font-size:13px;color:var(--text-muted);margin:0;">
+                  Click any conversation on the left to read messages and reply directly inside the client's panel!
+                </p>
+              </div>
+            </div>
+
+            <div class="admin-chat-grid">
+              <!-- Left: User Conversations List -->
+              <div class="admin-chat-users" id="admin-chat-users-list"></div>
+
+              <!-- Right: Selected User Chat Thread & Reply Bar -->
+              <div class="admin-chat-thread">
+                <div style="padding:12px 16px;background:var(--bg-surface-soft);border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-radius:12px 12px 0 0;">
+                  <div>
+                    <strong id="admin-active-chat-user" style="font-size:14.5px;">Select a conversation</strong>
+                    <div id="admin-active-chat-meta" style="font-size:11.5px;color:var(--text-muted);"></div>
+                  </div>
+                  <a id="admin-active-chat-wa" href="https://wa.me/923163846672" target="_blank" class="chat-wa-mini-btn" style="display:none;">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp User
+                  </a>
+                </div>
+
+                <div class="panel-chat-messages" id="admin-chat-messages-box"></div>
+
+                <form class="panel-chat-form" onsubmit="handleAdminChatReply(event)" style="padding-top:10px;">
+                  <input type="text" id="admin-chat-reply-input" class="form-input" placeholder="Type direct reply to customer..." autocomplete="off" required>
+                  <button type="submit" class="btn-primary-grad" style="padding:0 22px;white-space:nowrap;">
+                    <i class="fa-solid fa-reply"></i> Reply
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             TAB 5: ORDERS MANAGEMENT
+             ==================================================================== -->
+        <div id="pane-orders" class="admin-tab-pane">
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div>
+                <h3 style="font-size:18px;font-weight:800;margin:0 0 4px 0;display:flex;align-items:center;gap:8px;">
+                  <i class="fa-solid fa-boxes-stacked" style="color:var(--primary);"></i>
+                  Platform Orders Dispatcher
+                </h3>
+                <p style="font-size:13px;color:var(--text-muted);margin:0;">
+                  Monitor order status and override progression (Pending, Processing, Completed, or Canceled with automatic refund).
+                </p>
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Service</th>
+                    <th>Target Link</th>
+                    <th>Quantity</th>
+                    <th>Charge</th>
+                    <th>Status Override</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             TAB 6: SUPABASE CLOUD SYNC & SETUP (USER REQUEST)
+             ==================================================================== -->
+        <div id="pane-cloud" class="admin-tab-pane">
+          <div class="cloud-config-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+              <div>
+                <h3 style="font-size:20px;font-weight:900;margin:0 0 4px 0;display:flex;align-items:center;gap:10px;">
+                  <i class="fa-solid fa-cloud" style="color:#10b981;"></i>
+                  Supabase Cloud Database & Auth Configuration
+                </h3>
+                <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">
+                  Connect your free Supabase project to enable <strong>real online cloud authentication</strong>, cross-device wallet balance sync, and persistent live chat across all phones and laptops!
+                </p>
+              </div>
+              <div id="cloud-connection-badge" class="cloud-status-pill offline" style="font-size:13px;padding:8px 16px;">
+                <span class="cloud-dot"></span> <span id="cloud-connection-text">Not Connected (Using Local Storage)</span>
+              </div>
+            </div>
+
+            <!-- Credentials Form -->
+            <form onsubmit="handleSaveSupabaseConfig(event)" style="background:var(--bg-surface-soft);padding:18px;border-radius:14px;border:1px solid var(--border-color);margin-bottom:20px;">
+              <div class="form-group" style="margin-bottom:14px;">
+                <label style="font-size:13px;font-weight:700;"><i class="fa-solid fa-link"></i> Supabase Project URL</label>
+                <input type="url" id="cfg-sp-url" class="form-input" placeholder="https://your-project-id.supabase.co" required>
+                <div style="font-size:11.5px;color:var(--text-muted);margin-top:4px;">Found in Supabase Dashboard -> Project Settings -> API -> Project URL</div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:16px;">
+                <label style="font-size:13px;font-weight:700;"><i class="fa-solid fa-key"></i> Supabase Anon Public API Key</label>
+                <input type="text" id="cfg-sp-key" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." required>
+                <div style="font-size:11.5px;color:var(--text-muted);margin-top:4px;">Found in Supabase Dashboard -> Project Settings -> API -> Project API Keys (anon / public)</div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button type="submit" class="btn-primary-grad" style="padding:10px 24px;font-size:14px;">
+                  <i class="fa-solid fa-circle-check"></i> Save & Connect Supabase Cloud
+                </button>
+                <button type="button" class="btn-outline" onclick="handleDisconnectSupabase()" style="padding:10px 18px;font-size:14px;">
+                  <i class="fa-solid fa-power-off"></i> Disconnect / Switch to Local
+                </button>
+              </div>
+            </form>
+
+            <!-- 1-Click SQL Schema Guide -->
+            <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:14px;padding:18px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+                <div>
+                  <h4 style="margin:0 0 4px 0;font-size:15px;font-weight:800;">
+                    <i class="fa-solid fa-database" style="color:var(--primary);"></i>
+                    Step 1: Run PostgreSQL Schema in Supabase
+                  </h4>
+                  <div style="font-size:12.5px;color:var(--text-muted);">
+                    Click the button below to copy the complete SQL script, then paste it in your Supabase <strong>SQL Editor</strong> and click "Run".
+                  </div>
+                </div>
+                <button type="button" class="btn-approve" onclick="copySupabaseSchema()" style="padding:8px 16px;font-size:13px;">
+                  <i class="fa-solid fa-copy"></i> Copy SQL Schema Script
+                </button>
+              </div>
+
+              <div class="cloud-sql-box" id="cloud-sql-preview">
+-- 1. PROFILES TABLE
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
+  name TEXT,
+  username TEXT UNIQUE,
+  email TEXT UNIQUE NOT NULL,
+  phone TEXT,
+  role TEXT DEFAULT 'client',
+  balance_pkr NUMERIC(12, 2) DEFAULT 0.00,
+  balance_usd NUMERIC(12, 2) DEFAULT 0.00,
+  spent_pkr NUMERIC(12, 2) DEFAULT 0.00,
+  spent_usd NUMERIC(12, 2) DEFAULT 0.00,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- 2. DEPOSITS & ORDERS & CHATS TABLES
+CREATE TABLE IF NOT EXISTS public.deposits (...);
+CREATE TABLE IF NOT EXISTS public.orders (...);
+CREATE TABLE IF NOT EXISTS public.chats (...);
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             TAB 7: PROVIDER API & PROFIT MARGINS
+             ==================================================================== -->
+        <div id="pane-provider" class="admin-tab-pane">
+          <div class="table-panel">
+            <h3 style="font-size:18px;font-weight:800;margin:0 0 14px 0;display:flex;align-items:center;gap:8px;">
+              <i class="fa-solid fa-sliders" style="color:var(--primary);"></i>
+              Automated Wholesale Profit Margins
+            </h3>
+
+            <div class="profit-margin-slider-box">
+              <label>
+                <span>Automated Profit Markup On Wholesale Rates</span>
+                <span id="profit-margin-label" style="color:var(--primary);font-weight:800;">30% Markup</span>
+              </label>
+              <input type="range" min="10" max="100" value="30" class="profit-slider" id="profit-margin-slider">
+              <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">
+                Wholesale base cost is automatically increased by 30% for retail clients with +20 minutes processing timing buffers.
+              </div>
+            </div>
+          </div>
+
+          <!-- Services Overview -->
+          <div class="table-panel">
+            <h3 style="font-size:18px;font-weight:800;margin:0 0 14px 0;display:flex;align-items:center;gap:8px;">
+              <i class="fa-solid fa-tags" style="color:var(--primary);"></i>
+              Connected Wholesale Catalog Services (627+)
+            </h3>
+            <div class="data-table-container">
+              <table class="custom-data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Rate (₨)</th>
+                    <th>Rate ($)</th>
+                    <th>Min / Max</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-services-body"></tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -300,31 +507,95 @@
     </main>
   </div>
 
+  <!-- ========================================================================
+       MODAL: USER WALLET BALANCE CONTROL (+ / - / SET TO 0)
+       ======================================================================== -->
+  <div class="custom-modal-backdrop" id="admin-balance-modal" style="display:none;" onclick="if(event.target===this)closeBalanceModal()">
+    <div class="custom-modal-box">
+      <div class="custom-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="width:36px;height:36px;font-size:16px;background:#10b981;"><i class="fa-solid fa-wallet"></i></div>
+          <h3 style="font-size:17px;font-weight:800;margin:0;">Modify User Wallet Balance</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeBalanceModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="custom-modal-body">
+        <div style="background:var(--bg-surface-soft);padding:12px;border-radius:10px;margin-bottom:14px;">
+          <div style="font-size:12px;color:var(--text-muted);">Target Account:</div>
+          <div style="font-size:15px;font-weight:800;color:var(--text-primary);" id="bm-user-name">User Name</div>
+          <div style="font-size:12px;color:var(--text-secondary);" id="bm-user-email">user@email.com</div>
+          <div style="margin-top:6px;font-size:13px;font-weight:700;">
+            Current Balance: <span style="color:#10b981;" id="bm-current-balance">₨ 0.00</span>
+          </div>
+        </div>
+
+        <!-- Quick increment chips -->
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:12.5px;font-weight:700;color:var(--text-secondary);margin-bottom:6px;">Quick Presets (+₨ Add Funds)</label>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button type="button" class="admin-action-btn" onclick="setBalanceModalInput(500, 'add')" style="padding:6px 10px;font-size:12px;">+₨ 500</button>
+            <button type="button" class="admin-action-btn" onclick="setBalanceModalInput(1000, 'add')" style="padding:6px 10px;font-size:12px;">+₨ 1,000</button>
+            <button type="button" class="admin-action-btn" onclick="setBalanceModalInput(2500, 'add')" style="padding:6px 10px;font-size:12px;">+₨ 2,500</button>
+            <button type="button" class="admin-action-btn" onclick="setBalanceModalInput(5000, 'add')" style="padding:6px 10px;font-size:12px;">+₨ 5,000</button>
+          </div>
+        </div>
+
+        <form onsubmit="handleApplyBalanceAdjustment(event)">
+          <div class="form-group" style="margin-bottom:12px;">
+            <label style="font-size:12.5px;font-weight:700;">Action Type</label>
+            <select id="bm-action-type" class="dil-select" onchange="updateBalanceModalLabels()">
+              <option value="add">Add Funds (+ Credit)</option>
+              <option value="sub">Deduct Funds (- Debit)</option>
+              <option value="set">Set Exact Balance (= Override)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom:16px;">
+            <label id="bm-amount-label" style="font-size:12.5px;font-weight:700;">Amount in PKR (₨)</label>
+            <input type="number" id="bm-amount-input" class="form-input" placeholder="Enter amount (e.g. 1000)" min="0" step="any" required>
+          </div>
+
+          <div style="display:flex;gap:8px;">
+            <button type="submit" class="btn-primary-grad" style="flex:1;padding:12px;font-size:14px;">
+              <i class="fa-solid fa-check"></i> Apply to User Wallet
+            </button>
+            <button type="button" class="btn-reject" onclick="handleQuickZeroBalance()" style="padding:12px 16px;font-size:13px;white-space:nowrap;" title="Reset balance to zero">
+              <i class="fa-solid fa-trash-can"></i> Set Rs 0
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Bottom Navigation for Admin -->
   <nav class="mobile-bottom-nav">
-    <a href="#section-analytics" class="mobile-nav-item active">
+    <button type="button" class="mob-nav-item active" data-tab="overview" onclick="switchAdminTab('overview')">
       <i class="fa-solid fa-chart-line"></i>
       <span>Stats</span>
-    </a>
-    <a href="#section-chats" class="mobile-nav-item">
-      <i class="fa-solid fa-comments"></i>
-      <span>Chats</span>
-    </a>
-    <a href="#section-deposits" class="mobile-nav-item">
+    </button>
+    <button type="button" class="mob-nav-item" data-tab="users" onclick="switchAdminTab('users')">
+      <i class="fa-solid fa-users"></i>
+      <span>Users</span>
+    </button>
+    <button type="button" class="mob-nav-item" data-tab="deposits" onclick="switchAdminTab('deposits')">
       <i class="fa-solid fa-money-check-dollar"></i>
       <span>Deposits</span>
-    </a>
-    <a href="#section-orders" class="mobile-nav-item">
-      <i class="fa-solid fa-boxes-stacked"></i>
-      <span>Orders</span>
-    </a>
-    <a href="dashboard.html" class="mobile-nav-item">
-      <i class="fa-solid fa-user"></i>
-      <span>Client View</span>
-    </a>
+    </button>
+    <button type="button" class="mob-nav-item" data-tab="chats" onclick="switchAdminTab('chats')">
+      <i class="fa-solid fa-comments"></i>
+      <span>Chats</span>
+    </button>
+    <button type="button" class="mob-nav-item" data-tab="cloud" onclick="switchAdminTab('cloud')">
+      <i class="fa-solid fa-cloud"></i>
+      <span>Cloud</span>
+    </button>
   </nav>
 
   <!-- Core Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
   <script src="../js/services-data.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/admin.js"></script>

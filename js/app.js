@@ -96,7 +96,11 @@ const AppState = {
     this.updateNavAuthUI();
     this.initFloatingSupportWidgets();
     this.syncChatsFromServer();
-    setInterval(() => this.syncChatsFromServer(), 3500);
+    this.syncWithSupabase();
+    setInterval(() => {
+      this.syncChatsFromServer();
+      this.syncWithSupabase();
+    }, 4000);
   },
 
   isAdmin(user) {
@@ -267,6 +271,14 @@ const AppState = {
       return { success: false, message: "Password must be at least 6 characters long." };
     }
 
+    // Try Supabase Sign Up if active
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      SaleemSupabase.signUp(cleanEmail, password, { name: name.trim(), username: cleanUsername, phone: phone ? phone.trim() : '' })
+        .then(res => {
+          if (res && res.success) console.log('✅ Supabase user registered:', res.user);
+        }).catch(() => {});
+    }
+
     if (isUserAdmin(cleanEmail)) {
       const existingAdminIdx = users.findIndex(u => u.email.toLowerCase().trim() === cleanEmail);
       const isYasin = cleanEmail === 'yasinofficial03098158572@gmail.com';
@@ -337,6 +349,29 @@ const AppState = {
     const users = this.getUsers();
     const query = loginInput.toLowerCase().trim();
 
+    // Direct Supabase Authentication attempt if email & active
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured() && query.includes('@')) {
+      SaleemSupabase.signIn(query, password).then(res => {
+        if (res && res.success && res.profile) {
+          const u = {
+            id: res.profile.id,
+            name: res.profile.name || res.profile.username,
+            username: res.profile.username,
+            email: res.profile.email,
+            phone: res.profile.phone || '',
+            role: isUserAdmin(res.profile.email) ? 'admin' : (res.profile.role || 'client'),
+            balance_pkr: Number(res.profile.balance_pkr || 0),
+            balance_usd: Number(res.profile.balance_usd || 0),
+            spent_pkr: Number(res.profile.spent_pkr || 0),
+            spent_usd: Number(res.profile.spent_usd || 0),
+            joined_at: res.profile.created_at ? res.profile.created_at.substring(0, 10) : '2026-10-01'
+          };
+          AppState.currentUser = u;
+          AppState.saveUser();
+        }
+      }).catch(() => {});
+    }
+
     const user = users.find(u =>
       (u.username.toLowerCase() === query || u.email.toLowerCase() === query) &&
       u.password === password
@@ -354,6 +389,9 @@ const AppState = {
 
   /* Log out */
   logout() {
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      SaleemSupabase.signOut().catch(() => {});
+    }
     this.currentUser = null;
     localStorage.removeItem(STORAGE_KEYS.USER);
     if (window.location.pathname.includes('/views/') || window.location.pathname.includes('/pages/')) {
@@ -361,6 +399,86 @@ const AppState = {
     } else {
       window.location.href = 'index.html';
     }
+  },
+
+  /* Reset Password */
+  async resetPassword(email) {
+    const clean = (email || '').toLowerCase().trim();
+    if (!clean) return { success: false, message: 'Please enter your email address.' };
+
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      const res = await SaleemSupabase.resetPassword(clean);
+      if (res && res.success) {
+        return { success: true, message: 'Password reset link has been emailed to you via Supabase!' };
+      }
+    }
+
+    const users = this.getUsers();
+    const found = users.find(u => u.email && u.email.toLowerCase().trim() === clean);
+    if (found) {
+      return {
+        success: true,
+        message: `Account found for ${found.name || found.username}! Please verify via WhatsApp (03163846672) to receive your instant reset PIN.`
+      };
+    }
+    return { success: false, message: 'No registered account found with this email address.' };
+  },
+
+  /* ------------------- Admin User Wallet Controls ------------------- */
+  adminUpdateUserBalance(userIdOrEmail, newBalancePkr) {
+    const users = this.getUsers();
+    const query = String(userIdOrEmail).toLowerCase().trim();
+    const idx = users.findIndex(u =>
+      (u.id && String(u.id).toLowerCase() === query) ||
+      (u.email && u.email.toLowerCase().trim() === query) ||
+      (u.username && u.username.toLowerCase().trim() === query)
+    );
+
+    if (idx === -1) return false;
+
+    const valPkr = Math.max(0, Number(Number(newBalancePkr).toFixed(2)));
+    const valUsd = Number((valPkr / 280).toFixed(2));
+
+    users[idx].balance_pkr = valPkr;
+    users[idx].balance_usd = valUsd;
+    this.saveUsers(users);
+
+    // If target user is the active logged-in user in this browser, synchronize immediately
+    if (this.currentUser && (
+      this.currentUser.email?.toLowerCase() === users[idx].email?.toLowerCase() ||
+      this.currentUser.username?.toLowerCase() === users[idx].username?.toLowerCase()
+    )) {
+      this.currentUser.balance_pkr = valPkr;
+      this.currentUser.balance_usd = valUsd;
+      this.saveUser();
+    }
+
+    // Update in Supabase if active
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      SaleemSupabase.updateUserBalance(users[idx].email || users[idx].id, valPkr).catch(() => {});
+    }
+
+    window.dispatchEvent(new CustomEvent('saleem_users_updated'));
+    return true;
+  },
+
+  adminAdjustUserFunds(userIdOrEmail, deltaPkr) {
+    const users = this.getUsers();
+    const query = String(userIdOrEmail).toLowerCase().trim();
+    const target = users.find(u =>
+      (u.id && String(u.id).toLowerCase() === query) ||
+      (u.email && u.email.toLowerCase().trim() === query) ||
+      (u.username && u.username.toLowerCase().trim() === query)
+    );
+
+    if (!target) return false;
+    const current = Number(target.balance_pkr || 0);
+    const newBal = current + Number(deltaPkr);
+    return this.adminUpdateUserBalance(userIdOrEmail, newBal);
+  },
+
+  adminResetUserBalance(userIdOrEmail) {
+    return this.adminUpdateUserBalance(userIdOrEmail, 0.00);
   },
 
   updateNavAuthUI() {
@@ -439,6 +557,140 @@ const AppState = {
           </div>
         `;
       }
+    }
+  },
+
+  /* ------------------- Supabase Realtime Cloud Sync ------------------- */
+  async syncWithSupabase() {
+    if (!window.SaleemSupabase || !SaleemSupabase.isConfigured()) return;
+    try {
+      // 1. Sync Profiles
+      const spProfiles = await SaleemSupabase.fetchUsers();
+      if (spProfiles && spProfiles.length > 0) {
+        let localUsers = this.getUsers();
+        spProfiles.forEach(p => {
+          const idx = localUsers.findIndex(u => (u.email && p.email && u.email.toLowerCase().trim() === p.email.toLowerCase().trim()) || (u.id === p.id));
+          const mapped = {
+            id: p.id,
+            name: p.name || p.username || 'User',
+            username: p.username || (p.email ? p.email.split('@')[0] : 'user'),
+            email: p.email,
+            phone: p.phone || '',
+            role: isUserAdmin(p.email) ? 'admin' : (p.role || 'client'),
+            balance_pkr: Number(p.balance_pkr || 0),
+            balance_usd: Number(p.balance_usd || 0),
+            spent_pkr: Number(p.spent_pkr || 0),
+            spent_usd: Number(p.spent_usd || 0),
+            joined_at: p.created_at ? p.created_at.substring(0, 10) : '2026-10-01'
+          };
+          if (idx !== -1) {
+            localUsers[idx] = { ...localUsers[idx], ...mapped };
+          } else {
+            localUsers.push(mapped);
+          }
+          if (this.currentUser && this.currentUser.email && p.email && this.currentUser.email.toLowerCase().trim() === p.email.toLowerCase().trim()) {
+            this.currentUser.balance_pkr = mapped.balance_pkr;
+            this.currentUser.balance_usd = mapped.balance_usd;
+            this.currentUser.role = mapped.role;
+            this.saveUser();
+          }
+        });
+        this.saveUsers(localUsers);
+        window.dispatchEvent(new CustomEvent('saleem_users_updated'));
+      }
+
+      // 2. Sync Deposits
+      const spDeposits = await SaleemSupabase.fetchDeposits();
+      if (spDeposits && spDeposits.length > 0) {
+        let localDeps = this.getDeposits();
+        spDeposits.forEach(sd => {
+          const idx = localDeps.findIndex(d => String(d.id) === String(sd.id) || (d.tid && sd.tid && d.tid === sd.tid));
+          const mappedDep = {
+            id: sd.id,
+            userId: sd.username || 'Client',
+            userEmail: sd.user_email || '',
+            method: sd.method,
+            tid: sd.tid,
+            amount_pkr: Number(sd.amount_pkr || 0),
+            amount_usd: Number(sd.amount_usd || (sd.amount_pkr / 280)),
+            status: sd.status,
+            created_at: sd.created_at ? sd.created_at.replace('T', ' ').substring(0, 16) : new Date().toISOString().substring(0, 16)
+          };
+          if (idx !== -1) {
+            localDeps[idx] = mappedDep;
+          } else {
+            localDeps.unshift(mappedDep);
+          }
+        });
+        this.saveDeposits(localDeps);
+        window.dispatchEvent(new CustomEvent('saleem_deposits_updated'));
+      }
+
+      // 3. Sync Orders
+      const spOrders = await SaleemSupabase.fetchOrders();
+      if (spOrders && spOrders.length > 0) {
+        let localOrders = this.getOrders();
+        spOrders.forEach(so => {
+          const idx = localOrders.findIndex(o => String(o.id) === String(so.id));
+          const mappedOrder = {
+            id: so.id,
+            username: so.username || 'Client',
+            userEmail: so.user_email || '',
+            service_id: so.service_id,
+            service_name: so.service_name,
+            link: so.link,
+            quantity: so.quantity,
+            charge_pkr: Number(so.charge_pkr || 0),
+            charge_usd: Number(so.charge_usd || 0),
+            status: so.status,
+            created_at: so.created_at ? so.created_at.replace('T', ' ').substring(0, 16) : new Date().toISOString().substring(0, 16)
+          };
+          if (idx !== -1) {
+            localOrders[idx] = mappedOrder;
+          } else {
+            localOrders.unshift(mappedOrder);
+          }
+        });
+        this.saveOrders(localOrders);
+        window.dispatchEvent(new CustomEvent('saleem_orders_updated'));
+      }
+
+      // 4. Sync Live Chats
+      const spChats = await SaleemSupabase.fetchChats();
+      if (spChats && spChats.length > 0) {
+        let allChats = this.getChats();
+        spChats.forEach(sc => {
+          const threadUserId = sc.user_id;
+          let thread = allChats.find(t => t.userId === threadUserId);
+          if (!thread) {
+            thread = {
+              userId: threadUserId,
+              username: sc.user_name || threadUserId,
+              name: sc.user_name || threadUserId,
+              email: sc.user_email || '',
+              phone: '',
+              unreadByAdmin: 0,
+              unreadByUser: 0,
+              updatedAt: sc.created_at ? sc.created_at.replace('T', ' ').substring(0, 16) : '',
+              messages: []
+            };
+            allChats.unshift(thread);
+          }
+          if (!thread.messages.some(m => m.id === 'SP-' + sc.id || (m.text === sc.message && m.sender === sc.sender))) {
+            thread.messages.push({
+              id: 'SP-' + sc.id,
+              sender: sc.sender,
+              senderName: sc.sender_name || (sc.sender === 'admin' ? 'Saleem Akhtar (Admin)' : thread.username),
+              text: sc.message,
+              time: sc.created_at ? new Date(sc.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''
+            });
+          }
+        });
+        this.saveChats(allChats);
+        window.dispatchEvent(new CustomEvent('saleem_chats_updated'));
+      }
+    } catch (err) {
+      console.warn('Sync with Supabase failed:', err);
     }
   },
 
@@ -627,6 +879,18 @@ const AppState = {
     chats.unshift(updatedThread);
     this.saveChats(chats);
 
+    // Sync to Supabase Realtime DB if active
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      SaleemSupabase.sendChatMessage({
+        userId: identity.userId,
+        userName: identity.name || identity.username,
+        userEmail: identity.email,
+        sender: 'user',
+        senderName: identity.username,
+        message: clean
+      }).catch(() => {});
+    }
+
     // Sync to backend server
     fetch('/api/chat', {
       method: 'POST',
@@ -669,6 +933,18 @@ const AppState = {
     const updatedThread = chats.splice(idx, 1)[0];
     chats.unshift(updatedThread);
     this.saveChats(chats);
+
+    // Sync to Supabase Realtime DB if active
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured()) {
+      SaleemSupabase.sendChatMessage({
+        userId: targetUserId,
+        userName: updatedThread.name || targetUserId,
+        userEmail: updatedThread.email || '',
+        sender: 'admin',
+        senderName: 'Saleem Akhtar (Admin)',
+        message: clean
+      }).catch(() => {});
+    }
 
     fetch('/api/chat', {
       method: 'POST',

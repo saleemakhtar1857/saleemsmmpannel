@@ -212,7 +212,7 @@
                 <label>
                   <input type="checkbox" checked> Remember me
                 </label>
-                <a href="javascript:void(0)" onclick="AppState.showToast('Password reset link sent to email', 'info')" class="forgot-link">Forgot Password?</a>
+                <a href="javascript:void(0)" onclick="openForgotPasswordModal()" class="forgot-link">Forgot Password?</a>
               </div>
 
               <button type="submit" class="btn-primary-grad btn-block">
@@ -727,7 +727,41 @@
     </div>
   </footer>
 
+  <!-- Forgot Password Modal -->
+  <div class="custom-modal-backdrop" id="forgot-password-modal" style="display:none;" onclick="if(event.target===this)closeForgotPasswordModal()">
+    <div class="custom-modal-box">
+      <div class="custom-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="width:36px;height:36px;font-size:16px;"><i class="fa-solid fa-key"></i></div>
+          <h3 style="font-size:17px;font-weight:800;margin:0;">Reset Account Password</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeForgotPasswordModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="custom-modal-body">
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.5;">
+          Apna registered email address enter karein. Supabase cloud auth ke zariye reset email bhej di jayegi, ya aap direct Admin WhatsApp par foran instant reset karwa sakte hain.
+        </p>
+        <form onsubmit="handleForgotPasswordSubmit(event)">
+          <div class="form-group" style="margin-bottom:12px;">
+            <label style="font-size:13px;font-weight:600;"><i class="fa-regular fa-envelope"></i> Registered Email Address</label>
+            <input type="email" id="forgot-email-input" class="form-input" placeholder="e.g. yourname@domain.com" required>
+          </div>
+          <button type="submit" class="btn-primary-grad btn-block" style="padding:12px;font-size:14px;margin-bottom:14px;">
+            <i class="fa-solid fa-paper-plane"></i> Send Password Reset Link
+          </button>
+        </form>
+
+        <div style="text-align:center;font-size:11.5px;color:var(--text-muted);margin-bottom:12px;letter-spacing:0.5px;">— OR RESET VIA INSTANT WHATSAPP —</div>
+        <a id="btn-forgot-wa-link" href="https://wa.me/923163846672?text=hi%20sir!%20I%20have%20forgotten%20my%20Saleem%20SMM%20Panel%20password,%20please%20reset%20it." target="_blank" class="btn-outline btn-block" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;font-size:13px;color:#16a34a;border-color:#16a34a;text-decoration:none;">
+          <i class="fa-brands fa-whatsapp" style="font-size:17px;"></i> Direct Admin WhatsApp (03163846672)
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Core Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/services-data.js"></script>
   <script src="js/app.js"></script>
   <script>
@@ -810,7 +844,7 @@
 
       const res = AppState.registerUser(name, username, email, phone, pass);
       if (res.success) {
-        AppState.showToast('Account created! Welcome bonus â‚¨ 100 added to your wallet.', 'success');
+        AppState.showToast('Account created! Welcome bonus ₨ 100 added to your wallet.', 'success');
         setTimeout(() => {
           if (AppState.isAdmin()) {
             window.location.href = 'views/admin.html';
@@ -820,6 +854,50 @@
         }, 800);
       } else {
         AppState.showToast(res.message, 'error');
+      }
+    }
+
+    function openForgotPasswordModal() {
+      const m = document.getElementById('forgot-password-modal');
+      if (m) {
+        m.style.display = 'flex';
+        const input = document.getElementById('forgot-email-input');
+        if (input) input.focus();
+      }
+    }
+
+    function closeForgotPasswordModal() {
+      const m = document.getElementById('forgot-password-modal');
+      if (m) m.style.display = 'none';
+    }
+
+    async function handleForgotPasswordSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgot-email-input').value;
+      if (!email) return;
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      const oldHtml = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Checking account...';
+      }
+
+      const res = await AppState.resetPassword(email);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = oldHtml;
+      }
+
+      if (res && res.success) {
+        AppState.showToast(res.message, 'success');
+        const waLink = document.getElementById('btn-forgot-wa-link');
+        if (waLink) {
+          waLink.href = `https://wa.me/923163846672?text=${encodeURIComponent('hi sir! I have forgotten my Saleem SMM Panel password for account: ' + email + '. Please verify and reset it.')}`;
+        }
+      } else {
+        AppState.showToast(res ? res.message : 'Error sending reset request.', 'error');
       }
     }
   </script>
