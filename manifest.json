@@ -1,0 +1,19 @@
+{
+  "name": "Saleem SMM Panel — Pakistan Wholesale SMM",
+  "short_name": "Saleem SMM",
+  "description": "Pakistan's premier wholesale SMM panel with 627+ services for Instagram, TikTok, YouTube, Facebook, and Custom SMM Panels.",
+  "start_url": "/views/dashboard.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0f17",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "images/app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
