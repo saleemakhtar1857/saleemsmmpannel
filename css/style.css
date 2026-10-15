@@ -2589,3 +2589,32 @@ body.nightmode .site-nav {
     padding: 0;
   }
 }
+
+/* Sidebar Balance Chip & Topbar Admin Badge */
+.sidebar-balance-chip {
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebar-balance-chip:hover {
+  transform: translateY(-1px);
+}
+
+.dil-topbar-admin-badge {
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.dil-topbar-admin-badge:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn-quick-login-chip {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-quick-login-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+

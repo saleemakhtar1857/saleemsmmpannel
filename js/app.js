@@ -676,11 +676,16 @@ const AppState = {
     const loginLink = inSubfolder ? '../index.html#auth' : 'index.html#auth';
     const signupLink = inSubfolder ? 'signup.html' : 'views/signup.html';
 
-    // Show/hide admin links strictly for saleembaloch1857@gmail.com
+    // Show/hide admin links strictly for authorized admins (Saleem, Yasin, custom admins)
     const isAdminUser = this.isAdmin();
     document.querySelectorAll('.admin-only-link').forEach(el => {
       el.style.display = isAdminUser ? '' : 'none';
     });
+
+    const dashTopAdminBtn = document.getElementById('dash-top-admin-btn');
+    if (dashTopAdminBtn) {
+      dashTopAdminBtn.style.display = isAdminUser ? 'inline-flex' : 'none';
+    }
 
     const authBox = document.getElementById('nav-auth-container');
     if (!authBox) return;

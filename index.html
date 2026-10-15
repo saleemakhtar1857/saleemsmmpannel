@@ -218,6 +218,23 @@
               <button type="submit" class="btn-primary-grad btn-block">
                 <i class="fa-solid fa-right-to-bracket"></i> Log In to Dashboard
               </button>
+
+              <div class="quick-login-pills" style="margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-color);text-align:center;">
+                <div style="font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">
+                  ⚡ 1-Click Fast Login (Instant Test):
+                </div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+                  <button type="button" onclick="quickFillLogin('saleembaloch1857@gmail.com', 'admin123')" class="btn-quick-login-chip" style="background:rgba(220,38,38,0.12);color:#dc2626;border:1px solid rgba(220,38,38,0.3);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;">
+                    👑 Saleem (Admin)
+                  </button>
+                  <button type="button" onclick="quickFillLogin('yasinofficial03098158572@gmail.com', 'admin123')" class="btn-quick-login-chip" style="background:rgba(124,58,237,0.12);color:#7c3aed;border:1px solid rgba(124,58,237,0.3);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;">
+                    🛡️ Yasin (Admin)
+                  </button>
+                  <button type="button" onclick="quickFillLogin('saleem_vip', 'saleem123')" class="btn-quick-login-chip" style="background:rgba(16,185,129,0.12);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;">
+                    👤 Client (VIP User)
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
 
@@ -811,7 +828,26 @@
         tabLogin.className = 'btn-outline';
         tabSignup.className = 'btn-primary-grad';
       }
+    function quickFillLogin(userOrEmail, password) {
+      const uInput = document.getElementById('login-username');
+      const pInput = document.getElementById('login-password');
+      if (uInput) uInput.value = userOrEmail;
+      if (pInput) pInput.value = password;
+      const res = AppState.loginUser(userOrEmail, password);
+      if (res.success) {
+        AppState.showToast(`Logged in as ${res.user.name || res.user.username}! Loading dashboard...`, 'success');
+        setTimeout(() => {
+          if (AppState.isAdmin()) {
+            window.location.href = 'views/admin.html';
+          } else {
+            window.location.href = 'views/dashboard.html';
+          }
+        }, 500);
+      } else {
+        AppState.showToast(res.message, 'error');
+      }
     }
+    window.quickFillLogin = quickFillLogin;
 
     function handleHeroLogin(e) {
       e.preventDefault();

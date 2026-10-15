@@ -137,6 +137,14 @@ function switchDashView(viewName) {
     renderUserTransactions();
   } else if (viewName === 'overview') {
     renderAllPrices();
+  } else if (viewName === 'services') {
+    populateCatalogFilter();
+    renderServiceCatalog();
+  } else if (viewName === 'add-funds') {
+    renderUserDeposits();
+  } else if (viewName === 'new-order') {
+    populateCategoriesSelect();
+    onServiceChange();
   }
 
   closeDashSidebar();
@@ -194,11 +202,13 @@ function renderAllPrices() {
     const todayPkr = todayOrders.reduce((acc, o) => acc + Number(o.charge_pkr || 0), 0);
     const todayFormatted = AppState.formatMoney(todayPkr / 280, todayPkr);
 
-    // Sidebar Profile Card
+    // Sidebar Profile Card & Balance
     const uNameEl = document.getElementById('dash-username');
     const uEmailEl = document.getElementById('dash-email');
+    const sideBalEl = document.getElementById('sidebar-user-balance');
     if (uNameEl) uNameEl.textContent = user.username;
     if (uEmailEl) uEmailEl.textContent = '@' + (user.email || 'client@saleemsmm.pk');
+    if (sideBalEl) sideBalEl.textContent = balFormatted;
 
     // Top Panel Welcome Card & Stats
     const rightName = document.getElementById('right-username');
@@ -239,12 +249,14 @@ function renderAllPrices() {
     const stBal = document.getElementById('stat-balance');
     const stSpent = document.getElementById('stat-spent');
     const stToday = document.getElementById('stat-today-spent');
+    const sideBalEl = document.getElementById('sidebar-user-balance');
     const panelUsersEl = document.getElementById('stat-panel-users');
     const panelOrdersEl = document.getElementById('stat-panel-orders');
     if (stOrders) stOrders.textContent = '0';
-    if (stBal) stBal.textContent = isPkr ? 'Rs 0.00' : '$ 0.00';
-    if (stSpent) stSpent.textContent = isPkr ? 'Rs 0.00' : '$ 0.00';
-    if (stToday) stToday.textContent = isPkr ? 'Rs 0.0' : '$ 0.0';
+    if (stBal) stBal.textContent = `${c.symbol} 0.00`;
+    if (stSpent) stSpent.textContent = `${c.symbol} 0.00`;
+    if (stToday) stToday.textContent = `${c.symbol} 0.0`;
+    if (sideBalEl) sideBalEl.textContent = `${c.symbol} 0.00`;
     if (panelUsersEl) panelUsersEl.textContent = '0';
     if (panelOrdersEl) panelOrdersEl.textContent = '0';
   }
@@ -588,12 +600,11 @@ function onCategoryChange(optionalServiceId) {
     groups[grpName].push(s);
   });
 
-  const isPkr = AppState.currency === 'PKR';
   const groupKeys = Object.keys(groups);
 
   srvSelect.innerHTML = groupKeys.map(grpName => {
     const optionsHtml = groups[grpName].map(s => {
-      const priceStr = isPkr ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      const priceStr = AppState.formatMoney(s.rate_usd, s.rate_pkr);
       return `<option value="${s.id}">⚡ ${s.id} - ${s.name} — ${priceStr}</option>`;
     }).join('');
     return `<optgroup label="${grpName}">${optionsHtml}</optgroup>`;
@@ -626,8 +637,7 @@ function onServiceChange() {
     idPill.textContent = selectedServiceObj.id;
   }
 
-  const isPkr = AppState.currency === 'PKR';
-  const rateText = isPkr ? `Rs ${selectedServiceObj.rate_pkr}` : `$ ${selectedServiceObj.rate_usd}`;
+  const rateText = AppState.formatMoney(selectedServiceObj.rate_usd, selectedServiceObj.rate_pkr);
 
   const descName = document.getElementById('desc-srv-name');
   const descRate = document.getElementById('desc-srv-rate');
@@ -665,9 +675,7 @@ function calculateOrderTotal() {
   const totalUsd = (qty / 1000) * selectedServiceObj.rate_usd;
   const totalPkr = (qty / 1000) * selectedServiceObj.rate_pkr;
 
-  chargeBox.value = AppState.currency === 'PKR'
-    ? `Rs ${totalPkr.toFixed(2)}`
-    : `$ ${totalUsd.toFixed(3)}`;
+  chargeBox.value = AppState.formatMoney(totalUsd, totalPkr);
 }
 
 function handleQuickServiceSearch(query) {
@@ -686,9 +694,8 @@ function handleQuickServiceSearch(query) {
   const srvSelect = document.getElementById('order-service');
   if (matched.length > 0 && srvSelect) {
     currentServiceList = matched;
-    const isPkr = AppState.currency === 'PKR';
     srvSelect.innerHTML = matched.map(s => {
-      const priceStr = isPkr ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+      const priceStr = AppState.formatMoney(s.rate_usd, s.rate_pkr);
       return `<option value="${s.id}">⚡ ${s.id} - ${s.name} — ${priceStr}</option>`;
     }).join('');
     srvSelect.value = matched[0].id;
@@ -836,14 +843,14 @@ function showOrderSuccessPopup(order, waUrl) {
         <div><strong>Service ID:</strong> <span style="background:var(--primary);color:#fff;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;">${order.service_id}</span></div>
         <div><strong>Service:</strong> ${AppState.escapeHtml(order.service_name)}</div>
         <div><strong>Quantity:</strong> ${order.quantity.toLocaleString()}</div>
-        <div><strong>Charged:</strong> Rs ${order.charge_pkr}</div>
+        <div><strong>Charged:</strong> ${AppState.formatMoney(order.charge_usd, order.charge_pkr)}</div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="${waUrl}" target="_blank" class="dil-wa-btn" style="padding:12px;font-size:14px;background:#25d366;" onclick="document.getElementById('saleem-order-modal').remove()">
+        <a href="${waUrl}" target="_blank" class="dil-wa-btn" style="padding:12px;font-size:14px;background:#25d366;text-decoration:none;" onclick="document.getElementById('saleem-order-modal').remove(); switchDashView('orders');">
           <i class="fa-brands fa-whatsapp"></i> Send to WhatsApp: 03163846672
         </a>
-        <button type="button" class="dil-submit-btn" style="padding:10px;background:var(--bg-surface-2);color:var(--text-primary);border:1px solid var(--border-color);" onclick="document.getElementById('saleem-order-modal').remove()">
+        <button type="button" class="dil-submit-btn" style="padding:10px;background:var(--bg-surface-2);color:var(--text-primary);border:1px solid var(--border-color);" onclick="document.getElementById('saleem-order-modal').remove(); switchDashView('orders');">
           Close & View Orders
         </button>
       </div>
@@ -926,7 +933,7 @@ function renderUserOrders() {
       badgeText = 'Cancel Refunded';
     }
 
-    const chargeVal = isPkr ? Number(o.charge_pkr || 0).toFixed(2) : Number(o.charge_usd || 0).toFixed(3);
+    const chargeVal = AppState.formatMoney(o.charge_usd, o.charge_pkr);
 
     return `
       <div class="dil-order-card">
@@ -1009,6 +1016,9 @@ function renderUserOrders() {
             </div>
 
             <div class="dil-order-actions">
+              <a href="https://wa.me/923163846672?text=sir%20I%20have%20placed%20the%20order%0AOrder%20ID%3A%20%23${o.id}%0AService%20ID%3A%20${o.service_id}" target="_blank" class="dil-btn-reorder" style="background:#25d366;color:#fff;border-color:#25d366;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
               <button type="button" class="dil-btn-reorder" onclick="AppState.showToast('Refill request submitted for Order #${o.id}!', 'success')">Refill</button>
               <button type="button" class="dil-btn-reorder" onclick="selectServiceById(${o.service_id})">Reorder</button>
             </div>
@@ -1205,12 +1215,10 @@ function renderUserTransactions() {
 
   const orders = AppState.getOrders();
   const deposits = AppState.getDeposits();
-  const isPkr = AppState.currency === 'PKR';
-
   const txRows = [];
 
   orders.forEach((o, idx) => {
-    const amt = isPkr ? `Rs ${Number(o.charge_pkr || 0).toFixed(0)}` : `$ ${Number(o.charge_usd || 0).toFixed(2)}`;
+    const amt = AppState.formatMoney(o.charge_usd, o.charge_pkr);
     txRows.push({
       txId: 4442150 + idx,
       type: 'deduction',
@@ -1222,7 +1230,7 @@ function renderUserTransactions() {
   });
 
   deposits.forEach((d, idx) => {
-    const amt = isPkr ? `Rs ${Number(d.amount_pkr || 0).toFixed(0)}` : `$ ${Number(d.amount_usd || 0).toFixed(2)}`;
+    const amt = AppState.formatMoney(d.amount_usd, d.amount_pkr);
     txRows.push({
       txId: 4387060 + idx,
       type: 'addition',
@@ -1301,7 +1309,7 @@ function renderServiceCatalog() {
             </thead>
             <tbody>
               ${srvs.map(s => {
-                const rateFormatted = AppState.currency === 'PKR' ? `Rs ${s.rate_pkr}` : `$${s.rate_usd}`;
+                const rateFormatted = AppState.formatMoney(s.rate_usd, s.rate_pkr);
                 return `
                   <tr>
                     <td><span class="srv-id-badge">${s.id}</span></td>

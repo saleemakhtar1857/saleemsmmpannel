@@ -52,6 +52,11 @@
           <span id="sidebar-curr-label">₨ PKR</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
+
+        <div class="sidebar-balance-chip" style="margin-top:10px;background:rgba(220,38,38,0.12);color:var(--primary);padding:8px 12px;border-radius:10px;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(220,38,38,0.25);">
+          <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);font-weight:700;"><i class="fa-solid fa-wallet"></i> Balance:</span>
+          <span id="sidebar-user-balance" style="font-size:14px;color:var(--primary);font-weight:900;">₨ 0.00</span>
+        </div>
       </div>
 
       <!-- 2. Change Color Button & Dropdown -->
@@ -160,6 +165,10 @@
         </a>
 
         <div class="dil-topbar-right">
+          <a href="admin.html" id="dash-top-admin-btn" class="dil-topbar-admin-badge" style="display:none;background:linear-gradient(135deg,#7c3aed,#dc2626);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:800;text-decoration:none;align-items:center;gap:6px;" title="Switch to Admin Dashboard">
+            <i class="fa-solid fa-shield-halved"></i> <span>Admin</span>
+          </a>
+
           <button type="button" class="dil-curr-pill" onclick="openCurrencyPicker()" title="Switch Currency (PKR, USD, INR, AED, SAR, USDT)">
             <span class="curr-pill-left" id="top-curr-sym">₨</span>
             <span class="curr-pill-right" id="top-curr-code">PKR</span>
@@ -525,7 +534,7 @@
         <div class="dil-funds-container">
           <h3 class="dil-funds-heading">Payment Methods</h3>
           <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:20px;">
-            Only <strong>EasyPaisa (03173983906)</strong> and <strong>UPaisa (03163846672)</strong> are currently active for instant deposit. Other gateways are Coming Soon.
+            <strong>EasyPaisa (03173983906)</strong>, <strong>UPaisa (03163846672)</strong>, and <strong>Binance Pay (ID: 1206973421)</strong> are active for instant deposit! Submit TID below for instant verification.
           </p>
 
           <!-- 3-Column Brand Payment Tiles Grid (Matches Screenshot 3) -->

@@ -424,11 +424,44 @@ window.renderAdminUsersTable = function() {
             <button type="button" class="admin-action-btn" onclick="openChatWithUser('${AppState.escapeHtml(u.username || userIdentifier)}')" title="Live Chat In-Panel" style="padding:6px 10px;">
               <i class="fa-solid fa-comments"></i>
             </button>
+            ${!isAdmin ? `
+              <button type="button" class="btn-reject" onclick="handleDeleteUser('${AppState.escapeHtml(userIdentifier)}')" title="Delete User Account" style="padding:6px 10px;font-size:11px;">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            ` : ''}
           </div>
         </td>
       </tr>
     `;
   }).join('');
+};
+
+window.handleDeleteUser = function(userIdentifier) {
+  const users = AppState.getUsers();
+  const query = String(userIdentifier).toLowerCase().trim();
+  const target = users.find(u =>
+    (u.id && String(u.id).toLowerCase() === query) ||
+    (u.username && u.username.toLowerCase() === query) ||
+    (u.email && u.email.toLowerCase() === query)
+  );
+
+  if (!target) {
+    AppState.showToast('User not found.', 'error');
+    return;
+  }
+
+  if (target.email && (target.email.toLowerCase() === 'saleembaloch1857@gmail.com' || target.email.toLowerCase() === 'yasinofficial03098158572@gmail.com')) {
+    AppState.showToast('Root Founders (Saleem & Yasin) cannot be deleted!', 'error');
+    return;
+  }
+
+  if (confirm(`Are you sure you want to permanently delete user account @${target.username} (${target.email})?`)) {
+    const updated = users.filter(u => u !== target);
+    AppState.saveUsers(updated);
+    renderAdminUsersTable();
+    updateAdminStats();
+    AppState.showToast(`User @${target.username} deleted successfully.`, 'info');
+  }
 };
 
 /* ==========================================================================
@@ -466,12 +499,18 @@ window.openBalanceModal = function(userId, initialAction = 'add') {
   updateBalanceModalLabels();
 
   const modal = document.getElementById('admin-balance-modal');
-  if (modal) modal.classList.add('active');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.add('active');
+  }
 };
 
 window.closeBalanceModal = function() {
   const modal = document.getElementById('admin-balance-modal');
-  if (modal) modal.classList.remove('active');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.classList.remove('active');
+  }
   activeModalUserId = null;
 };
 
@@ -548,6 +587,24 @@ window.quickZeroUserBalance = function(userId) {
 window.openChatWithUser = function(userId) {
   switchAdminTab('chats');
   activeAdminChatUserId = userId;
+  const chats = AppState.getChats();
+  let thread = chats.find(c => c.userId === userId || c.username === userId || c.email === userId);
+  if (!thread) {
+    const user = AppState.getUsers().find(u => u.username === userId || u.email === userId || u.id === userId);
+    thread = {
+      userId: userId,
+      username: user ? user.username : userId,
+      name: user ? (user.name || user.username) : userId,
+      email: user ? user.email : '',
+      phone: user ? (user.phone || '') : '',
+      unreadByAdmin: 0,
+      unreadByUser: 0,
+      updatedAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+      messages: []
+    };
+    chats.unshift(thread);
+    AppState.saveChats(chats);
+  }
   renderAdminChatsConsole();
 };
 
@@ -826,10 +883,9 @@ window.changeOrderStatus = function(orderId, newStatus) {
 
   if (newStatus === 'Canceled' && oldStatus !== 'Canceled') {
     // Refund charge to user wallet
-    const users = AppState.getUsers();
     const targetUser = users.find(u =>
-      (order.user_id && (u.username === order.user_id || u.email === order.user_id)) ||
-      (order.user_email && u.email === order.user_email)
+      ((order.userId || order.user_id) && (u.username === (order.userId || order.user_id) || u.email === (order.userId || order.user_id))) ||
+      ((order.userEmail || order.user_email) && u.email === (order.userEmail || order.user_email))
     );
 
     if (targetUser) {
