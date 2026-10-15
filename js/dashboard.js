@@ -103,52 +103,63 @@ function handleAppInstallPrompt() {
    VIEW NAVIGATION SWITCHER
    ========================================================================== */
 function switchDashView(viewName) {
-  document.querySelectorAll('.dash-view').forEach(v => {
-    v.style.display = 'none';
-  });
+  try {
+    document.querySelectorAll('.dash-view').forEach(v => {
+      v.style.display = 'none';
+    });
 
-  document.querySelectorAll('.dil-menu-link').forEach(m => {
-    m.classList.remove('active');
-    if (m.getAttribute('data-view') === viewName) {
-      m.classList.add('active');
+    document.querySelectorAll('.dil-menu-link').forEach(m => {
+      m.classList.remove('active');
+      if (m.getAttribute('data-view') === viewName) {
+        m.classList.add('active');
+      }
+    });
+
+    const ovBtn = document.getElementById('btn-overview-tab');
+    if (ovBtn) {
+      ovBtn.classList.toggle('active', viewName === 'overview');
     }
-  });
 
-  const ovBtn = document.getElementById('btn-overview-tab');
-  if (ovBtn) {
-    ovBtn.classList.toggle('active', viewName === 'overview');
+    document.querySelectorAll('.mob-nav-item').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-mob-view') === viewName);
+    });
+
+    const target = document.getElementById(`view-${viewName}`);
+    if (target) {
+      target.style.display = 'block';
+    } else {
+      console.warn(`Target view container not found: view-${viewName}`);
+    }
+
+    // Safely invoke sub-renderers without letting an error break navigation
+    try {
+      if (viewName === 'chat') {
+        if (typeof markUserChatRead === 'function') markUserChatRead();
+        if (typeof renderDashboardChat === 'function') renderDashboardChat();
+      } else if (viewName === 'orders') {
+        if (typeof renderUserOrders === 'function') renderUserOrders();
+      } else if (viewName === 'transactions') {
+        if (typeof renderUserTransactions === 'function') renderUserTransactions();
+      } else if (viewName === 'overview') {
+        if (typeof renderAllPrices === 'function') renderAllPrices();
+      } else if (viewName === 'services') {
+        if (typeof populateCatalogFilter === 'function') populateCatalogFilter();
+        if (typeof renderServiceCatalog === 'function') renderServiceCatalog();
+      } else if (viewName === 'add-funds') {
+        if (typeof renderUserDeposits === 'function') renderUserDeposits();
+      } else if (viewName === 'new-order') {
+        if (typeof populateCategoriesSelect === 'function') populateCategoriesSelect();
+        if (typeof onServiceChange === 'function') onServiceChange();
+      }
+    } catch (renderErr) {
+      console.error(`Error rendering dashboard view '${viewName}':`, renderErr);
+    }
+
+    if (typeof closeDashSidebar === 'function') closeDashSidebar();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    console.error('Fatal error in switchDashView:', err);
   }
-
-  document.querySelectorAll('.mob-nav-item').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-mob-view') === viewName);
-  });
-
-  const target = document.getElementById(`view-${viewName}`);
-  if (target) {
-    target.style.display = 'block';
-  }
-
-  if (viewName === 'chat') {
-    markUserChatRead();
-    renderDashboardChat();
-  } else if (viewName === 'orders') {
-    renderUserOrders();
-  } else if (viewName === 'transactions') {
-    renderUserTransactions();
-  } else if (viewName === 'overview') {
-    renderAllPrices();
-  } else if (viewName === 'services') {
-    populateCatalogFilter();
-    renderServiceCatalog();
-  } else if (viewName === 'add-funds') {
-    renderUserDeposits();
-  } else if (viewName === 'new-order') {
-    populateCategoriesSelect();
-    onServiceChange();
-  }
-
-  closeDashSidebar();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 window.switchDashView = switchDashView;
 window.toggleDashSidebar = toggleDashSidebar;

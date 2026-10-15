@@ -84,7 +84,7 @@ window.SaleemSupabase = {
         options: {
           data: {
             name: name ? name.trim() : '',
-            username: username ? username.trim() : split_part(email, '@')[0],
+            username: username ? username.trim() : email.split('@')[0],
             phone: phone ? phone.trim() : ''
           }
         }
