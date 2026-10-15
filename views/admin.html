@@ -39,7 +39,8 @@
         <div class="user-quick-avatar" id="admin-sidebar-avatar" style="width:40px;height:40px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;">S</div>
         <div class="user-quick-info" style="min-width:0;flex:1;">
           <h4 id="admin-sidebar-name" style="font-size:13.5px;font-weight:800;margin:0 0 2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Saleem Akhtar</h4>
-          <span id="admin-sidebar-email" style="font-size:11px;color:#dc2626;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">saleembaloch1857@gmail.com</span>
+          <span id="admin-sidebar-role" style="font-size:10.5px;color:var(--primary);font-weight:800;text-transform:uppercase;display:block;">Founder & Admin</span>
+          <span id="admin-sidebar-email" style="font-size:11px;color:var(--text-muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">saleembaloch1857@gmail.com</span>
         </div>
       </div>
 
@@ -116,6 +117,10 @@
             <span class="cloud-dot"></span>
             <span id="admin-cloud-label">Local Storage</span>
           </div>
+
+          <button type="button" class="admin-action-btn" onclick="openAdminPasswordModal()" title="Change Admin Password" style="padding:6px 12px;font-size:12px;display:flex;align-items:center;gap:6px;border-radius:8px;">
+            <i class="fa-solid fa-key" style="color:var(--primary);"></i> <span>Password</span>
+          </button>
 
           <button class="theme-toggle-btn" onclick="AppState.toggleTheme()" title="Toggle Theme" style="background:var(--bg-surface-soft);border:1px solid var(--border-color);color:var(--text-primary);border-radius:8px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
             <i class="theme-toggle-icon fa-solid fa-sun"></i>
@@ -210,6 +215,34 @@
              TAB 2: USERS & WALLETS MANAGER (KEY USER REQUEST)
              ==================================================================== -->
         <div id="pane-users" class="admin-tab-pane">
+          <!-- Administrators Access Control Section (Saleem Akhtar & Yasin Official & Custom Admins) -->
+          <div class="table-panel" style="margin-bottom:20px;border:1.5px solid rgba(124, 58, 237, 0.35);background:var(--bg-surface);">
+            <div class="table-toolbar" style="flex-wrap:wrap;gap:12px;">
+              <div>
+                <h3 style="font-size:17.5px;font-weight:900;margin:0 0 4px 0;display:flex;align-items:center;gap:8px;">
+                  <i class="fa-solid fa-user-shield" style="color:#7c3aed;"></i>
+                  Authorized Administrators & Access Control
+                </h3>
+                <p style="font-size:12.5px;color:var(--text-muted);margin:0;">
+                  Saleem Akhtar aur Yasin Official root admins hain. Yahan se aap kisi bhi partner ko Admin bana sakte hain ya remove kar sakte hain.
+                </p>
+              </div>
+
+              <!-- Add New Admin By Email Form -->
+              <form onsubmit="handleAddNewAdminSubmit(event)" style="display:flex;gap:8px;min-width:320px;flex-wrap:wrap;">
+                <input type="email" id="input-new-admin-email" class="form-input" placeholder="Enter partner email..." required style="padding:8px 12px;font-size:12.5px;flex:1;min-width:180px;">
+                <button type="submit" class="btn-primary-grad" style="padding:8px 16px;font-size:12.5px;white-space:nowrap;background:linear-gradient(135deg,#7c3aed,#9333ea);">
+                  <i class="fa-solid fa-user-plus"></i> Make Admin
+                </button>
+              </form>
+            </div>
+
+            <!-- Current Admins List Container -->
+            <div id="admin-list-container" style="display:flex;flex-wrap:wrap;gap:10px;padding:14px;background:var(--bg-surface-soft);border-radius:12px;margin-top:10px;">
+              <!-- Dynamically populated by renderAdminAccessList() -->
+            </div>
+          </div>
+
           <div class="table-panel">
             <div class="table-toolbar">
               <div>
@@ -564,6 +597,38 @@ CREATE TABLE IF NOT EXISTS public.chats (...);
               <i class="fa-solid fa-trash-can"></i> Set Rs 0
             </button>
           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Change Password Modal -->
+  <div class="custom-modal-backdrop" id="admin-password-modal" style="display:none;" onclick="if(event.target===this)closeAdminPasswordModal()">
+    <div class="custom-modal-box" style="max-width:440px;">
+      <div class="custom-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="width:36px;height:36px;font-size:16px;background:#dc2626;"><i class="fa-solid fa-key"></i></div>
+          <h3 style="font-size:17px;font-weight:900;margin:0;">Change Admin Password</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeAdminPasswordModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="custom-modal-body" style="padding:16px 20px;">
+        <form onsubmit="handleAdminChangePassword(event)">
+          <div class="form-group" style="margin-bottom:12px;">
+            <label style="font-size:12.5px;font-weight:700;">Current Password</label>
+            <input type="password" id="adm-old-pass" class="form-input" placeholder="Current admin password" required>
+          </div>
+          <div class="form-group" style="margin-bottom:12px;">
+            <label style="font-size:12.5px;font-weight:700;">New Password (min 6 characters)</label>
+            <input type="password" id="adm-new-pass" class="form-input" placeholder="New strong password" minlength="6" required>
+          </div>
+          <div class="form-group" style="margin-bottom:16px;">
+            <label style="font-size:12.5px;font-weight:700;">Confirm New Password</label>
+            <input type="password" id="adm-confirm-new-pass" class="form-input" placeholder="Confirm new password" minlength="6" required>
+          </div>
+          <button type="submit" class="btn-primary-grad btn-block" style="padding:12px;font-size:14px;">
+            <i class="fa-solid fa-shield-halved"></i> Update Admin Password
+          </button>
         </form>
       </div>
     </div>

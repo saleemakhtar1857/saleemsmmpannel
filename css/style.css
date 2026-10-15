@@ -2203,3 +2203,389 @@ body.nightmode .site-nav {
   color: var(--primary, #dc2626);
 }
 
+
+/* ==========================================================================
+   VIDEO ORDER GUIDE & METHOD BANNER (MOBILE FIRST & ANDROID OPTIMIZED)
+   ========================================================================== */
+.dil-video-guide-banner {
+  background: var(--bg-surface, #ffffff);
+  border: 1.5px solid rgba(220, 38, 38, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px rgba(220, 38, 38, 0.08);
+}
+
+.video-guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.video-play-pulse-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  animation: pulse-red 1.8s infinite;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.video-play-pulse-btn:hover {
+  transform: scale(1.08);
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.badge-lazmi {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #dc2626;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 5px;
+  letter-spacing: 0.5px;
+}
+
+.guide-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.guide-step-card {
+  background: var(--bg-surface-soft, #f8fafc);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.guide-step-card.step-highlight-red {
+  background: rgba(220, 38, 38, 0.05);
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+.step-num-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content strong {
+  font-size: 13.5px;
+  display: block;
+  margin-bottom: 3px;
+  color: var(--text-primary);
+}
+
+.step-content p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.step-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #25d366;
+  color: #fff !important;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: transform 0.2s;
+}
+
+.step-wa-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MULTI-CURRENCY PICKER MODAL
+   ========================================================================== */
+.currency-picker-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.curr-card-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-surface-soft, #f8fafc);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.curr-card-option:hover {
+  border-color: var(--primary);
+  background: rgba(220, 38, 38, 0.04);
+  transform: translateX(4px);
+}
+
+.curr-flag-badge {
+  font-size: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.curr-info-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.curr-name-txt {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.curr-rate-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.curr-sym-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 11.5px;
+}
+
+/* ==========================================================================
+   VIDEO MODAL SIMULATOR & WALKTHROUGH
+   ========================================================================== */
+.video-mockup-player {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  border: 2px solid var(--border-color);
+}
+
+.video-mockup-screen {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #000000 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  color: #fff;
+}
+
+.video-overlay-badge {
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 10px;
+  border-radius: 999px;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-center-action {
+  text-align: center;
+}
+
+.video-huge-play-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.6);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.video-huge-play-icon:hover {
+  transform: scale(1.15);
+}
+
+.video-caption-txt {
+  font-size: 12.5px;
+  margin-top: 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.video-bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.video-bar-fill {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.modal-guide-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-guide-step:last-child {
+  border-bottom: none;
+}
+
+.modal-guide-step.step-urgent {
+  background: rgba(220, 38, 38, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  margin: 8px 0;
+}
+
+.step-circle-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-guide-step strong {
+  font-size: 13.5px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.modal-guide-step p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.pre-filled-msg-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+.pre-filled-msg-box code {
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.btn-copy-chip {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-soft);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-wa-full-green {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: #25d366;
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* ==========================================================================
+   ANDROID & MOBILE TOUCH OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 640px) {
+  .guide-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .dil-video-guide-banner {
+    padding: 12px;
+  }
+  .video-guide-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .video-guide-header button {
+    width: 100%;
+  }
+  .dil-funds-container {
+    padding: 0;
+  }
+}

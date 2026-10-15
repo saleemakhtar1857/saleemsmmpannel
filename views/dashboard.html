@@ -48,8 +48,8 @@
           </button>
         </div>
 
-        <button type="button" class="dil-curr-dropdown" onclick="toggleCurrency()" title="Switch Currency (PKR / USD)">
-          <span id="sidebar-curr-label">Rs PKR</span>
+        <button type="button" class="dil-curr-dropdown" onclick="openCurrencyPicker()" title="Switch Currency (PKR, USD, INR, AED, SAR, USDT)">
+          <span id="sidebar-curr-label">₨ PKR</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
       </div>
@@ -160,9 +160,10 @@
         </a>
 
         <div class="dil-topbar-right">
-          <button type="button" class="dil-curr-pill" onclick="toggleCurrency()" title="Switch Currency">
-            <span class="curr-pill-left" id="top-curr-sym">Rs</span>
+          <button type="button" class="dil-curr-pill" onclick="openCurrencyPicker()" title="Switch Currency (PKR, USD, INR, AED, SAR, USDT)">
+            <span class="curr-pill-left" id="top-curr-sym">₨</span>
             <span class="curr-pill-right" id="top-curr-code">PKR</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:10px;margin-left:4px;opacity:0.75;"></i>
           </button>
 
           <button type="button" class="dil-hamburger-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" style="background:var(--bg-surface-2);color:var(--text-primary);border:1.5px solid var(--border-color);">
@@ -248,6 +249,56 @@
                   <div class="dil-stat-lbl">Panel Orders</div>
                   <div class="dil-stat-val" id="stat-panel-orders">0</div>
                 </div>
+              </div>
+            </div>
+        <!-- Video & Step-by-Step Order Guide (Saleem SMM Official Method) -->
+        <div class="dil-video-guide-banner">
+          <div class="video-guide-header">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="video-play-pulse-btn" onclick="openOrderGuideModal()" title="Play Video Method">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <h4 style="margin:0;font-size:15.5px;font-weight:900;color:var(--text-primary);display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <span>🎬 Order Lagane Ka Tareeqa & Video Method</span>
+                  <span class="badge-lazmi">LAZMI STEPS</span>
+                </h4>
+                <div style="font-size:12.5px;color:var(--text-secondary);margin-top:2px;">
+                  Follow 3 steps for instant activation on WhatsApp: <strong>03163846672</strong>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-primary-grad" onclick="openOrderGuideModal()" style="padding:8px 16px;font-size:13px;white-space:nowrap;">
+              <i class="fa-solid fa-video"></i> Watch Video Guide
+            </button>
+          </div>
+
+          <!-- 3 Step Cards -->
+          <div class="guide-steps-grid">
+            <div class="guide-step-card">
+              <div class="step-num-badge">1</div>
+              <div class="step-content">
+                <strong>Step 1: Order Place Karein</strong>
+                <p>Neeche se Service select karein, apna Target Link aur Quantity enter karke "Submit Order" button dabayein.</p>
+              </div>
+            </div>
+
+            <div class="guide-step-card step-highlight-red">
+              <div class="step-num-badge" style="background:#dc2626;">2</div>
+              <div class="step-content">
+                <strong style="color:var(--primary);">Step 2: WhatsApp Par Msg Bhejein (LAZMI)</strong>
+                <p>Order place karne ke foran baad WhatsApp Support par message karein: <strong>"sir I have placed the order"</strong></p>
+                <a href="https://wa.me/923163846672?text=sir%20I%20have%20placed%20the%20order" target="_blank" class="step-wa-btn">
+                  <i class="fa-brands fa-whatsapp"></i> Send: "sir I have placed the order"
+                </a>
+              </div>
+            </div>
+
+            <div class="guide-step-card">
+              <div class="step-num-badge">3</div>
+              <div class="step-content">
+                <strong>Step 3: Order ID & Service ID Bhejein</strong>
+                <p>Phir jab Saleem / Admin WhatsApp par aapse Order ID aur Service ID maangey, to "My Orders" tab se copy karke send karein!</p>
               </div>
             </div>
           </div>
@@ -538,13 +589,16 @@
               </div>
             </div>
 
-            <!-- 6. Binance / Crypto (COMING SOON) -->
-            <div class="dil-pay-tile tile-coming-soon" onclick="showComingSoonPayment('Binance / USDT')">
-              <div class="coming-soon-ribbon">COMING SOON</div>
+            <!-- 6. Binance / USDT (ACTIVE NOW!) -->
+            <div class="dil-pay-tile" id="tile-binance" onclick="selectPaymentGateway('binance')">
+              <span class="dil-tile-check"><i class="fa-solid fa-check"></i></span>
+              <span class="dil-tile-status-active" style="background:#f59e0b;color:#000;">Active Now</span>
               <div class="dil-brand-art">
-                <div class="bnb-logo"><i class="fa-solid fa-coins"></i></div>
-                <div class="jc-wordmark" style="font-size:22px;color:#d97706;">Binance Pay</div>
-                <div class="tile-acc-soon">Coming Soon</div>
+                <div class="bnb-logo" style="background:#f3ba2f;color:#000;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:20px;">
+                  <i class="fa-solid fa-coins"></i>
+                </div>
+                <div class="jc-wordmark" style="font-size:20px;color:#d97706;font-weight:900;">Binance Pay</div>
+                <div class="tile-acc-num">ID: 1206973421</div>
               </div>
             </div>
 
@@ -562,11 +616,16 @@
                 <div>
                   <div style="font-size:11.5px;text-transform:uppercase;font-weight:700;color:var(--text-muted);" id="selected-gateway-label">OFFICIAL EASYPAISA ACCOUNT NUMBER</div>
                   <div style="font-size:24px;font-weight:900;color:var(--primary);letter-spacing:1px;margin:4px 0;" id="selected-gateway-number">03173983906</div>
-                  <div style="font-size:12.5px;color:var(--text-secondary);">Account Title: <strong>Saleem Akhtar</strong></div>
+                  <div style="font-size:12.5px;color:var(--text-secondary);" id="selected-gateway-title-text">Account Title: <strong>Saleem Akhtar</strong></div>
                 </div>
-                <button type="button" class="dil-copy-num-btn" onclick="copySelectedGatewayNumber()">
-                  <i class="fa-regular fa-copy"></i> Copy Number
-                </button>
+                <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+                  <button type="button" class="dil-copy-num-btn" onclick="copySelectedGatewayNumber()">
+                    <i class="fa-regular fa-copy"></i> Copy Number
+                  </button>
+                  <a id="btn-binance-ref-link" href="https://account.binance.com/register?ref=1206973421&?registerChannel=user_center" target="_blank" class="dil-chat-btn-outline" style="display:none;font-size:11.5px;padding:4px 10px;text-decoration:none;border-color:#f59e0b;color:#d97706;" title="Open Saleem Official Binance Link">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Binance Portal
+                  </a>
+                </div>
               </div>
 
               <form id="add-funds-form" onsubmit="submitDepositRequest(event)" style="margin-top:16px;">
@@ -577,6 +636,7 @@
                   <select id="deposit-method-select" class="dil-select" onchange="selectPaymentGateway(this.value)">
                     <option value="easypaisa">EasyPaisa — 03173983906 (Active)</option>
                     <option value="upaisa">UPaisa — 03163846672 (Active)</option>
+                    <option value="binance">Binance Pay / USDT — ID: 1206973421 (Active)</option>
                   </select>
                 </div>
 
@@ -744,6 +804,35 @@
                 <div class="dil-ov-info-val">VIP Wholesale Rates Active</div>
               </div>
             </div>
+          </div>
+
+          <div class="dil-ov-section-title" style="margin-top:26px;">ACCOUNT SECURITY</div>
+          <div class="dil-ov-white-card" style="margin-top:10px;padding:22px;border-radius:14px;">
+            <h4 style="font-size:16px;font-weight:800;margin-bottom:6px;color:var(--text-primary);display:flex;align-items:center;gap:8px;">
+              <i class="fa-solid fa-key" style="color:var(--primary);"></i> Change Account Password
+            </h4>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">
+              Apna password update karein. Password kam az kam 6 characters ka hona chahiye.
+            </p>
+            <form onsubmit="handleUserChangePassword(event)">
+              <div class="form-grid-2">
+                <div class="dil-field-group">
+                  <label class="dil-field-label">Current Password</label>
+                  <input type="password" id="user-old-pass" class="dil-input" placeholder="Enter current password" required>
+                </div>
+                <div class="dil-field-group">
+                  <label class="dil-field-label">New Password</label>
+                  <input type="password" id="user-new-pass" class="dil-input" placeholder="New password (min 6 chars)" minlength="6" required>
+                </div>
+              </div>
+              <div class="dil-field-group" style="margin-top:12px;">
+                <label class="dil-field-label">Confirm New Password</label>
+                <input type="password" id="user-confirm-new-pass" class="dil-input" placeholder="Re-enter new password" minlength="6" required>
+              </div>
+              <button type="submit" class="dil-submit-btn" style="margin-top:16px;padding:12px 24px;width:auto;">
+                <i class="fa-solid fa-lock"></i> Update Password
+              </button>
+            </form>
           </div>
 
         </div>
@@ -951,6 +1040,166 @@
       <span>Dashboard</span>
     </button>
   </nav>
+
+  <!-- Multi-Currency Selector Modal -->
+  <div class="custom-modal-backdrop" id="currency-picker-modal" style="display:none;" onclick="if(event.target===this)closeCurrencyPicker()">
+    <div class="custom-modal-box" style="max-width:440px;">
+      <div class="custom-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="width:36px;height:36px;font-size:16px;"><i class="fa-solid fa-coins"></i></div>
+          <div>
+            <h3 style="font-size:17px;font-weight:800;margin:0;">Select Currency</h3>
+            <div style="font-size:12px;color:var(--text-muted);">Choose your preferred display currency</div>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeCurrencyPicker()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="custom-modal-body" style="padding:14px 18px 20px;">
+        <div class="currency-picker-grid">
+          <!-- PKR -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('PKR')">
+            <div class="curr-flag-badge">🇵🇰</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">PKR — Pakistani Rupee</div>
+              <div class="curr-rate-sub">Base Currency (₨)</div>
+            </div>
+            <div class="curr-sym-pill">₨ PKR</div>
+          </div>
+
+          <!-- USD -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('USD')">
+            <div class="curr-flag-badge">🇺🇸</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">USD — US Dollar</div>
+              <div class="curr-rate-sub">1 USD ≈ ₨ 280.00</div>
+            </div>
+            <div class="curr-sym-pill">$ USD</div>
+          </div>
+
+          <!-- INR -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('INR')">
+            <div class="curr-flag-badge">🇮🇳</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">INR — Indian Rupee</div>
+              <div class="curr-rate-sub">1 INR ≈ ₨ 3.35</div>
+            </div>
+            <div class="curr-sym-pill">₹ INR</div>
+          </div>
+
+          <!-- AED -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('AED')">
+            <div class="curr-flag-badge">🇦🇪</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">AED — UAE Dirham</div>
+              <div class="curr-rate-sub">1 AED ≈ ₨ 76.20</div>
+            </div>
+            <div class="curr-sym-pill">د.إ AED</div>
+          </div>
+
+          <!-- SAR -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('SAR')">
+            <div class="curr-flag-badge">🇸🇦</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">SAR — Saudi Riyal</div>
+              <div class="curr-rate-sub">1 SAR ≈ ₨ 74.60</div>
+            </div>
+            <div class="curr-sym-pill">﷼ SAR</div>
+          </div>
+
+          <!-- USDT -->
+          <div class="curr-card-option" onclick="selectDashboardCurrency('USDT')">
+            <div class="curr-flag-badge">🪙</div>
+            <div class="curr-info-main">
+              <div class="curr-name-txt">USDT — Binance Crypto</div>
+              <div class="curr-rate-sub">1 USDT = $1.00 USD</div>
+            </div>
+            <div class="curr-sym-pill">₮ USDT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Tutorial & Step-by-Step Order Guide Modal -->
+  <div class="custom-modal-backdrop" id="order-guide-modal" style="display:none;" onclick="if(event.target===this)closeOrderGuideModal()">
+    <div class="custom-modal-box" style="max-width:580px;">
+      <div class="custom-modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-badge" style="width:36px;height:36px;font-size:16px;background:linear-gradient(135deg,#dc2626,#f59e0b);"><i class="fa-solid fa-play"></i></div>
+          <div>
+            <h3 style="font-size:17px;font-weight:900;margin:0;">Order Lagane Ka Tareeqa (Video Method)</h3>
+            <div style="font-size:12px;color:var(--text-muted);">Saleem SMM Official 3-Step Process</div>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeOrderGuideModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="custom-modal-body" style="padding:16px 20px 22px;">
+        
+        <!-- Video Player Simulation Container -->
+        <div class="video-mockup-player">
+          <div class="video-mockup-screen">
+            <div class="video-overlay-badge"><i class="fa-solid fa-circle-dot" style="color:#ef4444;"></i> Saleem SMM Official Tutorial</div>
+            <div class="video-center-action">
+              <div class="video-huge-play-icon" onclick="playTutorialMockup()">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div class="video-caption-txt">How To Place Order & Verify on WhatsApp (03163846672)</div>
+            </div>
+            <div class="video-bottom-bar">
+              <span>0:45 / 2:30</span>
+              <div class="video-bar-fill"><div style="width:35%;height:100%;background:#ef4444;border-radius:2px;"></div></div>
+              <span>HD 1080p</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crucial Steps in Urdu -->
+        <div style="margin-top:16px;">
+          <h4 style="font-size:14.5px;font-weight:900;color:var(--text-primary);margin-bottom:10px;">
+            📌 3 Zaroori Marahil (LAZMI PADH LAIN):
+          </h4>
+
+          <div class="modal-guide-step">
+            <div class="step-circle-num">1</div>
+            <div>
+              <strong>Pehla Marhala — Order Submit Karein:</strong>
+              <p>Panel mein Category aur Service choose karein, target link aur quantity enter karke <strong>Submit Order</strong> dabayein.</p>
+            </div>
+          </div>
+
+          <div class="modal-guide-step step-urgent">
+            <div class="step-circle-num" style="background:#dc2626;">2</div>
+            <div>
+              <strong style="color:#dc2626;">Doosra Marhala (LAZMI): WhatsApp Support Par Msg Karein</strong>
+              <p>Order lagane ke foran baad hamare official WhatsApp (<strong>03163846672</strong>) par yeh message bhejein:</p>
+              <div class="pre-filled-msg-box">
+                <code>sir I have placed the order</code>
+                <button type="button" onclick="AppState.copyText('sir I have placed the order')" class="btn-copy-chip"><i class="fa-regular fa-copy"></i> Copy</button>
+              </div>
+              <a href="https://wa.me/923163846672?text=sir%20I%20have%20placed%20the%20order" target="_blank" class="btn-wa-full-green" style="margin-top:8px;">
+                <i class="fa-brands fa-whatsapp"></i> Click Here to Send Msg on WhatsApp: 03163846672
+              </a>
+            </div>
+          </div>
+
+          <div class="modal-guide-step">
+            <div class="step-circle-num">3</div>
+            <div>
+              <strong>Teesra Marhala (LAZMI): Order ID & Service ID Bhejein</strong>
+              <p>Jab Saleem / Admin WhatsApp par aapse Order ID aur Service ID maangey ga, to aapne <strong>"My Orders"</strong> tab se Order ID aur Service ID copy karke WhatsApp par bhejni hai. Iske baad aapka order foran priority par start ho jayega!</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;background:var(--bg-surface-soft);padding:12px;border-radius:10px;font-size:12.5px;color:var(--text-secondary);display:flex;align-items:center;gap:10px;">
+          <i class="fa-solid fa-headset" style="font-size:20px;color:#16a34a;"></i>
+          <div>
+            <strong>Official 24/7 Helpline:</strong> WhatsApp: <strong>03163846672</strong> | EasyPaisa: <strong>03173983906</strong> | UPaisa: <strong>03163846672</strong> | Binance Pay: <strong>1206973421</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

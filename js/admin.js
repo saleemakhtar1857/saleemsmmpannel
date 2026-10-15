@@ -20,19 +20,44 @@ function initAdminDashboard() {
     return;
   }
 
-  // Populate active admin profile banner in sidebar
+  // Populate active admin profile banner in sidebar with distinct identity
   const curUser = AppState.currentUser;
   if (curUser) {
+    const isSaleem = curUser.email && curUser.email.toLowerCase().trim() === 'saleembaloch1857@gmail.com';
+    const isYasin = curUser.email && curUser.email.toLowerCase().trim() === 'yasinofficial03098158572@gmail.com';
+
+    let adminDisplayName = curUser.name || 'Admin';
+    let adminRoleTitle = 'Administrator';
+    let adminInitial = 'A';
+
+    if (isSaleem) {
+      adminDisplayName = 'Saleem Akhtar';
+      adminRoleTitle = 'Founder & Lead Admin';
+      adminInitial = 'S';
+    } else if (isYasin) {
+      adminDisplayName = 'Yasin Official';
+      adminRoleTitle = 'Co-Founder & Lead Admin';
+      adminInitial = 'Y';
+    } else {
+      adminDisplayName = curUser.name || (curUser.email ? curUser.email.split('@')[0] : 'Admin');
+      adminRoleTitle = 'Authorized Admin';
+      adminInitial = (adminDisplayName[0] || 'A').toUpperCase();
+    }
+
     const nameEl = document.getElementById('admin-sidebar-name');
     const emailEl = document.getElementById('admin-sidebar-email');
+    const roleEl = document.getElementById('admin-sidebar-role');
     const avatarEl = document.getElementById('admin-sidebar-avatar');
-    if (nameEl) nameEl.textContent = curUser.name || (curUser.email && curUser.email.includes('yasin') ? 'Yasin Official' : 'Saleem Akhtar');
+
+    if (nameEl) nameEl.textContent = adminDisplayName;
     if (emailEl) emailEl.textContent = curUser.email;
-    if (avatarEl) avatarEl.textContent = (curUser.name || curUser.username || 'A')[0].toUpperCase();
+    if (roleEl) roleEl.textContent = adminRoleTitle;
+    if (avatarEl) avatarEl.textContent = adminInitial;
   }
 
   // Initial renders
   updateAdminStats();
+  renderAdminAccessList();
   renderAdminUsersTable();
   renderPendingDeposits();
   renderAdminChatsConsole();
@@ -135,7 +160,10 @@ window.switchAdminTab = function(tabName) {
   }
 
   // 5. Trigger sub-renders when opening specific tabs
-  if (tabName === 'users') renderAdminUsersTable();
+  if (tabName === 'users') {
+    renderAdminAccessList();
+    renderAdminUsersTable();
+  }
   if (tabName === 'deposits') renderPendingDeposits();
   if (tabName === 'chats') renderAdminChatsConsole();
   if (tabName === 'orders') renderAdminOrders();
@@ -208,6 +236,109 @@ function updateAdminStats() {
 }
 
 /* ==========================================================================
+   ADMIN ACCESS CONTROL (SALEEM AKHTAR & YASIN OFFICIAL & PARTNER ADMINS)
+   ========================================================================== */
+function renderAdminAccessList() {
+  const container = document.getElementById('admin-list-container');
+  if (!container) return;
+
+  const admins = AppState.getAdminList();
+  container.innerHTML = admins.map(a => {
+    return `
+      <div class="admin-chip-card" style="background:var(--bg-surface);padding:10px 14px;border-radius:10px;border:1px solid var(--border-color);display:flex;align-items:center;gap:12px;min-width:240px;flex:1;">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0;">
+          ${(a.name || 'A')[0].toUpperCase()}
+        </div>
+        <div style="min-width:0;flex:1;">
+          <div style="font-weight:800;font-size:13px;color:var(--text-primary);display:flex;align-items:center;gap:6px;">
+            <span>${AppState.escapeHtml(a.name)}</span>
+            ${a.isRoot ? `<span style="font-size:10px;background:rgba(220,38,38,0.15);color:#dc2626;padding:1px 6px;border-radius:4px;font-weight:800;">ROOT</span>` : ''}
+          </div>
+          <div style="font-size:11px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+            ${AppState.escapeHtml(a.email)}
+          </div>
+          <div style="font-size:10.5px;color:#7c3aed;font-weight:700;">${a.roleTitle}</div>
+        </div>
+        <div>
+          ${!a.isRoot ? `
+            <button type="button" class="btn-reject" onclick="handleRemoveAdmin('${AppState.escapeHtml(a.email)}')" style="padding:4px 8px;font-size:11px;" title="Revoke Admin Access">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          ` : `
+            <span style="font-size:13px;color:#f59e0b;" title="Protected Root Founder"><i class="fa-solid fa-crown"></i></span>
+          `}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.handleAddNewAdminSubmit = function(e) {
+  e.preventDefault();
+  const input = document.getElementById('input-new-admin-email');
+  if (!input || !input.value.trim()) return;
+
+  const email = input.value.trim();
+  const res = AppState.addAdminByEmail(email);
+  if (res && res.success) {
+    input.value = '';
+    renderAdminAccessList();
+    renderAdminUsersTable();
+  }
+};
+
+window.handleRemoveAdmin = function(email) {
+  if (confirm(`Are you sure you want to revoke Admin privileges from ${email}?`)) {
+    const res = AppState.removeAdminByEmail(email);
+    if (res && res.success) {
+      renderAdminAccessList();
+      renderAdminUsersTable();
+    }
+  }
+};
+
+/* Admin Change Password Modal Controls */
+window.openAdminPasswordModal = function() {
+  const m = document.getElementById('admin-password-modal');
+  if (m) {
+    m.style.display = 'flex';
+    const inp = document.getElementById('adm-old-pass');
+    if (inp) inp.focus();
+  }
+};
+
+window.closeAdminPasswordModal = function() {
+  const m = document.getElementById('admin-password-modal');
+  if (m) m.style.display = 'none';
+};
+
+window.handleAdminChangePassword = async function(e) {
+  e.preventDefault();
+  const oldPass = document.getElementById('adm-old-pass')?.value || '';
+  const newPass = document.getElementById('adm-new-pass')?.value || '';
+  const confPass = document.getElementById('adm-confirm-new-pass')?.value || '';
+
+  if (newPass !== confPass) {
+    AppState.showToast('New passwords do not match!', 'error');
+    return;
+  }
+  if (newPass.length < 6) {
+    AppState.showToast('Password must be at least 6 characters long.', 'error');
+    return;
+  }
+
+  const res = await AppState.changePassword(oldPass, newPass);
+  if (res && res.success) {
+    closeAdminPasswordModal();
+    document.getElementById('adm-old-pass').value = '';
+    document.getElementById('adm-new-pass').value = '';
+    document.getElementById('adm-confirm-new-pass').value = '';
+  } else {
+    AppState.showToast(res ? res.message : 'Error updating password.', 'error');
+  }
+};
+
+/* ==========================================================================
    USER MANAGEMENT & WALLET BALANCES (KEY USER REQUIREMENT)
    ========================================================================== */
 window.renderAdminUsersTable = function() {
@@ -235,7 +366,7 @@ window.renderAdminUsersTable = function() {
 
   tbody.innerHTML = users.map(u => {
     const initial = (u.name || u.username || 'U')[0].toUpperCase();
-    const isAdmin = (u.role === 'admin') || (u.email && (u.email.toLowerCase() === 'saleembaloch1857@gmail.com' || u.email.toLowerCase() === 'yasinofficial03098158572@gmail.com'));
+    const isAdmin = (u.role === 'admin') || (u.email && isUserAdmin(u.email));
     const phone = u.phone || '';
     const cleanPhone = phone ? phone.replace(/[^0-9]/g, '').replace(/^0/, '92') : '';
     const userIdentifier = u.id || u.username || u.email;

@@ -150,37 +150,49 @@ window.toggleCurrency = toggleCurrency;
 /* ==========================================================================
    CURRENCY & USER STATS UPDATER
    ========================================================================== */
+function openCurrencyPicker() {
+  const m = document.getElementById('currency-picker-modal');
+  if (m) m.style.display = 'flex';
+}
+
+function closeCurrencyPicker() {
+  const m = document.getElementById('currency-picker-modal');
+  if (m) m.style.display = 'none';
+}
+
+function selectDashboardCurrency(currCode) {
+  AppState.setCurrency(currCode);
+  closeCurrencyPicker();
+  const c = CURRENCIES[currCode] || CURRENCIES.PKR;
+  AppState.showToast(`Display currency switched to ${c.code} (${c.symbol})!`, 'info');
+}
+
 function toggleCurrency() {
-  const next = AppState.currency === 'PKR' ? 'USD' : 'PKR';
-  AppState.setCurrency(next);
+  openCurrencyPicker();
 }
 
 function renderAllPrices() {
   const user = AppState.currentUser;
-  const isPkr = AppState.currency === 'PKR';
+  const c = CURRENCIES[AppState.currency] || CURRENCIES.PKR;
 
   // Topbar & Sidebar Currency Labels
   const topSym = document.getElementById('top-curr-sym');
   const topCode = document.getElementById('top-curr-code');
   const sideCurr = document.getElementById('sidebar-curr-label');
-  if (topSym) topSym.textContent = isPkr ? 'Rs' : '$';
-  if (topCode) topCode.textContent = isPkr ? 'PKR' : 'USD';
-  if (sideCurr) sideCurr.textContent = isPkr ? 'Rs PKR' : '$ USD';
+  if (topSym) topSym.textContent = c.symbol;
+  if (topCode) topCode.textContent = c.code;
+  if (sideCurr) sideCurr.textContent = `${c.symbol} ${c.code}`;
 
   if (user) {
     const orders = AppState.getOrders();
-    const balFormatted = isPkr
-      ? `Rs ${Number(user.balance_pkr || 0).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}`
-      : `$ ${Number(user.balance_usd || 0).toFixed(2)}`;
-    const spentFormatted = isPkr
-      ? `Rs ${Number(user.spent_pkr || 0).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`
-      : `$ ${Number(user.spent_usd || 0).toFixed(2)}`;
+    const balFormatted = AppState.formatMoney(user.balance_usd, user.balance_pkr);
+    const spentFormatted = AppState.formatMoney(user.spent_usd, user.spent_pkr);
 
     // Calculate Today's spend
     const todayPrefix = new Date().toISOString().substring(0, 10);
     const todayOrders = orders.filter(o => String(o.created_at || '').startsWith(todayPrefix));
     const todayPkr = todayOrders.reduce((acc, o) => acc + Number(o.charge_pkr || 0), 0);
-    const todayFormatted = isPkr ? `Rs ${todayPkr.toFixed(1)}` : `$ ${(todayPkr / 280).toFixed(2)}`;
+    const todayFormatted = AppState.formatMoney(todayPkr / 280, todayPkr);
 
     // Sidebar Profile Card
     const uNameEl = document.getElementById('dash-username');
@@ -1012,24 +1024,57 @@ function renderUserOrders() {
    ========================================================================== */
 function selectPaymentGateway(gatewayKey) {
   const isUpaisa = gatewayKey === 'upaisa';
-  selectedActiveGatewayNumber = isUpaisa ? '03163846672' : '03173983906';
+  const isBinance = gatewayKey === 'binance';
+  const isEasypaisa = !isUpaisa && !isBinance;
+
+  if (isBinance) {
+    selectedActiveGatewayNumber = '1206973421';
+  } else if (isUpaisa) {
+    selectedActiveGatewayNumber = '03163846672';
+  } else {
+    selectedActiveGatewayNumber = '03173983906';
+  }
 
   const epTile = document.getElementById('tile-easypaisa');
   const upTile = document.getElementById('tile-upaisa');
-  if (epTile) epTile.classList.toggle('active', !isUpaisa);
+  const bnTile = document.getElementById('tile-binance');
+  if (epTile) epTile.classList.toggle('active', isEasypaisa);
   if (upTile) upTile.classList.toggle('active', isUpaisa);
+  if (bnTile) bnTile.classList.toggle('active', isBinance);
 
   const titleEl = document.getElementById('selected-gateway-title');
   const lblEl = document.getElementById('selected-gateway-label');
   const numEl = document.getElementById('selected-gateway-number');
+  const titleTxtEl = document.getElementById('selected-gateway-title-text');
+  const bnbRefBtn = document.getElementById('btn-binance-ref-link');
   const hiddenInput = document.getElementById('deposit-method');
   const selBox = document.getElementById('deposit-method-select');
 
-  if (titleEl) titleEl.textContent = isUpaisa ? 'Send Payment via UPaisa (Active)' : 'Send Payment via EasyPaisa (Active)';
-  if (lblEl) lblEl.textContent = isUpaisa ? 'OFFICIAL UPAISA ACCOUNT NUMBER' : 'OFFICIAL EASYPAISA ACCOUNT NUMBER';
-  if (numEl) numEl.textContent = selectedActiveGatewayNumber;
-  if (hiddenInput) hiddenInput.value = isUpaisa ? 'UPaisa (03163846672)' : 'EasyPaisa (03173983906)';
-  if (selBox) selBox.value = isUpaisa ? 'upaisa' : 'easypaisa';
+  if (isBinance) {
+    if (titleEl) titleEl.textContent = 'Send Payment via Binance Pay / USDT (Active)';
+    if (lblEl) lblEl.textContent = 'OFFICIAL BINANCE PAY ID & USDT (TRC-20 / BEP-20)';
+    if (numEl) numEl.textContent = '1206973421';
+    if (titleTxtEl) titleTxtEl.innerHTML = 'Account Title: <strong>Saleem Akhtar (Binance Pay)</strong>';
+    if (bnbRefBtn) bnbRefBtn.style.display = 'inline-flex';
+    if (hiddenInput) hiddenInput.value = 'Binance Pay (ID: 1206973421)';
+    if (selBox) selBox.value = 'binance';
+  } else if (isUpaisa) {
+    if (titleEl) titleEl.textContent = 'Send Payment via UPaisa (Active)';
+    if (lblEl) lblEl.textContent = 'OFFICIAL UPAISA ACCOUNT NUMBER';
+    if (numEl) numEl.textContent = '03163846672';
+    if (titleTxtEl) titleTxtEl.innerHTML = 'Account Title: <strong>Saleem Akhtar</strong>';
+    if (bnbRefBtn) bnbRefBtn.style.display = 'none';
+    if (hiddenInput) hiddenInput.value = 'UPaisa (03163846672)';
+    if (selBox) selBox.value = 'upaisa';
+  } else {
+    if (titleEl) titleEl.textContent = 'Send Payment via EasyPaisa (Active)';
+    if (lblEl) lblEl.textContent = 'OFFICIAL EASYPAISA ACCOUNT NUMBER';
+    if (numEl) numEl.textContent = '03173983906';
+    if (titleTxtEl) titleTxtEl.innerHTML = 'Account Title: <strong>Saleem Akhtar</strong>';
+    if (bnbRefBtn) bnbRefBtn.style.display = 'none';
+    if (hiddenInput) hiddenInput.value = 'EasyPaisa (03173983906)';
+    if (selBox) selBox.value = 'easypaisa';
+  }
 }
 
 function copySelectedGatewayNumber() {
@@ -1037,7 +1082,7 @@ function copySelectedGatewayNumber() {
 }
 
 function showComingSoonPayment(gatewayName) {
-  AppState.showToast(`${gatewayName} is Coming Soon! Please use EasyPaisa (03173983906) or UPaisa (03163846672).`, 'info');
+  AppState.showToast(`${gatewayName} is Coming Soon! Please use EasyPaisa (03173983906), UPaisa (03163846672), or Binance Pay (1206973421).`, 'info');
 }
 
 function submitDepositRequest(e) {
@@ -1074,7 +1119,7 @@ function submitDepositRequest(e) {
     userName: user.name || user.username,
     userPhone: user.phone || '',
     method: method,
-    account: method.includes('EasyPaisa') ? '03173983906' : '03163846672',
+    account: method.includes('Binance') ? '1206973421' : (method.includes('EasyPaisa') ? '03173983906' : '03163846672'),
     tid: tid,
     amount_pkr: amountPkr,
     amount_usd: amountUsd,
@@ -1390,3 +1435,47 @@ window.sendDashboardChatPreset = sendDashboardChatPreset;
 window.handleDashboardChatSubmit = handleDashboardChatSubmit;
 window.renderDashboardChat = renderDashboardChat;
 window.regenerateApiKey = regenerateApiKey;
+
+/* Multi-Currency & Order Guide & Password Modals */
+window.openCurrencyPicker = openCurrencyPicker;
+window.closeCurrencyPicker = closeCurrencyPicker;
+window.selectDashboardCurrency = selectDashboardCurrency;
+
+window.openOrderGuideModal = function() {
+  const m = document.getElementById('order-guide-modal');
+  if (m) m.style.display = 'flex';
+};
+
+window.closeOrderGuideModal = function() {
+  const m = document.getElementById('order-guide-modal');
+  if (m) m.style.display = 'none';
+};
+
+window.playTutorialMockup = function() {
+  AppState.showToast('Saleem SMM Official Video Guide: Watch 3 steps below!', 'info');
+};
+
+window.handleUserChangePassword = async function(e) {
+  e.preventDefault();
+  const oldPass = document.getElementById('user-old-pass')?.value || '';
+  const newPass = document.getElementById('user-new-pass')?.value || '';
+  const confPass = document.getElementById('user-confirm-new-pass')?.value || '';
+
+  if (newPass !== confPass) {
+    AppState.showToast('New passwords do not match!', 'error');
+    return;
+  }
+  if (newPass.length < 6) {
+    AppState.showToast('Password must be at least 6 characters long.', 'error');
+    return;
+  }
+
+  const res = await AppState.changePassword(oldPass, newPass);
+  if (res && res.success) {
+    document.getElementById('user-old-pass').value = '';
+    document.getElementById('user-new-pass').value = '';
+    document.getElementById('user-confirm-new-pass').value = '';
+  } else {
+    AppState.showToast(res ? res.message : 'Error changing password.', 'error');
+  }
+};

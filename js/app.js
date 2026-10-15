@@ -14,22 +14,61 @@ const STORAGE_KEYS = {
   CHATS: 'saleem_live_chats_db'
 };
 
-const ADMIN_EMAILS = [
+const ROOT_ADMIN_EMAILS = [
   'saleembaloch1857@gmail.com',
   'yasinofficial03098158572@gmail.com'
 ];
-const ADMIN_EMAIL = ADMIN_EMAILS[0];
+const ADMIN_EMAILS = ROOT_ADMIN_EMAILS;
+const ADMIN_EMAIL = ROOT_ADMIN_EMAILS[0];
+
+function getCustomAdminEmails() {
+  try {
+    return JSON.parse(localStorage.getItem('saleem_custom_admin_emails') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function getAllAdminEmails() {
+  const custom = getCustomAdminEmails();
+  const all = [...ROOT_ADMIN_EMAILS];
+  custom.forEach(em => {
+    const c = (em || '').toLowerCase().trim();
+    if (c && !all.some(a => a.toLowerCase().trim() === c)) {
+      all.push(c);
+    }
+  });
+  return all;
+}
 
 function isUserAdmin(email) {
   if (!email) return false;
   const clean = email.toLowerCase().trim();
-  return ADMIN_EMAILS.some(ae => ae.toLowerCase().trim() === clean);
+  return getAllAdminEmails().some(ae => ae.toLowerCase().trim() === clean);
 }
 
 const OFFICIAL_WHATSAPP = '03163846672';
 const OFFICIAL_WHATSAPP_INTL = '923163846672';
 const OFFICIAL_EASYPAISA = '03173983906';
 const OFFICIAL_UPAISA = '03163846672';
+
+// Multi-Currency Engine
+const CURRENCIES = {
+  PKR: { code: 'PKR', symbol: '₨', name: 'Pakistani Rupee', rateToPkr: 1.0, decimals: 2 },
+  USD: { code: 'USD', symbol: '$', name: 'US Dollar', rateToPkr: 280.0, decimals: 2 },
+  INR: { code: 'INR', symbol: '₹', name: 'Indian Rupee', rateToPkr: 3.35, decimals: 2 },
+  AED: { code: 'AED', symbol: 'د.إ', name: 'UAE Dirham', rateToPkr: 76.2, decimals: 2 },
+  SAR: { code: 'SAR', symbol: '﷼', name: 'Saudi Riyal', rateToPkr: 74.6, decimals: 2 },
+  USDT: { code: 'USDT', symbol: '₮', name: 'Binance USDT', rateToPkr: 280.0, decimals: 2 }
+};
+
+// Official Binance Referral & Pay Gateway
+const BINANCE_CONFIG = {
+  payId: '1206973421',
+  accountTitle: 'Saleem Akhtar (Binance Pay / USDT)',
+  usdtAddress: 'TBN6XoYjJ4K5D5pA88H9Wp459XjZc3v12b',
+  referralLink: 'https://account.binance.com/register?ref=1206973421&?registerChannel=user_center'
+};
 
 // Default Pre-seeded Accounts
 const DEFAULT_ACCOUNTS = [
@@ -157,29 +196,53 @@ const AppState = {
     document.documentElement.style.setProperty('--primary-soft-border', chosen.border);
   },
 
-  /* ------------------- Currency Management ------------------- */
+  /* ------------------- Multi-Currency Management (PKR, USD, INR, AED, SAR, USDT) ------------------- */
   setCurrency(curr) {
-    this.currency = curr;
-    localStorage.setItem(STORAGE_KEYS.CURRENCY, curr);
+    const validCurr = CURRENCIES[curr] ? curr : 'PKR';
+    this.currency = validCurr;
+    localStorage.setItem(STORAGE_KEYS.CURRENCY, validCurr);
+    const c = CURRENCIES[validCurr];
+
     document.querySelectorAll('.curr-symbol').forEach(el => {
-      el.textContent = curr === 'PKR' ? '₨' : '$';
+      el.textContent = c.symbol;
     });
     document.querySelectorAll('.curr-code').forEach(el => {
-      el.textContent = curr;
+      el.textContent = c.code;
     });
-    if (typeof renderAllPrices === 'function') {
-      renderAllPrices();
-    }
+
+    const topSym = document.getElementById('top-curr-sym');
+    const topCode = document.getElementById('top-curr-code');
+    const sideCurr = document.getElementById('sidebar-curr-label');
+    const navCurr = document.getElementById('nav-curr-label');
+    const mobDrawerCurr = document.getElementById('mob-drawer-curr-label');
+
+    if (topSym) topSym.textContent = c.symbol;
+    if (topCode) topCode.textContent = c.code;
+    if (sideCurr) sideCurr.textContent = `${c.symbol} ${c.code}`;
+    if (navCurr) navCurr.textContent = `${c.code} (${c.symbol})`;
+    if (mobDrawerCurr) mobDrawerCurr.textContent = `${c.code} (${c.symbol})`;
+
+    window.dispatchEvent(new CustomEvent('saleem_currency_changed', { detail: { currency: validCurr, config: c } }));
+
+    if (typeof renderAllPrices === 'function') renderAllPrices();
+    if (typeof onServiceChange === 'function') onServiceChange();
+    if (typeof renderServiceCatalog === 'function') renderServiceCatalog();
   },
 
   formatMoney(amountUsd, amountPkr) {
-    if (this.currency === 'PKR') {
-      const val = amountPkr !== undefined ? amountPkr : (amountUsd * 280);
-      return `₨ ${Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    } else {
-      const val = amountUsd !== undefined ? amountUsd : (amountPkr / 280);
-      return `$ ${Number(val).toFixed(2)}`;
-    }
+    const pkr = amountPkr !== undefined ? Number(amountPkr) : (Number(amountUsd) * 280.0);
+    const c = CURRENCIES[this.currency] || CURRENCIES.PKR;
+    const converted = pkr / c.rateToPkr;
+    return `${c.symbol} ${Number(converted).toLocaleString(undefined, { minimumFractionDigits: c.decimals, maximumFractionDigits: c.decimals })}`;
+  },
+
+  convertFromPkr(amountPkr, targetCurrency) {
+    const c = CURRENCIES[targetCurrency || this.currency] || CURRENCIES.PKR;
+    return Number((Number(amountPkr) / c.rateToPkr).toFixed(c.decimals));
+  },
+
+  getCurrencyList() {
+    return Object.values(CURRENCIES);
   },
 
   /* ------------------- User Authentication Database ------------------- */
@@ -422,6 +485,131 @@ const AppState = {
       };
     }
     return { success: false, message: 'No registered account found with this email address.' };
+  },
+
+  /* ------------------- Password Change Engine ------------------- */
+  async changePassword(oldPassword, newPassword) {
+    if (!this.currentUser) {
+      return { success: false, message: 'Please log in to change your password.' };
+    }
+    if (!newPassword || newPassword.length < 6) {
+      return { success: false, message: 'New password must be at least 6 characters long.' };
+    }
+    if (this.currentUser.password && this.currentUser.password !== oldPassword) {
+      return { success: false, message: 'Current password is incorrect! Please verify.' };
+    }
+
+    // Update active session & database
+    this.currentUser.password = newPassword;
+    this.saveUser();
+
+    const users = this.getUsers();
+    const idx = users.findIndex(u =>
+      (u.id && u.id === this.currentUser.id) ||
+      (u.email && u.email.toLowerCase() === this.currentUser.email.toLowerCase())
+    );
+    if (idx !== -1) {
+      users[idx].password = newPassword;
+      this.saveUsers(users);
+    }
+
+    // Sync to Supabase auth if connected
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured() && SaleemSupabase.client) {
+      try {
+        await SaleemSupabase.client.auth.updateUser({ password: newPassword });
+      } catch (err) {
+        console.warn('Supabase password sync:', err);
+      }
+    }
+
+    this.showToast('Password changed successfully!', 'success');
+    return { success: true, message: 'Password updated successfully!' };
+  },
+
+  /* ------------------- Dynamic Admin Access Management ------------------- */
+  getAdminList() {
+    const allEmails = getAllAdminEmails();
+    const users = this.getUsers();
+    return allEmails.map(email => {
+      const u = users.find(x => x.email && x.email.toLowerCase().trim() === email.toLowerCase().trim());
+      const isSaleem = email.toLowerCase() === 'saleembaloch1857@gmail.com';
+      const isYasin = email.toLowerCase() === 'yasinofficial03098158572@gmail.com';
+      const isRoot = isSaleem || isYasin;
+      return {
+        email: email,
+        name: isSaleem ? 'Saleem Akhtar' : (isYasin ? 'Yasin Official' : (u?.name || u?.username || 'Admin')),
+        username: isSaleem ? 'saleem_admin' : (isYasin ? 'yasin_admin' : (u?.username || 'admin')),
+        roleTitle: isSaleem ? 'Founder & Owner' : (isYasin ? 'Co-Founder & Lead Admin' : 'Administrator'),
+        isRoot: isRoot,
+        phone: u?.phone || OFFICIAL_WHATSAPP
+      };
+    });
+  },
+
+  addAdminByEmail(rawEmail) {
+    const email = (rawEmail || '').toLowerCase().trim();
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      return { success: false, message: 'Please enter a valid email address.' };
+    }
+    const all = getAllAdminEmails();
+    if (all.some(a => a.toLowerCase() === email)) {
+      return { success: false, message: 'This email is already an Administrator!' };
+    }
+
+    const custom = getCustomAdminEmails();
+    custom.push(email);
+    localStorage.setItem('saleem_custom_admin_emails', JSON.stringify(custom));
+
+    // Update existing user role if account exists
+    const users = this.getUsers();
+    const idx = users.findIndex(u => u.email && u.email.toLowerCase().trim() === email);
+    if (idx !== -1) {
+      users[idx].role = 'admin';
+      this.saveUsers(users);
+    }
+
+    // Sync to Supabase profile if connected
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured() && SaleemSupabase.client) {
+      SaleemSupabase.client
+        .from('profiles')
+        .update({ role: 'admin' })
+        .eq('email', email)
+        .then();
+    }
+
+    this.showToast(`Admin privileges granted to: ${email}`, 'success');
+    return { success: true, message: `Admin added successfully: ${email}` };
+  },
+
+  removeAdminByEmail(rawEmail) {
+    const email = (rawEmail || '').toLowerCase().trim();
+    if (ROOT_ADMIN_EMAILS.some(r => r.toLowerCase() === email)) {
+      return { success: false, message: 'Root Founder accounts (Saleem & Yasin) cannot be removed!' };
+    }
+
+    let custom = getCustomAdminEmails();
+    custom = custom.filter(a => a.toLowerCase().trim() !== email);
+    localStorage.setItem('saleem_custom_admin_emails', JSON.stringify(custom));
+
+    // Update user role to client
+    const users = this.getUsers();
+    const idx = users.findIndex(u => u.email && u.email.toLowerCase().trim() === email);
+    if (idx !== -1) {
+      users[idx].role = 'client';
+      this.saveUsers(users);
+    }
+
+    // Sync to Supabase profile if connected
+    if (window.SaleemSupabase && SaleemSupabase.isConfigured() && SaleemSupabase.client) {
+      SaleemSupabase.client
+        .from('profiles')
+        .update({ role: 'client' })
+        .eq('email', email)
+        .then();
+    }
+
+    this.showToast(`Admin privileges removed from: ${email}`, 'info');
+    return { success: true, message: `Admin removed: ${email}` };
   },
 
   /* ------------------- Admin User Wallet Controls ------------------- */
