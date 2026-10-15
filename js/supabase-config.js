@@ -9,9 +9,12 @@ const SUPABASE_STORAGE_KEYS = {
   KEY: 'saleem_supabase_key'
 };
 
-// Default fallback configuration (can be updated via Admin Panel or localStorage)
-let _spUrl = localStorage.getItem(SUPABASE_STORAGE_KEYS.URL) || '';
-let _spKey = localStorage.getItem(SUPABASE_STORAGE_KEYS.KEY) || '';
+// Default verified configuration for Saleem SMM Panel
+const DEFAULT_SP_URL = 'https://axhizhfpbxvfmfqphvji.supabase.co';
+const DEFAULT_SP_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4aGl6aGZwYnh2Zm1mcXBodmppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwODA1NzIsImV4cCI6MjEwNzY1NjU3Mn0.PnXPChtlCRr5o6IrMCboDbr7Xda9ob_IkT6rhGk6eCs';
+
+let _spUrl = localStorage.getItem(SUPABASE_STORAGE_KEYS.URL) || DEFAULT_SP_URL;
+let _spKey = localStorage.getItem(SUPABASE_STORAGE_KEYS.KEY) || DEFAULT_SP_KEY;
 
 let _supabaseClient = null;
 
